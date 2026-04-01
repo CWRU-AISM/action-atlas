@@ -1,0 +1,250 @@
+{
+  "generated": "2026-03-17",
+  "source": "DATA_VERIFICATION.md verified counts",
+  "pi05": {
+    "total": 63024,
+    "label": "65,000+",
+    "baseline_success_rate": 0.75,
+    "sections": {
+      "baselines": {
+        "episodes": 62,
+        "success_rate": 0.75
+      },
+      "grid_ablation": {
+        "episodes": 3600
+      },
+      "cross_task": {
+        "episodes": 5073,
+        "success_rate": 1.0
+      },
+      "counterfactual": {
+        "episodes": 2785,
+        "success_rate": 0.748
+      },
+      "vision_perturbation": {
+        "episodes": 2626
+      },
+      "concept_ablation": {
+        "episodes": 15360
+      },
+      "temporal_injection": {
+        "episodes": 1012,
+        "success_rate": 0.275
+      },
+      "same_scene": {
+        "episodes": 720,
+        "success_rate": 0.837
+      },
+      "displacement": {
+        "episodes": 1968
+      }
+    },
+    "overall_success_rate": 0.838
+  },
+  "oft": {
+    "total": 32474,
+    "label": "70,700+",
+    "baseline_success_rate": 0.95,
+    "sections": {
+      "baselines": {
+        "episodes": 800,
+        "success_rate": 0.95
+      },
+      "grid_ablation": {
+        "episodes": 3978,
+        "success_rate": 0.82
+      },
+      "null_injection": {
+        "episodes": 900,
+        "success_rate": 0.118
+      },
+      "cross_task": {
+        "episodes": 1274,
+        "success_rate": 0.884
+      },
+      "counterfactual": {
+        "episodes": 900,
+        "success_rate": 0.579
+      },
+      "same_scene": {
+        "episodes": 798,
+        "success_rate": 0.646
+      },
+      "cross_prompt": {
+        "episodes": 1044,
+        "success_rate": 0.686
+      },
+      "temporal_injection": {
+        "episodes": 1024,
+        "success_rate": 0.3
+      },
+      "visual_perturbations": {
+        "episodes": 4235,
+        "success_rate": 0.724
+      },
+      "concept_ablation": {
+        "episodes": 11892
+      },
+      "displacement": {
+        "episodes": 1079
+      }
+    },
+    "overall_success_rate": 0.694
+  },
+  "openvla": {
+    "total": 32474,
+    "label": "70,700+",
+    "baseline_success_rate": 0.95,
+    "sections": {
+      "baselines": {
+        "episodes": 800,
+        "success_rate": 0.95
+      },
+      "grid_ablation": {
+        "episodes": 3978,
+        "success_rate": 0.82
+      },
+      "concept_ablation": {
+        "episodes": 11892
+      }
+    }
+  },
+  "xvla": {
+    "total": 49561,
+    "label": "50,000+",
+    "baseline_success_rate": 0.967,
+    "sections": {
+      "baselines": {
+        "episodes": 800,
+        "success_rate": 0.967
+      },
+      "grid_ablation": {
+        "episodes": 9600,
+        "success_rate": 0.967
+      },
+      "cross_task": {
+        "episodes": 3150
+      },
+      "counterfactual": {
+        "episodes": 4800,
+        "success_rate": 0.587
+      },
+      "vision_perturbation": {
+        "episodes": 4800,
+        "success_rate": 0.636
+      },
+      "concept_ablation": {
+        "episodes": 11160
+      },
+      "concept_steering": {
+        "episodes": 4020
+      },
+      "displacement": {
+        "episodes": 3150
+      }
+    },
+    "overall_success_rate": 0.796
+  },
+  "smolvla": {
+    "total": 38038,
+    "label": "42,000+",
+    "baseline_success_rate": 0.638,
+    "sections": {
+      "baselines": {
+        "episodes": 1740,
+        "success_rate": 0.638
+      },
+      "grid_ablation": {
+        "episodes": 11895,
+        "success_rate": 0.601
+      },
+      "cross_task": {
+        "episodes": 6971,
+        "success_rate": 0.297
+      },
+      "counterfactual": {
+        "episodes": 3580,
+        "success_rate": 0.13
+      },
+      "vision_perturbation": {
+        "episodes": 4807,
+        "success_rate": 0.213
+      },
+      "concept_ablation": {
+        "episodes": 15729
+      },
+      "steering": {
+        "episodes": 13530
+      },
+      "temporal_ablation": {
+        "episodes": 19360
+      },
+      "fraction_to_failure": {
+        "episodes": 8250
+      },
+      "displacement": {
+        "episodes": 5856
+      }
+    },
+    "overall_success_rate": 0.408
+  },
+  "groot": {
+    "total": 164191,
+    "label": "164,700+",
+    "baseline_success_rate": 0.903,
+    "sections": {
+      "baselines": {
+        "episodes": 300,
+        "success_rate": 0.903
+      },
+      "grid_ablation": {
+        "episodes": 5430,
+        "success_rate": 0.889
+      },
+      "cross_task": {
+        "episodes": 2700
+      },
+      "counterfactual": {
+        "episodes": 1800,
+        "success_rate": 0.712
+      },
+      "vision_perturbation": {
+        "episodes": 720,
+        "success_rate": 0.501
+      },
+      "concept_ablation": {
+        "episodes": 16260
+      },
+      "steering": {
+        "episodes": 22801
+      },
+      "fraction_to_failure": {
+        "episodes": 70380
+      },
+      "temporal_ablation": {
+        "episodes": 34560
+      },
+      "cross_suite_ablation": {
+        "episodes": 15360
+      }
+    },
+    "overall_success_rate": 0.817
+  },
+  "act": {
+    "total": 990,
+    "label": "1,870",
+    "baseline_success_rate": 0.89,
+    "sections": {
+      "baselines": {
+        "episodes": 200,
+        "success_rate": 0.89
+      },
+      "grid_ablation": {
+        "episodes": 760
+      },
+      "cross_task": {
+        "episodes": 30
+      }
+    }
+  }
+}

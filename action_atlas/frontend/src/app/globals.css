@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Robot waving animation - waves on load, then settles */
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-15deg); }
+  20% { transform: rotate(12deg); }
+  30% { transform: rotate(-12deg); }
+  40% { transform: rotate(10deg); }
+  50% { transform: rotate(-8deg); }
+  60% { transform: rotate(5deg); }
+  70% { transform: rotate(-3deg); }
+  80%, 100% { transform: rotate(0deg); }
+}
+
+@keyframes blink {
+  0%, 90%, 100% { opacity: 0.8; }
+  95% { opacity: 0.2; }
+}
+
+@keyframes eyePulse {
+  0%, 100% { filter: drop-shadow(0 0 2px #22d3ee); }
+  50% { filter: drop-shadow(0 0 5px #22d3ee); }
+}
+
+.robot-arm-wave {
+  transform-origin: 44px 36px;
+  animation: wave 2s ease-in-out 0.3s 1;
+}
+
+.robot-antenna-blink {
+  animation: blink 3s ease-in-out infinite;
+}
+
+.robot-eye {
+  animation: eyePulse 2s ease-in-out infinite;
+}
+
+.robot-wave:hover .robot-arm-wave {
+  animation: wave 1s ease-in-out infinite;
+}

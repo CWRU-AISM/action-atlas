@@ -1,0 +1,13 @@
+flask>=3.0.0
+flask-cors
+numpy>=1.26.0
+openai>=1.0.0
+requests>=2.31.0
+tqdm
+scikit-learn
+pandas
+umap-learn
+faiss-cpu
+torch
+transformers
+pydantic>=2.0.0

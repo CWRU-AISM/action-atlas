@@ -1,0 +1,24 @@
+# Action Atlas local .gitignore
+
+# Data symlinks (local data references - never commit)
+data/videos/pi05/
+data/videos/openvla/
+
+# Frontend symlinks and local data
+frontend/public/ablation-videos
+frontend/public/videos/*
+!frontend/public/videos/.gitkeep
+
+# Node modules and build
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp

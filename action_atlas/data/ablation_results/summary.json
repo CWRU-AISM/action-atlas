@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-01-19T04:09:04.415922",
+  "experiments": {
+    "action_phases": {
+      "most_impactful_negative": {
+        "layer": 10,
+        "phase": "lift",
+        "delta": -22.2
+      },
+      "most_impactful_positive": {
+        "layer": 12,
+        "phase": "lower",
+        "delta": 22.2
+      }
+    }
+  }
+}

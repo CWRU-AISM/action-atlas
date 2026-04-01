@@ -1,0 +1,1165 @@
+{
+  "model": "pi05",
+  "model_name": "Pi0.5",
+  "description": "Pi0.5 3B with flow-matching, PaliGemma + Gemma expert dual pathway",
+  "architecture": "dual_pathway_sequential",
+  "params": "3B",
+  "timestamp": "2026-03-09T20:57:19.580194",
+  "environments": [
+    "libero"
+  ],
+  "baselines": {
+    "libero_goal": {
+      "n_episodes": 20,
+      "success_rate": 0.8,
+      "tasks": 10
+    },
+    "libero_spatial": {
+      "n_episodes": 20,
+      "success_rate": 0.7,
+      "tasks": 10
+    },
+    "libero_object": {
+      "n_episodes": 20,
+      "success_rate": 0.75,
+      "tasks": 10
+    },
+    "libero_10": {
+      "n_episodes": 2,
+      "success_rate": 0.5,
+      "tasks": 10
+    }
+  },
+  "grid_ablation": {
+    "libero_goal": {
+      "n_episodes": 900,
+      "description": "4x4 spatial grid ablation"
+    },
+    "libero_spatial": {
+      "n_episodes": 900,
+      "description": "4x4 spatial grid ablation"
+    },
+    "libero_object": {
+      "n_episodes": 900,
+      "description": "4x4 spatial grid ablation"
+    },
+    "libero_10": {
+      "n_episodes": 900,
+      "description": "4x4 spatial grid ablation"
+    }
+  },
+  "counterfactual": {
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_223314",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        },
+        {
+          "run_id": "20260130_224203",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        },
+        {
+          "run_id": "20260130_224401",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        },
+        {
+          "run_id": "20260130_224406",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        },
+        {
+          "run_id": "20260130_224643",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        },
+        {
+          "run_id": "20260130_225257",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        },
+        {
+          "run_id": "20260130_230010",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        }
+      ],
+      "n_runs": 7,
+      "n_episodes": 210
+    }
+  },
+  "cross_task": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_224003",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224423",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224615",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225042",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225507",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225745",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230401",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230406",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230428",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230441",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230837",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231113",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_20260126_234343/batch_1",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_1/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_20260126_234343/batch_2",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_2/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_20260126_234343/batch_3",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_3/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_1",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_1/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_2",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_2/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_3",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_3/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_4",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_4/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_5",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_5/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_6",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_6/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_7",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_7/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_8",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_8/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_9",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_9/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_1",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_1/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_2",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_2/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_3",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_3/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_4",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_4/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_5",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_5/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_6",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_6/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_1",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_1/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_2",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_2/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_3",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_3/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_4",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_4/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_5",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_5/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_6",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_6/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_7",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_7/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_8",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_8/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_9",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_9/results.json"
+        }
+      ],
+      "n_runs": 39,
+      "n_episodes": 48
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_223722",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_223953",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224141",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224152",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224155",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224433",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224609",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224649",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224828",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224834",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224846",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224859",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225049",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225304",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225307",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225319",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225740",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230145",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230159",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230219",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230416",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230614",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230651",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230842",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230849",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231100",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231120",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231255",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231303",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        }
+      ],
+      "n_runs": 29,
+      "n_episodes": 116
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_224418",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224428",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224636",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224823",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224839",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224851",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225102",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225324",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225522",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225940",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225942",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230151",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230210",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230214",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230414",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230422",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230619",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230631",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230832",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230857",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231107",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231258",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231326",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_spatial_20260126_225619/batch_1",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_1/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_spatial_20260126_225619/batch_2",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_2/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_spatial_20260126_225619/batch_3",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_3/results.json"
+        }
+      ],
+      "n_runs": 26,
+      "n_episodes": 92
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_223531",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224620",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224628",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_224631",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225037",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225054",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225104",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225332",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225510",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225527",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225534",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225717",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225724",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_225729",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230434",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230635",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230646",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_230852",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231044",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231049",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "20260130_231055",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "n_episodes": 4,
+          "success_rate": 1.0
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_10_20260127_051354/batch_1",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_051354/batch_1/results.json"
+        },
+        {
+          "run_id": "comprehensive_cross_task_libero_10_20260127_085109/batch_1",
+          "experiment": "cross_task_injection",
+          "source": "/data/robotsteering/pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_085109/batch_1/results.json"
+        }
+      ],
+      "n_runs": 23,
+      "n_episodes": 84
+    }
+  },
+  "same_scene": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_223948",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9
+        },
+        {
+          "run_id": "20260130_224001",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9
+        },
+        {
+          "run_id": "20260130_224158",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.8667
+        },
+        {
+          "run_id": "20260130_224215",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9
+        },
+        {
+          "run_id": "20260130_224223",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9
+        },
+        {
+          "run_id": "20260130_225313",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9333
+        },
+        {
+          "run_id": "20260130_225515",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9333
+        },
+        {
+          "run_id": "20260130_225537",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9333
+        },
+        {
+          "run_id": "20260130_225542",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9
+        },
+        {
+          "run_id": "20260130_225947",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9
+        },
+        {
+          "run_id": "20260130_225955",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9333
+        },
+        {
+          "run_id": "20260130_230827",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9
+        },
+        {
+          "run_id": "20260130_231039",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.9333
+        }
+      ],
+      "n_runs": 13,
+      "n_episodes": 390
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_224210",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        },
+        {
+          "run_id": "20260130_224413",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        },
+        {
+          "run_id": "20260130_224902",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        },
+        {
+          "run_id": "20260130_225110",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        },
+        {
+          "run_id": "20260130_225116",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        },
+        {
+          "run_id": "20260130_225752",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        },
+        {
+          "run_id": "20260130_230001",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        },
+        {
+          "run_id": "20260130_230007",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7667
+        },
+        {
+          "run_id": "20260130_230203",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        },
+        {
+          "run_id": "20260130_230625",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        },
+        {
+          "run_id": "20260130_230640",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "n_episodes": 30,
+          "success_rate": 0.7333
+        }
+      ],
+      "n_runs": 11,
+      "n_episodes": 330
+    }
+  },
+  "null_injection": {
+    "libero_goal": {
+      "n_episodes": 180,
+      "success_rate": 0.73
+    },
+    "libero_spatial": {
+      "n_episodes": 180,
+      "success_rate": 0.73
+    },
+    "libero_object": {
+      "n_episodes": 180,
+      "success_rate": 0.73
+    },
+    "libero_10": {
+      "n_episodes": 180,
+      "success_rate": 0.73
+    }
+  },
+  "cross_prompt": {
+    "libero_goal": {
+      "n_episodes": 360,
+      "description": "Cross-prompt injection"
+    }
+  },
+  "temporal_injection": {
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_224358",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "n_episodes": 40,
+          "success_rate": 0.275
+        },
+        {
+          "run_id": "20260130_225251",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "n_episodes": 40,
+          "success_rate": 0.275
+        },
+        {
+          "run_id": "20260130_225737",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "n_episodes": 40,
+          "success_rate": 0.275
+        },
+        {
+          "run_id": "20260130_225757",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "n_episodes": 40,
+          "success_rate": 0.275
+        },
+        {
+          "run_id": "20260130_225932",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "n_episodes": 40,
+          "success_rate": 0.275
+        }
+      ],
+      "n_runs": 5,
+      "n_episodes": 200
+    }
+  },
+  "displacement": {
+    "source": "results/experiment_results/displacement_analysis_pi05.json",
+    "summary": {},
+    "n_episodes": 0
+  },
+  "concept_ablation": {
+    "source": "/data/anon_supp/concept_id/pi05",
+    "n_files": 112
+  },
+  "vision_perturbation": {
+    "libero_goal": {
+      "n_episodes": 656,
+      "description": "Noise, blur, crop, flip perturbations"
+    },
+    "libero_spatial": {
+      "n_episodes": 656,
+      "description": "Noise, blur, crop, flip perturbations"
+    },
+    "libero_object": {
+      "n_episodes": 656,
+      "description": "Noise, blur, crop, flip perturbations"
+    },
+    "libero_10": {
+      "n_episodes": 658,
+      "description": "Noise, blur, crop, flip perturbations"
+    }
+  }
+}

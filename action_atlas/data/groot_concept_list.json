@@ -1,0 +1,47 @@
+{
+  "motion": [
+    "close",
+    "open",
+    "pick_up",
+    "push",
+    "put",
+    "put_in",
+    "put_on",
+    "stack",
+    "turn_on"
+  ],
+  "object": [
+    "alphabet_soup",
+    "bbq_sauce",
+    "bowl",
+    "butter",
+    "cabinet",
+    "chocolate_pudding",
+    "cream_cheese",
+    "door",
+    "drawer",
+    "ketchup",
+    "milk",
+    "moka_pot",
+    "orange_juice",
+    "plate",
+    "salad_dressing",
+    "stove",
+    "tomato_sauce",
+    "wine"
+  ],
+  "spatial": [
+    "basket",
+    "bottom",
+    "in_bowl",
+    "in_cabinet",
+    "in_drawer",
+    "left",
+    "on_plate",
+    "plate",
+    "right",
+    "top",
+    "top_shelf",
+    "tray"
+  ]
+}

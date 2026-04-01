@@ -1,0 +1,1236 @@
+{
+  "libero_goal": {
+    "suite": "libero_goal",
+    "n_layers": 11,
+    "per_layer": {
+      "expert_L01": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.58,
+              "successes": 29,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.62,
+              "successes": 31,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.52,
+              "successes": 26,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L03": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.68,
+              "successes": 34,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.74,
+              "successes": 37,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.74,
+              "successes": 37,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.62,
+              "successes": 31,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L16": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.74,
+              "successes": 37,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.68,
+              "successes": 34,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L17": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.64,
+              "successes": 32,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.74,
+              "successes": 37,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.82,
+              "successes": 41,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L22": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.76,
+              "successes": 38,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L23": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.74,
+              "successes": 37,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.82,
+              "successes": 41,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.68,
+              "successes": 34,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.8,
+              "successes": 40,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L24": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.76,
+              "successes": 38,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.64,
+              "successes": 32,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.76,
+              "successes": 38,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L25": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.64,
+              "successes": 32,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.64,
+              "successes": 32,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L27": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.62,
+              "successes": 31,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.52,
+              "successes": 26,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.78,
+              "successes": 39,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.78,
+              "successes": 39,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L28": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.62,
+              "successes": 31,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.76,
+              "successes": 38,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L31": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.75,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.82,
+              "successes": 41,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.6,
+              "successes": 30,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.76,
+              "successes": 38,
+              "total": 50
+            }
+          ]
+        }
+      }
+    }
+  },
+  "libero_object": {
+    "suite": "libero_object",
+    "n_layers": 15,
+    "per_layer": {
+      "expert_L03": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.84,
+              "successes": 42,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L06": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.96,
+              "successes": 48,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.96,
+              "successes": 48,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L07": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.82,
+              "successes": 41,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.84,
+              "successes": 42,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L09": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L10": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L11": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.82,
+              "successes": 41,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.96,
+              "successes": 48,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 1.0,
+              "successes": 50,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L17": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.84,
+              "successes": 42,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L21": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.84,
+              "successes": 42,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L22": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L23": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.96,
+              "successes": 48,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.96,
+              "successes": 48,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L24": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.96,
+              "successes": 48,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L25": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.98,
+              "successes": 49,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L26": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.9,
+              "successes": 45,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.84,
+              "successes": 42,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L27": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.82,
+              "successes": 41,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.94,
+              "successes": 47,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L30": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.785,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.86,
+              "successes": 43,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.88,
+              "successes": 44,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.96,
+              "successes": 48,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.92,
+              "successes": 46,
+              "total": 50
+            }
+          ]
+        }
+      }
+    }
+  },
+  "libero_spatial": {
+    "suite": "libero_spatial",
+    "n_layers": 6,
+    "per_layer": {
+      "expert_L06": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.675,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.67,
+              "successes": 67,
+              "total": 100
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.63,
+              "successes": 63,
+              "total": 100
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.64,
+              "successes": 64,
+              "total": 100
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.65,
+              "successes": 65,
+              "total": 100
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.59,
+              "successes": 59,
+              "total": 100
+            }
+          ]
+        }
+      },
+      "expert_L19": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.675,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.68,
+              "successes": 34,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.78,
+              "successes": 39,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.68,
+              "successes": 34,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L23": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.675,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.68,
+              "successes": 34,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.74,
+              "successes": 37,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.52,
+              "successes": 26,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.8,
+              "successes": 40,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L25": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.675,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.64,
+              "successes": 32,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.72,
+              "successes": 36,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.7,
+              "successes": 35,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L27": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.675,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.64,
+              "successes": 32,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.68,
+              "successes": 34,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.52,
+              "successes": 26,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.76,
+              "successes": 38,
+              "total": 50
+            }
+          ]
+        }
+      },
+      "expert_L29": {
+        "frequent": {
+          "n_available_features": 5,
+          "baseline_success_rate": 0.675,
+          "titration": [
+            {
+              "n_features": 1,
+              "success_rate": 0.64,
+              "successes": 32,
+              "total": 50
+            },
+            {
+              "n_features": 4,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            },
+            {
+              "n_features": 8,
+              "success_rate": 0.74,
+              "successes": 37,
+              "total": 50
+            },
+            {
+              "n_features": 16,
+              "success_rate": 0.66,
+              "successes": 33,
+              "total": 50
+            },
+            {
+              "n_features": 32,
+              "success_rate": 0.52,
+              "successes": 26,
+              "total": 50
+            }
+          ]
+        }
+      }
+    }
+  }
+}

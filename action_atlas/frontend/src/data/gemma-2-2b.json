@@ -1,0 +1,5462 @@
+{
+  "0-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 115.98902130126953,
+      "rank": 65
+    },
+    "l2_ratio": {
+      "value": 0.98046875,
+      "rank": 1
+    },
+    "explained_variance": {
+      "value": 0.9453125,
+      "rank": 2
+    },
+    "kl_div_score": {
+      "value": 0.9961728238866396,
+      "rank": 3
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9251375,
+      "rank": 76
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7347687873989344,
+      "rank": 11
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7700937826186418,
+      "rank": 10
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.800493786484003,
+      "rank": 34
+    },
+    "sae_test_accuracy": {
+      "value": 0.9229187890887259,
+      "rank": 77
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.77723125,
+      "rank": 41
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8086125,
+      "rank": 48
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.84555625,
+      "rank": 60
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.21629961433849806,
+      "rank": 37
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.2749758141873924,
+      "rank": 37
+    },
+    "tpp_threshold_10": {
+      "value": 0.10872501283884048,
+      "rank": 4
+    },
+    "tpp_threshold_20": {
+      "value": 0.18867500871419907,
+      "rank": 7
+    }
+  },
+  "0-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 120.28678894042969,
+      "rank": 68
+    },
+    "l2_ratio": {
+      "value": 0.9765625,
+      "rank": 2
+    },
+    "explained_variance": {
+      "value": 0.953125,
+      "rank": 1
+    },
+    "kl_div_score": {
+      "value": 0.9652027027027027,
+      "rank": 33
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9218,
+      "rank": 77
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6529187843203544,
+      "rank": 42
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7232000313699246,
+      "rank": 36
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7900625359266997,
+      "rank": 44
+    },
+    "sae_test_accuracy": {
+      "value": 0.930125042796135,
+      "rank": 72
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.68128125,
+      "rank": 74
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7291562500000001,
+      "rank": 76
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.77525,
+      "rank": 77
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2365665920189197,
+      "rank": 31
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.22007179717967557,
+      "rank": 52
+    },
+    "tpp_threshold_10": {
+      "value": 0.12750000059604644,
+      "rank": 2
+    },
+    "tpp_threshold_20": {
+      "value": 0.26080000102519985,
+      "rank": 1
+    }
+  },
+  "0-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 92.08168029785156,
+      "rank": 46
+    },
+    "l2_ratio": {
+      "value": 0.9765625,
+      "rank": 2
+    },
+    "explained_variance": {
+      "value": 0.9453125,
+      "rank": 2
+    },
+    "kl_div_score": {
+      "value": 0.9965547360248447,
+      "rank": 1
+    },
+    "ce_loss_score": {
+      "value": 0.9967105263157895,
+      "rank": 2
+    },
+    "llm_test_accuracy": {
+      "value": 0.9298624999999999,
+      "rank": 74
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6323125306516886,
+      "rank": 54
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7046750314533711,
+      "rank": 54
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7732562888413668,
+      "rank": 61
+    },
+    "sae_test_accuracy": {
+      "value": 0.9293250411748887,
+      "rank": 74
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7458125,
+      "rank": 57
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8171625,
+      "rank": 45
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8639875,
+      "rank": 48
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.1514511560819421,
+      "rank": 58
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.20681166379915802,
+      "rank": 54
+    },
+    "tpp_threshold_10": {
+      "value": 0.029175007343292238,
+      "rank": 49
+    },
+    "tpp_threshold_20": {
+      "value": 0.05782498717308044,
+      "rank": 45
+    }
+  },
+  "1-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 72.6204833984375,
+      "rank": 18
+    },
+    "l2_ratio": {
+      "value": 0.921875,
+      "rank": 13
+    },
+    "explained_variance": {
+      "value": 0.78125,
+      "rank": 17
+    },
+    "kl_div_score": {
+      "value": 0.9913956925675675,
+      "rank": 12
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9353375,
+      "rank": 64
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7972125377506019,
+      "rank": 1
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.8229562878608703,
+      "rank": 1
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8522562880069018,
+      "rank": 1
+    },
+    "sae_test_accuracy": {
+      "value": 0.9322312936186791,
+      "rank": 70
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.80745,
+      "rank": 20
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.83165625,
+      "rank": 33
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.87273125,
+      "rank": 41
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.20324473667331824,
+      "rank": 41
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.22308921289011416,
+      "rank": 50
+    },
+    "tpp_threshold_10": {
+      "value": 0.1082500010728836,
+      "rank": 5
+    },
+    "tpp_threshold_20": {
+      "value": 0.20627501606941223,
+      "rank": 3
+    }
+  },
+  "1-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 103.1910629272461,
+      "rank": 52
+    },
+    "l2_ratio": {
+      "value": 0.96484375,
+      "rank": 3
+    },
+    "explained_variance": {
+      "value": 0.796875,
+      "rank": 13
+    },
+    "kl_div_score": {
+      "value": 0.8819444444444444,
+      "rank": 51
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9302374999999999,
+      "rank": 73
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6626750275492668,
+      "rank": 32
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6977125298231841,
+      "rank": 63
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.772968788817525,
+      "rank": 62
+    },
+    "sae_test_accuracy": {
+      "value": 0.9408562980592251,
+      "rank": 62
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7402000000000001,
+      "rank": 58
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.79429375,
+      "rank": 55
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.85040625,
+      "rank": 56
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.09277893316397655,
+      "rank": 72
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.13655914641395114,
+      "rank": 70
+    },
+    "tpp_threshold_10": {
+      "value": 0.05787499099969864,
+      "rank": 30
+    },
+    "tpp_threshold_20": {
+      "value": 0.12302501052618026,
+      "rank": 24
+    }
+  },
+  "1-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 90.0973892211914,
+      "rank": 42
+    },
+    "l2_ratio": {
+      "value": 0.96484375,
+      "rank": 3
+    },
+    "explained_variance": {
+      "value": 0.89453125,
+      "rank": 3
+    },
+    "kl_div_score": {
+      "value": 0.9957540760869565,
+      "rank": 5
+    },
+    "ce_loss_score": {
+      "value": 0.9967105263157895,
+      "rank": 2
+    },
+    "llm_test_accuracy": {
+      "value": 0.9335625000000001,
+      "rank": 68
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6864062801003457,
+      "rank": 22
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7482625342905521,
+      "rank": 17
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8214000403881073,
+      "rank": 18
+    },
+    "sae_test_accuracy": {
+      "value": 0.9381250392645597,
+      "rank": 66
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.78945625,
+      "rank": 36
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8302125,
+      "rank": 35
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8658437499999999,
+      "rank": 47
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.17165529138381677,
+      "rank": 51
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.24919459286140055,
+      "rank": 44
+    },
+    "tpp_threshold_10": {
+      "value": 0.035574999451637265,
+      "rank": 39
+    },
+    "tpp_threshold_20": {
+      "value": 0.07952499687671662,
+      "rank": 37
+    }
+  },
+  "2-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 90.13765716552734,
+      "rank": 43
+    },
+    "l2_ratio": {
+      "value": 0.9453125,
+      "rank": 7
+    },
+    "explained_variance": {
+      "value": 0.859375,
+      "rank": 5
+    },
+    "kl_div_score": {
+      "value": 0.9700168918918919,
+      "rank": 31
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9314625,
+      "rank": 71
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6969812817871571,
+      "rank": 18
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7388937886804342,
+      "rank": 23
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7690875411033631,
+      "rank": 66
+    },
+    "sae_test_accuracy": {
+      "value": 0.923800042271614,
+      "rank": 76
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7344625,
+      "rank": 60
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7886937500000001,
+      "rank": 59
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.83655,
+      "rank": 65
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.17160847948027308,
+      "rank": 53
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.20359341795741406,
+      "rank": 56
+    },
+    "tpp_threshold_10": {
+      "value": 0.023825000226497653,
+      "rank": 56
+    },
+    "tpp_threshold_20": {
+      "value": 0.054649992287158965,
+      "rank": 50
+    }
+  },
+  "2-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 87.35014343261719,
+      "rank": 41
+    },
+    "l2_ratio": {
+      "value": 0.9296875,
+      "rank": 11
+    },
+    "explained_variance": {
+      "value": 0.78125,
+      "rank": 17
+    },
+    "kl_div_score": {
+      "value": 0.890625,
+      "rank": 47
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9325499999999999,
+      "rank": 69
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6709812797605992,
+      "rank": 28
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7197812836617231,
+      "rank": 41
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7905437860637903,
+      "rank": 41
+    },
+    "sae_test_accuracy": {
+      "value": 0.9384562924504279,
+      "rank": 65
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.6846187499999999,
+      "rank": 72
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.761775,
+      "rank": 71
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.82093125,
+      "rank": 72
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.051187575683697,
+      "rank": 78
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.06523691119360753,
+      "rank": 78
+    },
+    "tpp_threshold_10": {
+      "value": 0.025200001895427704,
+      "rank": 52
+    },
+    "tpp_threshold_20": {
+      "value": 0.04987501502037048,
+      "rank": 55
+    }
+  },
+  "2-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 124.0945816040039,
+      "rank": 71
+    },
+    "l2_ratio": {
+      "value": 0.9609375,
+      "rank": 4
+    },
+    "explained_variance": {
+      "value": 0.89453125,
+      "rank": 3
+    },
+    "kl_div_score": {
+      "value": 0.9961665372670807,
+      "rank": 4
+    },
+    "ce_loss_score": {
+      "value": 0.9967105263157895,
+      "rank": 2
+    },
+    "llm_test_accuracy": {
+      "value": 0.9347125000000001,
+      "rank": 66
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.656831281632185,
+      "rank": 35
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7244187794625759,
+      "rank": 34
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8075250379741192,
+      "rank": 28
+    },
+    "sae_test_accuracy": {
+      "value": 0.9413125403225422,
+      "rank": 61
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7194375,
+      "rank": 66
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7783562500000001,
+      "rank": 62
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8547687500000001,
+      "rank": 52
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.13154092684241744,
+      "rank": 65
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.16846681337815478,
+      "rank": 65
+    },
+    "tpp_threshold_10": {
+      "value": 0.017849990725517274,
+      "rank": 68
+    },
+    "tpp_threshold_20": {
+      "value": 0.04915000051259995,
+      "rank": 58
+    }
+  },
+  "3-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 120.2818832397461,
+      "rank": 67
+    },
+    "l2_ratio": {
+      "value": 0.94140625,
+      "rank": 8
+    },
+    "explained_variance": {
+      "value": 0.8359375,
+      "rank": 7
+    },
+    "kl_div_score": {
+      "value": 0.9778255988023952,
+      "rank": 26
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9322625,
+      "rank": 70
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6511250294744968,
+      "rank": 43
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6810937829315663,
+      "rank": 71
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7204687841236591,
+      "rank": 77
+    },
+    "sae_test_accuracy": {
+      "value": 0.9282187916338444,
+      "rank": 75
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.68131875,
+      "rank": 73
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7355624999999999,
+      "rank": 75
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.7787062499999999,
+      "rank": 76
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.0935419948127482,
+      "rank": 71
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.1356721824932463,
+      "rank": 71
+    },
+    "tpp_threshold_10": {
+      "value": 0.033050003647804256,
+      "rank": 42
+    },
+    "tpp_threshold_20": {
+      "value": 0.055625006556510925,
+      "rank": 48
+    }
+  },
+  "3-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 92.04324340820312,
+      "rank": 45
+    },
+    "l2_ratio": {
+      "value": 0.93359375,
+      "rank": 10
+    },
+    "explained_variance": {
+      "value": 0.765625,
+      "rank": 20
+    },
+    "kl_div_score": {
+      "value": 0.9318576388888888,
+      "rank": 39
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9310562499999999,
+      "rank": 72
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5615875229239464,
+      "rank": 78
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6410500321537257,
+      "rank": 76
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7473312880843878,
+      "rank": 74
+    },
+    "sae_test_accuracy": {
+      "value": 0.9339562896639109,
+      "rank": 69
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.6435749999999999,
+      "rank": 78
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.6715,
+      "rank": 78
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.80506875,
+      "rank": 74
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.07915645526516403,
+      "rank": 75
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.10453347875128305,
+      "rank": 74
+    },
+    "tpp_threshold_10": {
+      "value": 0.013949994742870332,
+      "rank": 73
+    },
+    "tpp_threshold_20": {
+      "value": 0.04120000153779984,
+      "rank": 60
+    }
+  },
+  "3-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 54.973697662353516,
+      "rank": 1
+    },
+    "l2_ratio": {
+      "value": 0.9453125,
+      "rank": 7
+    },
+    "explained_variance": {
+      "value": 0.84375,
+      "rank": 6
+    },
+    "kl_div_score": {
+      "value": 0.9931094720496895,
+      "rank": 7
+    },
+    "ce_loss_score": {
+      "value": 0.993421052631579,
+      "rank": 3
+    },
+    "llm_test_accuracy": {
+      "value": 0.9339624999999999,
+      "rank": 67
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6540187794715167,
+      "rank": 40
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.70861253477633,
+      "rank": 49
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7981625400483608,
+      "rank": 37
+    },
+    "sae_test_accuracy": {
+      "value": 0.9396375440061092,
+      "rank": 64
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7258437500000001,
+      "rank": 63
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.78809375,
+      "rank": 60
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8471499999999998,
+      "rank": 59
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.12379777964252088,
+      "rank": 67
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.16441219502798723,
+      "rank": 67
+    },
+    "tpp_threshold_10": {
+      "value": 0.018775008618831635,
+      "rank": 64
+    },
+    "tpp_threshold_20": {
+      "value": 0.03705000430345535,
+      "rank": 66
+    }
+  },
+  "4-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 113.8689193725586,
+      "rank": 63
+    },
+    "l2_ratio": {
+      "value": 0.91796875,
+      "rank": 14
+    },
+    "explained_variance": {
+      "value": 0.80078125,
+      "rank": 12
+    },
+    "kl_div_score": {
+      "value": 0.9571220930232558,
+      "rank": 36
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.93581875,
+      "rank": 63
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6908812817186116,
+      "rank": 19
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7284625332802535,
+      "rank": 32
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7793437834829092,
+      "rank": 56
+    },
+    "sae_test_accuracy": {
+      "value": 0.9295500412583352,
+      "rank": 73
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7558312499999998,
+      "rank": 52
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8000499999999999,
+      "rank": 53
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8367,
+      "rank": 64
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.1941549070876002,
+      "rank": 44
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.2419109064458635,
+      "rank": 46
+    },
+    "tpp_threshold_10": {
+      "value": 0.08142499625682831,
+      "rank": 12
+    },
+    "tpp_threshold_20": {
+      "value": 0.11510001271963119,
+      "rank": 26
+    }
+  },
+  "4-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 82.76455688476562,
+      "rank": 38
+    },
+    "l2_ratio": {
+      "value": 0.921875,
+      "rank": 13
+    },
+    "explained_variance": {
+      "value": 0.73046875,
+      "rank": 27
+    },
+    "kl_div_score": {
+      "value": 0.9702845982142857,
+      "rank": 30
+    },
+    "ce_loss_score": {
+      "value": 0.9629629629629629,
+      "rank": 16
+    },
+    "llm_test_accuracy": {
+      "value": 0.9352999999999999,
+      "rank": 65
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5830500245094299,
+      "rank": 73
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6304625298827886,
+      "rank": 77
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7460812855511904,
+      "rank": 75
+    },
+    "sae_test_accuracy": {
+      "value": 0.9415187958627939,
+      "rank": 60
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.6783125,
+      "rank": 75
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7405875000000001,
+      "rank": 74
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8333312499999999,
+      "rank": 68
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.08433782112918074,
+      "rank": 74
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.10286290784421917,
+      "rank": 75
+    },
+    "tpp_threshold_10": {
+      "value": 0.015275001525878906,
+      "rank": 71
+    },
+    "tpp_threshold_20": {
+      "value": 0.06065000742673874,
+      "rank": 43
+    }
+  },
+  "4-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 119.99996185302734,
+      "rank": 66
+    },
+    "l2_ratio": {
+      "value": 0.953125,
+      "rank": 6
+    },
+    "explained_variance": {
+      "value": 0.87109375,
+      "rank": 4
+    },
+    "kl_div_score": {
+      "value": 0.9963606366459627,
+      "rank": 2
+    },
+    "ce_loss_score": {
+      "value": 0.9967105263157895,
+      "rank": 2
+    },
+    "llm_test_accuracy": {
+      "value": 0.9376437499999999,
+      "rank": 61
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6650125216692686,
+      "rank": 31
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7295812882483005,
+      "rank": 31
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7887625351548195,
+      "rank": 45
+    },
+    "sae_test_accuracy": {
+      "value": 0.9433125399053097,
+      "rank": 58
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7531312499999999,
+      "rank": 54
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7891187499999999,
+      "rank": 58
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8563875000000001,
+      "rank": 50
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.11596229964218849,
+      "rank": 69
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.16321995987043447,
+      "rank": 68
+    },
+    "tpp_threshold_10": {
+      "value": 0.024724994599819184,
+      "rank": 54
+    },
+    "tpp_threshold_20": {
+      "value": 0.04907500296831131,
+      "rank": 59
+    }
+  },
+  "5-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 143.0437469482422,
+      "rank": 77
+    },
+    "l2_ratio": {
+      "value": 0.93359375,
+      "rank": 10
+    },
+    "explained_variance": {
+      "value": 0.82421875,
+      "rank": 9
+    },
+    "kl_div_score": {
+      "value": 0.9731791338582677,
+      "rank": 28
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9396375,
+      "rank": 59
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.706825029477477,
+      "rank": 16
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7469812806695699,
+      "rank": 18
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7872375380247832,
+      "rank": 47
+    },
+    "sae_test_accuracy": {
+      "value": 0.9354500439018012,
+      "rank": 68
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.78055625,
+      "rank": 38
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8176249999999999,
+      "rank": 44
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8500812499999999,
+      "rank": 57
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2408811904738523,
+      "rank": 29
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.3395350198334309,
+      "rank": 23
+    },
+    "tpp_threshold_10": {
+      "value": 0.07485000491142273,
+      "rank": 17
+    },
+    "tpp_threshold_20": {
+      "value": 0.15615001469850542,
+      "rank": 12
+    }
+  },
+  "5-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 121.04581451416016,
+      "rank": 69
+    },
+    "l2_ratio": {
+      "value": 0.91015625,
+      "rank": 15
+    },
+    "explained_variance": {
+      "value": 0.6953125,
+      "rank": 35
+    },
+    "kl_div_score": {
+      "value": 0.9147286821705426,
+      "rank": 42
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9366125000000001,
+      "rank": 62
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5677187707275152,
+      "rank": 77
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6734312802553177,
+      "rank": 74
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7550562869757415,
+      "rank": 68
+    },
+    "sae_test_accuracy": {
+      "value": 0.9415437918156385,
+      "rank": 59
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.6909875000000002,
+      "rank": 71
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7700125000000001,
+      "rank": 66
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8303999999999999,
+      "rank": 69
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.05868050062531239,
+      "rank": 77
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.08817617766707105,
+      "rank": 77
+    },
+    "tpp_threshold_10": {
+      "value": 0.018000002205371856,
+      "rank": 66
+    },
+    "tpp_threshold_20": {
+      "value": 0.04977500140666962,
+      "rank": 56
+    }
+  },
+  "5-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 67.1197738647461,
+      "rank": 7
+    },
+    "l2_ratio": {
+      "value": 0.93359375,
+      "rank": 10
+    },
+    "explained_variance": {
+      "value": 0.81640625,
+      "rank": 11
+    },
+    "kl_div_score": {
+      "value": 0.9930124223602484,
+      "rank": 8
+    },
+    "ce_loss_score": {
+      "value": 0.993421052631579,
+      "rank": 3
+    },
+    "llm_test_accuracy": {
+      "value": 0.9393499999999999,
+      "rank": 60
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6543687783181668,
+      "rank": 39
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7225312802940607,
+      "rank": 38
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7722687885165216,
+      "rank": 64
+    },
+    "sae_test_accuracy": {
+      "value": 0.9448125433176756,
+      "rank": 55
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7704374999999999,
+      "rank": 46
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.804875,
+      "rank": 52
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.87291875,
+      "rank": 40
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.1563026583668493,
+      "rank": 56
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.19889301017832428,
+      "rank": 57
+    },
+    "tpp_threshold_10": {
+      "value": 0.016875009238719943,
+      "rank": 69
+    },
+    "tpp_threshold_20": {
+      "value": 0.03540001064538956,
+      "rank": 69
+    }
+  },
+  "6-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 57.555301666259766,
+      "rank": 3
+    },
+    "l2_ratio": {
+      "value": 0.90625,
+      "rank": 16
+    },
+    "explained_variance": {
+      "value": 0.73828125,
+      "rank": 25
+    },
+    "kl_div_score": {
+      "value": 0.9441713483146067,
+      "rank": 38
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.92806875,
+      "rank": 75
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6417375307530164,
+      "rank": 49
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.665875031799078,
+      "rank": 75
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7104125339537859,
+      "rank": 78
+    },
+    "sae_test_accuracy": {
+      "value": 0.912068799510598,
+      "rank": 78
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.6645125,
+      "rank": 77
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.698875,
+      "rank": 77
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.75886875,
+      "rank": 78
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.08586445050757698,
+      "rank": 73
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.12716139272651453,
+      "rank": 73
+    },
+    "tpp_threshold_10": {
+      "value": 0.03737499266862869,
+      "rank": 37
+    },
+    "tpp_threshold_20": {
+      "value": 0.06599999517202378,
+      "rank": 41
+    }
+  },
+  "6-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 140.63909912109375,
+      "rank": 76
+    },
+    "l2_ratio": {
+      "value": 0.89453125,
+      "rank": 19
+    },
+    "explained_variance": {
+      "value": 0.72265625,
+      "rank": 29
+    },
+    "kl_div_score": {
+      "value": 0.962248322147651,
+      "rank": 34
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.94205625,
+      "rank": 55
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5748250354081391,
+      "rank": 75
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6171625319868327,
+      "rank": 78
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7488500338047743,
+      "rank": 71
+    },
+    "sae_test_accuracy": {
+      "value": 0.9451062880456447,
+      "rank": 53
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.71643125,
+      "rank": 68
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.76285,
+      "rank": 70
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8558687500000001,
+      "rank": 51
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.10984954626944653,
+      "rank": 70
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.12950372404941213,
+      "rank": 72
+    },
+    "tpp_threshold_10": {
+      "value": 0.04017501026391983,
+      "rank": 36
+    },
+    "tpp_threshold_20": {
+      "value": 0.0783000037074089,
+      "rank": 38
+    }
+  },
+  "6-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 69.41770935058594,
+      "rank": 9
+    },
+    "l2_ratio": {
+      "value": 0.93359375,
+      "rank": 10
+    },
+    "explained_variance": {
+      "value": 0.8203125,
+      "rank": 10
+    },
+    "kl_div_score": {
+      "value": 0.9936917701863354,
+      "rank": 6
+    },
+    "ce_loss_score": {
+      "value": 0.993421052631579,
+      "rank": 3
+    },
+    "llm_test_accuracy": {
+      "value": 0.9452187500000001,
+      "rank": 50
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6428062766790391,
+      "rank": 48
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7068875316530466,
+      "rank": 52
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7729437854140997,
+      "rank": 63
+    },
+    "sae_test_accuracy": {
+      "value": 0.9461812928318978,
+      "rank": 49
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7321875,
+      "rank": 61
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7972437500000001,
+      "rank": 54
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8702312500000001,
+      "rank": 42
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.14646357348284406,
+      "rank": 60
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.20697108835841793,
+      "rank": 53
+    },
+    "tpp_threshold_10": {
+      "value": 0.032950004935264586,
+      "rank": 43
+    },
+    "tpp_threshold_20": {
+      "value": 0.057300002872943887,
+      "rank": 46
+    }
+  },
+  "7-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 108.47455596923828,
+      "rank": 55
+    },
+    "l2_ratio": {
+      "value": 0.8828125,
+      "rank": 22
+    },
+    "explained_variance": {
+      "value": 0.73046875,
+      "rank": 27
+    },
+    "kl_div_score": {
+      "value": 0.9311342592592593,
+      "rank": 40
+    },
+    "ce_loss_score": {
+      "value": 0.9166666666666666,
+      "rank": 19
+    },
+    "llm_test_accuracy": {
+      "value": 0.95333125,
+      "rank": 10
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7742812901735306,
+      "rank": 4
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.8032250341027976,
+      "rank": 3
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8434875391423702,
+      "rank": 6
+    },
+    "sae_test_accuracy": {
+      "value": 0.9496562946587802,
+      "rank": 43
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.81068125,
+      "rank": 15
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.848925,
+      "rank": 21
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.88068125,
+      "rank": 30
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2736136908344822,
+      "rank": 21
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.33505647288036655,
+      "rank": 26
+    },
+    "tpp_threshold_10": {
+      "value": 0.0721000000834465,
+      "rank": 18
+    },
+    "tpp_threshold_20": {
+      "value": 0.13817500025033952,
+      "rank": 18
+    }
+  },
+  "7-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 63.93306350708008,
+      "rank": 5
+    },
+    "l2_ratio": {
+      "value": 0.84765625,
+      "rank": 26
+    },
+    "explained_variance": {
+      "value": 0.60546875,
+      "rank": 41
+    },
+    "kl_div_score": {
+      "value": 0.8947368421052632,
+      "rank": 46
+    },
+    "ce_loss_score": {
+      "value": 0.875,
+      "rank": 21
+    },
+    "llm_test_accuracy": {
+      "value": 0.9470375,
+      "rank": 46
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5982750248163939,
+      "rank": 70
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6835125282406807,
+      "rank": 70
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7975250430405141,
+      "rank": 38
+    },
+    "sae_test_accuracy": {
+      "value": 0.9541375521570444,
+      "rank": 30
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.77915,
+      "rank": 40
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.80616875,
+      "rank": 51
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8684812500000001,
+      "rank": 44
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.19938039195118593,
+      "rank": 42
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.26234768873898306,
+      "rank": 39
+    },
+    "tpp_threshold_10": {
+      "value": 0.0132500097155571,
+      "rank": 74
+    },
+    "tpp_threshold_20": {
+      "value": 0.029325006902217867,
+      "rank": 75
+    }
+  },
+  "7-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 69.50586700439453,
+      "rank": 10
+    },
+    "l2_ratio": {
+      "value": 0.9375,
+      "rank": 9
+    },
+    "explained_variance": {
+      "value": 0.80078125,
+      "rank": 12
+    },
+    "kl_div_score": {
+      "value": 0.9928668478260869,
+      "rank": 9
+    },
+    "ce_loss_score": {
+      "value": 0.993421052631579,
+      "rank": 3
+    },
+    "llm_test_accuracy": {
+      "value": 0.94916875,
+      "rank": 34
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6178062751889228,
+      "rank": 61
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7071937803179026,
+      "rank": 51
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7845875386148692,
+      "rank": 52
+    },
+    "sae_test_accuracy": {
+      "value": 0.953893794491887,
+      "rank": 31
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7708875000000001,
+      "rank": 45
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.83158125,
+      "rank": 34
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.87915,
+      "rank": 34
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2932792091990078,
+      "rank": 15
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.36743486988912744,
+      "rank": 19
+    },
+    "tpp_threshold_10": {
+      "value": 0.03539999127388001,
+      "rank": 40
+    },
+    "tpp_threshold_20": {
+      "value": 0.0670250043272972,
+      "rank": 39
+    }
+  },
+  "8-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 110.63367462158203,
+      "rank": 58
+    },
+    "l2_ratio": {
+      "value": 0.92578125,
+      "rank": 12
+    },
+    "explained_variance": {
+      "value": 0.765625,
+      "rank": 20
+    },
+    "kl_div_score": {
+      "value": 0.8731203007518797,
+      "rank": 55
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9469624999999999,
+      "rank": 47
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6828062828630209,
+      "rank": 24
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7211625330150128,
+      "rank": 40
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7772562913596631,
+      "rank": 58
+    },
+    "sae_test_accuracy": {
+      "value": 0.9449250448495149,
+      "rank": 54
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.75176875,
+      "rank": 55
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7771750000000001,
+      "rank": 64
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.83339375,
+      "rank": 67
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2323378136656531,
+      "rank": 32
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.31489579080335306,
+      "rank": 30
+    },
+    "tpp_threshold_10": {
+      "value": 0.03595000058412552,
+      "rank": 38
+    },
+    "tpp_threshold_20": {
+      "value": 0.12375001311302185,
+      "rank": 23
+    }
+  },
+  "8-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 140.0764617919922,
+      "rank": 75
+    },
+    "l2_ratio": {
+      "value": 0.8828125,
+      "rank": 22
+    },
+    "explained_variance": {
+      "value": 0.6953125,
+      "rank": 35
+    },
+    "kl_div_score": {
+      "value": 0.9617805755395683,
+      "rank": 35
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9510562499999998,
+      "rank": 23
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6157625310122966,
+      "rank": 65
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6801750311627984,
+      "rank": 72
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7990125369280577,
+      "rank": 35
+    },
+    "sae_test_accuracy": {
+      "value": 0.9580000426620245,
+      "rank": 5
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.79031875,
+      "rank": 35
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8288437499999999,
+      "rank": 37
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.87964375,
+      "rank": 33
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.1391944356030563,
+      "rank": 63
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.1940310398822685,
+      "rank": 60
+    },
+    "tpp_threshold_10": {
+      "value": 0.02347500175237656,
+      "rank": 57
+    },
+    "tpp_threshold_20": {
+      "value": 0.040825001895427704,
+      "rank": 61
+    }
+  },
+  "8-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 71.10533905029297,
+      "rank": 12
+    },
+    "l2_ratio": {
+      "value": 0.93359375,
+      "rank": 10
+    },
+    "explained_variance": {
+      "value": 0.79296875,
+      "rank": 14
+    },
+    "kl_div_score": {
+      "value": 0.992478649068323,
+      "rank": 10
+    },
+    "ce_loss_score": {
+      "value": 0.9917763157894737,
+      "rank": 4
+    },
+    "llm_test_accuracy": {
+      "value": 0.94965,
+      "rank": 31
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6080312687903643,
+      "rank": 69
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7233625348657369,
+      "rank": 35
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7852750338613987,
+      "rank": 51
+    },
+    "sae_test_accuracy": {
+      "value": 0.955837544053793,
+      "rank": 19
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7999187499999999,
+      "rank": 26
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8389687499999999,
+      "rank": 25
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8860750000000001,
+      "rank": 22
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2552476576400406,
+      "rank": 27
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.3290230277789393,
+      "rank": 27
+    },
+    "tpp_threshold_10": {
+      "value": 0.03224998861551285,
+      "rank": 45
+    },
+    "tpp_threshold_20": {
+      "value": 0.054925003647804255,
+      "rank": 49
+    }
+  },
+  "9-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 127.95726776123047,
+      "rank": 74
+    },
+    "l2_ratio": {
+      "value": 0.92578125,
+      "rank": 12
+    },
+    "explained_variance": {
+      "value": 0.79296875,
+      "rank": 14
+    },
+    "kl_div_score": {
+      "value": 0.8765527950310559,
+      "rank": 53
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.94955625,
+      "rank": 32
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7154937818646431,
+      "rank": 15
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7327125284820796,
+      "rank": 29
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7939625393599272,
+      "rank": 39
+    },
+    "sae_test_accuracy": {
+      "value": 0.949281296506524,
+      "rank": 46
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7762187500000001,
+      "rank": 43
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.82294375,
+      "rank": 41
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8541124999999999,
+      "rank": 53
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.26396585347744406,
+      "rank": 25
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.4271783008722841,
+      "rank": 8
+    },
+    "tpp_threshold_10": {
+      "value": 0.10552500188350677,
+      "rank": 7
+    },
+    "tpp_threshold_20": {
+      "value": 0.2027000144124031,
+      "rank": 4
+    }
+  },
+  "9-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 90.57592010498047,
+      "rank": 44
+    },
+    "l2_ratio": {
+      "value": 0.81640625,
+      "rank": 31
+    },
+    "explained_variance": {
+      "value": 0.6171875,
+      "rank": 40
+    },
+    "kl_div_score": {
+      "value": 0.8005725190839694,
+      "rank": 70
+    },
+    "ce_loss_score": {
+      "value": 0.6666666666666666,
+      "rank": 25
+    },
+    "llm_test_accuracy": {
+      "value": 0.9485375000000001,
+      "rank": 40
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5716562729328871,
+      "rank": 76
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6986687827855348,
+      "rank": 61
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.79021878503263,
+      "rank": 42
+    },
+    "sae_test_accuracy": {
+      "value": 0.9538000460714101,
+      "rank": 32
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7165499999999999,
+      "rank": 67
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.78545625,
+      "rank": 61
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8665937499999999,
+      "rank": 46
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.1567165337336199,
+      "rank": 55
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.20461813859761052,
+      "rank": 55
+    },
+    "tpp_threshold_10": {
+      "value": 0.013075007498264315,
+      "rank": 75
+    },
+    "tpp_threshold_20": {
+      "value": 0.02652500867843628,
+      "rank": 76
+    }
+  },
+  "9-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 74.21257019042969,
+      "rank": 21
+    },
+    "l2_ratio": {
+      "value": 0.9296875,
+      "rank": 11
+    },
+    "explained_variance": {
+      "value": 0.76953125,
+      "rank": 19
+    },
+    "kl_div_score": {
+      "value": 0.9916537267080745,
+      "rank": 11
+    },
+    "ce_loss_score": {
+      "value": 0.9917763157894737,
+      "rank": 4
+    },
+    "llm_test_accuracy": {
+      "value": 0.94893125,
+      "rank": 35
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.609518774971366,
+      "rank": 68
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7163500346243382,
+      "rank": 43
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7900937866419554,
+      "rank": 43
+    },
+    "sae_test_accuracy": {
+      "value": 0.955425038933754,
+      "rank": 20
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.79731875,
+      "rank": 30
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8381124999999998,
+      "rank": 26
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.88,
+      "rank": 32
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.24036403307763263,
+      "rank": 30
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.3203133348246989,
+      "rank": 29
+    },
+    "tpp_threshold_10": {
+      "value": 0.02487500011920929,
+      "rank": 53
+    },
+    "tpp_threshold_20": {
+      "value": 0.03872498720884323,
+      "rank": 65
+    }
+  },
+  "10-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 68.30168914794922,
+      "rank": 8
+    },
+    "l2_ratio": {
+      "value": 0.89453125,
+      "rank": 19
+    },
+    "explained_variance": {
+      "value": 0.7265625,
+      "rank": 28
+    },
+    "kl_div_score": {
+      "value": 0.8743654822335025,
+      "rank": 54
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9416937499999999,
+      "rank": 56
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6873812790960073,
+      "rank": 21
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7009562823921442,
+      "rank": 59
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7474187832325697,
+      "rank": 73
+    },
+    "sae_test_accuracy": {
+      "value": 0.9313312914222479,
+      "rank": 71
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.72259375,
+      "rank": 64
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7671562500000001,
+      "rank": 67
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8044625000000001,
+      "rank": 75
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.18826014478320702,
+      "rank": 48
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.2326556471649578,
+      "rank": 49
+    },
+    "tpp_threshold_10": {
+      "value": 0.029925000667572022,
+      "rank": 46
+    },
+    "tpp_threshold_20": {
+      "value": 0.06644999980926514,
+      "rank": 40
+    }
+  },
+  "10-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 107.14852905273438,
+      "rank": 54
+    },
+    "l2_ratio": {
+      "value": 0.79296875,
+      "rank": 33
+    },
+    "explained_variance": {
+      "value": 0.60546875,
+      "rank": 41
+    },
+    "kl_div_score": {
+      "value": 0.7323529411764705,
+      "rank": 77
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.94384375,
+      "rank": 53
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6184312809258699,
+      "rank": 60
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7089750379323959,
+      "rank": 48
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7877187892794609,
+      "rank": 46
+    },
+    "sae_test_accuracy": {
+      "value": 0.949350045248866,
+      "rank": 45
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.6938875,
+      "rank": 70
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.77728125,
+      "rank": 63
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.83750625,
+      "rank": 63
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.12092627951441386,
+      "rank": 68
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.1494165297354953,
+      "rank": 69
+    },
+    "tpp_threshold_10": {
+      "value": 0.010324996709823609,
+      "rank": 77
+    },
+    "tpp_threshold_20": {
+      "value": 0.022824999690055848,
+      "rank": 77
+    }
+  },
+  "10-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 77.56550598144531,
+      "rank": 28
+    },
+    "l2_ratio": {
+      "value": 0.92578125,
+      "rank": 12
+    },
+    "explained_variance": {
+      "value": 0.7578125,
+      "rank": 21
+    },
+    "kl_div_score": {
+      "value": 0.9909258540372671,
+      "rank": 13
+    },
+    "ce_loss_score": {
+      "value": 0.9901315789473685,
+      "rank": 5
+    },
+    "llm_test_accuracy": {
+      "value": 0.9522250000000001,
+      "rank": 15
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6379187740385532,
+      "rank": 52
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6851625371724368,
+      "rank": 69
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7747750356793404,
+      "rank": 60
+    },
+    "sae_test_accuracy": {
+      "value": 0.9563812982290983,
+      "rank": 18
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.765025,
+      "rank": 47
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.82240625,
+      "rank": 42
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8843187500000002,
+      "rank": 25
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.26426899288038824,
+      "rank": 24
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.340414676292924,
+      "rank": 22
+    },
+    "tpp_threshold_10": {
+      "value": 0.021549990773200987,
+      "rank": 60
+    },
+    "tpp_threshold_20": {
+      "value": 0.03587498664855957,
+      "rank": 67
+    }
+  },
+  "11-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 81.8515625,
+      "rank": 36
+    },
+    "l2_ratio": {
+      "value": 0.875,
+      "rank": 24
+    },
+    "explained_variance": {
+      "value": 0.703125,
+      "rank": 34
+    },
+    "kl_div_score": {
+      "value": 0.8,
+      "rank": 71
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9498999999999999,
+      "rank": 29
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7326375331729651,
+      "rank": 12
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7420625314116478,
+      "rank": 20
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.786218786612153,
+      "rank": 48
+    },
+    "sae_test_accuracy": {
+      "value": 0.943600045144558,
+      "rank": 57
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7719812500000001,
+      "rank": 44
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8073562499999999,
+      "rank": 49
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8496874999999999,
+      "rank": 58
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2744447386739409,
+      "rank": 20
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.4041953839199165,
+      "rank": 13
+    },
+    "tpp_threshold_10": {
+      "value": 0.09637500643730164,
+      "rank": 8
+    },
+    "tpp_threshold_20": {
+      "value": 0.17692501246929168,
+      "rank": 8
+    }
+  },
+  "11-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 98.30352783203125,
+      "rank": 51
+    },
+    "l2_ratio": {
+      "value": 0.82421875,
+      "rank": 29
+    },
+    "explained_variance": {
+      "value": 0.6015625,
+      "rank": 42
+    },
+    "kl_div_score": {
+      "value": 0.8282442748091603,
+      "rank": 65
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9445875000000001,
+      "rank": 51
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5791812658309936,
+      "rank": 74
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7122812867164612,
+      "rank": 45
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7856500383466483,
+      "rank": 50
+    },
+    "sae_test_accuracy": {
+      "value": 0.9485687967389822,
+      "rank": 47
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.6712999999999999,
+      "rank": 76
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.75226875,
+      "rank": 73
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8446875,
+      "rank": 62
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.14855103120392124,
+      "rank": 59
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.19652701129033034,
+      "rank": 59
+    },
+    "tpp_threshold_10": {
+      "value": 0.014625003933906556,
+      "rank": 72
+    },
+    "tpp_threshold_20": {
+      "value": 0.029900003969669343,
+      "rank": 74
+    }
+  },
+  "11-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 78.77655029296875,
+      "rank": 31
+    },
+    "l2_ratio": {
+      "value": 0.921875,
+      "rank": 13
+    },
+    "explained_variance": {
+      "value": 0.75,
+      "rank": 23
+    },
+    "kl_div_score": {
+      "value": 0.9900038819875776,
+      "rank": 14
+    },
+    "ce_loss_score": {
+      "value": 0.9901315789473685,
+      "rank": 5
+    },
+    "llm_test_accuracy": {
+      "value": 0.9513187499999999,
+      "rank": 20
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6120812762528657,
+      "rank": 66
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7000937841832638,
+      "rank": 60
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7764562889933586,
+      "rank": 59
+    },
+    "sae_test_accuracy": {
+      "value": 0.9573125444352626,
+      "rank": 12
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.78018125,
+      "rank": 39
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8253187500000001,
+      "rank": 40
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8786937499999999,
+      "rank": 35
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.25789874745816227,
+      "rank": 26
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.33517751862854595,
+      "rank": 24
+    },
+    "tpp_threshold_10": {
+      "value": 0.034700009226799014,
+      "rank": 41
+    },
+    "tpp_threshold_20": {
+      "value": 0.05925000756978988,
+      "rank": 44
+    }
+  },
+  "12-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 81.63102722167969,
+      "rank": 35
+    },
+    "l2_ratio": {
+      "value": 0.89453125,
+      "rank": 19
+    },
+    "explained_variance": {
+      "value": 0.71875,
+      "rank": 30
+    },
+    "kl_div_score": {
+      "value": 0.8446745562130178,
+      "rank": 63
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9405687500000001,
+      "rank": 58
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6683375284075737,
+      "rank": 30
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6872125308960676,
+      "rank": 68
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7413500390946864,
+      "rank": 76
+    },
+    "sae_test_accuracy": {
+      "value": 0.9375312957912684,
+      "rank": 67
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.71456875,
+      "rank": 69
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7643,
+      "rank": 68
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.81204375,
+      "rank": 73
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.23099439505181485,
+      "rank": 33
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.28336088769349843,
+      "rank": 35
+    },
+    "tpp_threshold_10": {
+      "value": 0.08217500746250153,
+      "rank": 11
+    },
+    "tpp_threshold_20": {
+      "value": 0.1453500062227249,
+      "rank": 14
+    }
+  },
+  "12-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 105.65914154052734,
+      "rank": 53
+    },
+    "l2_ratio": {
+      "value": 0.80859375,
+      "rank": 32
+    },
+    "explained_variance": {
+      "value": 0.60546875,
+      "rank": 41
+    },
+    "kl_div_score": {
+      "value": 0.7594594594594595,
+      "rank": 75
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9424375,
+      "rank": 54
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5930375304073096,
+      "rank": 72
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7062812864780426,
+      "rank": 53
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7831125348806381,
+      "rank": 53
+    },
+    "sae_test_accuracy": {
+      "value": 0.9437500406056643,
+      "rank": 56
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7202437500000002,
+      "rank": 65
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.77535,
+      "rank": 65
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.83543125,
+      "rank": 66
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.06916708116166659,
+      "rank": 76
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.09639903187582814,
+      "rank": 76
+    },
+    "tpp_threshold_10": {
+      "value": 0.012924997508525849,
+      "rank": 76
+    },
+    "tpp_threshold_20": {
+      "value": 0.03209999352693558,
+      "rank": 73
+    }
+  },
+  "12-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 80.43948364257812,
+      "rank": 33
+    },
+    "l2_ratio": {
+      "value": 0.921875,
+      "rank": 13
+    },
+    "explained_variance": {
+      "value": 0.75,
+      "rank": 23
+    },
+    "kl_div_score": {
+      "value": 0.9897127329192547,
+      "rank": 15
+    },
+    "ce_loss_score": {
+      "value": 0.9884868421052632,
+      "rank": 6
+    },
+    "llm_test_accuracy": {
+      "value": 0.9518125000000002,
+      "rank": 17
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6211875226348639,
+      "rank": 59
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6966000333428384,
+      "rank": 64
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7786687865853309,
+      "rank": 57
+    },
+    "sae_test_accuracy": {
+      "value": 0.956481296941638,
+      "rank": 17
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7642249999999999,
+      "rank": 49
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.80905,
+      "rank": 46
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8761125,
+      "rank": 39
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.29162436923700813,
+      "rank": 17
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.372206447440395,
+      "rank": 17
+    },
+    "tpp_threshold_10": {
+      "value": 0.02445000261068344,
+      "rank": 55
+    },
+    "tpp_threshold_20": {
+      "value": 0.055924996733665466,
+      "rank": 47
+    }
+  },
+  "13-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 92.69314575195312,
+      "rank": 47
+    },
+    "l2_ratio": {
+      "value": 0.87890625,
+      "rank": 23
+    },
+    "explained_variance": {
+      "value": 0.71875,
+      "rank": 30
+    },
+    "kl_div_score": {
+      "value": 0.8592767295597484,
+      "rank": 59
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.94778125,
+      "rank": 42
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6877437781542539,
+      "rank": 20
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7010062832385302,
+      "rank": 58
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7474312767386436,
+      "rank": 72
+    },
+    "sae_test_accuracy": {
+      "value": 0.9403437957167625,
+      "rank": 63
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.764075,
+      "rank": 50
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7925874999999999,
+      "rank": 56
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8295187500000001,
+      "rank": 70
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2990484985289388,
+      "rank": 14
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.3614309188737223,
+      "rank": 20
+    },
+    "tpp_threshold_10": {
+      "value": 0.05822499990463257,
+      "rank": 29
+    },
+    "tpp_threshold_20": {
+      "value": 0.10572499185800552,
+      "rank": 31
+    }
+  },
+  "13-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 113.70724487304688,
+      "rank": 62
+    },
+    "l2_ratio": {
+      "value": 0.82421875,
+      "rank": 29
+    },
+    "explained_variance": {
+      "value": 0.6171875,
+      "rank": 40
+    },
+    "kl_div_score": {
+      "value": 0.754950495049505,
+      "rank": 76
+    },
+    "ce_loss_score": {
+      "value": 0.6666666666666666,
+      "rank": 25
+    },
+    "llm_test_accuracy": {
+      "value": 0.9409375000000001,
+      "rank": 57
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.610450029745698,
+      "rank": 67
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7355312805622817,
+      "rank": 26
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8025437917560339,
+      "rank": 31
+    },
+    "sae_test_accuracy": {
+      "value": 0.9454937912523746,
+      "rank": 52
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7485875000000001,
+      "rank": 56
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7924875,
+      "rank": 57
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.85274375,
+      "rank": 55
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.15147827152182364,
+      "rank": 57
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.18347819933386036,
+      "rank": 62
+    },
+    "tpp_threshold_10": {
+      "value": 0.006724996864795685,
+      "rank": 78
+    },
+    "tpp_threshold_20": {
+      "value": 0.020600003004074097,
+      "rank": 78
+    }
+  },
+  "13-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 82.93519592285156,
+      "rank": 39
+    },
+    "l2_ratio": {
+      "value": 0.92578125,
+      "rank": 12
+    },
+    "explained_variance": {
+      "value": 0.75390625,
+      "rank": 22
+    },
+    "kl_div_score": {
+      "value": 0.9886937111801242,
+      "rank": 16
+    },
+    "ce_loss_score": {
+      "value": 0.9884868421052632,
+      "rank": 6
+    },
+    "llm_test_accuracy": {
+      "value": 0.94878125,
+      "rank": 36
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6346062816679477,
+      "rank": 53
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7033312901854515,
+      "rank": 56
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7806937910616398,
+      "rank": 55
+    },
+    "sae_test_accuracy": {
+      "value": 0.9549937959760427,
+      "rank": 25
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7849250000000001,
+      "rank": 37
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.82988125,
+      "rank": 36
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8803500000000001,
+      "rank": 31
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2826173478911688,
+      "rank": 19
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.3586393428376432,
+      "rank": 21
+    },
+    "tpp_threshold_10": {
+      "value": 0.026100012660026546,
+      "rank": 51
+    },
+    "tpp_threshold_20": {
+      "value": 0.05215000957250595,
+      "rank": 53
+    }
+  },
+  "14-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 71.75102996826172,
+      "rank": 14
+    },
+    "l2_ratio": {
+      "value": 0.91015625,
+      "rank": 15
+    },
+    "explained_variance": {
+      "value": 0.73046875,
+      "rank": 27
+    },
+    "kl_div_score": {
+      "value": 0.7934027777777778,
+      "rank": 72
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.94860625,
+      "rank": 39
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7273000352084636,
+      "rank": 13
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7538000382483006,
+      "rank": 16
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7857250310480595,
+      "rank": 49
+    },
+    "sae_test_accuracy": {
+      "value": 0.9495125401765108,
+      "rank": 44
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7990250000000001,
+      "rank": 28
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8277312499999999,
+      "rank": 39
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8697374999999999,
+      "rank": 43
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.29234038179139327,
+      "rank": 16
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.36958461763094086,
+      "rank": 18
+    },
+    "tpp_threshold_10": {
+      "value": 0.07167501449584962,
+      "rank": 19
+    },
+    "tpp_threshold_20": {
+      "value": 0.14137500524520874,
+      "rank": 16
+    }
+  },
+  "14-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 96.54258728027344,
+      "rank": 50
+    },
+    "l2_ratio": {
+      "value": 0.8203125,
+      "rank": 30
+    },
+    "explained_variance": {
+      "value": 0.62109375,
+      "rank": 39
+    },
+    "kl_div_score": {
+      "value": 0.8252840909090909,
+      "rank": 68
+    },
+    "ce_loss_score": {
+      "value": 0.75,
+      "rank": 24
+    },
+    "llm_test_accuracy": {
+      "value": 0.9445562500000001,
+      "rank": 52
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6277500286698341,
+      "rank": 55
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7296625327318906,
+      "rank": 30
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.798625037446618,
+      "rank": 36
+    },
+    "sae_test_accuracy": {
+      "value": 0.9513687912374735,
+      "rank": 40
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.800125,
+      "rank": 25
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8646687499999999,
+      "rank": 7
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.90035,
+      "rank": 10
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.1292705999935895,
+      "rank": 66
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.17369861102350362,
+      "rank": 64
+    },
+    "tpp_threshold_10": {
+      "value": 0.023424993455410006,
+      "rank": 58
+    },
+    "tpp_threshold_20": {
+      "value": 0.033800007402896876,
+      "rank": 71
+    }
+  },
+  "14-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 82.4117202758789,
+      "rank": 37
+    },
+    "l2_ratio": {
+      "value": 0.93359375,
+      "rank": 10
+    },
+    "explained_variance": {
+      "value": 0.7578125,
+      "rank": 21
+    },
+    "kl_div_score": {
+      "value": 0.9886451863354038,
+      "rank": 17
+    },
+    "ce_loss_score": {
+      "value": 0.9884868421052632,
+      "rank": 6
+    },
+    "llm_test_accuracy": {
+      "value": 0.9518875,
+      "rank": 16
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6265937749296426,
+      "rank": 56
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6977875355631113,
+      "rank": 62
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7713687844574451,
+      "rank": 65
+    },
+    "sae_test_accuracy": {
+      "value": 0.9549875482916833,
+      "rank": 26
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7952187500000001,
+      "rank": 32
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8326187500000001,
+      "rank": 30
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8895187499999999,
+      "rank": 20
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.37713741530073064,
+      "rank": 7
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.4311312755884661,
+      "rank": 6
+    },
+    "tpp_threshold_10": {
+      "value": 0.048500001430511475,
+      "rank": 34
+    },
+    "tpp_threshold_20": {
+      "value": 0.10200000405311585,
+      "rank": 34
+    }
+  },
+  "15-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 93.32830047607422,
+      "rank": 48
+    },
+    "l2_ratio": {
+      "value": 0.89453125,
+      "rank": 19
+    },
+    "explained_variance": {
+      "value": 0.734375,
+      "rank": 26
+    },
+    "kl_div_score": {
+      "value": 0.8644662921348315,
+      "rank": 58
+    },
+    "ce_loss_score": {
+      "value": 0.8,
+      "rank": 23
+    },
+    "llm_test_accuracy": {
+      "value": 0.9533874999999999,
+      "rank": 9
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7714437831193209,
+      "rank": 5
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7975937843322753,
+      "rank": 6
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8334625400602816,
+      "rank": 11
+    },
+    "sae_test_accuracy": {
+      "value": 0.9527000464498997,
+      "rank": 37
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8256249999999999,
+      "rank": 6
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8649062499999999,
+      "rank": 6
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8990312500000001,
+      "rank": 11
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.36006267079195986,
+      "rank": 10
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.41821238378004655,
+      "rank": 11
+    },
+    "tpp_threshold_10": {
+      "value": 0.10795000046491622,
+      "rank": 6
+    },
+    "tpp_threshold_20": {
+      "value": 0.20135001093149185,
+      "rank": 6
+    }
+  },
+  "15-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 80.91092681884766,
+      "rank": 34
+    },
+    "l2_ratio": {
+      "value": 0.82421875,
+      "rank": 29
+    },
+    "explained_variance": {
+      "value": 0.64453125,
+      "rank": 37
+    },
+    "kl_div_score": {
+      "value": 0.7783783783783784,
+      "rank": 74
+    },
+    "ce_loss_score": {
+      "value": 0.8,
+      "rank": 23
+    },
+    "llm_test_accuracy": {
+      "value": 0.945375,
+      "rank": 49
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.5954062826931477,
+      "rank": 71
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7396437823772432,
+      "rank": 21
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8240812953561545,
+      "rank": 15
+    },
+    "sae_test_accuracy": {
+      "value": 0.9530937973409892,
+      "rank": 35
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.80905,
+      "rank": 18
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8320375,
+      "rank": 32
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.87806875,
+      "rank": 36
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.16599672236952268,
+      "rank": 54
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.19400896995483458,
+      "rank": 61
+    },
+    "tpp_threshold_10": {
+      "value": 0.01882500350475311,
+      "rank": 63
+    },
+    "tpp_threshold_20": {
+      "value": 0.03340000361204147,
+      "rank": 72
+    }
+  },
+  "15-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 76.1649398803711,
+      "rank": 26
+    },
+    "l2_ratio": {
+      "value": 0.9375,
+      "rank": 9
+    },
+    "explained_variance": {
+      "value": 0.7890625,
+      "rank": 15
+    },
+    "kl_div_score": {
+      "value": 0.9873835403726708,
+      "rank": 18
+    },
+    "ce_loss_score": {
+      "value": 0.9868421052631579,
+      "rank": 7
+    },
+    "llm_test_accuracy": {
+      "value": 0.95083125,
+      "rank": 25
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6221187770366668,
+      "rank": 58
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6950375337153674,
+      "rank": 65
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7927000373601913,
+      "rank": 40
+    },
+    "sae_test_accuracy": {
+      "value": 0.9567937906831503,
+      "rank": 13
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8023875,
+      "rank": 23
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.82775,
+      "rank": 38
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.895625,
+      "rank": 15
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.36786246570791875,
+      "rank": 9
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.42950546635676773,
+      "rank": 7
+    },
+    "tpp_threshold_10": {
+      "value": 0.0664750099182129,
+      "rank": 22
+    },
+    "tpp_threshold_20": {
+      "value": 0.11312500089406968,
+      "rank": 29
+    }
+  },
+  "16-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 72.276611328125,
+      "rank": 16
+    },
+    "l2_ratio": {
+      "value": 0.890625,
+      "rank": 20
+    },
+    "explained_variance": {
+      "value": 0.72265625,
+      "rank": 29
+    },
+    "kl_div_score": {
+      "value": 0.849601593625498,
+      "rank": 61
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.95305,
+      "rank": 11
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7481125406920911,
+      "rank": 8
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7690187860280274,
+      "rank": 11
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8117000363767147,
+      "rank": 25
+    },
+    "sae_test_accuracy": {
+      "value": 0.9504875436425209,
+      "rank": 41
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7942875,
+      "rank": 34
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8324,
+      "rank": 31
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8769750000000001,
+      "rank": 38
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.25126300001503526,
+      "rank": 28
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.32540760260456475,
+      "rank": 28
+    },
+    "tpp_threshold_10": {
+      "value": 0.07497499883174896,
+      "rank": 16
+    },
+    "tpp_threshold_20": {
+      "value": 0.1457000017166138,
+      "rank": 13
+    }
+  },
+  "16-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 75.90934753417969,
+      "rank": 25
+    },
+    "l2_ratio": {
+      "value": 0.83984375,
+      "rank": 27
+    },
+    "explained_variance": {
+      "value": 0.63671875,
+      "rank": 38
+    },
+    "kl_div_score": {
+      "value": 0.7828947368421053,
+      "rank": 73
+    },
+    "ce_loss_score": {
+      "value": 0.8,
+      "rank": 23
+    },
+    "llm_test_accuracy": {
+      "value": 0.9510999999999998,
+      "rank": 21
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.616293777152896,
+      "rank": 64
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7607937850058079,
+      "rank": 14
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8387500405311585,
+      "rank": 10
+    },
+    "sae_test_accuracy": {
+      "value": 0.9585125423967837,
+      "rank": 4
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8057125,
+      "rank": 22
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.84236875,
+      "rank": 23
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8842875,
+      "rank": 26
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.19374659615912643,
+      "rank": 45
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.2517297706104717,
+      "rank": 43
+    },
+    "tpp_threshold_10": {
+      "value": 0.01935001015663147,
+      "rank": 61
+    },
+    "tpp_threshold_20": {
+      "value": 0.03574999868869781,
+      "rank": 68
+    }
+  },
+  "16-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 79.14322662353516,
+      "rank": 32
+    },
+    "l2_ratio": {
+      "value": 0.9375,
+      "rank": 9
+    },
+    "explained_variance": {
+      "value": 0.7734375,
+      "rank": 18
+    },
+    "kl_div_score": {
+      "value": 0.9864130434782609,
+      "rank": 19
+    },
+    "ce_loss_score": {
+      "value": 0.9868421052631579,
+      "rank": 7
+    },
+    "llm_test_accuracy": {
+      "value": 0.9534874999999999,
+      "rank": 8
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6166250217705965,
+      "rank": 63
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7228500321507453,
+      "rank": 37
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8053437910974026,
+      "rank": 29
+    },
+    "sae_test_accuracy": {
+      "value": 0.958700044453144,
+      "rank": 2
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.798725,
+      "rank": 29
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8536437499999999,
+      "rank": 15
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.896975,
+      "rank": 14
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.3560313881507157,
+      "rank": 11
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.45607918723345836,
+      "rank": 4
+    },
+    "tpp_threshold_10": {
+      "value": 0.07697499692440034,
+      "rank": 13
+    },
+    "tpp_threshold_20": {
+      "value": 0.12617500126361847,
+      "rank": 21
+    }
+  },
+  "17-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 78.07345581054688,
+      "rank": 29
+    },
+    "l2_ratio": {
+      "value": 0.89453125,
+      "rank": 19
+    },
+    "explained_variance": {
+      "value": 0.734375,
+      "rank": 26
+    },
+    "kl_div_score": {
+      "value": 0.8268156424581006,
+      "rank": 66
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9472562499999999,
+      "rank": 44
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6834937792271375,
+      "rank": 23
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7045375280082227,
+      "rank": 55
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7686562810093164,
+      "rank": 67
+    },
+    "sae_test_accuracy": {
+      "value": 0.946125042811036,
+      "rank": 50
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7589874999999999,
+      "rank": 51
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.80648125,
+      "rank": 50
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8449875,
+      "rank": 61
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.21731186223206042,
+      "rank": 36
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.28639289426590503,
+      "rank": 34
+    },
+    "tpp_threshold_10": {
+      "value": 0.043775005638599394,
+      "rank": 35
+    },
+    "tpp_threshold_20": {
+      "value": 0.10732499957084657,
+      "rank": 30
+    }
+  },
+  "17-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 70.31037139892578,
+      "rank": 11
+    },
+    "l2_ratio": {
+      "value": 0.8359375,
+      "rank": 28
+    },
+    "explained_variance": {
+      "value": 0.63671875,
+      "rank": 38
+    },
+    "kl_div_score": {
+      "value": 0.8174460431654677,
+      "rank": 69
+    },
+    "ce_loss_score": {
+      "value": 0.875,
+      "rank": 21
+    },
+    "llm_test_accuracy": {
+      "value": 0.95105625,
+      "rank": 22
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6692375339567661,
+      "rank": 29
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.764812533184886,
+      "rank": 13
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8416625436395406,
+      "rank": 7
+    },
+    "sae_test_accuracy": {
+      "value": 0.9588312916457654,
+      "rank": 1
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.81343125,
+      "rank": 12
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8523375,
+      "rank": 16
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.9019687500000001,
+      "rank": 9
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.18186761732964882,
+      "rank": 49
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.24871538584440317,
+      "rank": 45
+    },
+    "tpp_threshold_10": {
+      "value": 0.03242500275373459,
+      "rank": 44
+    },
+    "tpp_threshold_20": {
+      "value": 0.0538500040769577,
+      "rank": 51
+    }
+  },
+  "17-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 78.25696563720703,
+      "rank": 30
+    },
+    "l2_ratio": {
+      "value": 0.9375,
+      "rank": 9
+    },
+    "explained_variance": {
+      "value": 0.78515625,
+      "rank": 16
+    },
+    "kl_div_score": {
+      "value": 0.9861218944099379,
+      "rank": 20
+    },
+    "ce_loss_score": {
+      "value": 0.9851973684210527,
+      "rank": 8
+    },
+    "llm_test_accuracy": {
+      "value": 0.95270625,
+      "rank": 12
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.648943779617548,
+      "rank": 45
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7074500367045403,
+      "rank": 50
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8022125355899334,
+      "rank": 32
+    },
+    "sae_test_accuracy": {
+      "value": 0.95860003978014,
+      "rank": 3
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.812825,
+      "rank": 13
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.86711875,
+      "rank": 4
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.90599375,
+      "rank": 3
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.29122358550137106,
+      "rank": 18
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.3787553571458306,
+      "rank": 15
+    },
+    "tpp_threshold_10": {
+      "value": 0.0618000105023384,
+      "rank": 26
+    },
+    "tpp_threshold_20": {
+      "value": 0.11369999945163727,
+      "rank": 28
+    }
+  },
+  "18-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 67.0169448852539,
+      "rank": 6
+    },
+    "l2_ratio": {
+      "value": 0.88671875,
+      "rank": 21
+    },
+    "explained_variance": {
+      "value": 0.70703125,
+      "rank": 33
+    },
+    "kl_div_score": {
+      "value": 0.8990384615384616,
+      "rank": 45
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.955025,
+      "rank": 4
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7700375385582447,
+      "rank": 6
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7997875370085239,
+      "rank": 4
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8435937892645597,
+      "rank": 5
+    },
+    "sae_test_accuracy": {
+      "value": 0.9542687997221947,
+      "rank": 29
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8265749999999998,
+      "rank": 5
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.857775,
+      "rank": 10
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.88846875,
+      "rank": 21
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.22721335013437033,
+      "rank": 35
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.29958729768278786,
+      "rank": 31
+    },
+    "tpp_threshold_10": {
+      "value": 0.08345000445842743,
+      "rank": 10
+    },
+    "tpp_threshold_20": {
+      "value": 0.15782500207424166,
+      "rank": 11
+    }
+  },
+  "18-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 108.81501007080078,
+      "rank": 56
+    },
+    "l2_ratio": {
+      "value": 0.8984375,
+      "rank": 18
+    },
+    "explained_variance": {
+      "value": 0.7265625,
+      "rank": 28
+    },
+    "kl_div_score": {
+      "value": 0.9146919431279621,
+      "rank": 43
+    },
+    "ce_loss_score": {
+      "value": 0.9166666666666666,
+      "rank": 19
+    },
+    "llm_test_accuracy": {
+      "value": 0.9506687499999998,
+      "rank": 27
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6554875280708075,
+      "rank": 37
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7115500316023826,
+      "rank": 46
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8305250450968743,
+      "rank": 13
+    },
+    "sae_test_accuracy": {
+      "value": 0.957400044426322,
+      "rank": 11
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.80714375,
+      "rank": 21
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8496125000000001,
+      "rank": 20
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.897,
+      "rank": 13
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.18917148903252884,
+      "rank": 47
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.23829414585693545,
+      "rank": 47
+    },
+    "tpp_threshold_10": {
+      "value": 0.018074998259544374,
+      "rank": 65
+    },
+    "tpp_threshold_20": {
+      "value": 0.03887500762939453,
+      "rank": 64
+    }
+  },
+  "18-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 74.4871826171875,
+      "rank": 22
+    },
+    "l2_ratio": {
+      "value": 0.9375,
+      "rank": 9
+    },
+    "explained_variance": {
+      "value": 0.79296875,
+      "rank": 14
+    },
+    "kl_div_score": {
+      "value": 0.985733695652174,
+      "rank": 21
+    },
+    "ce_loss_score": {
+      "value": 0.9851973684210527,
+      "rank": 8
+    },
+    "llm_test_accuracy": {
+      "value": 0.952425,
+      "rank": 13
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6538000296801328,
+      "rank": 41
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7283625368028879,
+      "rank": 33
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8114250365644694,
+      "rank": 26
+    },
+    "sae_test_accuracy": {
+      "value": 0.9576937973499299,
+      "rank": 8
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7992999999999999,
+      "rank": 27
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8469249999999999,
+      "rank": 22
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.9066,
+      "rank": 1
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.32667858954153367,
+      "rank": 13
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.3726100468084597,
+      "rank": 16
+    },
+    "tpp_threshold_10": {
+      "value": 0.06490000933408738,
+      "rank": 24
+    },
+    "tpp_threshold_20": {
+      "value": 0.11634999960660936,
+      "rank": 25
+    }
+  },
+  "19-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 115.85772705078125,
+      "rank": 64
+    },
+    "l2_ratio": {
+      "value": 0.9375,
+      "rank": 9
+    },
+    "explained_variance": {
+      "value": 0.79296875,
+      "rank": 14
+    },
+    "kl_div_score": {
+      "value": 0.909981343283582,
+      "rank": 44
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.955,
+      "rank": 5
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7679875332862139,
+      "rank": 7
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7940312780439853,
+      "rank": 7
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.840218786522746,
+      "rank": 8
+    },
+    "sae_test_accuracy": {
+      "value": 0.9518875397741794,
+      "rank": 38
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.808425,
+      "rank": 19
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8415625000000001,
+      "rank": 24
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8856062499999999,
+      "rank": 23
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.271496466378967,
+      "rank": 22
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.25814835455299967,
+      "rank": 40
+    },
+    "tpp_threshold_10": {
+      "value": 0.11725000739097594,
+      "rank": 3
+    },
+    "tpp_threshold_20": {
+      "value": 0.22055001109838485,
+      "rank": 2
+    }
+  },
+  "19-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 110.90962219238281,
+      "rank": 59
+    },
+    "l2_ratio": {
+      "value": 0.8984375,
+      "rank": 18
+    },
+    "explained_variance": {
+      "value": 0.73046875,
+      "rank": 27
+    },
+    "kl_div_score": {
+      "value": 0.9265021459227468,
+      "rank": 41
+    },
+    "ce_loss_score": {
+      "value": 0.9230769230769231,
+      "rank": 18
+    },
+    "llm_test_accuracy": {
+      "value": 0.9493375,
+      "rank": 33
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.662381274998188,
+      "rank": 33
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7558562852442264,
+      "rank": 15
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8444812901318074,
+      "rank": 4
+    },
+    "sae_test_accuracy": {
+      "value": 0.9579812936484813,
+      "rank": 6
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8093499999999999,
+      "rank": 16
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8582562499999999,
+      "rank": 9
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8974437500000001,
+      "rank": 12
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.18922549296748886,
+      "rank": 46
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.22296696609161426,
+      "rank": 51
+    },
+    "tpp_threshold_10": {
+      "value": 0.028774996101856232,
+      "rank": 50
+    },
+    "tpp_threshold_20": {
+      "value": 0.0642500102519989,
+      "rank": 42
+    }
+  },
+  "19-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 75.33470916748047,
+      "rank": 24
+    },
+    "l2_ratio": {
+      "value": 0.94140625,
+      "rank": 8
+    },
+    "explained_variance": {
+      "value": 0.79296875,
+      "rank": 14
+    },
+    "kl_div_score": {
+      "value": 0.984763198757764,
+      "rank": 22
+    },
+    "ce_loss_score": {
+      "value": 0.9835526315789473,
+      "rank": 9
+    },
+    "llm_test_accuracy": {
+      "value": 0.95240625,
+      "rank": 14
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6469062760472297,
+      "rank": 46
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7395062796771527,
+      "rank": 22
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.813056292757392,
+      "rank": 24
+    },
+    "sae_test_accuracy": {
+      "value": 0.956712543591857,
+      "rank": 15
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8092874999999999,
+      "rank": 17
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.85655625,
+      "rank": 11
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.9021812499999999,
+      "rank": 8
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.3405783463921736,
+      "rank": 12
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.42477817584441885,
+      "rank": 10
+    },
+    "tpp_threshold_10": {
+      "value": 0.06392499953508377,
+      "rank": 25
+    },
+    "tpp_threshold_20": {
+      "value": 0.10200000852346419,
+      "rank": 33
+    }
+  },
+  "20-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 55.47884750366211,
+      "rank": 2
+    },
+    "l2_ratio": {
+      "value": 0.90625,
+      "rank": 16
+    },
+    "explained_variance": {
+      "value": 0.71484375,
+      "rank": 31
+    },
+    "kl_div_score": {
+      "value": 0.8776371308016878,
+      "rank": 52
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.95600625,
+      "rank": 1
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7381875403225422,
+      "rank": 10
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7854625400155782,
+      "rank": 8
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8218875423073768,
+      "rank": 17
+    },
+    "sae_test_accuracy": {
+      "value": 0.9484375406056642,
+      "rank": 48
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.83221875,
+      "rank": 4
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8517874999999999,
+      "rank": 17
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8836937499999998,
+      "rank": 27
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.27110418530920505,
+      "rank": 23
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.3350810476849963,
+      "rank": 25
+    },
+    "tpp_threshold_10": {
+      "value": 0.1524999976158142,
+      "rank": 1
+    },
+    "tpp_threshold_20": {
+      "value": 0.20265000164508817,
+      "rank": 5
+    }
+  },
+  "20-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 110.2011489868164,
+      "rank": 57
+    },
+    "l2_ratio": {
+      "value": 0.8984375,
+      "rank": 18
+    },
+    "explained_variance": {
+      "value": 0.71484375,
+      "rank": 31
+    },
+    "kl_div_score": {
+      "value": 0.8858695652173914,
+      "rank": 49
+    },
+    "ce_loss_score": {
+      "value": 0.8888888888888888,
+      "rank": 20
+    },
+    "llm_test_accuracy": {
+      "value": 0.9497374999999999,
+      "rank": 30
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6413937691599132,
+      "rank": 50
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7364375298842788,
+      "rank": 25
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8447062894701957,
+      "rank": 3
+    },
+    "sae_test_accuracy": {
+      "value": 0.9574062991887332,
+      "rank": 10
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.819225,
+      "rank": 10
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8644000000000001,
+      "rank": 8
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.90394375,
+      "rank": 5
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2076544381552554,
+      "rank": 39
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.2633481022762892,
+      "rank": 38
+    },
+    "tpp_threshold_10": {
+      "value": 0.019349996745586396,
+      "rank": 62
+    },
+    "tpp_threshold_20": {
+      "value": 0.04942499548196792,
+      "rank": 57
+    }
+  },
+  "20-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 75.00720977783203,
+      "rank": 23
+    },
+    "l2_ratio": {
+      "value": 0.94140625,
+      "rank": 8
+    },
+    "explained_variance": {
+      "value": 0.78515625,
+      "rank": 16
+    },
+    "kl_div_score": {
+      "value": 0.9832104037267081,
+      "rank": 23
+    },
+    "ce_loss_score": {
+      "value": 0.9819078947368421,
+      "rank": 10
+    },
+    "llm_test_accuracy": {
+      "value": 0.9516,
+      "rank": 19
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6591687712818384,
+      "rank": 34
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7459750335663556,
+      "rank": 19
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8143625400960445,
+      "rank": 22
+    },
+    "sae_test_accuracy": {
+      "value": 0.9577187925577164,
+      "rank": 7
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.82336875,
+      "rank": 9
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8663062499999999,
+      "rank": 5
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.90463125,
+      "rank": 4
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.41247025501686374,
+      "rank": 3
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.4949172705983864,
+      "rank": 2
+    },
+    "tpp_threshold_10": {
+      "value": 0.07052500545978546,
+      "rank": 20
+    },
+    "tpp_threshold_20": {
+      "value": 0.13987500965595245,
+      "rank": 17
+    }
+  },
+  "21-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 60.24796676635742,
+      "rank": 4
+    },
+    "l2_ratio": {
+      "value": 0.8984375,
+      "rank": 18
+    },
+    "explained_variance": {
+      "value": 0.73828125,
+      "rank": 25
+    },
+    "kl_div_score": {
+      "value": 0.8657407407407407,
+      "rank": 57
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9554625,
+      "rank": 3
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7766062807291746,
+      "rank": 3
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7982250325381756,
+      "rank": 5
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8395062856376171,
+      "rank": 9
+    },
+    "sae_test_accuracy": {
+      "value": 0.9527500465512276,
+      "rank": 36
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8250249999999999,
+      "rank": 7
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8540625,
+      "rank": 14
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.88465,
+      "rank": 24
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.3728885586548605,
+      "rank": 8
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.43626638551718977,
+      "rank": 5
+    },
+    "tpp_threshold_10": {
+      "value": 0.0693000003695488,
+      "rank": 21
+    },
+    "tpp_threshold_20": {
+      "value": 0.12447499632835389,
+      "rank": 22
+    }
+  },
+  "21-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 112.39806365966797,
+      "rank": 60
+    },
+    "l2_ratio": {
+      "value": 0.90625,
+      "rank": 16
+    },
+    "explained_variance": {
+      "value": 0.71875,
+      "rank": 30
+    },
+    "kl_div_score": {
+      "value": 0.8901515151515151,
+      "rank": 48
+    },
+    "ce_loss_score": {
+      "value": 0.8888888888888888,
+      "rank": 20
+    },
+    "llm_test_accuracy": {
+      "value": 0.9487625,
+      "rank": 37
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6749875243753195,
+      "rank": 26
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7375312894582748,
+      "rank": 24
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8321937877684832,
+      "rank": 12
+    },
+    "sae_test_accuracy": {
+      "value": 0.9576687928289176,
+      "rank": 9
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8154437500000001,
+      "rank": 11
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8547250000000001,
+      "rank": 12
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8904312499999999,
+      "rank": 19
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.22822497789078028,
+      "rank": 34
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.29841348413198027,
+      "rank": 33
+    },
+    "tpp_threshold_10": {
+      "value": 0.02250000387430191,
+      "rank": 59
+    },
+    "tpp_threshold_20": {
+      "value": 0.05060000866651535,
+      "rank": 54
+    }
+  },
+  "21-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 73.13285064697266,
+      "rank": 19
+    },
+    "l2_ratio": {
+      "value": 0.93359375,
+      "rank": 10
+    },
+    "explained_variance": {
+      "value": 0.78125,
+      "rank": 17
+    },
+    "kl_div_score": {
+      "value": 0.9806871118012422,
+      "rank": 24
+    },
+    "ce_loss_score": {
+      "value": 0.9802631578947368,
+      "rank": 11
+    },
+    "llm_test_accuracy": {
+      "value": 0.9507437499999999,
+      "rank": 26
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6548000231385231,
+      "rank": 38
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.716175027564168,
+      "rank": 44
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.815156290307641,
+      "rank": 21
+    },
+    "sae_test_accuracy": {
+      "value": 0.9567187942564488,
+      "rank": 14
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8373249999999999,
+      "rank": 2
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8730625,
+      "rank": 1
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.9023687499999999,
+      "rank": 7
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.4215835154974471,
+      "rank": 2
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.42643726096648776,
+      "rank": 9
+    },
+    "tpp_threshold_10": {
+      "value": 0.08440000861883162,
+      "rank": 9
+    },
+    "tpp_threshold_20": {
+      "value": 0.16045000702142714,
+      "rank": 10
+    }
+  },
+  "22-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 95.52063751220703,
+      "rank": 49
+    },
+    "l2_ratio": {
+      "value": 0.95703125,
+      "rank": 5
+    },
+    "explained_variance": {
+      "value": 0.75390625,
+      "rank": 22
+    },
+    "kl_div_score": {
+      "value": 0.9554372197309418,
+      "rank": 37
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9517375,
+      "rank": 18
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7028812818229199,
+      "rank": 17
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7335625350475311,
+      "rank": 27
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8006250329315662,
+      "rank": 33
+    },
+    "sae_test_accuracy": {
+      "value": 0.946106294542551,
+      "rank": 51
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7772312499999998,
+      "rank": 42
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8090187500000001,
+      "rank": 47
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.85373125,
+      "rank": 54
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.13371242222893256,
+      "rank": 64
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.16480727402492604,
+      "rank": 66
+    },
+    "tpp_threshold_10": {
+      "value": 0.057299999892711645,
+      "rank": 31
+    },
+    "tpp_threshold_20": {
+      "value": 0.10400000512599945,
+      "rank": 32
+    }
+  },
+  "22-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 121.62152862548828,
+      "rank": 70
+    },
+    "l2_ratio": {
+      "value": 0.90625,
+      "rank": 16
+    },
+    "explained_variance": {
+      "value": 0.7109375,
+      "rank": 32
+    },
+    "kl_div_score": {
+      "value": 0.8665966386554622,
+      "rank": 56
+    },
+    "ce_loss_score": {
+      "value": 0.875,
+      "rank": 21
+    },
+    "llm_test_accuracy": {
+      "value": 0.9480187500000001,
+      "rank": 41
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6170812718570233,
+      "rank": 62
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7192812792956829,
+      "rank": 42
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8235875323414803,
+      "rank": 16
+    },
+    "sae_test_accuracy": {
+      "value": 0.9549375429749489,
+      "rank": 27
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7955249999999999,
+      "rank": 31
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8380187499999998,
+      "rank": 27
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8905500000000001,
+      "rank": 18
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.17165505281705762,
+      "rank": 52
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.23322782736846442,
+      "rank": 48
+    },
+    "tpp_threshold_10": {
+      "value": 0.01784999817609787,
+      "rank": 67
+    },
+    "tpp_threshold_20": {
+      "value": 0.03537499457597733,
+      "rank": 70
+    }
+  },
+  "22-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 73.97940063476562,
+      "rank": 20
+    },
+    "l2_ratio": {
+      "value": 0.9296875,
+      "rank": 11
+    },
+    "explained_variance": {
+      "value": 0.765625,
+      "rank": 20
+    },
+    "kl_div_score": {
+      "value": 0.9786490683229814,
+      "rank": 25
+    },
+    "ce_loss_score": {
+      "value": 0.9786184210526315,
+      "rank": 12
+    },
+    "llm_test_accuracy": {
+      "value": 0.9508374999999999,
+      "rank": 24
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.656818776205182,
+      "rank": 36
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.678881274536252,
+      "rank": 73
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8173625450581312,
+      "rank": 20
+    },
+    "sae_test_accuracy": {
+      "value": 0.9550812881439924,
+      "rank": 23
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.82396875,
+      "rank": 8
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8697374999999999,
+      "rank": 2
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.9062500000000001,
+      "rank": 2
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.39400267858302157,
+      "rank": 4
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.4628682774669392,
+      "rank": 3
+    },
+    "tpp_threshold_10": {
+      "value": 0.06012500226497651,
+      "rank": 28
+    },
+    "tpp_threshold_20": {
+      "value": 0.10150000751018524,
+      "rank": 35
+    }
+  },
+  "23-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": null,
+      "rank": null
+    },
+    "l2_ratio": {
+      "value": null,
+      "rank": null
+    },
+    "explained_variance": {
+      "value": null,
+      "rank": null
+    },
+    "kl_div_score": {
+      "value": null,
+      "rank": null
+    },
+    "ce_loss_score": {
+      "value": null,
+      "rank": null
+    },
+    "llm_test_accuracy": {
+      "value": 0.9535312499999999,
+      "rank": 7
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7236187871545553,
+      "rank": 14
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7687187805771827,
+      "rank": 12
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8257000379264354,
+      "rank": 14
+    },
+    "sae_test_accuracy": {
+      "value": 0.9504062984138727,
+      "rank": 42
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7649875,
+      "rank": 48
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.819425,
+      "rank": 43
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8666499999999999,
+      "rank": 45
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.19770020499402008,
+      "rank": 43
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.2550736518125005,
+      "rank": 42
+    },
+    "tpp_threshold_10": {
+      "value": 0.029300004243850708,
+      "rank": 47
+    },
+    "tpp_threshold_20": {
+      "value": 0.05332500338554383,
+      "rank": 52
+    }
+  },
+  "23-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 125.7138442993164,
+      "rank": 72
+    },
+    "l2_ratio": {
+      "value": 0.90234375,
+      "rank": 17
+    },
+    "explained_variance": {
+      "value": 0.7265625,
+      "rank": 28
+    },
+    "kl_div_score": {
+      "value": 0.8568181818181818,
+      "rank": 60
+    },
+    "ce_loss_score": {
+      "value": 0.8571428571428571,
+      "rank": 22
+    },
+    "llm_test_accuracy": {
+      "value": 0.9477312499999998,
+      "rank": 43
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.650406276062131,
+      "rank": 44
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6915687840431929,
+      "rank": 67
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.7492000363767147,
+      "rank": 70
+    },
+    "sae_test_accuracy": {
+      "value": 0.9566875416785479,
+      "rank": 16
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7945874999999999,
+      "rank": 33
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8546875,
+      "rank": 13
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8827562500000001,
+      "rank": 28
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.1398064002625457,
+      "rank": 62
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.19776355127711925,
+      "rank": 58
+    },
+    "tpp_threshold_10": {
+      "value": 0.015549996495246889,
+      "rank": 70
+    },
+    "tpp_threshold_20": {
+      "value": 0.040124993026256564,
+      "rank": 63
+    }
+  },
+  "23-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 77.54496765136719,
+      "rank": 27
+    },
+    "l2_ratio": {
+      "value": 0.92578125,
+      "rank": 12
+    },
+    "explained_variance": {
+      "value": 0.75,
+      "rank": 23
+    },
+    "kl_div_score": {
+      "value": 0.9762228260869565,
+      "rank": 27
+    },
+    "ce_loss_score": {
+      "value": 0.975328947368421,
+      "rank": 13
+    },
+    "llm_test_accuracy": {
+      "value": 0.95058125,
+      "rank": 28
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6735062818974256,
+      "rank": 27
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7014937777072191,
+      "rank": 57
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8111312847584486,
+      "rank": 27
+    },
+    "sae_test_accuracy": {
+      "value": 0.9552625440061092,
+      "rank": 22
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8413750000000001,
+      "rank": 1
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8685125,
+      "rank": 3
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.90239375,
+      "rank": 6
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.38424658255032174,
+      "rank": 6
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.39884770505338724,
+      "rank": 14
+    },
+    "tpp_threshold_10": {
+      "value": 0.06624999791383743,
+      "rank": 23
+    },
+    "tpp_threshold_20": {
+      "value": 0.11390000730752946,
+      "rank": 27
+    }
+  },
+  "24-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 84.09329223632812,
+      "rank": 40
+    },
+    "l2_ratio": {
+      "value": 0.86328125,
+      "rank": 25
+    },
+    "explained_variance": {
+      "value": 0.66015625,
+      "rank": 36
+    },
+    "kl_div_score": {
+      "value": 0.8258196721311475,
+      "rank": 67
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9556312499999999,
+      "rank": 2
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7442437838762999,
+      "rank": 9
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7709250409156083,
+      "rank": 9
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8210125401616096,
+      "rank": 19
+    },
+    "sae_test_accuracy": {
+      "value": 0.9535750396549701,
+      "rank": 34
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8001499999999999,
+      "rank": 24
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8337499999999999,
+      "rank": 29
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8825500000000001,
+      "rank": 29
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.21485776451137234,
+      "rank": 38
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.2995870934632018,
+      "rank": 32
+    },
+    "tpp_threshold_10": {
+      "value": 0.029275006055831908,
+      "rank": 48
+    },
+    "tpp_threshold_20": {
+      "value": 0.04025000780820846,
+      "rank": 62
+    }
+  },
+  "24-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 71.28445434570312,
+      "rank": 13
+    },
+    "l2_ratio": {
+      "value": 0.921875,
+      "rank": 13
+    },
+    "explained_variance": {
+      "value": 0.7421875,
+      "rank": 24
+    },
+    "kl_div_score": {
+      "value": 0.8330357142857143,
+      "rank": 64
+    },
+    "ce_loss_score": {
+      "value": 0.875,
+      "rank": 21
+    },
+    "llm_test_accuracy": {
+      "value": 0.94573125,
+      "rank": 48
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6441125243902206,
+      "rank": 47
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.6921125341206789,
+      "rank": 66
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.752531285211444,
+      "rank": 69
+    },
+    "sae_test_accuracy": {
+      "value": 0.9537437919527292,
+      "rank": 33
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.73673125,
+      "rank": 59
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.7634,
+      "rank": 69
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.86,
+      "rank": 49
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.2071471387714164,
+      "rank": 40
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.28192005846730867,
+      "rank": 36
+    },
+    "tpp_threshold_10": {
+      "value": 0.07517500668764115,
+      "rank": 15
+    },
+    "tpp_threshold_20": {
+      "value": 0.12657501101493834,
+      "rank": 20
+    }
+  },
+  "24-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 72.40956115722656,
+      "rank": 17
+    },
+    "l2_ratio": {
+      "value": 0.91796875,
+      "rank": 14
+    },
+    "explained_variance": {
+      "value": 0.7421875,
+      "rank": 24
+    },
+    "kl_div_score": {
+      "value": 0.9708850931677019,
+      "rank": 29
+    },
+    "ce_loss_score": {
+      "value": 0.96875,
+      "rank": 14
+    },
+    "llm_test_accuracy": {
+      "value": 0.9506687499999998,
+      "rank": 27
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6787937771528959,
+      "rank": 25
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7334625337272883,
+      "rank": 28
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8134625360369682,
+      "rank": 23
+    },
+    "sae_test_accuracy": {
+      "value": 0.9553875461220741,
+      "rank": 21
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.8334999999999999,
+      "rank": 3
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.85054375,
+      "rank": 18
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8956,
+      "rank": 16
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.38977486701447184,
+      "rank": 5
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.415466597022229,
+      "rank": 12
+    },
+    "tpp_threshold_10": {
+      "value": 0.06097500622272492,
+      "rank": 27
+    },
+    "tpp_threshold_20": {
+      "value": 0.12855000495910646,
+      "rank": 19
+    }
+  },
+  "25-gemmascope-att-16k": {
+    "l0_sparsity": {
+      "value": 71.80371856689453,
+      "rank": 15
+    },
+    "l2_ratio": {
+      "value": 0.88671875,
+      "rank": 21
+    },
+    "explained_variance": {
+      "value": 0.72265625,
+      "rank": 29
+    },
+    "kl_div_score": {
+      "value": 0.88232421875,
+      "rank": 50
+    },
+    "ce_loss_score": {
+      "value": 1.0,
+      "rank": 1
+    },
+    "llm_test_accuracy": {
+      "value": 0.9537125,
+      "rank": 6
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.7917250361293555,
+      "rank": 2
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.8132625363767148,
+      "rank": 2
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.850787541270256,
+      "rank": 2
+    },
+    "sae_test_accuracy": {
+      "value": 0.9515687908977271,
+      "rank": 39
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.81184375,
+      "rank": 14
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.83745625,
+      "rank": 28
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.8773500000000002,
+      "rank": 37
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.1407175387995284,
+      "rank": 61
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.17457006586241078,
+      "rank": 63
+    },
+    "tpp_threshold_10": {
+      "value": 0.05467499494552612,
+      "rank": 33
+    },
+    "tpp_threshold_20": {
+      "value": 0.09694999754428864,
+      "rank": 36
+    }
+  },
+  "25-gemmascope-mlp-16k": {
+    "l0_sparsity": {
+      "value": 126.96408081054688,
+      "rank": 73
+    },
+    "l2_ratio": {
+      "value": 0.94140625,
+      "rank": 8
+    },
+    "explained_variance": {
+      "value": 0.828125,
+      "rank": 8
+    },
+    "kl_div_score": {
+      "value": 0.8487261146496815,
+      "rank": 62
+    },
+    "ce_loss_score": {
+      "value": 0.9285714285714286,
+      "rank": 17
+    },
+    "llm_test_accuracy": {
+      "value": 0.94710625,
+      "rank": 45
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6260437808930873,
+      "rank": 57
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7102250300347805,
+      "rank": 47
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.781200037524104,
+      "rank": 54
+    },
+    "sae_test_accuracy": {
+      "value": 0.9542937960475683,
+      "rank": 28
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7260375,
+      "rank": 62
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.759975,
+      "rank": 72
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.82885625,
+      "rank": 71
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.17927962016421492,
+      "rank": 50
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.25774249044574726,
+      "rank": 41
+    },
+    "tpp_threshold_10": {
+      "value": 0.05587500780820846,
+      "rank": 32
+    },
+    "tpp_threshold_20": {
+      "value": 0.16517499834299088,
+      "rank": 9
+    }
+  },
+  "25-gemmascope-res-16k": {
+    "l0_sparsity": {
+      "value": 113.4577407836914,
+      "rank": 61
+    },
+    "l2_ratio": {
+      "value": 0.921875,
+      "rank": 13
+    },
+    "explained_variance": {
+      "value": 0.7890625,
+      "rank": 15
+    },
+    "kl_div_score": {
+      "value": 0.96777950310559,
+      "rank": 32
+    },
+    "ce_loss_score": {
+      "value": 0.9671052631578947,
+      "rank": 15
+    },
+    "llm_test_accuracy": {
+      "value": 0.9486374999999999,
+      "rank": 38
+    },
+    "llm_top_1_test_accuracy": {
+      "value": 0.6380062770098448,
+      "rank": 51
+    },
+    "llm_top_2_test_accuracy": {
+      "value": 0.7224812842905521,
+      "rank": 39
+    },
+    "llm_top_5_test_accuracy": {
+      "value": 0.8048937868326903,
+      "rank": 30
+    },
+    "sae_test_accuracy": {
+      "value": 0.9550625450909137,
+      "rank": 24
+    },
+    "sae_top_1_test_accuracy": {
+      "value": 0.7533625,
+      "rank": 53
+    },
+    "sae_top_2_test_accuracy": {
+      "value": 0.8499062499999999,
+      "rank": 19
+    },
+    "sae_top_5_test_accuracy": {
+      "value": 0.892825,
+      "rank": 17
+    },
+    "scr_metric_threshold_10": {
+      "value": 0.4327384260507439,
+      "rank": 1
+    },
+    "scr_metric_threshold_20": {
+      "value": 0.5063189112932333,
+      "rank": 1
+    },
+    "tpp_threshold_10": {
+      "value": 0.07667501270771027,
+      "rank": 14
+    },
+    "tpp_threshold_20": {
+      "value": 0.14190000891685484,
+      "rank": 15
+    }
+  }
+}

@@ -1,0 +1,2856 @@
+{
+  "model": "act",
+  "model_name": "ACT",
+  "description": "ACT 80M CVAE encoder-decoder, no language pathway",
+  "architecture": "vision_only",
+  "params": "80M",
+  "environments": [
+    "aloha"
+  ],
+  "baselines": {
+    "transfer_cube": {
+      "n_episodes": 100,
+      "success_rate": 1.0,
+      "avg_reward": 0
+    },
+    "insertion": {
+      "n_episodes": 100,
+      "success_rate": 0.78,
+      "avg_reward": 0
+    }
+  },
+  "grid_ablation": {
+    "insertion_grid_2_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.2,
+        "mean_reward": 6.15,
+        "std_reward": 22.41266383096842,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.5,
+            0.75,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_3_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 208.55,
+        "std_reward": 73.48909783090278,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.75,
+            0.75,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_1_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.75,
+        "mean_reward": 83.5,
+        "std_reward": 75.45495344906125,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.25,
+            0.75,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_0_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.7,
+        "mean_reward": 84.35,
+        "std_reward": 84.21536380019978,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.0,
+            0.75,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_3_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 219.85,
+        "std_reward": 79.33868854474467,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.75,
+            1.0,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_noise_0.3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.4,
+        "mean_reward": 10.3,
+        "std_reward": 20.724623036378734,
+        "perturbation": "noise",
+        "perturbation_kwargs": {
+          "scale": 0.3
+        }
+      }
+    },
+    "insertion_grid_0_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.65,
+        "mean_reward": 84.5,
+        "std_reward": 76.06937622986007,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.0,
+            0.5,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_baseline": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.8,
+        "mean_reward": 89.4,
+        "std_reward": 67.77861019525261,
+        "perturbation": null,
+        "perturbation_kwargs": null
+      }
+    },
+    "transfer_cube_grid_3_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.95,
+        "mean_reward": 218.1,
+        "std_reward": 80.62499612403093,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.75,
+            0.25,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_2_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.4,
+        "mean_reward": 37.95,
+        "std_reward": 56.28718770732821,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.5,
+            0.5,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_3_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.75,
+        "mean_reward": 97.0,
+        "std_reward": 72.71038440277978,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.75,
+            1.0,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_2_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 213.1,
+        "std_reward": 76.5623275508262,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.5,
+            0.5,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_2_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.95,
+        "mean_reward": 213.9,
+        "std_reward": 92.68435682465514,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.5,
+            0.25,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_1_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.85,
+        "mean_reward": 99.55,
+        "std_reward": 70.38286368143882,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.25,
+            0.25,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_1_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.9,
+        "mean_reward": 166.3,
+        "std_reward": 94.69218552763475,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.25,
+            0.75,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_0_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.75,
+        "mean_reward": 107.65,
+        "std_reward": 79.82372767542243,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.0,
+            1.0,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_noise_0.1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.25,
+        "mean_reward": 8.85,
+        "std_reward": 19.28801441310121,
+        "perturbation": "noise",
+        "perturbation_kwargs": {
+          "scale": 0.1
+        }
+      }
+    },
+    "insertion_grid_1_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.6,
+        "mean_reward": 69.4,
+        "std_reward": 72.82266130813953,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.25,
+            1.0,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_0_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.95,
+        "mean_reward": 212.85,
+        "std_reward": 94.70547766628918,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.0,
+            0.75,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_0_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.85,
+        "mean_reward": 206.05,
+        "std_reward": 99.81907382860251,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.0,
+            1.0,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_0_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.7,
+        "mean_reward": 84.35,
+        "std_reward": 84.21536380019978,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.0,
+            0.75,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_2_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.4,
+        "mean_reward": 37.95,
+        "std_reward": 56.28718770732821,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.5,
+            0.5,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_3_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.9,
+        "mean_reward": 127.15,
+        "std_reward": 63.22837575013295,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.75,
+            0.5,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_1_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.9,
+        "mean_reward": 216.0,
+        "std_reward": 94.61712318602801,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.25,
+            1.0,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_2_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.95,
+        "mean_reward": 213.9,
+        "std_reward": 92.68435682465514,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.5,
+            0.25,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_noise_0.3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.4,
+        "mean_reward": 10.3,
+        "std_reward": 20.724623036378734,
+        "perturbation": "noise",
+        "perturbation_kwargs": {
+          "scale": 0.3
+        }
+      }
+    },
+    "AlohaTransferCube-v0_baseline": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 210.15,
+        "std_reward": 78.55143219572766,
+        "perturbation": null,
+        "perturbation_kwargs": null
+      }
+    },
+    "AlohaTransferCube-v0_grid_2_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.1,
+        "mean_reward": 6.75,
+        "std_reward": 24.65943024483737,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.5,
+            0.75,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_2_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.1,
+        "mean_reward": 6.75,
+        "std_reward": 24.65943024483737,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.5,
+            0.75,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_1_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 220.35,
+        "std_reward": 71.25747329228001,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.25,
+            0.25,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_3_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.75,
+        "mean_reward": 97.0,
+        "std_reward": 72.71038440277978,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.75,
+            1.0,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_1_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.9,
+        "mean_reward": 166.3,
+        "std_reward": 94.69218552763475,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.25,
+            0.75,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_0_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.85,
+        "mean_reward": 206.05,
+        "std_reward": 99.81907382860251,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.0,
+            1.0,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_3_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.95,
+        "mean_reward": 218.1,
+        "std_reward": 80.62499612403093,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.75,
+            0.25,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_noise_0.1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.0,
+        "mean_reward": 0.0,
+        "std_reward": 0.0,
+        "perturbation": "noise",
+        "perturbation_kwargs": {
+          "scale": 0.1
+        }
+      }
+    },
+    "transfer_cube_baseline": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 210.15,
+        "std_reward": 78.55143219572766,
+        "perturbation": null,
+        "perturbation_kwargs": null
+      }
+    },
+    "AlohaTransferCube-v0_grid_3_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 253.05,
+        "std_reward": 51.28203876602412,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.75,
+            0.5,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_0_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.95,
+        "mean_reward": 212.85,
+        "std_reward": 94.70547766628918,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.0,
+            0.75,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_1_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.9,
+        "mean_reward": 216.0,
+        "std_reward": 94.61712318602801,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.25,
+            1.0,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_3_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.6,
+        "mean_reward": 87.95,
+        "std_reward": 83.12188340022139,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.75,
+            0.25,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_2_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 240.65,
+        "std_reward": 65.7284375289722,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.5,
+            1.0,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_3_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.6,
+        "mean_reward": 87.95,
+        "std_reward": 83.12188340022139,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.75,
+            0.25,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_noise_0.1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.25,
+        "mean_reward": 8.85,
+        "std_reward": 19.28801441310121,
+        "perturbation": "noise",
+        "perturbation_kwargs": {
+          "scale": 0.1
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_0_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.65,
+        "mean_reward": 84.5,
+        "std_reward": 76.06937622986007,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.0,
+            0.5,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_1_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.6,
+        "mean_reward": 69.4,
+        "std_reward": 72.82266130813953,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.25,
+            1.0,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_3_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.9,
+        "mean_reward": 127.15,
+        "std_reward": 63.22837575013295,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.75,
+            0.5,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_1_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.65,
+        "mean_reward": 77.4,
+        "std_reward": 77.52896233021566,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.25,
+            0.5,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_0_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 219.3,
+        "std_reward": 68.0728286469719,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.0,
+            0.5,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_0_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.8,
+        "mean_reward": 108.65,
+        "std_reward": 67.6064161156321,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.0,
+            0.25,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_1_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.75,
+        "mean_reward": 83.5,
+        "std_reward": 75.45495344906125,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.25,
+            0.75,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_0_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.75,
+        "mean_reward": 107.65,
+        "std_reward": 79.82372767542243,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.0,
+            1.0,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_2_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 213.1,
+        "std_reward": 76.5623275508262,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.5,
+            0.5,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_baseline": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.8,
+        "mean_reward": 89.4,
+        "std_reward": 67.77861019525261,
+        "perturbation": null,
+        "perturbation_kwargs": null
+      }
+    },
+    "AlohaTransferCube-v0_grid_2_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 240.65,
+        "std_reward": 65.7284375289722,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.5,
+            1.0,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_3_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 253.05,
+        "std_reward": 51.28203876602412,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.75,
+            0.5,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_2_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.6,
+        "mean_reward": 60.0,
+        "std_reward": 72.62231062146122,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.5,
+            0.25,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_0_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 212.7,
+        "std_reward": 77.68210862225612,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.0,
+            0.25,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_0_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.8,
+        "mean_reward": 108.65,
+        "std_reward": 67.6064161156321,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.0,
+            0.25,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_3_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.7,
+        "mean_reward": 94.75,
+        "std_reward": 71.68533671539808,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.75,
+            0.75,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_1_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 220.35,
+        "std_reward": 71.25747329228001,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.25,
+            0.25,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_3_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 219.85,
+        "std_reward": 79.33868854474467,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.75,
+            1.0,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_noise_0.3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.0,
+        "mean_reward": 0.0,
+        "std_reward": 0.0,
+        "perturbation": "noise",
+        "perturbation_kwargs": {
+          "scale": 0.3
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_2_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.75,
+        "mean_reward": 104.05,
+        "std_reward": 73.47753057908247,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.5,
+            1.0,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_2_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.2,
+        "mean_reward": 6.15,
+        "std_reward": 22.41266383096842,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.5,
+            0.75,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_1_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 234.2,
+        "std_reward": 51.74804344127418,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.25,
+            0.5,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_1_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.65,
+        "mean_reward": 77.4,
+        "std_reward": 77.52896233021566,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.25,
+            0.5,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_3_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.7,
+        "mean_reward": 94.75,
+        "std_reward": 71.68533671539808,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.75,
+            0.75,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "insertion_grid_2_3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.75,
+        "mean_reward": 104.05,
+        "std_reward": 73.47753057908247,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.75,
+            0.5,
+            1.0,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_noise_0.3": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.0,
+        "mean_reward": 0.0,
+        "std_reward": 0.0,
+        "perturbation": "noise",
+        "perturbation_kwargs": {
+          "scale": 0.3
+        }
+      }
+    },
+    "transfer_cube_grid_0_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 212.7,
+        "std_reward": 77.68210862225612,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.0,
+            0.25,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaInsertion-v0_grid_2_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.6,
+        "mean_reward": 60.0,
+        "std_reward": 72.62231062146122,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.5,
+            0.25,
+            0.75
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_3_2": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 208.55,
+        "std_reward": 73.48909783090278,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.5,
+            0.75,
+            0.75,
+            1.0
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "AlohaTransferCube-v0_grid_1_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 234.2,
+        "std_reward": 51.74804344127418,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.25,
+            0.5,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_noise_0.1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 0.0,
+        "mean_reward": 0.0,
+        "std_reward": 0.0,
+        "perturbation": "noise",
+        "perturbation_kwargs": {
+          "scale": 0.1
+        }
+      }
+    },
+    "insertion_grid_1_0": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaInsertion-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_insertion_human",
+        "n_episodes": 20,
+        "success_rate": 0.85,
+        "mean_reward": 99.55,
+        "std_reward": 70.38286368143882,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.0,
+            0.25,
+            0.25,
+            0.5
+          ],
+          "fill_value": 0.5
+        }
+      }
+    },
+    "transfer_cube_grid_0_1": {
+      "n_episodes": 20,
+      "summary": {
+        "env_name": "gym_aloha/AlohaTransferCube-v0",
+        "checkpoint": "checkpoints/act_aloha_sim_transfer_cube_human",
+        "n_episodes": 20,
+        "success_rate": 1.0,
+        "mean_reward": 219.3,
+        "std_reward": 68.0728286469719,
+        "perturbation": "mask_region",
+        "perturbation_kwargs": {
+          "bbox": [
+            0.25,
+            0.0,
+            0.5,
+            0.25
+          ],
+          "fill_value": 0.5
+        }
+      }
+    }
+  },
+  "injection": {
+    "cross_task_tc_to_ins": {
+      "source_env": "gym_aloha/AlohaTransferCube-v0",
+      "target_env": "gym_aloha/AlohaInsertion-v0",
+      "pairs": [
+        {
+          "seed": 0,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 18.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 18.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 1.0
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 18.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 1.0
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 18.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 1.0
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "seed": 100,
+          "conditions": {
+            "baseline": {
+              "success": false,
+              "reward": 0.0
+            },
+            "inject_all": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 1.0
+            },
+            "inject_encoder_L0": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 1.0
+            },
+            "inject_backbone": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 1.0
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "seed": 200,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 150.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 150.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 150.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 150.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 208.0
+          }
+        },
+        {
+          "seed": 300,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 145.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 145.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 145.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 145.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "seed": 400,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 226.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 226.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 226.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 226.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "seed": 500,
+          "conditions": {
+            "baseline": {
+              "success": false,
+              "reward": 0.0
+            },
+            "inject_all": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 1.0000001192092896
+            },
+            "inject_encoder_L0": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 1.0000001192092896
+            },
+            "inject_backbone": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 1.0000001192092896
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "seed": 600,
+          "conditions": {
+            "baseline": {
+              "success": false,
+              "reward": 0.0
+            },
+            "inject_all": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_encoder_L0": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_backbone": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "seed": 700,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 72.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 72.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 72.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 72.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "seed": 800,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 159.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 159.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 1.0
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 159.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 1.0
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 159.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 1.0
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "seed": 900,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 159.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 159.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 159.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 159.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_baseline": 0.9999999403953552
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        }
+      ],
+      "summary": {
+        "baseline": {
+          "success_rate": 0.7,
+          "mean_reward": 92.9
+        },
+        "inject_all": {
+          "success_rate": 0.7,
+          "mean_reward": 92.9
+        },
+        "inject_encoder_L0": {
+          "success_rate": 0.7,
+          "mean_reward": 92.9
+        },
+        "inject_backbone": {
+          "success_rate": 0.7,
+          "mean_reward": 92.9
+        }
+      }
+    },
+    "same_task_transfer_cube": {
+      "env_name": "gym_aloha/AlohaTransferCube-v0",
+      "pairs": [
+        {
+          "source_seed": 0,
+          "target_seed": 50,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 72.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 72.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9236927628517151
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 72.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9236927628517151
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 72.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9236927628517151
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 42.0
+          }
+        },
+        {
+          "source_seed": 100,
+          "target_seed": 150,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 272.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 272.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9704928398132324
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 272.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9704928398132324
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 272.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9704928398132324
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 261.0
+          }
+        },
+        {
+          "source_seed": 200,
+          "target_seed": 250,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 187.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 187.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9615296721458435
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 187.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9615296721458435
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 187.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9615296721458435
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 284.0
+          }
+        },
+        {
+          "source_seed": 300,
+          "target_seed": 350,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 211.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 211.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.8808605074882507
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 211.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.8808605074882507
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 211.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.8808605074882507
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 113.0
+          }
+        },
+        {
+          "source_seed": 400,
+          "target_seed": 450,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 206.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 206.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9130215048789978
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 206.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9130215048789978
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 206.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9130215048789978
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 274.0
+          }
+        },
+        {
+          "source_seed": 500,
+          "target_seed": 550,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 284.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 284.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.8696008324623108
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 284.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.8696008324623108
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 284.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.8696008324623108
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 58.0
+          }
+        },
+        {
+          "source_seed": 600,
+          "target_seed": 650,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 126.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 126.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.8385733962059021
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 126.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.8385733962059021
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 126.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.8385733962059021
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 247.0
+          }
+        },
+        {
+          "source_seed": 700,
+          "target_seed": 750,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 286.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 286.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9121410846710205
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 286.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9121410846710205
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 286.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9121410846710205
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 226.0
+          }
+        },
+        {
+          "source_seed": 800,
+          "target_seed": 850,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 3.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 3.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.7948757410049438
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 3.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.7948757410049438
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 3.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.7948757410049438
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 253.0
+          }
+        },
+        {
+          "source_seed": 900,
+          "target_seed": 950,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 62.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 62.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9265931248664856
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 62.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9265931248664856
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 62.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9265931248664856
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 259.0
+          }
+        }
+      ]
+    },
+    "same_task_insertion": {
+      "env_name": "gym_aloha/AlohaInsertion-v0",
+      "pairs": [
+        {
+          "source_seed": 0,
+          "target_seed": 50,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 73.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 73.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.8979763984680176
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 73.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.8979763984680176
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 73.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.8979763984680176
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 18.0
+          }
+        },
+        {
+          "source_seed": 100,
+          "target_seed": 150,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 182.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 182.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9529191851615906
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 182.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9529191851615906
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 182.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9529191851615906
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "source_seed": 200,
+          "target_seed": 250,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 137.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 137.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9803735017776489
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 137.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9803735017776489
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 137.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9803735017776489
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 150.0
+          }
+        },
+        {
+          "source_seed": 300,
+          "target_seed": 350,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 73.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 73.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.8991232514381409
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 73.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.8991232514381409
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 73.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.8991232514381409
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 145.0
+          }
+        },
+        {
+          "source_seed": 400,
+          "target_seed": 450,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 165.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 165.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9135338664054871
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 165.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9135338664054871
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 165.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9135338664054871
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 226.0
+          }
+        },
+        {
+          "source_seed": 500,
+          "target_seed": 550,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 79.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 79.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.8763293027877808
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 79.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.8763293027877808
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 79.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.8763293027877808
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "source_seed": 600,
+          "target_seed": 650,
+          "conditions": {
+            "baseline": {
+              "success": false,
+              "reward": 0.0
+            },
+            "inject_all": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.8645907640457153
+            },
+            "inject_encoder_L0": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.8645907640457153
+            },
+            "inject_backbone": {
+              "success": false,
+              "reward": 0.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.8645907640457153
+            }
+          },
+          "source": {
+            "success": false,
+            "reward": 0.0
+          }
+        },
+        {
+          "source_seed": 700,
+          "target_seed": 750,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 143.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 143.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9717492461204529
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 143.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9717492461204529
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 143.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9717492461204529
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 72.0
+          }
+        },
+        {
+          "source_seed": 800,
+          "target_seed": 850,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 173.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 173.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.9408350586891174
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 173.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.9408350586891174
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 173.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.9408350586891174
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 159.0
+          }
+        },
+        {
+          "source_seed": 900,
+          "target_seed": 950,
+          "conditions": {
+            "baseline": {
+              "success": true,
+              "reward": 182.0
+            },
+            "inject_all": {
+              "success": true,
+              "reward": 182.0,
+              "layers": [
+                "backbone_output",
+                "encoder_layer_0",
+                "encoder_layer_1",
+                "encoder_layer_2",
+                "encoder_layer_3",
+                "decoder_layer_0"
+              ],
+              "cos_to_source": 0.963674783706665
+            },
+            "inject_encoder_L0": {
+              "success": true,
+              "reward": 182.0,
+              "layers": [
+                "encoder_layer_0"
+              ],
+              "cos_to_source": 0.963674783706665
+            },
+            "inject_backbone": {
+              "success": true,
+              "reward": 182.0,
+              "layers": [
+                "backbone_output"
+              ],
+              "cos_to_source": 0.963674783706665
+            }
+          },
+          "source": {
+            "success": true,
+            "reward": 159.0
+          }
+        }
+      ]
+    }
+  }
+}

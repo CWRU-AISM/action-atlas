@@ -1,0 +1,239 @@
+{
+  "pi05": {
+    "total": 60054,
+    "label": "60,054+",
+    "sections": {
+      "baselines": {
+        "episodes": 22
+      },
+      "counterfactual": {
+        "episodes": 4370
+      },
+      "cross_task": {
+        "episodes": 4771
+      },
+      "vision_perturbation": {
+        "episodes": 2626
+      },
+      "temporal_injection": {
+        "episodes": 0
+      },
+      "same_scene": {
+        "episodes": 0
+      },
+      "concept_ablation": {
+        "episodes": 48265
+      },
+      "displacement": {
+        "episodes": 0
+      }
+    },
+    "model_name": "Pi0.5"
+  },
+  "oft": {
+    "total": 26091,
+    "label": "26,091+",
+    "sections": {
+      "baselines": {
+        "episodes": 120
+      },
+      "concept_ablation": {
+        "episodes": 6821
+      },
+      "counterfactual": {
+        "episodes": 1004
+      },
+      "cross_prompt": {
+        "episodes": 946
+      },
+      "cross_task": {
+        "episodes": 2474
+      },
+      "grid_ablation": {
+        "episodes": 4771
+      },
+      "null_injection": {
+        "episodes": 1346
+      },
+      "rollouts": {
+        "episodes": 1651
+      },
+      "same_scene": {
+        "episodes": 1022
+      },
+      "temporal_injection": {
+        "episodes": 1100
+      },
+      "visual_perturbations": {
+        "episodes": 4836
+      }
+    },
+    "model_name": "OpenVLA-OFT"
+  },
+  "xvla": {
+    "total": 18155,
+    "label": "18,155+",
+    "sections": {
+      "baselines": {
+        "episodes": 306
+      },
+      "concept_ablation": {
+        "episodes": 1
+      },
+      "concept_steering": {
+        "episodes": 1
+      },
+      "counterfactual": {
+        "episodes": 1150
+      },
+      "cross_task": {
+        "episodes": 4081
+      },
+      "grid_ablation": {
+        "episodes": 1200
+      },
+      "sae_reconstruction": {
+        "episodes": 6880
+      },
+      "temporal": {
+        "episodes": 1086
+      },
+      "vision_perturbation": {
+        "episodes": 3450
+      }
+    },
+    "model_name": "X-VLA"
+  },
+  "smolvla": {
+    "total": 62245,
+    "label": "62,245+",
+    "sections": {
+      "baselines": {
+        "episodes": 1740,
+        "success_rate": 0.675
+      },
+      "counterfactual": {
+        "episodes": 1570
+      },
+      "cross_task": {
+        "episodes": 5866
+      },
+      "grid_ablation": {
+        "episodes": 30
+      },
+      "concept_ablation": {
+        "episodes": 33843
+      },
+      "vision_perturbation": {
+        "episodes": 12
+      },
+      "steering": {
+        "episodes": 0
+      },
+      "temporal_ablation": {
+        "episodes": 19184
+      },
+      "fraction_to_failure": {
+        "episodes": 0
+      }
+    },
+    "model_name": "SmolVLA"
+  },
+  "groot": {
+    "total": 322832,
+    "label": "322,832+",
+    "sections": {
+      "baselines": {
+        "episodes": 300,
+        "success_rate": 0.9033
+      },
+      "counterfactual": {
+        "episodes": 210
+      },
+      "cross_task": {
+        "episodes": 2700
+      },
+      "grid_ablation": {
+        "episodes": 510
+      },
+      "null_injection": {
+        "episodes": 390
+      },
+      "concept_ablation": {
+        "episodes": 32520
+      },
+      "fraction_to_failure": {
+        "episodes": 140760
+      },
+      "temporal_ablation": {
+        "episodes": 69120
+      },
+      "steering": {
+        "episodes": 45602
+      },
+      "cross_suite_ablation": {
+        "episodes": 30720
+      }
+    },
+    "model_name": "GR00T N1.5"
+  },
+  "act": {
+    "total": 200,
+    "label": "200",
+    "sections": {
+      "baselines": {
+        "episodes": 200,
+        "success_rate": 0.78
+      },
+      "grid_ablation": {
+        "episodes": 0,
+        "success_rate": null
+      },
+      "cross_task": {
+        "episodes": 0,
+        "success_rate": null
+      }
+    },
+    "model_name": "ACT-ALOHA"
+  },
+  "openvla": {
+    "total": 26091,
+    "label": "26,091+",
+    "sections": {
+      "baselines": {
+        "episodes": 120
+      },
+      "concept_ablation": {
+        "episodes": 6821
+      },
+      "counterfactual": {
+        "episodes": 1004
+      },
+      "cross_prompt": {
+        "episodes": 946
+      },
+      "cross_task": {
+        "episodes": 2474
+      },
+      "grid_ablation": {
+        "episodes": 4771
+      },
+      "null_injection": {
+        "episodes": 1346
+      },
+      "rollouts": {
+        "episodes": 1651
+      },
+      "same_scene": {
+        "episodes": 1022
+      },
+      "temporal_injection": {
+        "episodes": 1100
+      },
+      "visual_perturbations": {
+        "episodes": 4836
+      }
+    },
+    "model_name": "OpenVLA-OFT"
+  }
+}

@@ -1,0 +1,37 @@
+[project]
+name = "action-atlas"
+version = "0.1.0"
+description = "Mechanistic interpretability toolkit for Vision-Language-Action models"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0",
+    "numpy",
+    "tyro",
+    "einops",
+    "tqdm",
+    "imageio",
+    "imageio-ffmpeg",
+    "opencv-python-headless",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+]
+
+[project.optional-dependencies]
+viz = [
+    "flask",
+    "flask-cors",
+    "umap-learn",
+    "plotly",
+]
+
+[project.urls]
+Homepage = "https://cwru-aism.github.io/vla-interp-page/"
+Paper = "https://arxiv.org/abs/2603.19233"
+Repository = "https://github.com/CWRU-AISM/ActionAtlas"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["experiments*", "action_atlas*"]

@@ -1,0 +1,163 @@
+{
+  "action_phase_heatmap": {
+    "layers": [
+      0,
+      5,
+      10,
+      12,
+      15,
+      17
+    ],
+    "phases": [
+      "approach",
+      "grasp",
+      "lift",
+      "transport",
+      "lower",
+      "release"
+    ],
+    "data": [
+      [
+        11.1,
+        null,
+        null,
+        11.1,
+        null,
+        null
+      ],
+      [
+        0.0,
+        null,
+        null,
+        11.1,
+        null,
+        null
+      ],
+      [
+        0.0,
+        0.0,
+        -22.2,
+        11.1,
+        -11.1,
+        null
+      ],
+      [
+        11.1,
+        -22.2,
+        0.0,
+        11.1,
+        22.2,
+        0.0
+      ],
+      [
+        22.2,
+        0.0,
+        0.0,
+        -11.1,
+        -11.1,
+        11.1
+      ],
+      [
+        -11.1,
+        -11.1,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "feature_percentage_chart": {
+    "percentages": [
+      10,
+      25,
+      50,
+      75,
+      100
+    ],
+    "series": [
+      {
+        "name": "grasp",
+        "baseline": 88.9,
+        "values": [
+          88.9,
+          100.0,
+          88.9,
+          100.0,
+          100.0
+        ]
+      },
+      {
+        "name": "release",
+        "baseline": 100.0,
+        "values": [
+          88.9,
+          88.9,
+          77.8,
+          100.0,
+          77.8
+        ]
+      }
+    ]
+  },
+  "timestep_chart": {
+    "timesteps": [
+      0,
+      1,
+      5,
+      10,
+      25,
+      50,
+      100,
+      150
+    ],
+    "series": [
+      {
+        "name": "grasp",
+        "baseline": 88.9,
+        "values": [
+          100.0,
+          88.9,
+          77.8,
+          77.8,
+          100.0,
+          88.9,
+          100.0,
+          100.0
+        ]
+      },
+      {
+        "name": "release",
+        "baseline": 100.0,
+        "values": [
+          88.9,
+          77.8,
+          88.9,
+          88.9,
+          88.9,
+          100.0,
+          100.0,
+          100.0
+        ]
+      }
+    ]
+  },
+  "concepts_layers_heatmap": null,
+  "summary": {
+    "generated_at": "2026-01-19T04:09:04.415922",
+    "experiments": {
+      "action_phases": {
+        "most_impactful_negative": {
+          "layer": 10,
+          "phase": "lift",
+          "delta": -22.2
+        },
+        "most_impactful_positive": {
+          "layer": 12,
+          "phase": "lower",
+          "delta": 22.2
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2295 @@
+{
+  "model": "oft",
+  "model_name": "OpenVLA-OFT",
+  "description": "OpenVLA 7B with continuous L1 regression via MLP action head",
+  "architecture": "single_pathway",
+  "params": "7B",
+  "timestamp": "2026-03-09T20:57:21.226350",
+  "environments": [
+    "libero"
+  ],
+  "baselines": {},
+  "grid_ablation": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "grid_ablation",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 51
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "grid_ablation",
+          "n_conditions": 3,
+          "success_rate": 1.0,
+          "n_episodes": 51
+        },
+        {
+          "run_id": "20260130_195533",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9588,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_200357",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9529,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_202237",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9529,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9471,
+          "n_episodes": 170
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 782
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "grid_ablation",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 51
+        },
+        {
+          "run_id": "20260130_193825",
+          "experiment": "grid_ablation",
+          "n_conditions": 3,
+          "success_rate": 0.9608,
+          "n_episodes": 51
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9706,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_200357",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9706,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_202237",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9706,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9706,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_214224",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9706,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_215025",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9706,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_215248",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9706,
+          "n_episodes": 170
+        }
+      ],
+      "n_runs": 9,
+      "n_episodes": 1292
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_193227",
+          "experiment": "grid_ablation",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 51
+        },
+        {
+          "run_id": "20260130_193825",
+          "experiment": "grid_ablation",
+          "n_conditions": 3,
+          "success_rate": 0.9608,
+          "n_episodes": 51
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9529,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_200357",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9588,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_202237",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9529,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9471,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_214224",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9529,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_214822",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9529,
+          "n_episodes": 170
+        }
+      ],
+      "n_runs": 8,
+      "n_episodes": 1122
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_193226",
+          "experiment": "grid_ablation",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 51
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "grid_ablation",
+          "n_conditions": 3,
+          "success_rate": 0.9608,
+          "n_episodes": 51
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.9,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_200357",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.8882,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_202237",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.8882,
+          "n_episodes": 170
+        },
+        {
+          "run_id": "20260130_203141",
+          "experiment": "grid_ablation",
+          "n_conditions": 10,
+          "success_rate": 0.8941,
+          "n_episodes": 170
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 782
+    }
+  },
+  "counterfactual": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_192941",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.3333,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_194645",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.4667,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_201814",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.3667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_220550",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 30
+        }
+      ],
+      "n_runs": 9,
+      "n_episodes": 210
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_192940",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193825",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 1.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_214224",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_220928",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 30
+        }
+      ],
+      "n_runs": 8,
+      "n_episodes": 195
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_192942",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.8667,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.7333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_203141",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.7333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_214222",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.7333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_222148",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.7333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_222609",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.7667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_222817",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.7,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_222832",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.7667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_223244",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.7333,
+          "n_episodes": 30
+        }
+      ],
+      "n_runs": 11,
+      "n_episodes": 285
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_192941",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.8667,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_194645",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 5,
+          "success_rate": 0.8,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.8667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.8667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_201814",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.8333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.8333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_214224",
+          "experiment": "counterfactual_prompting",
+          "n_conditions": 10,
+          "success_rate": 0.8333,
+          "n_episodes": 30
+        }
+      ],
+      "n_runs": 9,
+      "n_episodes": 210
+    }
+  },
+  "cross_task": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_192940",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_194530",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "cross_task_injection",
+          "n_conditions": 5,
+          "success_rate": 1.0,
+          "n_episodes": 10
+        },
+        {
+          "run_id": "20260130_214318",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_220752",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221254",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221735",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221926",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221931",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221944",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221954",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222202",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222615",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222811",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222822",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222830",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223031",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223238",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223525",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        }
+      ],
+      "n_runs": 21,
+      "n_episodes": 90
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_192942",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_194529",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "cross_task_injection",
+          "n_conditions": 5,
+          "success_rate": 1.0,
+          "n_episodes": 10
+        },
+        {
+          "run_id": "20260130_201354",
+          "experiment": "cross_task_injection",
+          "n_conditions": 4,
+          "success_rate": 1.0,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221259",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221304",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221309",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.5,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221523",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221734",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221923",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222155",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222351",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222413",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222418",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222425",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222635",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222838",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222849",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223103",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223500",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223520",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        }
+      ],
+      "n_runs": 24,
+      "n_episodes": 106
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_192940",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_193226",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_193825",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_194530",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.75,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "cross_task_injection",
+          "n_conditions": 5,
+          "success_rate": 0.9,
+          "n_episodes": 10
+        },
+        {
+          "run_id": "20260130_214234",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221118",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221317",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221320",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221741",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221916",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_221939",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222129",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222134",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222142",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222158",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222358",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222401",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222620",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222628",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223035",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223258",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223300",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        }
+      ],
+      "n_runs": 23,
+      "n_episodes": 98
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_192941",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_194530",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "cross_task_injection",
+          "n_conditions": 5,
+          "success_rate": 1.0,
+          "n_episodes": 10
+        },
+        {
+          "run_id": "20260130_201712",
+          "experiment": "cross_task_injection",
+          "n_conditions": 4,
+          "success_rate": 0.75,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_214318",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_215033",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 0.5,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_220409",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222346",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222600",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222604",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_222844",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223057",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        },
+        {
+          "run_id": "20260130_223453",
+          "experiment": "cross_task_injection",
+          "n_conditions": 2,
+          "success_rate": 1.0,
+          "n_episodes": 4
+        }
+      ],
+      "n_runs": 15,
+      "n_episodes": 70
+    }
+  },
+  "same_scene": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_192940",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_193822",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.7778,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_194745",
+          "experiment": "same_scene_injection",
+          "n_conditions": 5,
+          "success_rate": 1.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195533",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.9333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_201307",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.9,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_214613",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.8,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_220555",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.9,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_223025",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.9333,
+          "n_episodes": 30
+        }
+      ],
+      "n_runs": 9,
+      "n_episodes": 192
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_192942",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.8889,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_194530",
+          "experiment": "same_scene_injection",
+          "n_conditions": 5,
+          "success_rate": 0.9333,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.9333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_201307",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.9333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_214235",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.9333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_220730",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.6667,
+          "n_episodes": 30
+        }
+      ],
+      "n_runs": 8,
+      "n_episodes": 162
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_192940",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_193823",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.8889,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_194530",
+          "experiment": "same_scene_injection",
+          "n_conditions": 5,
+          "success_rate": 0.8,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.8333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_201307",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.8,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_203257",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.8333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.8,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_215817",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.8,
+          "n_episodes": 30
+        }
+      ],
+      "n_runs": 9,
+      "n_episodes": 192
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_192941",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "same_scene_injection",
+          "n_conditions": 3,
+          "success_rate": 0.8889,
+          "n_episodes": 9
+        },
+        {
+          "run_id": "20260130_194745",
+          "experiment": "same_scene_injection",
+          "n_conditions": 5,
+          "success_rate": 0.6667,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.7667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_201307",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.7667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_214224",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.7333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_220314",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.7333,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_220545",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.5667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_221951",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.7667,
+          "n_episodes": 30
+        },
+        {
+          "run_id": "20260130_222210",
+          "experiment": "same_scene_injection",
+          "n_conditions": 10,
+          "success_rate": 0.7333,
+          "n_episodes": 30
+        }
+      ],
+      "n_runs": 11,
+      "n_episodes": 252
+    }
+  },
+  "null_injection": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_192941",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.1667,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.1667,
+          "n_episodes": 60
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.1667,
+          "n_episodes": 60
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.1667,
+          "n_episodes": 60
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 234
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_192940",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_193228",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_193825",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.1667,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.1667,
+          "n_episodes": 60
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.1667,
+          "n_episodes": 60
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.1667,
+          "n_episodes": 60
+        },
+        {
+          "run_id": "20260130_215041",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.1667,
+          "n_episodes": 60
+        }
+      ],
+      "n_runs": 7,
+      "n_episodes": 294
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.1667,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.1667,
+          "n_episodes": 60
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.15,
+          "n_episodes": 60
+        },
+        {
+          "run_id": "20260130_215957",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.15,
+          "n_episodes": 60
+        }
+      ],
+      "n_runs": 5,
+      "n_episodes": 216
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "null_injection",
+          "n_conditions": 3,
+          "success_rate": 0.1667,
+          "n_episodes": 18
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.15,
+          "n_episodes": 60
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "null_injection",
+          "n_conditions": 10,
+          "success_rate": 0.15,
+          "n_episodes": 60
+        }
+      ],
+      "n_runs": 4,
+      "n_episodes": 156
+    }
+  },
+  "cross_prompt": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 3,
+          "success_rate": 0.6,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.62,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.62,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_214235",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.6,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_215429",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.6,
+          "n_episodes": 50
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 230
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193825",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 3,
+          "success_rate": 1.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_215222",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_215809",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 1.0,
+          "n_episodes": 50
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 230
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_193227",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193824",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 3,
+          "success_rate": 1.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195533",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.86,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.84,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.84,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_214824",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.86,
+          "n_episodes": 50
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 230
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_193825",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 3,
+          "success_rate": 0.8667,
+          "n_episodes": 15
+        },
+        {
+          "run_id": "20260130_195534",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.8,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_200654",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.84,
+          "n_episodes": 50
+        },
+        {
+          "run_id": "20260130_214236",
+          "experiment": "cross_prompt_injection",
+          "n_conditions": 10,
+          "success_rate": 0.84,
+          "n_episodes": 50
+        }
+      ],
+      "n_runs": 5,
+      "n_episodes": 180
+    }
+  },
+  "temporal_injection": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "temporal_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "temporal_injection",
+          "n_conditions": 2,
+          "success_rate": 0.25,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_195531",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.3,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_200928",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.325,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_201814",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.325,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.3,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_214222",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.3,
+          "n_episodes": 40
+        }
+      ],
+      "n_runs": 7,
+      "n_episodes": 216
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "temporal_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_193825",
+          "experiment": "temporal_injection",
+          "n_conditions": 2,
+          "success_rate": 0.375,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_194646",
+          "experiment": "temporal_injection",
+          "n_conditions": 5,
+          "success_rate": 0.5,
+          "n_episodes": 20
+        },
+        {
+          "run_id": "20260130_195532",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_200929",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_201814",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.325,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_214224",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_215232",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_220138",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 40
+        }
+      ],
+      "n_runs": 10,
+      "n_episodes": 316
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "temporal_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "temporal_injection",
+          "n_conditions": 2,
+          "success_rate": 0.5,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_194646",
+          "experiment": "temporal_injection",
+          "n_conditions": 5,
+          "success_rate": 0.35,
+          "n_episodes": 20
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.425,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_200929",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.375,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_201814",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_214224",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.325,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_214833",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.4,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_215434",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.0,
+          "n_episodes": 40
+        }
+      ],
+      "n_runs": 9,
+      "n_episodes": 276
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_193227",
+          "experiment": "temporal_injection",
+          "n_conditions": 2,
+          "success_rate": 0.0,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "temporal_injection",
+          "n_conditions": 2,
+          "success_rate": 0.25,
+          "n_episodes": 8
+        },
+        {
+          "run_id": "20260130_200928",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.35,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_203257",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.275,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_215228",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.3,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_215243",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.275,
+          "n_episodes": 40
+        },
+        {
+          "run_id": "20260130_222406",
+          "experiment": "temporal_injection",
+          "n_conditions": 10,
+          "success_rate": 0.275,
+          "n_episodes": 40
+        }
+      ],
+      "n_runs": 7,
+      "n_episodes": 216
+    }
+  },
+  "visual_perturbations": {
+    "libero_goal": {
+      "runs": [
+        {
+          "run_id": "20260130_193226",
+          "experiment": "visual_perturbations",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 63
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "visual_perturbations",
+          "n_conditions": 3,
+          "success_rate": 0.9524,
+          "n_episodes": 63
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.9095,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_200357",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.9238,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_202237",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.9381,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.919,
+          "n_episodes": 210
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 966
+    },
+    "libero_object": {
+      "runs": [
+        {
+          "run_id": "20260130_193227",
+          "experiment": "visual_perturbations",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 63
+        },
+        {
+          "run_id": "20260130_193827",
+          "experiment": "visual_perturbations",
+          "n_conditions": 3,
+          "success_rate": 0.8413,
+          "n_episodes": 63
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.8143,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_200357",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.8143,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_202237",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.8143,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.8143,
+          "n_episodes": 210
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 966
+    },
+    "libero_spatial": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "visual_perturbations",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 63
+        },
+        {
+          "run_id": "20260130_193826",
+          "experiment": "visual_perturbations",
+          "n_conditions": 3,
+          "success_rate": 0.9524,
+          "n_episodes": 63
+        },
+        {
+          "run_id": "20260130_195535",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.9381,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_202237",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.9286,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.9286,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_214224",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.9381,
+          "n_episodes": 210
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 966
+    },
+    "libero_10": {
+      "runs": [
+        {
+          "run_id": "20260130_193228",
+          "experiment": "visual_perturbations",
+          "n_conditions": 3,
+          "success_rate": 0.0,
+          "n_episodes": 63
+        },
+        {
+          "run_id": "20260130_195533",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.8,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_200357",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.7857,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_202237",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.7857,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_202324",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.781,
+          "n_episodes": 210
+        },
+        {
+          "run_id": "20260130_203142",
+          "experiment": "visual_perturbations",
+          "n_conditions": 10,
+          "success_rate": 0.7857,
+          "n_episodes": 210
+        }
+      ],
+      "n_runs": 6,
+      "n_episodes": 1113
+    }
+  },
+  "displacement": {
+    "source": "results/experiment_results/displacement_analysis_oft.json",
+    "summary": {},
+    "n_episodes": 0
+  },
+  "scene_state": {
+    "libero_10_baseline": {
+      "n_entries": 3,
+      "file": "libero_10_baseline.json"
+    },
+    "libero_10_cross_task": {
+      "n_entries": 3,
+      "file": "libero_10_cross_task.json"
+    },
+    "libero_10_null_injection": {
+      "n_entries": 3,
+      "file": "libero_10_null_injection.json"
+    },
+    "libero_goal_baseline": {
+      "n_entries": 3,
+      "file": "libero_goal_baseline.json"
+    },
+    "libero_goal_cross_task": {
+      "n_entries": 3,
+      "file": "libero_goal_cross_task.json"
+    },
+    "libero_goal_null_injection": {
+      "n_entries": 3,
+      "file": "libero_goal_null_injection.json"
+    },
+    "libero_object_baseline": {
+      "n_entries": 3,
+      "file": "libero_object_baseline.json"
+    },
+    "libero_object_cross_task": {
+      "n_entries": 3,
+      "file": "libero_object_cross_task.json"
+    },
+    "libero_object_null_injection": {
+      "n_entries": 3,
+      "file": "libero_object_null_injection.json"
+    },
+    "libero_spatial_baseline": {
+      "n_entries": 3,
+      "file": "libero_spatial_baseline.json"
+    },
+    "libero_spatial_cross_task": {
+      "n_entries": 3,
+      "file": "libero_spatial_cross_task.json"
+    },
+    "libero_spatial_null_injection": {
+      "n_entries": 3,
+      "file": "libero_spatial_null_injection.json"
+    }
+  },
+  "concept_ablation": {
+    "source": "/data/anon_supp/concept_id/oft",
+    "n_files": 128
+  }
+}

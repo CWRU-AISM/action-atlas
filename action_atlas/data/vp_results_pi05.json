@@ -1,0 +1,3284 @@
+{
+  "model": "pi05",
+  "total_episodes": 1680,
+  "suites": {
+    "goal": {
+      "tasks": {
+        "0": {
+          "baseline": {
+            "success_rate": 0.0,
+            "n_episodes": 8,
+            "video_path": "vision_perturbation/main/libero_goal/libero_goal_task0_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_blur_heavy_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_blur_heavy_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_blur_heavy_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_blur_heavy_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_grayscale_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_grayscale_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_grayscale_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_h_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_h_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_h_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_h_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_h_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_noise_high_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_noise_high_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_noise_high_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_rotate_15_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_rotate_15_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_rotate_15_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_rotate_15_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_v_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_v_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_v_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task0_s123_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "1": {
+          "baseline": {
+            "success_rate": 75.0,
+            "n_episodes": 8,
+            "video_path": "vision_perturbation/main/libero_goal/libero_goal_task1_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_blur_heavy_after_100.mp4",
+            "delta_success_rate": -8.3
+          },
+          "blur_heavy_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_blur_heavy_early.mp4",
+            "delta_success_rate": -75.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_blur_heavy_first_50.mp4",
+            "delta_success_rate": -75.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_blur_heavy_full.mp4",
+            "delta_success_rate": -75.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_blur_heavy_late.mp4",
+            "delta_success_rate": -8.3
+          },
+          "blur_heavy_mid": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_blur_heavy_mid.mp4",
+            "delta_success_rate": -8.3
+          },
+          "grayscale_after_100": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_grayscale_after_100.mp4",
+            "delta_success_rate": -8.3
+          },
+          "grayscale_early": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_grayscale_early.mp4",
+            "delta_success_rate": -41.7
+          },
+          "grayscale_first_50": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_grayscale_first_50.mp4",
+            "delta_success_rate": -8.3
+          },
+          "grayscale_full": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_grayscale_full.mp4",
+            "delta_success_rate": -41.7
+          },
+          "grayscale_late": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_grayscale_late.mp4",
+            "delta_success_rate": -8.3
+          },
+          "grayscale_mid": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_grayscale_mid.mp4",
+            "delta_success_rate": -41.7
+          },
+          "h_flip_after_100": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_h_flip_after_100.mp4",
+            "delta_success_rate": -8.3
+          },
+          "h_flip_early": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_h_flip_early.mp4",
+            "delta_success_rate": -8.3
+          },
+          "h_flip_first_50": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_h_flip_first_50.mp4",
+            "delta_success_rate": -8.3
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_h_flip_full.mp4",
+            "delta_success_rate": -75.0
+          },
+          "h_flip_late": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_h_flip_late.mp4",
+            "delta_success_rate": -41.7
+          },
+          "h_flip_mid": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_h_flip_mid.mp4",
+            "delta_success_rate": -8.3
+          },
+          "noise_high_after_100": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_noise_high_after_100.mp4",
+            "delta_success_rate": -8.3
+          },
+          "noise_high_early": {
+            "success_rate": 100.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_noise_high_early.mp4",
+            "delta_success_rate": 25.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_noise_high_first_50.mp4",
+            "delta_success_rate": -8.3
+          },
+          "noise_high_full": {
+            "success_rate": 100.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_noise_high_full.mp4",
+            "delta_success_rate": 25.0
+          },
+          "noise_high_late": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_noise_high_late.mp4",
+            "delta_success_rate": -8.3
+          },
+          "noise_high_mid": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_noise_high_mid.mp4",
+            "delta_success_rate": -8.3
+          },
+          "rotate_15_after_100": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_rotate_15_after_100.mp4",
+            "delta_success_rate": -8.3
+          },
+          "rotate_15_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_rotate_15_early.mp4",
+            "delta_success_rate": -75.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_rotate_15_first_50.mp4",
+            "delta_success_rate": -75.0
+          },
+          "rotate_15_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_rotate_15_full.mp4",
+            "delta_success_rate": -75.0
+          },
+          "rotate_15_late": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_rotate_15_late.mp4",
+            "delta_success_rate": -8.3
+          },
+          "rotate_15_mid": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_rotate_15_mid.mp4",
+            "delta_success_rate": -8.3
+          },
+          "v_flip_after_100": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_v_flip_after_100.mp4",
+            "delta_success_rate": -41.7
+          },
+          "v_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_v_flip_early.mp4",
+            "delta_success_rate": -75.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_v_flip_first_50.mp4",
+            "delta_success_rate": -8.3
+          },
+          "v_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_v_flip_full.mp4",
+            "delta_success_rate": -75.0
+          },
+          "v_flip_late": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_v_flip_late.mp4",
+            "delta_success_rate": -8.3
+          },
+          "v_flip_mid": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task1_s123_v_flip_mid.mp4",
+            "delta_success_rate": -41.7
+          }
+        },
+        "2": {
+          "baseline": {
+            "success_rate": 0.0,
+            "n_episodes": 8,
+            "video_path": "vision_perturbation/main/libero_goal/libero_goal_task2_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_blur_heavy_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_blur_heavy_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_blur_heavy_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_blur_heavy_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_grayscale_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_grayscale_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_grayscale_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_h_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_h_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_h_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_h_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_h_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_noise_high_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_early": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_noise_high_early.mp4",
+            "delta_success_rate": 33.3
+          },
+          "noise_high_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_noise_high_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_rotate_15_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_rotate_15_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_rotate_15_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_rotate_15_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_v_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_v_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_v_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task2_s123_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "3": {
+          "baseline": {
+            "success_rate": 0.0,
+            "n_episodes": 8,
+            "video_path": "vision_perturbation/main/libero_goal/libero_goal_task3_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_blur_heavy_early.mp4",
+            "delta_success_rate": 66.7
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_blur_heavy_first_50.mp4",
+            "delta_success_rate": 66.7
+          },
+          "blur_heavy_full": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_blur_heavy_full.mp4",
+            "delta_success_rate": 33.3
+          },
+          "blur_heavy_late": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_blur_heavy_late.mp4",
+            "delta_success_rate": 33.3
+          },
+          "blur_heavy_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_grayscale_after_100.mp4",
+            "delta_success_rate": 33.3
+          },
+          "grayscale_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_grayscale_full.mp4",
+            "delta_success_rate": 33.3
+          },
+          "grayscale_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_grayscale_mid.mp4",
+            "delta_success_rate": 33.3
+          },
+          "h_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_h_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_h_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_h_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_h_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_h_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_noise_high_after_100.mp4",
+            "delta_success_rate": 33.3
+          },
+          "noise_high_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_noise_high_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_noise_high_late.mp4",
+            "delta_success_rate": 33.3
+          },
+          "noise_high_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 66.7,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_rotate_15_early.mp4",
+            "delta_success_rate": 66.7
+          },
+          "rotate_15_first_50": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_rotate_15_first_50.mp4",
+            "delta_success_rate": 33.3
+          },
+          "rotate_15_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_rotate_15_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_late": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_rotate_15_late.mp4",
+            "delta_success_rate": 33.3
+          },
+          "rotate_15_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_v_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_v_flip_first_50.mp4",
+            "delta_success_rate": 33.3
+          },
+          "v_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_v_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task3_s123_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "4": {
+          "baseline": {
+            "success_rate": 0.0,
+            "n_episodes": 8,
+            "video_path": "vision_perturbation/main/libero_goal/libero_goal_task4_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_blur_heavy_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_blur_heavy_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_blur_heavy_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_blur_heavy_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_grayscale_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_grayscale_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_grayscale_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_h_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_h_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_h_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_h_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_h_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_noise_high_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_noise_high_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_noise_high_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_rotate_15_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_rotate_15_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_full": {
+            "success_rate": 33.3,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_rotate_15_full.mp4",
+            "delta_success_rate": 33.3
+          },
+          "rotate_15_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_rotate_15_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_v_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_v_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_v_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_late": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 6,
+            "video_path": "vision_perturbation/main/libero_goal/temporal/libero_goal_task4_s123_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        }
+      },
+      "overall": {
+        "baseline": {
+          "success_rate": 15.0,
+          "n_episodes": 40
+        },
+        "blur_heavy_after_100": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "blur_heavy_early": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "blur_heavy_first_50": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "blur_heavy_full": {
+          "success_rate": 6.7,
+          "n_episodes": 30,
+          "delta_success_rate": -8.3
+        },
+        "blur_heavy_late": {
+          "success_rate": 20.0,
+          "n_episodes": 30,
+          "delta_success_rate": 5.0
+        },
+        "blur_heavy_mid": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "grayscale_after_100": {
+          "success_rate": 20.0,
+          "n_episodes": 30,
+          "delta_success_rate": 5.0
+        },
+        "grayscale_early": {
+          "success_rate": 6.7,
+          "n_episodes": 30,
+          "delta_success_rate": -8.3
+        },
+        "grayscale_first_50": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "grayscale_full": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "grayscale_late": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "grayscale_mid": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "h_flip_after_100": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "h_flip_early": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "h_flip_first_50": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "h_flip_full": {
+          "success_rate": 0.0,
+          "n_episodes": 30,
+          "delta_success_rate": -15.0
+        },
+        "h_flip_late": {
+          "success_rate": 6.7,
+          "n_episodes": 30,
+          "delta_success_rate": -8.3
+        },
+        "h_flip_mid": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "noise_high_after_100": {
+          "success_rate": 20.0,
+          "n_episodes": 30,
+          "delta_success_rate": 5.0
+        },
+        "noise_high_early": {
+          "success_rate": 26.7,
+          "n_episodes": 30,
+          "delta_success_rate": 11.7
+        },
+        "noise_high_first_50": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "noise_high_full": {
+          "success_rate": 20.0,
+          "n_episodes": 30,
+          "delta_success_rate": 5.0
+        },
+        "noise_high_late": {
+          "success_rate": 20.0,
+          "n_episodes": 30,
+          "delta_success_rate": 5.0
+        },
+        "noise_high_mid": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "rotate_15_after_100": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "rotate_15_early": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "rotate_15_first_50": {
+          "success_rate": 6.7,
+          "n_episodes": 30,
+          "delta_success_rate": -8.3
+        },
+        "rotate_15_full": {
+          "success_rate": 6.7,
+          "n_episodes": 30,
+          "delta_success_rate": -8.3
+        },
+        "rotate_15_late": {
+          "success_rate": 20.0,
+          "n_episodes": 30,
+          "delta_success_rate": 5.0
+        },
+        "rotate_15_mid": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "v_flip_after_100": {
+          "success_rate": 6.7,
+          "n_episodes": 30,
+          "delta_success_rate": -8.3
+        },
+        "v_flip_early": {
+          "success_rate": 0.0,
+          "n_episodes": 30,
+          "delta_success_rate": -15.0
+        },
+        "v_flip_first_50": {
+          "success_rate": 20.0,
+          "n_episodes": 30,
+          "delta_success_rate": 5.0
+        },
+        "v_flip_full": {
+          "success_rate": 0.0,
+          "n_episodes": 30,
+          "delta_success_rate": -15.0
+        },
+        "v_flip_late": {
+          "success_rate": 13.3,
+          "n_episodes": 30,
+          "delta_success_rate": -1.7
+        },
+        "v_flip_mid": {
+          "success_rate": 6.7,
+          "n_episodes": 30,
+          "delta_success_rate": -8.3
+        }
+      }
+    },
+    "spatial": {
+      "tasks": {
+        "0": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 4,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_blur_heavy_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_blur_heavy_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_blur_heavy_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_blur_heavy_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_bottom_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_crop_bottom_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_crop_right_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_top_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_crop_top_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_grayscale_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_grayscale_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_grayscale_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_h_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_h_flip_early.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_h_flip_first_50.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_h_flip_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_h_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_noise_high_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_noise_high_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_noise_high_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 100.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task0_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_rotate_15.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_rotate_15_early.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_rotate_15_first_50.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_rotate_15_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_rotate_15_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task0_s42_v_flip.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_v_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_v_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_v_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task0_s42_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "1": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 4,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_blur_heavy_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_blur_heavy_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_blur_heavy_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_blur_heavy_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_bottom_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_crop_bottom_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_crop_right_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_top_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_crop_top_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_grayscale_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_grayscale_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_grayscale_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_h_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_h_flip_early.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_h_flip_first_50.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_h_flip_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_h_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_noise_high_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_noise_high_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_noise_high_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 100.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task1_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_rotate_15.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_rotate_15_early.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_rotate_15_first_50.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_rotate_15_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_rotate_15_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task1_s42_v_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_v_flip_early.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_v_flip_first_50.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_v_flip_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task1_s42_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "2": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 4,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_blur_heavy_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_blur_heavy_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_blur_heavy_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_blur_heavy_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_bottom_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_crop_bottom_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_crop_right_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_top_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_crop_top_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_grayscale_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_grayscale_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_grayscale_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_h_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_h_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_h_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_h_flip_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_h_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_noise_high_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_noise_high_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_noise_high_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 100.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task2_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_rotate_15.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_rotate_15_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_rotate_15_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_rotate_15_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_rotate_15_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task2_s42_v_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_v_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_v_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_v_flip_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task2_s42_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "3": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 4,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_blur_heavy_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_blur_heavy_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_blur_heavy_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_blur_heavy_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_bottom_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_crop_bottom_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_crop_right_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_top_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_crop_top_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_grayscale_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_grayscale_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_grayscale_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_h_flip_after_100.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_h_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_h_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_h_flip_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_h_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_noise_high_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_noise_high_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_noise_high_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 100.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task3_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_rotate_15.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_rotate_15_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_rotate_15_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_rotate_15_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_rotate_15_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task3_s42_v_flip.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_v_flip_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_v_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_v_flip_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task3_s42_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "4": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 4,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_baseline.mp4"
+          },
+          "blur_heavy_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_blur_heavy_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_blur_heavy_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_blur_heavy_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_blur_heavy_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_blur_heavy_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "blur_heavy_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_blur_heavy_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_bottom_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_crop_bottom_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_crop_right_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_top_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_crop_top_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "grayscale_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_grayscale_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_grayscale_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_grayscale_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_grayscale_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_grayscale_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "grayscale_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_grayscale_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_after_100": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_h_flip_after_100.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_h_flip_early.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_h_flip_first_50.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_h_flip_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_h_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip_mid": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_h_flip_mid.mp4",
+            "delta_success_rate": -100.0
+          },
+          "noise_high_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_noise_high_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_noise_high_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_noise_high_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_full": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_noise_high_full.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_noise_high_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "noise_high_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_noise_high_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 100.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task4_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_rotate_15.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_rotate_15_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_early": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_rotate_15_early.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_first_50": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_rotate_15_first_50.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_rotate_15_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_rotate_15_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_rotate_15_mid.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task4_s42_v_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_after_100": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_v_flip_after_100.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_early": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_v_flip_early.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_first_50": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_v_flip_first_50.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_full": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_v_flip_full.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip_late": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_v_flip_late.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip_mid": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/temporal/libero_spatial_task4_s42_v_flip_mid.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "5": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_baseline.mp4"
+          },
+          "crop_bottom_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_crop_bottom_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_crop_right_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_top_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_crop_top_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 100.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task5_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_rotate_15.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task5_s42_v_flip.mp4",
+            "delta_success_rate": -100.0
+          }
+        },
+        "6": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_baseline.mp4"
+          },
+          "crop_bottom_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_crop_bottom_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_crop_right_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_top_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_crop_top_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 100.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task6_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_rotate_15.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task6_s42_v_flip.mp4",
+            "delta_success_rate": -100.0
+          }
+        },
+        "7": {
+          "baseline": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_baseline.mp4"
+          },
+          "crop_bottom_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_crop_bottom_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_crop_left_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_right_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_crop_right_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_top_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_crop_top_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_h_flip.mp4",
+            "delta_success_rate": 0.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 0.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task7_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_rotate_15.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_rotate_45.mp4",
+            "delta_success_rate": 0.0
+          },
+          "v_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task7_s42_v_flip.mp4",
+            "delta_success_rate": 0.0
+          }
+        },
+        "8": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_baseline.mp4"
+          },
+          "crop_bottom_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_crop_bottom_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_crop_right_half.mp4",
+            "delta_success_rate": 0.0
+          },
+          "crop_top_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_crop_top_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 100.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task8_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": 0.0
+          },
+          "rotate_15": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_rotate_15.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task8_s42_v_flip.mp4",
+            "delta_success_rate": -100.0
+          }
+        },
+        "9": {
+          "baseline": {
+            "success_rate": 100.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_baseline.mp4"
+          },
+          "crop_bottom_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_crop_bottom_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_left_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_crop_left_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_right_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_crop_right_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "crop_top_half": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_crop_top_half.mp4",
+            "delta_success_rate": -100.0
+          },
+          "h_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_h_flip.mp4",
+            "delta_success_rate": -100.0
+          },
+          "object_crop_objects_only": {
+            "success_rate": 0.0,
+            "n_episodes": 1,
+            "video_path": "vision_perturbation/batch2/libero_spatial/object_centric/libero_spatial_task9_s42_object_crop_objects_only.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_15": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_rotate_15.mp4",
+            "delta_success_rate": -100.0
+          },
+          "rotate_45": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_rotate_45.mp4",
+            "delta_success_rate": -100.0
+          },
+          "v_flip": {
+            "success_rate": 0.0,
+            "n_episodes": 2,
+            "video_path": "vision_perturbation/batch2/libero_spatial/libero_spatial_task9_s42_v_flip.mp4",
+            "delta_success_rate": -100.0
+          }
+        }
+      },
+      "overall": {
+        "baseline": {
+          "success_rate": 93.3,
+          "n_episodes": 30
+        },
+        "blur_heavy_after_100": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "blur_heavy_early": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "blur_heavy_first_50": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "blur_heavy_full": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "blur_heavy_late": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "blur_heavy_mid": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "crop_bottom_half": {
+          "success_rate": 30.0,
+          "n_episodes": 20,
+          "delta_success_rate": -63.3
+        },
+        "crop_left_half": {
+          "success_rate": 0.0,
+          "n_episodes": 20,
+          "delta_success_rate": -93.3
+        },
+        "crop_right_half": {
+          "success_rate": 50.0,
+          "n_episodes": 20,
+          "delta_success_rate": -43.3
+        },
+        "crop_top_half": {
+          "success_rate": 20.0,
+          "n_episodes": 20,
+          "delta_success_rate": -73.3
+        },
+        "grayscale_after_100": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "grayscale_early": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "grayscale_first_50": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "grayscale_full": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "grayscale_late": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "grayscale_mid": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "h_flip": {
+          "success_rate": 0.0,
+          "n_episodes": 20,
+          "delta_success_rate": -93.3
+        },
+        "h_flip_after_100": {
+          "success_rate": 60.0,
+          "n_episodes": 10,
+          "delta_success_rate": -33.3
+        },
+        "h_flip_early": {
+          "success_rate": 40.0,
+          "n_episodes": 10,
+          "delta_success_rate": -53.3
+        },
+        "h_flip_first_50": {
+          "success_rate": 40.0,
+          "n_episodes": 10,
+          "delta_success_rate": -53.3
+        },
+        "h_flip_full": {
+          "success_rate": 0.0,
+          "n_episodes": 10,
+          "delta_success_rate": -93.3
+        },
+        "h_flip_late": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "h_flip_mid": {
+          "success_rate": 80.0,
+          "n_episodes": 10,
+          "delta_success_rate": -13.3
+        },
+        "noise_high_after_100": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "noise_high_early": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "noise_high_first_50": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "noise_high_full": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "noise_high_late": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "noise_high_mid": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "object_crop_objects_only": {
+          "success_rate": 80.0,
+          "n_episodes": 10,
+          "delta_success_rate": -13.3
+        },
+        "rotate_15": {
+          "success_rate": 40.0,
+          "n_episodes": 20,
+          "delta_success_rate": -53.3
+        },
+        "rotate_15_after_100": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "rotate_15_early": {
+          "success_rate": 60.0,
+          "n_episodes": 10,
+          "delta_success_rate": -33.3
+        },
+        "rotate_15_first_50": {
+          "success_rate": 40.0,
+          "n_episodes": 10,
+          "delta_success_rate": -53.3
+        },
+        "rotate_15_full": {
+          "success_rate": 40.0,
+          "n_episodes": 10,
+          "delta_success_rate": -53.3
+        },
+        "rotate_15_late": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "rotate_15_mid": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "rotate_45": {
+          "success_rate": 0.0,
+          "n_episodes": 20,
+          "delta_success_rate": -93.3
+        },
+        "v_flip": {
+          "success_rate": 20.0,
+          "n_episodes": 20,
+          "delta_success_rate": -73.3
+        },
+        "v_flip_after_100": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "v_flip_early": {
+          "success_rate": 60.0,
+          "n_episodes": 10,
+          "delta_success_rate": -33.3
+        },
+        "v_flip_first_50": {
+          "success_rate": 80.0,
+          "n_episodes": 10,
+          "delta_success_rate": -13.3
+        },
+        "v_flip_full": {
+          "success_rate": 40.0,
+          "n_episodes": 10,
+          "delta_success_rate": -53.3
+        },
+        "v_flip_late": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        },
+        "v_flip_mid": {
+          "success_rate": 100.0,
+          "n_episodes": 10,
+          "delta_success_rate": 6.7
+        }
+      }
+    }
+  },
+  "perturbation_types": [
+    "baseline",
+    "blur_heavy_after_100",
+    "blur_heavy_early",
+    "blur_heavy_first_50",
+    "blur_heavy_full",
+    "blur_heavy_late",
+    "blur_heavy_mid",
+    "crop_bottom_half",
+    "crop_left_half",
+    "crop_right_half",
+    "crop_top_half",
+    "grayscale_after_100",
+    "grayscale_early",
+    "grayscale_first_50",
+    "grayscale_full",
+    "grayscale_late",
+    "grayscale_mid",
+    "h_flip",
+    "h_flip_after_100",
+    "h_flip_early",
+    "h_flip_first_50",
+    "h_flip_full",
+    "h_flip_late",
+    "h_flip_mid",
+    "noise_high_after_100",
+    "noise_high_early",
+    "noise_high_first_50",
+    "noise_high_full",
+    "noise_high_late",
+    "noise_high_mid",
+    "object_crop_objects_only",
+    "rotate_15",
+    "rotate_15_after_100",
+    "rotate_15_early",
+    "rotate_15_first_50",
+    "rotate_15_full",
+    "rotate_15_late",
+    "rotate_15_mid",
+    "rotate_45",
+    "v_flip",
+    "v_flip_after_100",
+    "v_flip_early",
+    "v_flip_first_50",
+    "v_flip_full",
+    "v_flip_late",
+    "v_flip_mid"
+  ]
+}

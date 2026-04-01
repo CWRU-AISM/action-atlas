@@ -1,0 +1,1400 @@
+{
+  "L12_10": {
+    "layer": 12,
+    "suite": "10",
+    "baseline_sr": 0.98,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "motion/close",
+        "success_rate": 0.82,
+        "delta": -0.16,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/butter",
+        "success_rate": 0.82,
+        "delta": -0.16,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/bottom",
+        "success_rate": 0.84,
+        "delta": -0.14,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/drawer",
+        "success_rate": 0.86,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/put",
+        "success_rate": 0.88,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/tomato_sauce",
+        "success_rate": 0.88,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/basket",
+        "success_rate": 0.88,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bowl",
+        "success_rate": 0.88,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.88,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in",
+        "success_rate": 0.88,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.9,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/book",
+        "success_rate": 0.92,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/plate",
+        "success_rate": 0.92,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/caddy",
+        "success_rate": 0.94,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/alphabet_soup",
+        "success_rate": 0.94,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/microwave",
+        "success_rate": 0.94,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/pick",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/moka_pot",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/pudding",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/right",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0.98,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/mug",
+        "success_rate": 1.0,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/left",
+        "success_rate": 1.0,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L12_goal": {
+    "layer": 12,
+    "suite": "goal",
+    "baseline_sr": 0.96,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "object/wine_bottle",
+        "success_rate": 0.82,
+        "delta": -0.14,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/interact",
+        "success_rate": 0.84,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/rack",
+        "success_rate": 0.84,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.88,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 0.92,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/put",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/top",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/front",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bowl",
+        "success_rate": 0.96,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 0.96,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/plate",
+        "success_rate": 0.98,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/drawer",
+        "success_rate": 0.98,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.98,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/middle",
+        "success_rate": 0.98,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 1.0,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L12_object": {
+    "layer": 12,
+    "suite": "object",
+    "baseline_sr": 1.0,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "object/alphabet_soup",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/butter",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/chocolate_pudding",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/tomato_sauce",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L12_spatial": {
+    "layer": 12,
+    "suite": "spatial",
+    "baseline_sr": 0.94,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "spatial/center",
+        "success_rate": 0.88,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.88,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/ramekin",
+        "success_rate": 0.94,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 0.94,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/between",
+        "success_rate": 0.94,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in_drawer",
+        "success_rate": 0.94,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cookie_box",
+        "success_rate": 0.98,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.98,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/next_to",
+        "success_rate": 0.98,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/drawer",
+        "success_rate": 1.0,
+        "delta": 0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L20_10": {
+    "layer": 20,
+    "suite": "10",
+    "baseline_sr": 0.92,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "object/drawer",
+        "success_rate": 0.8,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0.82,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/pudding",
+        "success_rate": 0.84,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in",
+        "success_rate": 0.84,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/bottom",
+        "success_rate": 0.84,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/butter",
+        "success_rate": 0.86,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bowl",
+        "success_rate": 0.86,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.86,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/microwave",
+        "success_rate": 0.86,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/left",
+        "success_rate": 0.86,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 0.88,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/put",
+        "success_rate": 0.9,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/alphabet_soup",
+        "success_rate": 0.9,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/tomato_sauce",
+        "success_rate": 0.92,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/plate",
+        "success_rate": 0.92,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0.94,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 0.94,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/basket",
+        "success_rate": 0.94,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.94,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/right",
+        "success_rate": 0.94,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/pick",
+        "success_rate": 0.96,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/book",
+        "success_rate": 0.96,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/caddy",
+        "success_rate": 0.96,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/moka_pot",
+        "success_rate": 0.96,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/mug",
+        "success_rate": 1.0,
+        "delta": 0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L20_goal": {
+    "layer": 20,
+    "suite": "goal",
+    "baseline_sr": 0.98,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "object/wine_bottle",
+        "success_rate": 0.86,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/middle",
+        "success_rate": 0.86,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/rack",
+        "success_rate": 0.88,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0.92,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/plate",
+        "success_rate": 0.92,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/front",
+        "success_rate": 0.92,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0.94,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.94,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/drawer",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/top",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/put",
+        "success_rate": 0.98,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/interact",
+        "success_rate": 0.98,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bowl",
+        "success_rate": 0.98,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.98,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in",
+        "success_rate": 0.98,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 1.0,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L20_object": {
+    "layer": 20,
+    "suite": "object",
+    "baseline_sr": 1.0,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "object/alphabet_soup",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/butter",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/chocolate_pudding",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/tomato_sauce",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L20_spatial": {
+    "layer": 20,
+    "suite": "spatial",
+    "baseline_sr": 0.9,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "spatial/center",
+        "success_rate": 0.9,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.92,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/next_to",
+        "success_rate": 0.94,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 0.96,
+        "delta": 0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/drawer",
+        "success_rate": 0.96,
+        "delta": 0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/between",
+        "success_rate": 0.96,
+        "delta": 0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/ramekin",
+        "success_rate": 0.98,
+        "delta": 0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cookie_box",
+        "success_rate": 0.98,
+        "delta": 0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in_drawer",
+        "success_rate": 0.98,
+        "delta": 0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.98,
+        "delta": 0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L23_10": {
+    "layer": 23,
+    "suite": "10",
+    "baseline_sr": 0.96,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.82,
+        "delta": -0.14,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bowl",
+        "success_rate": 0.84,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/drawer",
+        "success_rate": 0.84,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in",
+        "success_rate": 0.84,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0.88,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/put",
+        "success_rate": 0.9,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 0.9,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/alphabet_soup",
+        "success_rate": 0.9,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/tomato_sauce",
+        "success_rate": 0.9,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/butter",
+        "success_rate": 0.9,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/bottom",
+        "success_rate": 0.9,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/plate",
+        "success_rate": 0.92,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/microwave",
+        "success_rate": 0.92,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/moka_pot",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/pudding",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/left",
+        "success_rate": 0.94,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/pick",
+        "success_rate": 0.96,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0.96,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/book",
+        "success_rate": 0.96,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/caddy",
+        "success_rate": 0.96,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.96,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/right",
+        "success_rate": 0.96,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/basket",
+        "success_rate": 0.98,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/mug",
+        "success_rate": 0.98,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L23_goal": {
+    "layer": 23,
+    "suite": "goal",
+    "baseline_sr": 0.94,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.84,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/wine_bottle",
+        "success_rate": 0.86,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/rack",
+        "success_rate": 0.86,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/middle",
+        "success_rate": 0.86,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0.88,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/drawer",
+        "success_rate": 0.88,
+        "delta": -0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 0.9,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/front",
+        "success_rate": 0.9,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/put",
+        "success_rate": 0.92,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0.92,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "motion/interact",
+        "success_rate": 0.92,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/plate",
+        "success_rate": 0.92,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in",
+        "success_rate": 0.92,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.96,
+        "delta": 0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/top",
+        "success_rate": 0.98,
+        "delta": 0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bowl",
+        "success_rate": 1.0,
+        "delta": 0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 1.0,
+        "delta": 0.06,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L23_object": {
+    "layer": 23,
+    "suite": "object",
+    "baseline_sr": 1.0,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0.9,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0.9,
+        "delta": -0.1,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/alphabet_soup",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/butter",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/chocolate_pudding",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cream_cheese",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/tomato_sauce",
+        "success_rate": 1.0,
+        "delta": 0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  },
+  "L23_spatial": {
+    "layer": 23,
+    "suite": "spatial",
+    "baseline_sr": 0.98,
+    "n_episodes": 5,
+    "concepts": [
+      {
+        "concept": "spatial/center",
+        "success_rate": 0.8,
+        "delta": -0.18,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0.86,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/next_to",
+        "success_rate": 0.86,
+        "delta": -0.12,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/between",
+        "success_rate": 0.9,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/on",
+        "success_rate": 0.9,
+        "delta": -0.08,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/cookie_box",
+        "success_rate": 0.94,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "spatial/in_drawer",
+        "success_rate": 0.94,
+        "delta": -0.04,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/ramekin",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/stove",
+        "success_rate": 0.96,
+        "delta": -0.02,
+        "n_episodes": 50,
+        "n_features": 30
+      },
+      {
+        "concept": "object/drawer",
+        "success_rate": 0.98,
+        "delta": -0.0,
+        "n_episodes": 50,
+        "n_features": 30
+      }
+    ]
+  }
+}

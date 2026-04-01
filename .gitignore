@@ -1,0 +1,46 @@
+# Data directories (download separately)
+outputs/
+results/
+rollouts/
+checkpoints/
+activations/
+videos/
+logs/
+
+# Heavy visualization data (download separately)
+action_atlas/data/processed/
+action_atlas/data/processed_old/
+action_atlas/data/feature_embeddings/
+action_atlas/data/descriptions/
+action_atlas/data/*_scene_state/
+action_atlas/data/videos/
+
+# Frontend build artifacts
+action_atlas/frontend/.next/
+action_atlas/frontend/node_modules/
+action_atlas/frontend/out/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# User-specific
+*.log

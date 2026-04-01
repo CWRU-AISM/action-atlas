@@ -1,0 +1,3036 @@
+{
+  "model": "smolvla",
+  "suite": "libero_spatial",
+  "n_layers": 64,
+  "layers": [
+    {
+      "layer": 0,
+      "id": "vlm_layer_0-libero_spatial",
+      "name": "VLM Layer 0",
+      "pathway": "vlm",
+      "pathway_index": 0,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 1,
+      "id": "vlm_layer_1-libero_spatial",
+      "name": "VLM Layer 1",
+      "pathway": "vlm",
+      "pathway_index": 1,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 2,
+      "id": "vlm_layer_2-libero_spatial",
+      "name": "VLM Layer 2",
+      "pathway": "vlm",
+      "pathway_index": 2,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 3,
+      "id": "vlm_layer_3-libero_spatial",
+      "name": "VLM Layer 3",
+      "pathway": "vlm",
+      "pathway_index": 3,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 4,
+      "id": "vlm_layer_4-libero_spatial",
+      "name": "VLM Layer 4",
+      "pathway": "vlm",
+      "pathway_index": 4,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 5,
+      "id": "vlm_layer_5-libero_spatial",
+      "name": "VLM Layer 5",
+      "pathway": "vlm",
+      "pathway_index": 5,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 6,
+      "id": "vlm_layer_6-libero_spatial",
+      "name": "VLM Layer 6",
+      "pathway": "vlm",
+      "pathway_index": 6,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 7,
+      "id": "vlm_layer_7-libero_spatial",
+      "name": "VLM Layer 7",
+      "pathway": "vlm",
+      "pathway_index": 7,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 8,
+      "id": "vlm_layer_8-libero_spatial",
+      "name": "VLM Layer 8",
+      "pathway": "vlm",
+      "pathway_index": 8,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 9,
+      "id": "vlm_layer_9-libero_spatial",
+      "name": "VLM Layer 9",
+      "pathway": "vlm",
+      "pathway_index": 9,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 10,
+      "id": "vlm_layer_10-libero_spatial",
+      "name": "VLM Layer 10",
+      "pathway": "vlm",
+      "pathway_index": 10,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 11,
+      "id": "vlm_layer_11-libero_spatial",
+      "name": "VLM Layer 11",
+      "pathway": "vlm",
+      "pathway_index": 11,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 12,
+      "id": "vlm_layer_12-libero_spatial",
+      "name": "VLM Layer 12",
+      "pathway": "vlm",
+      "pathway_index": 12,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 13,
+      "id": "vlm_layer_13-libero_spatial",
+      "name": "VLM Layer 13",
+      "pathway": "vlm",
+      "pathway_index": 13,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 14,
+      "id": "vlm_layer_14-libero_spatial",
+      "name": "VLM Layer 14",
+      "pathway": "vlm",
+      "pathway_index": 14,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 15,
+      "id": "vlm_layer_15-libero_spatial",
+      "name": "VLM Layer 15",
+      "pathway": "vlm",
+      "pathway_index": 15,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 16,
+      "id": "vlm_layer_16-libero_spatial",
+      "name": "VLM Layer 16",
+      "pathway": "vlm",
+      "pathway_index": 16,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 17,
+      "id": "vlm_layer_17-libero_spatial",
+      "name": "VLM Layer 17",
+      "pathway": "vlm",
+      "pathway_index": 17,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 18,
+      "id": "vlm_layer_18-libero_spatial",
+      "name": "VLM Layer 18",
+      "pathway": "vlm",
+      "pathway_index": 18,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 19,
+      "id": "vlm_layer_19-libero_spatial",
+      "name": "VLM Layer 19",
+      "pathway": "vlm",
+      "pathway_index": 19,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 20,
+      "id": "vlm_layer_20-libero_spatial",
+      "name": "VLM Layer 20",
+      "pathway": "vlm",
+      "pathway_index": 20,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 21,
+      "id": "vlm_layer_21-libero_spatial",
+      "name": "VLM Layer 21",
+      "pathway": "vlm",
+      "pathway_index": 21,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 22,
+      "id": "vlm_layer_22-libero_spatial",
+      "name": "VLM Layer 22",
+      "pathway": "vlm",
+      "pathway_index": 22,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 23,
+      "id": "vlm_layer_23-libero_spatial",
+      "name": "VLM Layer 23",
+      "pathway": "vlm",
+      "pathway_index": 23,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 24,
+      "id": "vlm_layer_24-libero_spatial",
+      "name": "VLM Layer 24",
+      "pathway": "vlm",
+      "pathway_index": 24,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 25,
+      "id": "vlm_layer_25-libero_spatial",
+      "name": "VLM Layer 25",
+      "pathway": "vlm",
+      "pathway_index": 25,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 26,
+      "id": "vlm_layer_26-libero_spatial",
+      "name": "VLM Layer 26",
+      "pathway": "vlm",
+      "pathway_index": 26,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 27,
+      "id": "vlm_layer_27-libero_spatial",
+      "name": "VLM Layer 27",
+      "pathway": "vlm",
+      "pathway_index": 27,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 28,
+      "id": "vlm_layer_28-libero_spatial",
+      "name": "VLM Layer 28",
+      "pathway": "vlm",
+      "pathway_index": 28,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 29,
+      "id": "vlm_layer_29-libero_spatial",
+      "name": "VLM Layer 29",
+      "pathway": "vlm",
+      "pathway_index": 29,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 30,
+      "id": "vlm_layer_30-libero_spatial",
+      "name": "VLM Layer 30",
+      "pathway": "vlm",
+      "pathway_index": 30,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 31,
+      "id": "vlm_layer_31-libero_spatial",
+      "name": "VLM Layer 31",
+      "pathway": "vlm",
+      "pathway_index": 31,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 32,
+      "id": "expert_layer_0-libero_spatial",
+      "name": "Expert Layer 0",
+      "pathway": "expert",
+      "pathway_index": 0,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 33,
+      "id": "expert_layer_1-libero_spatial",
+      "name": "Expert Layer 1",
+      "pathway": "expert",
+      "pathway_index": 1,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 34,
+      "id": "expert_layer_2-libero_spatial",
+      "name": "Expert Layer 2",
+      "pathway": "expert",
+      "pathway_index": 2,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 35,
+      "id": "expert_layer_3-libero_spatial",
+      "name": "Expert Layer 3",
+      "pathway": "expert",
+      "pathway_index": 3,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 36,
+      "id": "expert_layer_4-libero_spatial",
+      "name": "Expert Layer 4",
+      "pathway": "expert",
+      "pathway_index": 4,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 37,
+      "id": "expert_layer_5-libero_spatial",
+      "name": "Expert Layer 5",
+      "pathway": "expert",
+      "pathway_index": 5,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 38,
+      "id": "expert_layer_6-libero_spatial",
+      "name": "Expert Layer 6",
+      "pathway": "expert",
+      "pathway_index": 6,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 39,
+      "id": "expert_layer_7-libero_spatial",
+      "name": "Expert Layer 7",
+      "pathway": "expert",
+      "pathway_index": 7,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 40,
+      "id": "expert_layer_8-libero_spatial",
+      "name": "Expert Layer 8",
+      "pathway": "expert",
+      "pathway_index": 8,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 41,
+      "id": "expert_layer_9-libero_spatial",
+      "name": "Expert Layer 9",
+      "pathway": "expert",
+      "pathway_index": 9,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 42,
+      "id": "expert_layer_10-libero_spatial",
+      "name": "Expert Layer 10",
+      "pathway": "expert",
+      "pathway_index": 10,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 43,
+      "id": "expert_layer_11-libero_spatial",
+      "name": "Expert Layer 11",
+      "pathway": "expert",
+      "pathway_index": 11,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 44,
+      "id": "expert_layer_12-libero_spatial",
+      "name": "Expert Layer 12",
+      "pathway": "expert",
+      "pathway_index": 12,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 45,
+      "id": "expert_layer_13-libero_spatial",
+      "name": "Expert Layer 13",
+      "pathway": "expert",
+      "pathway_index": 13,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 46,
+      "id": "expert_layer_14-libero_spatial",
+      "name": "Expert Layer 14",
+      "pathway": "expert",
+      "pathway_index": 14,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 47,
+      "id": "expert_layer_15-libero_spatial",
+      "name": "Expert Layer 15",
+      "pathway": "expert",
+      "pathway_index": 15,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 48,
+      "id": "expert_layer_16-libero_spatial",
+      "name": "Expert Layer 16",
+      "pathway": "expert",
+      "pathway_index": 16,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 49,
+      "id": "expert_layer_17-libero_spatial",
+      "name": "Expert Layer 17",
+      "pathway": "expert",
+      "pathway_index": 17,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 50,
+      "id": "expert_layer_18-libero_spatial",
+      "name": "Expert Layer 18",
+      "pathway": "expert",
+      "pathway_index": 18,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 51,
+      "id": "expert_layer_19-libero_spatial",
+      "name": "Expert Layer 19",
+      "pathway": "expert",
+      "pathway_index": 19,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 52,
+      "id": "expert_layer_20-libero_spatial",
+      "name": "Expert Layer 20",
+      "pathway": "expert",
+      "pathway_index": 20,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 53,
+      "id": "expert_layer_21-libero_spatial",
+      "name": "Expert Layer 21",
+      "pathway": "expert",
+      "pathway_index": 21,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 54,
+      "id": "expert_layer_22-libero_spatial",
+      "name": "Expert Layer 22",
+      "pathway": "expert",
+      "pathway_index": 22,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 55,
+      "id": "expert_layer_23-libero_spatial",
+      "name": "Expert Layer 23",
+      "pathway": "expert",
+      "pathway_index": 23,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 56,
+      "id": "expert_layer_24-libero_spatial",
+      "name": "Expert Layer 24",
+      "pathway": "expert",
+      "pathway_index": 24,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 57,
+      "id": "expert_layer_25-libero_spatial",
+      "name": "Expert Layer 25",
+      "pathway": "expert",
+      "pathway_index": 25,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 58,
+      "id": "expert_layer_26-libero_spatial",
+      "name": "Expert Layer 26",
+      "pathway": "expert",
+      "pathway_index": 26,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 59,
+      "id": "expert_layer_27-libero_spatial",
+      "name": "Expert Layer 27",
+      "pathway": "expert",
+      "pathway_index": 27,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 60,
+      "id": "expert_layer_28-libero_spatial",
+      "name": "Expert Layer 28",
+      "pathway": "expert",
+      "pathway_index": 28,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 61,
+      "id": "expert_layer_29-libero_spatial",
+      "name": "Expert Layer 29",
+      "pathway": "expert",
+      "pathway_index": 29,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 62,
+      "id": "expert_layer_30-libero_spatial",
+      "name": "Expert Layer 30",
+      "pathway": "expert",
+      "pathway_index": 30,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    },
+    {
+      "layer": 63,
+      "id": "expert_layer_31-libero_spatial",
+      "name": "Expert Layer 31",
+      "pathway": "expert",
+      "pathway_index": 31,
+      "type": "RES",
+      "r2": null,
+      "success_auc": null,
+      "feature_count": 500,
+      "motion_features": 0,
+      "object_features": 5,
+      "spatial_features": 5,
+      "dominant_type": "object",
+      "top_concepts": [
+        {
+          "concept": "object/ramekin",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cookie_box",
+          "n_features": 50
+        },
+        {
+          "concept": "object/stove",
+          "n_features": 50
+        },
+        {
+          "concept": "object/cabinet",
+          "n_features": 50
+        },
+        {
+          "concept": "object/drawer",
+          "n_features": 50
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "source": 0,
+      "target": 1,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 2,
+      "target": 3,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 11,
+      "target": 12,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 14,
+      "target": 15,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 17,
+      "target": 18,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 18,
+      "target": 19,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 19,
+      "target": 20,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 20,
+      "target": 21,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 21,
+      "target": 22,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 22,
+      "target": 23,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 23,
+      "target": 24,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 24,
+      "target": 25,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 25,
+      "target": 26,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 26,
+      "target": 27,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 27,
+      "target": 28,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 28,
+      "target": 29,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 29,
+      "target": 30,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 30,
+      "target": 31,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 32,
+      "target": 33,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 33,
+      "target": 34,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 34,
+      "target": 35,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 35,
+      "target": 36,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 36,
+      "target": 37,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 37,
+      "target": 38,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 38,
+      "target": 39,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 39,
+      "target": 40,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 40,
+      "target": 41,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 41,
+      "target": 42,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 42,
+      "target": 43,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 43,
+      "target": 44,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 44,
+      "target": 45,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 45,
+      "target": 46,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 46,
+      "target": 47,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 47,
+      "target": 48,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 48,
+      "target": 49,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 49,
+      "target": 50,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 50,
+      "target": 51,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 51,
+      "target": 52,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 52,
+      "target": 53,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 53,
+      "target": 54,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 54,
+      "target": 55,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 55,
+      "target": 56,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 56,
+      "target": 57,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 57,
+      "target": 58,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 58,
+      "target": 59,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 59,
+      "target": 60,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 60,
+      "target": 61,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 61,
+      "target": 62,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 62,
+      "target": 63,
+      "type": "sequential",
+      "strength": 0.5,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 0,
+      "target": 32,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 1,
+      "target": 33,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 2,
+      "target": 34,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 3,
+      "target": 35,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 4,
+      "target": 36,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 5,
+      "target": 37,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 6,
+      "target": 38,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 7,
+      "target": 39,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 8,
+      "target": 40,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 9,
+      "target": 41,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 10,
+      "target": 42,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 11,
+      "target": 43,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 12,
+      "target": 44,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 13,
+      "target": 45,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 14,
+      "target": 46,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 15,
+      "target": 47,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 16,
+      "target": 48,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 17,
+      "target": 49,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 18,
+      "target": 50,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 19,
+      "target": 51,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 20,
+      "target": 52,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 21,
+      "target": 53,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 22,
+      "target": 54,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 23,
+      "target": 55,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 24,
+      "target": 56,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 25,
+      "target": 57,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 26,
+      "target": 58,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 27,
+      "target": 59,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 28,
+      "target": 60,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 29,
+      "target": 61,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 30,
+      "target": 62,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    },
+    {
+      "source": 31,
+      "target": 63,
+      "type": "cross_pathway",
+      "strength": 0.3,
+      "delta_r2": 0.0
+    }
+  ],
+  "data_source": "concept_id"
+}

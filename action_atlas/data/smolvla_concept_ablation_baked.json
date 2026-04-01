@@ -1,0 +1,2061 @@
+{
+  "expert_L02_libero_10": {
+    "layer": "expert_L02",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L03_libero_10": {
+    "layer": "expert_L03",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L05_libero_10": {
+    "layer": "expert_L05",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/mug",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/wine_bottle",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/tomato_sauce",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L10_libero_10": {
+    "layer": "expert_L10",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L11_libero_10": {
+    "layer": "expert_L11",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L15_libero_10": {
+    "layer": "expert_L15",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L16_libero_10": {
+    "layer": "expert_L16",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L17_libero_10": {
+    "layer": "expert_L17",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L19_libero_10": {
+    "layer": "expert_L19",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L20_libero_10": {
+    "layer": "expert_L20",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L23_libero_10": {
+    "layer": "expert_L23",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L24_libero_10": {
+    "layer": "expert_L24",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L26_libero_10": {
+    "layer": "expert_L26",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/wine_bottle",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L29_libero_10": {
+    "layer": "expert_L29",
+    "suite": "libero_10",
+    "baseline_sr": 0.4071,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.4071,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L00_libero_goal": {
+    "layer": "expert_L00",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial/center",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/wine_bottle",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L01_libero_goal": {
+    "layer": "expert_L01",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L02_libero_goal": {
+    "layer": "expert_L02",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L03_libero_goal": {
+    "layer": "expert_L03",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L04_libero_goal": {
+    "layer": "expert_L04",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial/in",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/moka_pot",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/basket",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L05_libero_goal": {
+    "layer": "expert_L05",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L06_libero_goal": {
+    "layer": "expert_L06",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L07_libero_goal": {
+    "layer": "expert_L07",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L08_libero_goal": {
+    "layer": "expert_L08",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/cookie_box",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L09_libero_goal": {
+    "layer": "expert_L09",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L10_libero_goal": {
+    "layer": "expert_L10",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/cookie_box",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ramekin",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/moka_pot",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L11_libero_goal": {
+    "layer": "expert_L11",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/moka_pot",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L12_libero_goal": {
+    "layer": "expert_L12",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/cookie_box",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ramekin",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L13_libero_goal": {
+    "layer": "expert_L13",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial/center",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial/between",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L14_libero_goal": {
+    "layer": "expert_L14",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/chocolate_pudding",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L15_libero_goal": {
+    "layer": "expert_L15",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L16_libero_goal": {
+    "layer": "expert_L16",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L17_libero_goal": {
+    "layer": "expert_L17",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L18_libero_goal": {
+    "layer": "expert_L18",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L19_libero_goal": {
+    "layer": "expert_L19",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L20_libero_goal": {
+    "layer": "expert_L20",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/orange_juice",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/bbq_sauce",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ketchup",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L21_libero_goal": {
+    "layer": "expert_L21",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L22_libero_goal": {
+    "layer": "expert_L22",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L23_libero_goal": {
+    "layer": "expert_L23",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L24_libero_goal": {
+    "layer": "expert_L24",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L25_libero_goal": {
+    "layer": "expert_L25",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L26_libero_goal": {
+    "layer": "expert_L26",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L27_libero_goal": {
+    "layer": "expert_L27",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L28_libero_goal": {
+    "layer": "expert_L28",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L29_libero_goal": {
+    "layer": "expert_L29",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L30_libero_goal": {
+    "layer": "expert_L30",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L31_libero_goal": {
+    "layer": "expert_L31",
+    "suite": "libero_goal",
+    "baseline_sr": 0.75,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.75,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L00_libero_object": {
+    "layer": "expert_L00",
+    "suite": "libero_object",
+    "baseline_sr": 0.785,
+    "concepts": [
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial/center",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/wine_bottle",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/salad_dressing",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/milk",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/cabinet",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L01_libero_object": {
+    "layer": "expert_L01",
+    "suite": "libero_object",
+    "baseline_sr": 0.785,
+    "concepts": [
+      {
+        "concept": "spatial/between",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial/center",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/ramekin",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/microwave",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial/next_to",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/close",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/open",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/turn_on",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "motion/push",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object/chocolate_pudding",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      }
+    ]
+  },
+  "expert_L02_libero_object": {
+    "layer": "expert_L02",
+    "suite": "libero_object",
+    "baseline_sr": 0.785,
+    "concepts": [
+      {
+        "concept": "motion",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "object",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "spatial",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      },
+      {
+        "concept": "random",
+        "success_rate": 0,
+        "delta": -0.785,
+        "n_episodes": 0
+      }
+    ]
+  }
+}

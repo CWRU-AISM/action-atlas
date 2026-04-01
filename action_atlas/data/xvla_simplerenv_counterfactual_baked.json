@@ -1,0 +1,1518 @@
+{
+  "simplerenv_google_robot": {
+    "tasks": [
+      {
+        "task": "google_robot_pick_coke_can",
+        "prompt": "pick coke can",
+        "conditions": {
+          "baseline": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        }
+      },
+      {
+        "task": "google_robot_move_near",
+        "prompt": "move blue plastic bottle near sponge",
+        "conditions": {
+          "baseline": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          }
+        }
+      },
+      {
+        "task": "google_robot_open_top_drawer",
+        "prompt": "open top drawer",
+        "conditions": {
+          "baseline": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          }
+        }
+      },
+      {
+        "task": "google_robot_close_top_drawer",
+        "prompt": "close top drawer",
+        "conditions": {
+          "baseline": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          }
+        }
+      },
+      {
+        "task": "google_robot_open_middle_drawer",
+        "prompt": "open middle drawer",
+        "conditions": {
+          "baseline": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        }
+      },
+      {
+        "task": "google_robot_close_middle_drawer",
+        "prompt": "close middle drawer",
+        "conditions": {
+          "baseline": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        }
+      }
+    ],
+    "categories": {
+      "baseline": {
+        "total": 30,
+        "successes": 21,
+        "success_rate": 0.7
+      },
+      "null": {
+        "total": 30,
+        "successes": 10,
+        "success_rate": 0.3333333333333333
+      },
+      "nonsense": {
+        "total": 30,
+        "successes": 12,
+        "success_rate": 0.4
+      },
+      "numbers": {
+        "total": 30,
+        "successes": 14,
+        "success_rate": 0.4666666666666667
+      },
+      "greeting": {
+        "total": 30,
+        "successes": 7,
+        "success_rate": 0.23333333333333334
+      },
+      "stop": {
+        "total": 30,
+        "successes": 14,
+        "success_rate": 0.4666666666666667
+      },
+      "freeze": {
+        "total": 30,
+        "successes": 10,
+        "success_rate": 0.3333333333333333
+      },
+      "do_nothing": {
+        "total": 30,
+        "successes": 14,
+        "success_rate": 0.4666666666666667
+      },
+      "negation": {
+        "total": 30,
+        "successes": 18,
+        "success_rate": 0.6
+      },
+      "opposite": {
+        "total": 30,
+        "successes": 17,
+        "success_rate": 0.5666666666666667
+      },
+      "open_gripper": {
+        "total": 30,
+        "successes": 10,
+        "success_rate": 0.3333333333333333
+      },
+      "close_gripper": {
+        "total": 30,
+        "successes": 6,
+        "success_rate": 0.2
+      },
+      "move_left": {
+        "total": 30,
+        "successes": 9,
+        "success_rate": 0.3
+      },
+      "move_right": {
+        "total": 30,
+        "successes": 4,
+        "success_rate": 0.13333333333333333
+      },
+      "move_up": {
+        "total": 30,
+        "successes": 8,
+        "success_rate": 0.26666666666666666
+      },
+      "move_down": {
+        "total": 30,
+        "successes": 12,
+        "success_rate": 0.4
+      },
+      "move_forward": {
+        "total": 30,
+        "successes": 11,
+        "success_rate": 0.36666666666666664
+      },
+      "move_backward": {
+        "total": 30,
+        "successes": 12,
+        "success_rate": 0.4
+      },
+      "wrong_banana": {
+        "total": 30,
+        "successes": 7,
+        "success_rate": 0.23333333333333334
+      },
+      "wrong_phone": {
+        "total": 30,
+        "successes": 8,
+        "success_rate": 0.26666666666666666
+      },
+      "wrong_dinosaur": {
+        "total": 30,
+        "successes": 7,
+        "success_rate": 0.23333333333333334
+      },
+      "wrong_laptop": {
+        "total": 30,
+        "successes": 7,
+        "success_rate": 0.23333333333333334
+      },
+      "wrong_pizza": {
+        "total": 30,
+        "successes": 6,
+        "success_rate": 0.2
+      },
+      "wrong_hammer": {
+        "total": 30,
+        "successes": 4,
+        "success_rate": 0.13333333333333333
+      }
+    },
+    "n_tasks": 6,
+    "environment": "simplerenv"
+  },
+  "simplerenv_widowx": {
+    "tasks": [
+      {
+        "task": "widowx_spoon_on_towel",
+        "prompt": "put the spoon on the towel",
+        "conditions": {
+          "baseline": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        }
+      },
+      {
+        "task": "widowx_carrot_on_plate",
+        "prompt": "put carrot on plate",
+        "conditions": {
+          "baseline": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        }
+      },
+      {
+        "task": "widowx_stack_cube",
+        "prompt": "stack the green block on the yellow block",
+        "conditions": {
+          "baseline": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 1.0,
+            "successes": 5,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 0.8,
+            "successes": 4,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        }
+      },
+      {
+        "task": "widowx_put_eggplant_in_basket",
+        "prompt": "put eggplant into yellow basket",
+        "conditions": {
+          "baseline": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "null": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "nonsense": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "numbers": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "greeting": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "stop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "freeze": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "do_nothing": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "negation": {
+            "success_rate": 0.4,
+            "successes": 2,
+            "total": 5
+          },
+          "opposite": {
+            "success_rate": 0.6,
+            "successes": 3,
+            "total": 5
+          },
+          "open_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "close_gripper": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_left": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_right": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_up": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_down": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "move_forward": {
+            "success_rate": 0.2,
+            "successes": 1,
+            "total": 5
+          },
+          "move_backward": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_banana": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_phone": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_dinosaur": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_laptop": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_pizza": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          },
+          "wrong_hammer": {
+            "success_rate": 0.0,
+            "successes": 0,
+            "total": 5
+          }
+        }
+      }
+    ],
+    "categories": {
+      "baseline": {
+        "total": 20,
+        "successes": 16,
+        "success_rate": 0.8
+      },
+      "null": {
+        "total": 20,
+        "successes": 4,
+        "success_rate": 0.2
+      },
+      "nonsense": {
+        "total": 20,
+        "successes": 1,
+        "success_rate": 0.05
+      },
+      "numbers": {
+        "total": 20,
+        "successes": 2,
+        "success_rate": 0.1
+      },
+      "greeting": {
+        "total": 20,
+        "successes": 3,
+        "success_rate": 0.15
+      },
+      "stop": {
+        "total": 20,
+        "successes": 1,
+        "success_rate": 0.05
+      },
+      "freeze": {
+        "total": 20,
+        "successes": 0,
+        "success_rate": 0.0
+      },
+      "do_nothing": {
+        "total": 20,
+        "successes": 1,
+        "success_rate": 0.05
+      },
+      "negation": {
+        "total": 20,
+        "successes": 15,
+        "success_rate": 0.75
+      },
+      "opposite": {
+        "total": 20,
+        "successes": 17,
+        "success_rate": 0.85
+      },
+      "open_gripper": {
+        "total": 20,
+        "successes": 1,
+        "success_rate": 0.05
+      },
+      "close_gripper": {
+        "total": 20,
+        "successes": 0,
+        "success_rate": 0.0
+      },
+      "move_left": {
+        "total": 20,
+        "successes": 0,
+        "success_rate": 0.0
+      },
+      "move_right": {
+        "total": 20,
+        "successes": 1,
+        "success_rate": 0.05
+      },
+      "move_up": {
+        "total": 20,
+        "successes": 2,
+        "success_rate": 0.1
+      },
+      "move_down": {
+        "total": 20,
+        "successes": 1,
+        "success_rate": 0.05
+      },
+      "move_forward": {
+        "total": 20,
+        "successes": 2,
+        "success_rate": 0.1
+      },
+      "move_backward": {
+        "total": 20,
+        "successes": 1,
+        "success_rate": 0.05
+      },
+      "wrong_banana": {
+        "total": 20,
+        "successes": 0,
+        "success_rate": 0.0
+      },
+      "wrong_phone": {
+        "total": 20,
+        "successes": 1,
+        "success_rate": 0.05
+      },
+      "wrong_dinosaur": {
+        "total": 20,
+        "successes": 2,
+        "success_rate": 0.1
+      },
+      "wrong_laptop": {
+        "total": 20,
+        "successes": 0,
+        "success_rate": 0.0
+      },
+      "wrong_pizza": {
+        "total": 20,
+        "successes": 0,
+        "success_rate": 0.0
+      },
+      "wrong_hammer": {
+        "total": 20,
+        "successes": 0,
+        "success_rate": 0.0
+      }
+    },
+    "n_tasks": 4,
+    "environment": "simplerenv"
+  }
+}

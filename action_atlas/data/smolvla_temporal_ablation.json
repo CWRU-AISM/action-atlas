@@ -1,0 +1,3535 @@
+{
+  "model": "smolvla",
+  "model_name": "SmolVLA",
+  "available": true,
+  "windows": [
+    "early",
+    "mid",
+    "late",
+    "full"
+  ],
+  "suites": {
+    "libero_10": {
+      "layers": [
+        "expert_L02",
+        "expert_L03",
+        "expert_L05",
+        "expert_L10",
+        "expert_L11",
+        "expert_L15",
+        "expert_L16",
+        "expert_L17",
+        "expert_L19",
+        "expert_L20",
+        "expert_L23",
+        "expert_L24",
+        "expert_L26",
+        "expert_L29",
+        "vlm_L02",
+        "vlm_L03",
+        "vlm_L04",
+        "vlm_L10",
+        "vlm_L14",
+        "vlm_L17",
+        "vlm_L22",
+        "vlm_L24",
+        "vlm_L27",
+        "vlm_L28",
+        "vlm_L29"
+      ],
+      "per_layer": {
+        "expert_L02": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": 19.3
+            },
+            "mid": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "late": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "full": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            }
+          }
+        },
+        "expert_L03": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "mid": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "late": {
+              "success_rate": 0.3667,
+              "delta": -4.0
+            },
+            "full": {
+              "success_rate": 0.3667,
+              "delta": -4.0
+            }
+          }
+        },
+        "expert_L05": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": 19.3
+            },
+            "late": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "full": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            }
+          }
+        },
+        "expert_L10": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "mid": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            },
+            "late": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            },
+            "full": {
+              "success_rate": 0.3667,
+              "delta": -4.0
+            }
+          }
+        },
+        "expert_L11": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "mid": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "late": {
+              "success_rate": 0.3333,
+              "delta": -7.4
+            },
+            "full": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            }
+          }
+        },
+        "expert_L15": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": 29.3
+            },
+            "mid": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "late": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "full": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            }
+          }
+        },
+        "expert_L16": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "mid": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "late": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            },
+            "full": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            }
+          }
+        },
+        "expert_L17": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "mid": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "late": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "full": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            }
+          }
+        },
+        "expert_L19": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": 19.3
+            },
+            "late": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            },
+            "full": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            }
+          }
+        },
+        "expert_L20": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "mid": {
+              "success_rate": 0.3667,
+              "delta": -4.0
+            },
+            "late": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            },
+            "full": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            }
+          }
+        },
+        "expert_L23": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            },
+            "mid": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "late": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "full": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            }
+          }
+        },
+        "expert_L24": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            },
+            "mid": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            },
+            "late": {
+              "success_rate": 0.3667,
+              "delta": -4.0
+            },
+            "full": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            }
+          }
+        },
+        "expert_L26": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "mid": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "late": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            },
+            "full": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            }
+          }
+        },
+        "expert_L29": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.3667,
+              "delta": -4.0
+            },
+            "mid": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "late": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": 19.3
+            }
+          }
+        },
+        "vlm_L02": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "mid": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "late": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "full": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            }
+          }
+        },
+        "vlm_L03": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "mid": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "late": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "full": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            }
+          }
+        },
+        "vlm_L04": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": 19.3
+            },
+            "mid": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "late": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "full": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            }
+          }
+        },
+        "vlm_L10": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            },
+            "mid": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "late": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            },
+            "full": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            }
+          }
+        },
+        "vlm_L14": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            },
+            "mid": {
+              "success_rate": 0.5333,
+              "delta": 12.6
+            },
+            "late": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "full": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            }
+          }
+        },
+        "vlm_L17": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.3667,
+              "delta": -4.0
+            },
+            "mid": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "late": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": 22.6
+            }
+          }
+        },
+        "vlm_L22": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "mid": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            },
+            "late": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "full": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            }
+          }
+        },
+        "vlm_L24": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            },
+            "mid": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "late": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "full": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            }
+          }
+        },
+        "vlm_L27": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "mid": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            },
+            "late": {
+              "success_rate": 0.6,
+              "delta": 19.3
+            },
+            "full": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            }
+          }
+        },
+        "vlm_L28": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "mid": {
+              "success_rate": 0.3,
+              "delta": -10.7
+            },
+            "late": {
+              "success_rate": 0.4667,
+              "delta": 6.0
+            },
+            "full": {
+              "success_rate": 0.3667,
+              "delta": -4.0
+            }
+          }
+        },
+        "vlm_L29": {
+          "baseline": 0.4071,
+          "windows": {
+            "early": {
+              "success_rate": 0.5,
+              "delta": 9.3
+            },
+            "mid": {
+              "success_rate": 0.4,
+              "delta": -0.7
+            },
+            "late": {
+              "success_rate": 0.5667,
+              "delta": 16.0
+            },
+            "full": {
+              "success_rate": 0.4333,
+              "delta": 2.6
+            }
+          }
+        }
+      }
+    },
+    "libero_goal": {
+      "layers": [
+        "expert_L00",
+        "expert_L01",
+        "expert_L02",
+        "expert_L03",
+        "expert_L04",
+        "expert_L05",
+        "expert_L06",
+        "expert_L07",
+        "expert_L08",
+        "expert_L09",
+        "expert_L10",
+        "expert_L11",
+        "expert_L12",
+        "expert_L13",
+        "expert_L14",
+        "expert_L15",
+        "expert_L16",
+        "expert_L17",
+        "expert_L18",
+        "expert_L19",
+        "expert_L20",
+        "expert_L21",
+        "expert_L22",
+        "expert_L23",
+        "expert_L24",
+        "expert_L25",
+        "expert_L26",
+        "expert_L27",
+        "expert_L28",
+        "expert_L29",
+        "expert_L30",
+        "expert_L31",
+        "vlm_L00",
+        "vlm_L06",
+        "vlm_L08",
+        "vlm_L09",
+        "vlm_L11",
+        "vlm_L13",
+        "vlm_L15",
+        "vlm_L18",
+        "vlm_L19",
+        "vlm_L20",
+        "vlm_L23",
+        "vlm_L26",
+        "vlm_L28"
+      ],
+      "per_layer": {
+        "expert_L00": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "late": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "full": {
+              "success_rate": 1.0,
+              "delta": 25.0
+            }
+          }
+        },
+        "expert_L01": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            }
+          }
+        },
+        "expert_L02": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 11.7
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            }
+          }
+        },
+        "expert_L03": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            }
+          }
+        },
+        "expert_L04": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": -15.0
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            }
+          }
+        },
+        "expert_L05": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            }
+          }
+        },
+        "expert_L06": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "full": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            }
+          }
+        },
+        "expert_L07": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            }
+          }
+        },
+        "expert_L08": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -15.0
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            }
+          }
+        },
+        "expert_L09": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -15.0
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "full": {
+              "success_rate": 0.5667,
+              "delta": -18.3
+            }
+          }
+        },
+        "expert_L10": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            }
+          }
+        },
+        "expert_L11": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        },
+        "expert_L12": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": -15.0
+            },
+            "late": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            }
+          }
+        },
+        "expert_L13": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8667,
+              "delta": 11.7
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        },
+        "expert_L14": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            }
+          }
+        },
+        "expert_L15": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            }
+          }
+        },
+        "expert_L16": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "mid": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "late": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            }
+          }
+        },
+        "expert_L17": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        },
+        "expert_L18": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            }
+          }
+        },
+        "expert_L19": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -15.0
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "full": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            }
+          }
+        },
+        "expert_L20": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": -15.0
+            }
+          }
+        },
+        "expert_L21": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 11.7
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            }
+          }
+        },
+        "expert_L22": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            }
+          }
+        },
+        "expert_L23": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 15.0
+            },
+            "full": {
+              "success_rate": 0.8667,
+              "delta": 11.7
+            }
+          }
+        },
+        "expert_L24": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            }
+          }
+        },
+        "expert_L25": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 11.7
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            }
+          }
+        },
+        "expert_L26": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": -15.0
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 11.7
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        },
+        "expert_L27": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            }
+          }
+        },
+        "expert_L28": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        },
+        "expert_L29": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            }
+          }
+        },
+        "expert_L30": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            }
+          }
+        },
+        "expert_L31": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "full": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            }
+          }
+        },
+        "vlm_L00": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.1333,
+              "delta": -61.7
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "full": {
+              "success_rate": 0.1333,
+              "delta": -61.7
+            }
+          }
+        },
+        "vlm_L06": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            }
+          }
+        },
+        "vlm_L08": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            }
+          }
+        },
+        "vlm_L09": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        },
+        "vlm_L11": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            }
+          }
+        },
+        "vlm_L13": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.5667,
+              "delta": -18.3
+            }
+          }
+        },
+        "vlm_L15": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": -1.7
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        },
+        "vlm_L18": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 15.0
+            },
+            "late": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            }
+          }
+        },
+        "vlm_L19": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "mid": {
+              "success_rate": 0.8333,
+              "delta": 8.3
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            }
+          }
+        },
+        "vlm_L20": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "full": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            }
+          }
+        },
+        "vlm_L23": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        },
+        "vlm_L26": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -11.7
+            },
+            "mid": {
+              "success_rate": 0.8,
+              "delta": 5.0
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.8667,
+              "delta": 11.7
+            }
+          }
+        },
+        "vlm_L28": {
+          "baseline": 0.75,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": -5.0
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": -15.0
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -8.3
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 1.7
+            }
+          }
+        }
+      }
+    },
+    "libero_object": {
+      "layers": [
+        "expert_L00",
+        "expert_L01",
+        "expert_L02",
+        "expert_L03",
+        "expert_L04",
+        "expert_L05",
+        "expert_L06",
+        "expert_L07",
+        "expert_L08",
+        "expert_L09",
+        "expert_L10",
+        "expert_L11",
+        "expert_L12",
+        "expert_L13",
+        "expert_L14",
+        "expert_L15",
+        "expert_L16",
+        "expert_L17",
+        "expert_L18",
+        "expert_L19",
+        "expert_L20",
+        "expert_L21",
+        "expert_L22",
+        "expert_L23",
+        "expert_L24",
+        "expert_L25",
+        "expert_L26",
+        "expert_L27",
+        "expert_L28",
+        "expert_L29",
+        "expert_L30",
+        "expert_L31",
+        "vlm_L00",
+        "vlm_L04",
+        "vlm_L05",
+        "vlm_L07",
+        "vlm_L08",
+        "vlm_L09",
+        "vlm_L10",
+        "vlm_L16",
+        "vlm_L19",
+        "vlm_L20",
+        "vlm_L22",
+        "vlm_L27"
+      ],
+      "per_layer": {
+        "expert_L00": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -15.2
+            },
+            "mid": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": -8.5
+            }
+          }
+        },
+        "expert_L01": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": -5.2
+            }
+          }
+        },
+        "expert_L02": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "late": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            },
+            "full": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            }
+          }
+        },
+        "expert_L03": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "late": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L04": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "mid": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            },
+            "late": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "full": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            }
+          }
+        },
+        "expert_L05": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            }
+          }
+        },
+        "expert_L06": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L07": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "late": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L08": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            }
+          }
+        },
+        "expert_L09": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L10": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L11": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L12": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "mid": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "late": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L13": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L14": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "late": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L15": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "mid": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "late": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L16": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            },
+            "mid": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "late": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L17": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L18": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L19": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "full": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            }
+          }
+        },
+        "expert_L20": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "mid": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            },
+            "late": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L21": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L22": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L23": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L24": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L25": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "full": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            }
+          }
+        },
+        "expert_L26": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "expert_L27": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            },
+            "late": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L28": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "full": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            }
+          }
+        },
+        "expert_L29": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.7667,
+              "delta": -1.8
+            },
+            "full": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            }
+          }
+        },
+        "expert_L30": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "late": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "expert_L31": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "vlm_L00": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.0333,
+              "delta": -75.2
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": -1.8
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.1333,
+              "delta": -65.2
+            }
+          }
+        },
+        "vlm_L04": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        },
+        "vlm_L05": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 1.5
+            },
+            "full": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            }
+          }
+        },
+        "vlm_L07": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "mid": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "vlm_L08": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "vlm_L09": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8667,
+              "delta": 8.2
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            }
+          }
+        },
+        "vlm_L10": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "vlm_L16": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "mid": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "vlm_L19": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            },
+            "mid": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            }
+          }
+        },
+        "vlm_L20": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 1.0,
+              "delta": 21.5
+            },
+            "full": {
+              "success_rate": 0.8333,
+              "delta": 4.8
+            }
+          }
+        },
+        "vlm_L22": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "mid": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "late": {
+              "success_rate": 0.9,
+              "delta": 11.5
+            },
+            "full": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            }
+          }
+        },
+        "vlm_L27": {
+          "baseline": 0.785,
+          "windows": {
+            "early": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "mid": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "late": {
+              "success_rate": 0.9667,
+              "delta": 18.2
+            },
+            "full": {
+              "success_rate": 0.9333,
+              "delta": 14.8
+            }
+          }
+        }
+      }
+    },
+    "libero_spatial": {
+      "layers": [
+        "expert_L00",
+        "expert_L01",
+        "expert_L02",
+        "expert_L03",
+        "expert_L04",
+        "expert_L05",
+        "expert_L06",
+        "expert_L07",
+        "expert_L08",
+        "expert_L09",
+        "expert_L10",
+        "expert_L11",
+        "expert_L12",
+        "expert_L13",
+        "expert_L14",
+        "expert_L15",
+        "expert_L16",
+        "expert_L17",
+        "expert_L18",
+        "expert_L19",
+        "expert_L20",
+        "expert_L21",
+        "expert_L22",
+        "expert_L23",
+        "expert_L24",
+        "expert_L25",
+        "expert_L26",
+        "expert_L27",
+        "expert_L28",
+        "expert_L29",
+        "vlm_L03",
+        "vlm_L07",
+        "vlm_L08",
+        "vlm_L11",
+        "vlm_L12",
+        "vlm_L13",
+        "vlm_L14",
+        "vlm_L15",
+        "vlm_L19",
+        "vlm_L21",
+        "vlm_L22",
+        "vlm_L23",
+        "vlm_L27",
+        "vlm_L28",
+        "vlm_L30"
+      ],
+      "per_layer": {
+        "expert_L00": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.2667,
+              "delta": -40.8
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "full": {
+              "success_rate": 0.4,
+              "delta": -27.5
+            }
+          }
+        },
+        "expert_L01": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.5,
+              "delta": -17.5
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "late": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "full": {
+              "success_rate": 0.2667,
+              "delta": -40.8
+            }
+          }
+        },
+        "expert_L02": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "late": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            }
+          }
+        },
+        "expert_L03": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.5333,
+              "delta": -14.2
+            }
+          }
+        },
+        "expert_L04": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            }
+          }
+        },
+        "expert_L05": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "late": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            }
+          }
+        },
+        "expert_L06": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": null,
+              "delta": null
+            },
+            "mid": {
+              "success_rate": null,
+              "delta": null
+            },
+            "late": {
+              "success_rate": null,
+              "delta": null
+            },
+            "full": {
+              "success_rate": null,
+              "delta": null
+            }
+          }
+        },
+        "expert_L07": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "late": {
+              "success_rate": 0.9333,
+              "delta": 25.8
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            }
+          }
+        },
+        "expert_L08": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "late": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "full": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            }
+          }
+        },
+        "expert_L09": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "mid": {
+              "success_rate": 0.5333,
+              "delta": -14.2
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            }
+          }
+        },
+        "expert_L10": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.5333,
+              "delta": -14.2
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "late": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "full": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            }
+          }
+        },
+        "expert_L11": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "mid": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            }
+          }
+        },
+        "expert_L12": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            }
+          }
+        },
+        "expert_L13": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "mid": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "late": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            }
+          }
+        },
+        "expert_L14": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "late": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            },
+            "full": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            }
+          }
+        },
+        "expert_L15": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "full": {
+              "success_rate": 0.8333,
+              "delta": 15.8
+            }
+          }
+        },
+        "expert_L16": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            }
+          }
+        },
+        "expert_L17": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            }
+          }
+        },
+        "expert_L18": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            }
+          }
+        },
+        "expert_L19": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "late": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "full": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            }
+          }
+        },
+        "expert_L20": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "late": {
+              "success_rate": 0.5333,
+              "delta": -14.2
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            }
+          }
+        },
+        "expert_L21": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "late": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            }
+          }
+        },
+        "expert_L22": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            }
+          }
+        },
+        "expert_L23": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "mid": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            }
+          }
+        },
+        "expert_L24": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 15.8
+            },
+            "mid": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            }
+          }
+        },
+        "expert_L25": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "mid": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "late": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "full": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            }
+          }
+        },
+        "expert_L26": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.8333,
+              "delta": 15.8
+            },
+            "mid": {
+              "success_rate": 0.5333,
+              "delta": -14.2
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            }
+          }
+        },
+        "expert_L27": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "full": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            }
+          }
+        },
+        "expert_L28": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "late": {
+              "success_rate": 0.8333,
+              "delta": 15.8
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            }
+          }
+        },
+        "expert_L29": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            },
+            "late": {
+              "success_rate": 0.8667,
+              "delta": 19.2
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            }
+          }
+        },
+        "vlm_L03": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            }
+          }
+        },
+        "vlm_L07": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "mid": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            }
+          }
+        },
+        "vlm_L08": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            }
+          }
+        },
+        "vlm_L11": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "late": {
+              "success_rate": 0.4667,
+              "delta": -20.8
+            },
+            "full": {
+              "success_rate": 0.8333,
+              "delta": 15.8
+            }
+          }
+        },
+        "vlm_L12": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            }
+          }
+        },
+        "vlm_L13": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "mid": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "late": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "full": {
+              "success_rate": 0.8333,
+              "delta": 15.8
+            }
+          }
+        },
+        "vlm_L14": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            },
+            "full": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            }
+          }
+        },
+        "vlm_L15": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.8333,
+              "delta": 15.8
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            }
+          }
+        },
+        "vlm_L19": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            }
+          }
+        },
+        "vlm_L21": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "mid": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "late": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            },
+            "full": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            }
+          }
+        },
+        "vlm_L22": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "mid": {
+              "success_rate": 0.4,
+              "delta": -27.5
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            }
+          }
+        },
+        "vlm_L23": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.5667,
+              "delta": -10.8
+            },
+            "mid": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "late": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "full": {
+              "success_rate": 0.7,
+              "delta": 2.5
+            }
+          }
+        },
+        "vlm_L27": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "mid": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            },
+            "late": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            },
+            "full": {
+              "success_rate": 0.8,
+              "delta": 12.5
+            }
+          }
+        },
+        "vlm_L28": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            },
+            "mid": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "late": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "full": {
+              "success_rate": 0.6333,
+              "delta": -4.2
+            }
+          }
+        },
+        "vlm_L30": {
+          "baseline": 0.675,
+          "windows": {
+            "early": {
+              "success_rate": 0.6667,
+              "delta": -0.8
+            },
+            "mid": {
+              "success_rate": 0.6,
+              "delta": -7.5
+            },
+            "late": {
+              "success_rate": 0.7333,
+              "delta": 5.8
+            },
+            "full": {
+              "success_rate": 0.7667,
+              "delta": 9.2
+            }
+          }
+        }
+      }
+    }
+  }
+}
