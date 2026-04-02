@@ -39,17 +39,23 @@ python -c "import libero; print('LIBERO OK')"
 | `lerobot/` | huggingface/lerobot | Model policies: X-VLA, SmolVLA, GR00T N1.5, Pi0.5 |
 | `LIBERO/` | Lifelong-Robot-Learning/LIBERO | LIBERO benchmark environments |
 | `openvla_oft/` | moojink/openvla-oft | OpenVLA-OFT model (separate conda env) |
+| `SimplerEnv/` | squarefk/SimplerEnv | SimplerEnv simulation (WidowX, Google Robot) |
 
 ## Conda Environments
 
-| Environment | Python | Models | Key constraint |
-|-------------|--------|--------|---------------|
-| **actionatlas** | 3.12 | X-VLA, SmolVLA, Pi0.5 | transformers==4.53 |
-| **groot** | 3.12 | GR00T N1.5 | transformers>=5.0, flash-attn, peft |
-| **openvla-oft** | 3.10 | OpenVLA-OFT | torch==2.2, prismatic |
+| Environment | Python | Models / Envs | Key constraint |
+|-------------|--------|---------------|---------------|
+| **actionatlas** | 3.12 | X-VLA, SmolVLA, Pi0.5 on LIBERO; SmolVLA on MetaWorld | transformers==4.53 |
+| **groot** | 3.12 | GR00T N1.5 on LIBERO | transformers>=5.0, flash-attn, peft |
+| **openvla-oft** | 3.10 | OpenVLA-OFT on LIBERO | torch==2.2, prismatic |
+| **simpler_env** | 3.10 | X-VLA on SimplerEnv (WidowX, Google Robot) | numpy<2, sapien 2.2.x |
 
 GR00T requires `transformers>=5.0` for its Eagle VLM processor, which
 conflicts with the other models. A separate environment avoids this.
+
+SimplerEnv requires Python 3.10 and numpy<2 because SAPIEN 2.x is compiled
+against the NumPy 1.x C ABI. NumPy 2.x causes a segfault in
+`env.step()` (SAPIEN's `PinocchioModel.compute_forward_kinematics`).
 
 ## Detailed Installation
 
@@ -109,6 +115,69 @@ cd LIBERO && pip install -e . && cd ..
 If `import libero` fails after installation, add it to your PYTHONPATH:
 ```bash
 export PYTHONPATH=$PYTHONPATH:$(pwd)/LIBERO
+```
+
+### SimplerEnv Environment (X-VLA cross-embodiment)
+
+SimplerEnv provides WidowX and Google Robot simulation environments for
+X-VLA cross-embodiment experiments. Requires a separate conda env because
+SAPIEN 2.x needs Python 3.10 and numpy<2.
+
+```bash
+# Create env (use /data if root disk is low on space)
+conda create -y -n simpler_env python=3.10 -p /data/miniconda3/envs/simpler_env
+conda activate simpler_env
+
+# PyTorch
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+
+# Install SimplerEnv + ManiSkill2 (included as submodule)
+cd SimplerEnv && git submodule update --init --recursive
+cd ManiSkill2_real2sim && pip install -e . && cd ..
+pip install -e . && cd ..
+
+# Lerobot (need pre-3.12 version for Python 3.10 compat)
+# Checkout the last commit before the Python 3.12 requirement (d324ffe8)
+cd /path/to/lerobot && git worktree add /data/lerobot_py310 d324ffe8
+cd /data/lerobot_py310 && pip install -e .
+
+# CRITICAL: downgrade numpy after all installs (SAPIEN segfaults with numpy 2.x)
+pip install 'numpy<2'
+
+# Extra dependencies
+pip install transformers tqdm charset_normalizer httpx
+
+# Verify
+python -c "import simpler_env; print('SimplerEnv OK')"
+python -c "
+import sys, types
+for m in ['lerobot.policies.groot', 'lerobot.policies.groot.configuration_groot',
+          'lerobot.policies.groot.modeling_groot', 'lerobot.policies.groot.groot_n1']:
+    sys.modules[m] = types.ModuleType(m)
+sys.modules['lerobot.policies.groot.configuration_groot'].GrootConfig = type('GrootConfig', (), {})
+sys.modules['lerobot.policies.groot.modeling_groot'].GrootPolicy = type('GrootPolicy', (), {})
+from lerobot.policies.xvla.modeling_xvla import XVLAPolicy
+print('X-VLA OK')
+"
+```
+
+The GR00T stub is needed because lerobot's policy `__init__` imports GR00T,
+which triggers a xformers/diffusers import chain that segfaults in the
+simpler_env conda env due to an incompatible xformers binary.
+
+SimplerEnv experiments are in `experiments/simplerenv/`:
+```bash
+conda activate simpler_env
+export MUJOCO_GL=egl
+export TORCH_COMPILE_DISABLE=1
+
+# Smoke test
+python experiments/simplerenv/xvla_simplerenv_eval.py \
+    --model widowx --task widowx_stack_cube --n_episodes 1
+
+# Full evaluation
+python experiments/simplerenv/xvla_simplerenv_eval.py \
+    --model widowx --all-tasks --n_episodes 20
 ```
 
 ### HuggingFace Authentication

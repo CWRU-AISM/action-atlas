@@ -33,12 +33,7 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
-
-
-# ============================================================
 # Configuration: where each model's data lives
-# ============================================================
-
 DATA_SOURCES = {
     "oft": {
         "ablation_dir": Path("results/experiment_results/oft_concept_ablation"),
@@ -95,12 +90,7 @@ DATA_SOURCES = {
 
 # Also check smolvla batch2 for SmolVLA data
 SMOLVLA_smolvla = Path("/data/smolvla_rollouts/concept_ablation/results")
-
-
-# ============================================================
 # Wilson CI (matches analyze_rollouts.py)
-# ============================================================
-
 def wilson_ci(successes, total, z=1.96):
     if total == 0:
         return 0.0, 0.0, 0.0
@@ -109,14 +99,10 @@ def wilson_ci(successes, total, z=1.96):
     center = (p_hat + z**2 / (2 * total)) / denom
     margin = z * math.sqrt(p_hat * (1 - p_hat) / total + z**2 / (4 * total**2)) / denom
     return p_hat * 100, max(0, center - margin) * 100, min(1, center + margin) * 100
-
-
-# ============================================================
 # Schema Parsers: normalize to common format
-# ============================================================
-
 def parse_oft_schema(data):
-    """Parse OFT/Pi0.5/X-VLA schema into normalized records.
+    """
+    Parse OFT/Pi0.5/X-VLA schema into normalized records.
 
     Returns list of dicts:
         {concept, layer, suite, task_id, delta_pp, success_rate, baseline_rate, n_episodes}
@@ -164,7 +150,8 @@ def parse_oft_schema(data):
 
 
 def parse_smolvla_schema(data):
-    """Parse SmolVLA schema into normalized records.
+    """
+    Parse SmolVLA schema into normalized records.
 
     SmolVLA has per-concept overall_delta (already in fraction).
     No per-task breakdown in this format.
@@ -200,7 +187,8 @@ def parse_smolvla_schema(data):
 
 
 def parse_steering_oft(data):
-    """Parse OFT/Pi0.5 steering schema.
+    """
+    Parse OFT/Pi0.5 steering schema.
 
     Format: {tasks: {concept: {strengths: {"-3.0": {task_id: {delta, success_rate}}}}}}
     Strengths are typically "-3.0" and "3.0" (suppression and amplification).
@@ -241,7 +229,8 @@ def parse_steering_oft(data):
 
 
 def parse_smolvla_pertask_schema(data):
-    """Parse SmolVLA per-task ablation format.
+    """
+    Parse SmolVLA per-task ablation format.
 
     Format: {concepts: {concept: {tasks: {task_id: {rate, delta}}, overall_rate, overall_delta}}}
     This format has per-task breakdowns, enabling proper zero-effect counting.
@@ -279,7 +268,6 @@ def parse_smolvla_pertask_schema(data):
 
 
 def parse_smolvla_ftf(data):
-    """Parse SmolVLA fraction-to-failure data."""
     records = []
     layer = data.get("layer", -1)
     suite = data.get("suite", "unknown")
@@ -310,7 +298,8 @@ def parse_smolvla_ftf(data):
 
 
 def parse_groot_schema(data):
-    """Parse GR00T feature ablation schema into normalized records.
+    """
+    Parse GR00T feature ablation schema into normalized records.
 
     Format: {layer, suite, baseline: {task_id: {success_rate}},
              groups: {group_name: {tasks: {task_id: {delta, success_rate}}}}}
@@ -344,12 +333,7 @@ def parse_groot_schema(data):
                 "mode": "ablation",
             })
     return records
-
-
-# ============================================================
 # Data Loading
-# ============================================================
-
 def load_all_data():
     """Load and normalize all concept ablation + steering data."""
     all_records = {}  # model_key -> list of records
@@ -430,14 +414,10 @@ def load_all_data():
             all_ftf["smolvla_expert"].extend(ftf_recs)
 
     return all_records, all_steering, all_ftf, file_counts
-
-
-# ============================================================
 # Analysis Functions
-# ============================================================
-
 def compute_width_resilience(records, dim):
-    """Compute width-resilience profile from ablation records.
+    """
+    Compute width-resilience profile from ablation records.
 
     Returns dict with:
         zero_effect_pct: fraction of (concept, task) pairs with |delta| < 1pp
@@ -492,7 +472,8 @@ def compute_width_resilience(records, dim):
 
 
 def compute_layer_gradient(records):
-    """Compute how effect severity varies by layer depth.
+    """
+    Compute how effect severity varies by layer depth.
 
     Returns dict: layer -> {mean_delta, destruction_pct, n_pairs}
     """
@@ -563,14 +544,8 @@ def classify_width_resilience(profile):
         return "narrow (fragile)"
     else:
         return "mixed"
-
-
-# ============================================================
 # Output Formatters
-# ============================================================
-
 def print_report(all_records, all_steering, all_ftf, file_counts):
-    """Print text report."""
     sep = "=" * 100
     thin = "-" * 100
 
@@ -736,12 +711,7 @@ def emit_action_atlas_json(all_records, all_steering, all_ftf, all_profiles, out
     with open(output_path, "w") as f:
         json.dump(output, f, indent=2)
     print(f"\nAction Atlas JSON written to: {output_path}", file=sys.stderr)
-
-
-# ============================================================
 # Main
-# ============================================================
-
 def main():
     parser = argparse.ArgumentParser(description="Unified concept ablation analysis")
     parser.add_argument("--output-dir", type=str,

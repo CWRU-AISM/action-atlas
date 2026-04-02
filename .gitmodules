@@ -7,3 +7,6 @@
 [submodule "openvla_oft"]
 	path = openvla_oft
 	url = https://github.com/moojink/openvla-oft.git
+[submodule "SimplerEnv"]
+	path = SimplerEnv
+	url = https://github.com/squarefk/SimplerEnv.git

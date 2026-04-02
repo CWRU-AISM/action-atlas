@@ -119,7 +119,6 @@ def aggregate_xvla() -> dict:
 
 
 def _extract_xvla_grid(data: dict) -> dict:
-    """Extract X-VLA grid ablation summary."""
     grid = data.get("grid", {})
     n_blocks = data.get("n_blocks", 24)
 
@@ -308,7 +307,8 @@ def _aggregate_xvla_vision(vision_dir: Path, suite: str) -> dict:
 
 
 def _extract_xvla_concept_ablation(data: dict) -> dict:
-    """Extract X-VLA concept ablation summary (skip raw feature lists).
+    """
+    Extract X-VLA concept ablation summary (skip raw feature lists).
 
     Data structure:
         tasks: {
@@ -352,7 +352,8 @@ def _extract_xvla_concept_ablation(data: dict) -> dict:
 
 
 def _extract_xvla_concept_steering(data: dict) -> dict:
-    """Extract X-VLA concept steering summary.
+    """
+    Extract X-VLA concept steering summary.
 
     Data structure:
         tasks: {
@@ -412,7 +413,6 @@ def _extract_xvla_concept_steering(data: dict) -> dict:
 
 
 def _extract_xvla_displacement(data: dict) -> dict:
-    """Extract X-VLA displacement analysis."""
     summary = {}
     for suite_key, suite_data in data.items():
         if not isinstance(suite_data, dict):
@@ -437,12 +437,7 @@ def _extract_xvla_displacement(data: dict) -> dict:
             "per_condition": per_condition,
         }
     return summary
-
-
-# ---------------------------------------------------------------------------
 # GR00T aggregation
-# ---------------------------------------------------------------------------
-
 GROOT_MAIN_DIR = Path("/data/groot_rollouts")
 GROOT_BATCH2_DIR = Path("/data/groot_rollouts_batch2")
 GROOT_SUITES = ["libero_goal", "libero_object", "libero_long"]

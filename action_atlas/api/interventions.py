@@ -84,12 +84,7 @@ def _filter_videos_by_suite(videos: list, suite: str, limit: int = 50) -> dict:
             if len(result) >= limit:
                 break
     return result
-
-
-# ---------------------------------------------------------------------------
 # Grid Ablation
-# ---------------------------------------------------------------------------
-
 @interventions_bp.route('/api/vla/grid_ablation', methods=['GET'])
 def get_grid_ablation():
     """Interactive grid ablation data for ACT-ALOHA and OpenVLA-OFT."""
@@ -293,12 +288,7 @@ def _grid_ablation_generic(model: str, suite: str):
         },
         'grid_type': 'layer_ablation',
     })
-
-
-# ---------------------------------------------------------------------------
 # Counterfactual
-# ---------------------------------------------------------------------------
-
 @interventions_bp.route('/api/vla/counterfactual', methods=['GET'])
 def get_counterfactual():
     """Counterfactual prompting results from OFT and Pi0.5 experiments."""
@@ -585,7 +575,8 @@ def _counterfactual_generic(model: str, suite: str):
 def _build_counterfactual_from_per_task(
     suite_data: dict, tasks: Dict[str, dict], summary: Dict[str, dict],
 ) -> list:
-    """Build counterfactual tasks/summary from per_task dict with conditions inside each task.
+    """
+    Build counterfactual tasks/summary from per_task dict with conditions inside each task.
 
     Used for X-VLA, GR00T, SmolVLA formats. Mutates *tasks* and *summary* in place
     and returns the sorted list of prompt types.
@@ -698,7 +689,4 @@ def _build_counterfactual_from_per_task(
                 }
 
     return prompt_types_list
-
-
-# ---------------------------------------------------------------------------
 # Injection

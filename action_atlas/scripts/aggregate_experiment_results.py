@@ -19,12 +19,7 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
-
-
-# ---------------------------------------------------------------------------
 # Helpers
-# ---------------------------------------------------------------------------
-
 def safe_load_json(path: Path) -> dict | None:
     """Load a JSON file, returning None on failure."""
     try:
@@ -63,12 +58,7 @@ def round_val(v, decimals=4):
     if isinstance(v, float):
         return round(v, decimals)
     return v
-
-
-# ---------------------------------------------------------------------------
 # SmolVLA aggregation
-# ---------------------------------------------------------------------------
-
 SMOLVLA_LIBERO_DIR = Path("/data/smolvla_libero")
 SMOLVLA_METAWORLD_DIR = Path("/data/smolvla_rollouts")
 SMOLVLA_LIBERO_SUITES = ["libero_goal", "libero_object", "libero_spatial", "libero_10"]

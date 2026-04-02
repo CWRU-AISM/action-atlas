@@ -266,7 +266,8 @@ def _rgb_to_hex(rgb):
 
 @features_bp.route('/api/sae/scatter', methods=['GET'])
 def get_sae_scatter():
-    """Standard Action Atlas scatter endpoint - handles VLA SAE data.
+    """
+    Standard Action Atlas scatter endpoint - handles VLA SAE data.
 
     Query parameters:
         sae_id: Layer-suite identifier (e.g., 'action_expert_layer_12-concepts')
@@ -710,7 +711,8 @@ def vla_steer_feature():
 
 @features_bp.route('/api/layer_features/<layer_id>', methods=['GET'])
 def get_layer_features(layer_id):
-    """Get features for a specific layer (used by WireVisualization).
+    """
+    Get features for a specific layer (used by WireVisualization).
 
     Returns top features with descriptions and activation stats for the given layer.
     """
@@ -854,7 +856,8 @@ def get_layer_features(layer_id):
 
 @features_bp.route('/api/feature/tokens-activation', methods=['POST'])
 def get_tokens_activation():
-    """Get per-token activations for a feature given prompts.
+    """
+    Get per-token activations for a feature given prompts.
 
     VLA models process image tokens (not text tokens), so we return
     keyword-approximated activations as a structured placeholder.
@@ -923,7 +926,8 @@ def get_tokens_activation():
 
 @features_bp.route('/api/feature/tokens-analysis', methods=['POST'])
 def get_tokens_analysis():
-    """Analyze which features activate for selected prompt tokens.
+    """
+    Analyze which features activate for selected prompt tokens.
 
     Returns related features based on co-activation patterns from the concept
     feature mapping data.
@@ -976,5 +980,3 @@ def get_tokens_analysis():
         }
     })
 
-
-# ============================================================

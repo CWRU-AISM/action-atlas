@@ -25,7 +25,6 @@ PROJECT_ROOT = SCRIPT_DIR.parent.parent
 
 
 def parse_perturbation_from_filename(fname: str) -> str:
-    """Extract perturbation type from video filename."""
     # Strip extension and _combined suffix
     base = fname.replace(".mp4", "").replace("_combined", "")
     # OFT format: task0_blur_light

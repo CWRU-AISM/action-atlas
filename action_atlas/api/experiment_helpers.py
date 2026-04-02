@@ -42,7 +42,8 @@ def _resolve_file_model(model: str) -> str:
 
 
 def _load_known_stats() -> Dict:
-    """Load verified episode counts from experiment_stats.json.
+    """
+    Load verified episode counts from experiment_stats.json.
 
     Flattens the 'sections' nesting for backward compatibility.
     Returns empty dict if the file is missing.
@@ -86,7 +87,8 @@ def _find_latest_oft_result(suite: str, experiment_type: str) -> Optional[Path]:
 
 
 def _scan_dirs_to_experiment_types(experiment_types: dict, specs: list) -> None:
-    """Scan directories and populate experiment_types dict.
+    """
+    Scan directories and populate experiment_types dict.
 
     Each spec is (directory, pattern, recursive, key, suites, description).
     """
@@ -97,7 +99,8 @@ def _scan_dirs_to_experiment_types(experiment_types: dict, specs: list) -> None:
 
 
 def _parse_ablation_video_filename(stem: str) -> dict:
-    """Parse ablation video filename stem into components.
+    """
+    Parse ablation video filename stem into components.
 
     Format: ablation_L{layer}_{concept_type}_{concept}_task{N}_ep{M}
     """
@@ -136,12 +139,7 @@ def _parse_ablation_video_filename(stem: str) -> dict:
         result['concept_name'] = parts[3] if len(parts) > 3 else None
 
     return result
-
-
-# ============================================================================
 # Layer Metrics
-# ============================================================================
-
 def _build_layer_connections_from_config(model: str, suite: str) -> dict:
     """Build layer connection data from model config and concept_id files."""
     config = get_vla_config(model)
@@ -170,12 +168,7 @@ def _build_layer_connections_from_config(model: str, suite: str) -> dict:
             layers[idx][cat]['rank'] = rank
 
     return {'layers': layers, 'model': model, 'suite': suite}
-
-
-# ============================================================================
 # OFT Ablation Videos
-# ============================================================================
-
 def _get_groot_temporal_ablation():
     """Load GR00T temporal ablation from experiment_results_groot.json."""
     data = _load_experiment_results('groot')
@@ -287,9 +280,4 @@ def _get_smolvla_temporal_ablation():
         return jsonify({'status': 404, 'error': {'code': 'NO_DATA', 'message': 'No temporal data found in SmolVLA concept ablation results.'}}), 404
 
     return jsonify({'status': 200, 'data': {'model': 'smolvla', 'model_name': 'SmolVLA', 'available': True, 'windows': windows, 'suites': suites_out}})
-
-
-# ============================================================================
 # Experiment Summary
-# ============================================================================
-

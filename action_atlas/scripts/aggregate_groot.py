@@ -109,7 +109,6 @@ def aggregate_groot() -> dict:
 
 
 def _extract_groot_grid(data: dict) -> dict:
-    """Extract GR00T grid ablation summary."""
     grid = data.get("grid", {})
     n_blocks = data.get("n_blocks", 16)
 
@@ -152,7 +151,6 @@ def _extract_groot_grid(data: dict) -> dict:
 
 
 def _aggregate_groot_counterfactual(cf_dir: Path, suite: str) -> dict:
-    """Aggregate GR00T counterfactual results."""
     summary = {
         "environment": "libero",
         "suite": suite,
@@ -239,7 +237,6 @@ def _extract_groot_cross_task(data: dict) -> dict:
 
 
 def _aggregate_groot_vision(vision_dir: Path, suite: str) -> dict:
-    """Aggregate GR00T vision perturbation results."""
     per_perturbation = defaultdict(lambda: {"successes": 0, "total": 0, "per_task": {}})
     all_perturbations = set()
 
@@ -316,7 +313,8 @@ def _aggregate_groot_ftf(suite_dir: Path, suite: str) -> dict:
 
 
 def _aggregate_groot_steering(suite_dir: Path, suite: str) -> dict:
-    """Aggregate GR00T steering results across layers.
+    """
+    Aggregate GR00T steering results across layers.
 
     Data structure is:
         baseline: { task_id: { task_desc, success_rate, successes } }
@@ -439,12 +437,7 @@ def _aggregate_groot_temporal(suite_dir: Path, suite: str) -> dict:
         "n_layers": len(per_layer),
         "per_layer": per_layer,
     }
-
-
-# ---------------------------------------------------------------------------
 # Main
-# ---------------------------------------------------------------------------
-
 AGGREGATORS = {
     "smolvla": aggregate_smolvla,
     "xvla": aggregate_xvla,

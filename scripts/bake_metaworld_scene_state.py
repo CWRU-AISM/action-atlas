@@ -116,11 +116,7 @@ def extract_eef_from_agent_pos(agent_pos_traj, max_points=100):
     """Extract EEF xyz from agent_pos_trajectory (first 3 elements)."""
     traj = [[p[0], p[1], p[2]] for p in agent_pos_traj if len(p) >= 3]
     return subsample_trajectory(traj, max_points)
-
-
-# ---------------------------------------------------------------------------
 # 1. BASELINE
-# ---------------------------------------------------------------------------
 def bake_baseline(dry_run=False):
     """Bake baseline scene state with EEF trajectories from episode JSONs."""
     base_dir = BATCH2_DIR / "metaworld_baseline"
@@ -213,13 +209,10 @@ def bake_baseline(dry_run=False):
         sz = out_path.stat().st_size
         print(f"  Wrote {out_path} ({sz / 1024:.0f} KB)")
     return output
-
-
-# ---------------------------------------------------------------------------
 # 2. GRID ABLATION
-# ---------------------------------------------------------------------------
 def bake_grid_ablation(dry_run=False):
-    """Bake grid ablation scene state for all difficulty levels.
+    """
+    Bake grid ablation scene state for all difficulty levels.
 
     Produces one file per difficulty AND one combined file.
     Includes EEF trajectories from episode JSONs where available.
@@ -345,11 +338,7 @@ def bake_grid_ablation(dry_run=False):
             json.dump(combined, f)
         sz = out_path.stat().st_size
         print(f"  Combined grid ablation: {out_path} ({sz / 1024:.0f} KB)")
-
-
-# ---------------------------------------------------------------------------
 # 3. CROSS-TASK TRANSFER
-# ---------------------------------------------------------------------------
 def bake_cross_task(dry_run=False):
     """Bake cross-task transfer scene state for all difficulty levels."""
     cross_dir = BATCH2_DIR / "metaworld_cross_task"
@@ -438,13 +427,10 @@ def bake_cross_task(dry_run=False):
             json.dump(combined, f)
         sz = out_path.stat().st_size
         print(f"  Combined cross-task: {out_path} ({sz / 1024:.0f} KB)")
-
-
-# ---------------------------------------------------------------------------
 # 4. VISION PERTURBATION
-# ---------------------------------------------------------------------------
 def bake_vision_perturbation(dry_run=False):
-    """Bake vision perturbation scene state for all difficulty levels.
+    """
+    Bake vision perturbation scene state for all difficulty levels.
 
     Includes EEF trajectories from episode JSONs.
     """
@@ -566,13 +552,10 @@ def bake_vision_perturbation(dry_run=False):
             json.dump(combined, f)
         sz = out_path.stat().st_size
         print(f"  Combined vision perturbation: {out_path} ({sz / 1024:.0f} KB)")
-
-
-# ---------------------------------------------------------------------------
 # 5. COUNTERFACTUAL
-# ---------------------------------------------------------------------------
 def bake_counterfactual(dry_run=False):
-    """Bake counterfactual scene state for all difficulty levels.
+    """
+    Bake counterfactual scene state for all difficulty levels.
 
     Uses v2 data which has trajectory NPZs with scene_states.
     """
@@ -714,11 +697,6 @@ def bake_counterfactual(dry_run=False):
             json.dump(combined, f)
         sz = out_path.stat().st_size
         print(f"  Combined counterfactual: {out_path} ({sz / 1024:.0f} KB)")
-
-
-# ---------------------------------------------------------------------------
-# MAIN
-# ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
         description="Bake MetaWorld scene state JSONs for Action Atlas"

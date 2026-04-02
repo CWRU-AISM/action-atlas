@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Visual robustness testing for any supported VLA model.
+"""
+Visual robustness testing for any supported VLA model.
 
 Applies 24 image perturbations (noise, blur, color, spatial, extreme)
 and measures success rate degradation compared to clean baseline.

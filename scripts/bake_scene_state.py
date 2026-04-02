@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Bake merged_results.json files into scene state JSON for the concept viz app.
+"""
+Bake merged_results.json files into scene state JSON for the concept viz app.
 
 Reads the full merged_results.json for goal and spatial cross-task injection
 experiments, extracts trajectory data for both baseline and injection conditions,
@@ -33,7 +34,8 @@ def subsample(points, max_n=MAX_TRAJ_POINTS):
 
 
 def extract_condition_data(cond_data):
-    """Extract trajectory data from a condition (baseline or injection sub-condition).
+    """
+    Extract trajectory data from a condition (baseline or injection sub-condition).
     
     Returns None if no scene data is available.
     """

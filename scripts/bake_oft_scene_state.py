@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Bake OFT trajectory collection results into scene state JSON for Action Atlas.
+"""
+Bake OFT trajectory collection results into scene state JSON for Action Atlas.
 
 Reads results.json from OFT trajectory collection experiments and produces
 compact baked JSON files compatible with the existing Scene State visualization.

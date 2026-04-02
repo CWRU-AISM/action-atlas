@@ -176,7 +176,8 @@ def get_concepts_summary():
 
 @concepts_bp.route('/api/ablation/summary', methods=['GET'])
 def ablation_summary_alias():
-    """Alias for /api/vla/ablation/summary to support frontend calls.
+    """
+    Alias for /api/vla/ablation/summary to support frontend calls.
 
     Query params:
         model: pi05 or openvla (default: pi05)
@@ -367,7 +368,8 @@ def ablation_summary_alias():
 
 @concepts_bp.route('/api/ablation/videos', methods=['GET'])
 def ablation_videos_alias():
-    """Alias for /api/vla/ablation/videos to support frontend calls.
+    """
+    Alias for /api/vla/ablation/videos to support frontend calls.
 
     Query params:
         model: pi05 or openvla (default: pi05)
@@ -517,16 +519,11 @@ def ablation_videos_alias():
             'available_suites': available_suites,
         }
     })
-
-
-# ============================================================================
 # Concept Counts and Layer Analysis
-# ============================================================================
-
-
 @concepts_bp.route('/api/vla/concept_id', methods=['GET'])
 def get_concept_id():
-    """Get concept identification results for all VLA models.
+    """
+    Get concept identification results for all VLA models.
 
     Query params:
         model: openvla, xvla, smolvla, groot (default: openvla)
@@ -763,7 +760,8 @@ def get_concept_ablation_scene_summary():
 
 @concepts_bp.route('/api/vla/concept_ablation_results', methods=['GET'])
 def get_concept_ablation_results():
-    """Get per-concept ablation results (success rates, deltas) for pen testing display.
+    """
+    Get per-concept ablation results (success rates, deltas) for pen testing display.
 
     Query params:
         model: Model name

@@ -29,12 +29,7 @@ import numpy as np
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
-
-
-# ============================================================
 # Configuration
-# ============================================================
-
 # Classification threshold (same as X-VLA analysis)
 THRESHOLD = 0.05
 
@@ -61,12 +56,7 @@ OFT_SUITES = ["libero_goal", "libero_object", "libero_spatial", "libero_10"]
 
 # Output
 OUTPUT_DIR = Path(__file__).parent.parent / 'results' / 'experiment_results'
-
-
-# ============================================================
 # Utilities
-# ============================================================
-
 def wilson_ci(successes, total, z=1.96):
     """Wilson score confidence interval."""
     if total == 0:
@@ -103,12 +93,7 @@ def eef_velocity(eef_trajectory):
     """Compute velocity (deltas) from EEF position trajectory."""
     arr = np.array(eef_trajectory)
     return np.diff(arr, axis=0).flatten()
-
-
-# ============================================================
 # Pi0.5 Analysis
-# ============================================================
-
 def load_pi05_episodes():
     """Load all Pi0.5 cross-task injection episodes from results.json files."""
     episodes = []
@@ -290,14 +275,10 @@ def analyze_pi05():
 
     _print_summary(results, "Pi0.5")
     return results
-
-
-# ============================================================
 # OFT Analysis
-# ============================================================
-
 def load_oft_episodes():
-    """Load all OFT cross-task injection episodes.
+    """
+    Load all OFT cross-task injection episodes.
 
     OFT data only has cos_to_baseline_b (cosine to destination task).
     We compute cos_to_baseline_a (cosine to source) from EEF velocity trajectories.
@@ -514,12 +495,7 @@ def analyze_oft():
 
     _print_summary(results, "OpenVLA-OFT")
     return results
-
-
-# ============================================================
 # Shared Statistics
-# ============================================================
-
 def _compute_displacement_stats(episodes, label=""):
     """Compute displacement statistics for a group of episodes."""
     if not episodes:
@@ -581,7 +557,6 @@ def _compute_displacement_stats(episodes, label=""):
 
 
 def _print_summary(results, model_name):
-    """Print a human-readable summary."""
     print(f"\n{'='*60}")
     print(f"{model_name} DISPLACEMENT ANALYSIS RESULTS")
     print(f"{'='*60}")
@@ -645,12 +620,7 @@ def _print_summary(results, model_name):
                   f"Override={stats['override_rate']['rate_pct']}%, "
                   f"cos->src={stats['mean_cos_to_src']:.4f}, "
                   f"cos->dst={stats['mean_cos_to_dst']:.4f}")
-
-
-# ============================================================
 # Main
-# ============================================================
-
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 

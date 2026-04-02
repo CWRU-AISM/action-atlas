@@ -49,7 +49,6 @@ def get_ablation_results(vla_model: str):
 
 @ablation_bp.route('/api/vla/ablation/results', methods=['GET'])
 def get_ablation_experiment_results():
-    """Get results from ablation experiments."""
     vla_model = request.args.get('model', DEFAULT_VLA_MODEL)
 
     results = get_ablation_results(vla_model)
@@ -106,7 +105,8 @@ def get_ablation_summary():
 
 @ablation_bp.route('/api/vla/ablation/videos', methods=['GET'])
 def get_ablation_videos():
-    """Get available ablation videos.
+    """
+    Get available ablation videos.
 
     For Pi0.5:
         Video filename formats:

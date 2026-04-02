@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Launch experiments in parallel across multiple GPUs.
+"""
+Launch experiments in parallel across multiple GPUs.
 
 Distributes tasks or suites across available GPUs, running one
 independent process per GPU. Each process loads its own model.

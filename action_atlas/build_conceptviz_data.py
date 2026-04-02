@@ -55,7 +55,8 @@ except ImportError:
 
 
 def get_embeddings(texts: List[str], client=None, batch_size: int = 100, use_tfidf: bool = False, use_sbert: bool = True) -> np.ndarray:
-    """Get embeddings for a list of texts.
+    """
+    Get embeddings for a list of texts.
 
     Priority:
     1. SBERT (sentence-transformers) - best semantic understanding, local
@@ -108,7 +109,8 @@ def get_embeddings(texts: List[str], client=None, batch_size: int = 100, use_tfi
 
 
 def compute_umap_coordinates(embeddings: np.ndarray, n_neighbors: int = 15, min_dist: float = 0.05, spread: float = 0.8) -> np.ndarray:
-    """Compute 2D UMAP coordinates from embeddings.
+    """
+    Compute 2D UMAP coordinates from embeddings.
 
     Args:
         embeddings: Feature embeddings
@@ -158,7 +160,8 @@ def compute_hdbscan_clustering(
     min_cluster_size: int = 10,
     min_samples: int = 5
 ) -> np.ndarray:
-    """Compute HDBSCAN clustering (density-based).
+    """
+    Compute HDBSCAN clustering (density-based).
 
     HDBSCAN finds natural clusters of varying density without needing
     to specify number of clusters. Points not in any cluster get label -1.
@@ -177,7 +180,6 @@ def compute_hdbscan_clustering(
 
 
 def generate_cluster_colors(n_clusters: int) -> np.ndarray:
-    """Generate distinct colors for clusters."""
     np.random.seed(42)
     colors = np.random.rand(n_clusters, 3)
     # Ensure colors are distinguishable

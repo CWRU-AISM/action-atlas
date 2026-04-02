@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""SAE-based concept steering for any supported VLA model.
+"""
+SAE-based concept steering for any supported VLA model.
 
 Amplifies or suppresses concept-selective SAE features to steer model
 behavior. Tests whether identified concepts causally influence actions.

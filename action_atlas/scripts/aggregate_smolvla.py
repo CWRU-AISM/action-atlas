@@ -3,7 +3,6 @@ from pathlib import Path
 import json
 
 def aggregate_smolvla() -> dict:
-    """Aggregate all SmolVLA experiment results."""
     result = {
         "model": "smolvla",
         "model_name": "SmolVLA",
@@ -295,7 +294,6 @@ def _extract_cross_task(data: dict, environment: str = "metaworld") -> dict:
 
 def _extract_vision_perturbation(data: dict, environment: str = "metaworld",
                                   difficulty: str = "") -> dict:
-    """Extract vision perturbation results."""
     perturbations = data.get("perturbations", [])
     tasks = data.get("tasks", [])
     grid = data.get("grid", {})
@@ -339,7 +337,6 @@ def _extract_vision_perturbation(data: dict, environment: str = "metaworld",
 
 
 def _extract_displacement(data: dict) -> dict:
-    """Extract displacement analysis summary."""
     summary = {
         "model": data.get("model", ""),
         "difficulties": {},
@@ -365,12 +362,7 @@ def _extract_displacement(data: dict) -> dict:
             "per_group": per_group,
         }
     return summary
-
-
-# ---------------------------------------------------------------------------
 # X-VLA aggregation
-# ---------------------------------------------------------------------------
-
 XVLA_LIBERO_DIR = Path("/data/xvla_rollouts")
 XVLA_SIMPLERENV_DIR = Path("/data/xvla_simplerenv")
 XVLA_CONCEPT_ABLATION_DIR = Path("/data/batch_1/xvla_concept_ablation")

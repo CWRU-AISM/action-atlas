@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""SAE-based concept identification for any VLA model.
+"""
+SAE-based concept identification for any VLA model.
 
 Loads trained SAEs and activation data, encodes activations through the SAE,
 groups by task, and computes Cohen's d x frequency to identify task-selective
@@ -45,7 +46,8 @@ class ConceptIDConfig:
     """Directory containing activation .pt files."""
 
     suite: str = "libero_object"
-    """Task suite for concept definitions:
+    """
+    Task suite for concept definitions:
     libero_goal, libero_object, libero_spatial, libero_10,
     widowx, google_robot"""
 
@@ -73,7 +75,6 @@ def load_sae_checkpoint(sae_path: Path, device: str = "cuda"):
 
 def load_task_activations(act_dir: Path, layer_name: str, n_tasks: int,
                           max_per_task: int) -> Dict[int, torch.Tensor]:
-    """Load activations grouped by task."""
     task_acts = {}
     for tid in range(n_tasks):
         all_acts = []

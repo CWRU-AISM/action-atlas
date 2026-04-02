@@ -11,7 +11,6 @@ import torch
 
 
 def force_free_memory():
-    """Free memory: GC + CUDA cache + libc malloc_trim."""
     gc.collect()
     torch.cuda.empty_cache()
     try:
@@ -22,7 +21,8 @@ def force_free_memory():
 
 
 def get_scene_state(env) -> dict:
-    """Extract robot EEF + all object positions from a LIBERO env.
+    """
+    Extract robot EEF + all object positions from a LIBERO env.
 
     Works with both raw env and wrapped envs (OffScreenRenderEnv, vec envs).
     """
@@ -106,7 +106,6 @@ def top_moved_objects(displacements: dict, n: int = 3, threshold: float = 0.01):
 
 
 def save_video(frames: list, path, fps: int = 10):
-    """Save frames as MP4 video using imageio."""
     if not frames:
         return
     try:
@@ -124,7 +123,6 @@ def save_video(frames: list, path, fps: int = 10):
 
 
 def load_results(path: Path) -> Optional[dict]:
-    """Load results.json if it exists, else return None."""
     if path.exists():
         with open(path) as f:
             return json.load(f)
@@ -132,7 +130,6 @@ def load_results(path: Path) -> Optional[dict]:
 
 
 def save_results(data: dict, path: Path):
-    """Atomically write results JSON."""
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".tmp")
     with open(tmp, "w") as f:

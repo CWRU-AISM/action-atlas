@@ -41,8 +41,6 @@ def process_aggregate_file(agg_path: Path, model: str, output_dir: Path):
 
         # Embeddings
         embeddings = get_embeddings(descriptions, use_sbert=True)
-
-        # UMAP
         n_neighbors = min(15, len(descriptions) - 1)
         coords = compute_umap_coordinates(embeddings, n_neighbors=n_neighbors)
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""SAE-based concept ablation for any supported VLA model.
+"""
+SAE-based concept ablation for any supported VLA model.
 
 Removes (zeros out) concept-selective SAE features identified by concept_id.py,
 then measures the effect on task success rate.

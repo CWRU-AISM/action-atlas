@@ -39,12 +39,6 @@ import numpy as np
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
-
-
-# ============================================================
-# UTILITIES
-# ============================================================
-
 def wilson_ci(successes, total, z=1.96):
     """Wilson score confidence interval for a proportion."""
     if total == 0:
@@ -99,7 +93,8 @@ def trajectory_distance(traj_a, traj_b):
 
 
 def classify_behavior(cos_to_src, cos_to_dst, threshold=0.05):
-    """Classify whether robot performed source task, destination task, or neither.
+    """
+    Classify whether robot performed source task, destination task, or neither.
 
     Returns: 'source', 'destination', or 'ambiguous'
     """
@@ -151,12 +146,6 @@ def compute_goal_distance(scene_states):
     if obj is None or goal is None:
         return float('inf')
     return float(np.linalg.norm(np.array(obj) - np.array(goal)))
-
-
-# ============================================================
-# PAIR ANALYSIS
-# ============================================================
-
 INJECTION_GROUPS = [
     'expert_all', 'expert_early', 'expert_mid', 'expert_late',
     'vlm_all', 'vlm_early', 'vlm_mid', 'vlm_late',
@@ -164,7 +153,8 @@ INJECTION_GROUPS = [
 
 
 def analyze_pair(pair_data, traj_dir=None):
-    """Analyze a single SmolVLA cross-task pair for displacement behavior.
+    """
+    Analyze a single SmolVLA cross-task pair for displacement behavior.
 
     Args:
         pair_data: Dict from cross_task_*.json (summary file)
@@ -301,12 +291,6 @@ def analyze_pair(pair_data, traj_dir=None):
             results.append(result)
 
     return results
-
-
-# ============================================================
-# AGGREGATION
-# ============================================================
-
 def aggregate_by_condition(all_results):
     """Aggregate displacement results by injection group."""
     by_condition = defaultdict(lambda: {
@@ -363,7 +347,6 @@ def aggregate_by_component(all_results):
 
 
 def aggregate_by_layer_group(all_results):
-    """Aggregate by layer group (all/early/mid/late)."""
     by_layer = defaultdict(lambda: {
         'total': 0, 'source': 0, 'destination': 0, 'ambiguous': 0,
         'successes': 0, 'cos_src_vals': [], 'cos_dst_vals': [],
@@ -385,12 +368,6 @@ def aggregate_by_layer_group(all_results):
             agg['cos_dst_vals'].append(r['cos_to_dst'])
 
     return by_layer
-
-
-# ============================================================
-# BASELINE ANALYSIS
-# ============================================================
-
 def load_baseline_stats(baseline_dir):
     """Load baseline statistics from metaworld_baseline directory."""
     stats = {}
@@ -425,12 +402,6 @@ def load_baseline_stats(baseline_dir):
             }
 
     return stats
-
-
-# ============================================================
-# REPORT GENERATION
-# ============================================================
-
 def generate_report(all_difficulty_results, baseline_stats, output_dir):
     """Generate markdown report and JSON output."""
 
@@ -744,12 +715,6 @@ def generate_report(all_difficulty_results, baseline_stats, output_dir):
     print(f"Wrote: {json_path}")
 
     return md_path, json_path
-
-
-# ============================================================
-# MAIN
-# ============================================================
-
 def main():
     parser = argparse.ArgumentParser(description="SmolVLA Cross-Task Displacement Analysis")
     parser.add_argument("--data-dir", type=str,

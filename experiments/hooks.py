@@ -8,7 +8,6 @@ import torch.nn as nn
 
 
 class ZeroAblationHook:
-    """Replace a layer's output with zeros."""
 
     def __init__(self):
         self.enabled = True
@@ -24,7 +23,6 @@ class ZeroAblationHook:
 
 
 class MeanAblationHook:
-    """Replace a layer's output with its running mean."""
 
     def __init__(self):
         self.enabled = True
@@ -57,7 +55,8 @@ class MeanAblationHook:
 
 
 class ActivationCaptureHook:
-    """Capture all forward pass activations for replay/analysis.
+    """
+    Capture all forward pass activations for replay/analysis.
 
     Unlike ActivationCollector, captures every call without gating,
     suitable for replaying into ActivationInjectionHook.
@@ -79,7 +78,6 @@ class ActivationCaptureHook:
 
 
 class ActivationInjectionHook:
-    """Inject stored activations into a layer, stepping through sequentially."""
 
     def __init__(self, stored: List[torch.Tensor], device: str = "cuda"):
         self.stored = stored
@@ -110,7 +108,6 @@ class ActivationInjectionHook:
 
 
 class NullInjectionHook:
-    """Inject zero activations, tracking original norms for analysis."""
 
     def __init__(self):
         self.enabled = True
@@ -130,7 +127,8 @@ class NullInjectionHook:
 
 
 class ActivationCollector:
-    """Collect activations from named layers with optional denoising gating.
+    """
+    Collect activations from named layers with optional denoising gating.
 
     Supports per-token and mean-pooled modes. Gating prevents duplicate
     collection from flow-matching denoising steps (GR00T DiT).
@@ -145,11 +143,11 @@ class ActivationCollector:
         self._collected_steps: dict = {}
 
     def new_step(self):
-        """Call at the start of each env step to advance the gating counter."""
         self._step_counter += 1
 
     def get_hook(self, name: str, gated: bool = False):
-        """Return a forward hook for the given layer name.
+        """
+        Return a forward hook for the given layer name.
 
         Args:
             name: Key under which activations are stored.
@@ -175,7 +173,6 @@ class ActivationCollector:
         return hook_fn
 
     def register(self, module: nn.Module, name: str, gated: bool = False):
-        """Register a hook on the given module."""
         handle = module.register_forward_hook(self.get_hook(name, gated=gated))
         self.handles.append(handle)
 

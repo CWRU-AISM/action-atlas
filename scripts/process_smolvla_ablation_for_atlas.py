@@ -28,7 +28,6 @@ OUTPUT_DIR = Path("action_atlas/data")
 
 
 def load_all_results():
-    """Load all ablation result JSONs."""
     results = []
     for f in sorted(RESULTS_DIR.glob("*.json")):
         if "partial" in f.name:
@@ -44,7 +43,6 @@ def load_all_results():
 
 
 def compute_ablation_summary(results):
-    """Compute ablation summary statistics."""
     total_pairs = 0
     zero_effect = 0
     destructive = 0  # >50pp drop
@@ -111,7 +109,6 @@ def compute_ablation_summary(results):
 
 
 def compute_steering_summary(results):
-    """Compute steering summary statistics."""
     entries = []
     for r in results:
         if "steering" not in r:
@@ -163,7 +160,6 @@ def compute_steering_summary(results):
 
 
 def compute_ftf_summary(results):
-    """Compute fraction-to-failure summary."""
     entries = []
     for r in results:
         if "fraction_to_failure" not in r:
@@ -191,7 +187,6 @@ def compute_ftf_summary(results):
 
 
 def compute_temporal_summary(results):
-    """Compute temporal ablation summary."""
     entries = []
     for r in results:
         if "temporal" not in r:

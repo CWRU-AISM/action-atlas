@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Counterfactual prompting experiment for any supported VLA model.
+"""
+Counterfactual prompting experiment for any supported VLA model.
 
 Tests how models respond to modified language inputs: null prompts,
 nonsense, negation, wrong objects, generic motor commands, etc.
@@ -60,7 +61,8 @@ class CounterfactualConfig:
     """GPU device index."""
 
     conditions: Optional[List[str]] = None
-    """Prompt conditions to test. Default: all (null_prompt, random, negation,
+    """
+    Prompt conditions to test. Default: all (null_prompt, random, negation,
     opposite, generic). Format: 'negation' uses 'do not {task}'."""
 
     collect_activations: bool = False

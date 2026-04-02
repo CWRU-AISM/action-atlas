@@ -7,10 +7,6 @@ import re
 from pathlib import Path
 
 search_bp = Blueprint("search", __name__)
-
-# SEMANTIC SEARCH ENDPOINTS
-# ============================================================
-
 PI05_CONCEPT_ABLATION_DIR = Path(__file__).parent.parent / "results" / "experiment_results" / "pi05_concept_ablation"
 PI05_ABLATION_VIDEO_DIR = PI05_CONCEPT_ABLATION_DIR / "videos"
 PI05_PROBES_DIR = Path(__file__).parent.parent / "results" / "valid" / "probes"
@@ -46,7 +42,6 @@ def _load_feature_embeddings(model_key):
 
 
 def _load_common_queries():
-    """Load pre-computed common query embeddings."""
     if 'common_queries' in _feature_embeddings_cache:
         return _feature_embeddings_cache['common_queries']
 
@@ -68,7 +63,8 @@ def _load_common_queries():
 
 @search_bp.route('/api/vla/semantic_search', methods=['GET'])
 def semantic_search():
-    """Semantic search over SAE feature descriptions using pre-computed embeddings.
+    """
+    Semantic search over SAE feature descriptions using pre-computed embeddings.
 
     Query params:
         q: Search query text

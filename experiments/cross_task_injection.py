@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Cross-task activation injection for any supported VLA model.
+"""
+Cross-task activation injection for any supported VLA model.
 
 Two-phase experiment:
 1. Capture: Run source tasks, record per-layer activations every forward pass.
@@ -72,7 +73,8 @@ class CrossTaskInjectionConfig:
     """Tasks to capture activations for (capture phase)."""
 
     pairs: Optional[List[str]] = None
-    """Task pairs for injection as 'A,B' strings (inject phase).
+    """
+    Task pairs for injection as 'A,B' strings (inject phase).
     Default: all unique pairs from captured tasks."""
 
     layers: Optional[List[str]] = None

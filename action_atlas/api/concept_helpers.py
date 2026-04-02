@@ -174,7 +174,8 @@ def _load_concept_counts_from_descriptions(model: str, suite: str, config: dict)
 
 
 def _load_concept_counts_for_model(model: str, suite: str, config: dict) -> dict:
-    """Load concept counts per layer from concept_id JSON files.
+    """
+    Load concept counts per layer from concept_id JSON files.
 
     Falls back to description files when concept_id directories are unavailable.
     """
@@ -289,7 +290,6 @@ def _load_concept_counts_for_model(model: str, suite: str, config: dict) -> dict
 
 
 def _load_concept_ablation_scene(model: str, suite: str, component: str) -> Optional[dict]:
-    """Load concept ablation scene state data."""
     cache_key = f"{model}_{suite}_{component}"
     if cache_key in _concept_ablation_scene_cache:
         return _concept_ablation_scene_cache[cache_key]

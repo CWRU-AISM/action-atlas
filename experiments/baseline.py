@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Baseline rollouts with optional activation collection for any VLA model.
+"""
+Baseline rollouts with optional activation collection for any VLA model.
 
 Runs clean episodes (no interventions) and optionally captures per-layer
 activations for downstream SAE training or analysis.

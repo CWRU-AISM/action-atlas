@@ -5,9 +5,6 @@ from .data_loaders import *
 from .experiment_helpers import _find_latest_oft_result
 
 injection_bp = Blueprint("injection", __name__)
-
-# ---------------------------------------------------------------------------
-
 @injection_bp.route('/api/vla/injection', methods=['GET'])
 def get_injection():
     """Cross-task and same-scene injection results."""
@@ -460,12 +457,7 @@ def _injection_from_experiment_results(
             'key_finding', f'{len(conditions)} cross-task injection results for {model}.',
         ),
     })
-
-
-# ---------------------------------------------------------------------------
 # Steering
-# ---------------------------------------------------------------------------
-
 @injection_bp.route('/api/vla/steering_concepts', methods=['GET'])
 def get_steering_concepts():
     """Get available concepts for steering with pre-computed success curves."""

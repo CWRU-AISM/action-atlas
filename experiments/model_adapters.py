@@ -1,4 +1,5 @@
-"""Model adapters for VLA interpretability experiments.
+"""
+Model adapters for VLA interpretability experiments.
 
 Each adapter wraps model-specific loading, layer access, batch creation,
 action conversion, and environment setup behind a uniform interface.
@@ -30,7 +31,8 @@ sys.path.insert(0, str(PROJECT_ROOT / "lerobot" / "src"))
 # Base adapter
 
 def _resolve_checkpoint(checkpoint: str) -> str:
-    """Resolve checkpoint path: if it's a local path that exists, make it absolute.
+    """
+    Resolve checkpoint path: if it's a local path that exists, make it absolute.
     Otherwise return as-is (treated as HuggingFace repo ID)."""
     p = Path(checkpoint)
     if p.exists():
@@ -51,7 +53,8 @@ class ModelAdapter(ABC):
 
     @abstractmethod
     def get_layer_groups(self) -> Dict[str, List]:
-        """Return named groups of hookable layers.
+        """
+        Return named groups of hookable layers.
 
         Example: {"transformer": [block0, block1, ...], "vlm": [layer0, ...]}
         """
@@ -66,14 +69,16 @@ class ModelAdapter(ABC):
 
     @abstractmethod
     def create_env(self, task, suite: str, resolution: int = 256, **kwargs):
-        """Create an environment for the given task.
+        """
+        Create an environment for the given task.
 
         Returns: (env, task_description, env_meta)
         """
 
     @abstractmethod
     def setup_suite(self, suite: str, **kwargs):
-        """Set up a LIBERO task suite.
+        """
+        Set up a LIBERO task suite.
 
         Returns: (task_suite, tasks_list) where tasks_list is
                  [(task_idx, task_obj, task_desc), ...]
@@ -82,7 +87,8 @@ class ModelAdapter(ABC):
     @abstractmethod
     def run_episode(self, env, task_desc: str, max_steps: int,
                     save_video: bool = False, perturbation_fn=None, **kwargs) -> dict:
-        """Run a single episode. Returns dict with at least:
+        """
+        Run a single episode. Returns dict with at least:
         - success: bool
         - steps: int
         - actions: np.ndarray

@@ -51,7 +51,6 @@ def load_viz_data(vla_model: str, layer_name: str):
 
 
 def load_analysis_results(vla_model: str):
-    """Load concept analysis results."""
     config = get_vla_config(vla_model)
     if config is None:
         return None

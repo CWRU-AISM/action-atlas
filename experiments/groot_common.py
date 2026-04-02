@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""GR00T N1.5 model utilities: loading, hook paths, episode runner.
+"""
+GR00T N1.5 model utilities: loading, hook paths, episode runner.
 
 Works with both N1.5 (LIBERO) and N1.6 (RoboCasa) model versions.
 
@@ -163,7 +164,6 @@ def load_metadata_stats(checkpoint_path):
 
 
 def normalize_state(state_8d, stats):
-    """Normalize 8D state to [-1, 1] using min-max from training data."""
     s_min, s_max = stats["state_min"], stats["state_max"]
     denom = s_max - s_min
     mask = denom != 0
@@ -173,7 +173,6 @@ def normalize_state(state_8d, stats):
 
 
 def denormalize_action(action_7d, stats):
-    """Denormalize 7D action from [-1, 1] back to original scale."""
     a_min, a_max = stats["action_min"], stats["action_max"]
     denom = a_max - a_min
     mask = denom != 0
@@ -183,7 +182,6 @@ def denormalize_action(action_7d, stats):
 
 
 def quat2axisangle(quat):
-    """Convert quaternion [x, y, z, w] to axis-angle."""
     w = np.clip(quat[3], -1.0, 1.0)
     den = np.sqrt(1.0 - w * w)
     if math.isclose(den, 0.0):

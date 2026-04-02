@@ -48,7 +48,8 @@ def load_json(path):
 
 
 def classify_behavior(cos_to_src, cos_to_dst, threshold=0.05):
-    """Classify whether the robot performed source task, destination task, or neither.
+    """
+    Classify whether the robot performed source task, destination task, or neither.
 
     Returns: 'source', 'destination', or 'ambiguous'
     """
@@ -229,14 +230,9 @@ def aggregate_object_displacement(all_results):
                 obj_stats[obj]['as_neither'] += 1
 
     return obj_stats
-
-
-# ============================================================
-# COUNTERFACTUAL OBJECT ANALYSIS
-# ============================================================
-
 def analyze_counterfactual_objects(batch_dir):
-    """Analyze which objects get displaced under different counterfactual prompt conditions.
+    """
+    Analyze which objects get displaced under different counterfactual prompt conditions.
 
     For each LIBERO suite/task, compares object displacements across conditions
     to determine: does the robot still interact with the correct object when given
@@ -285,14 +281,9 @@ def analyze_counterfactual_objects(batch_dir):
             results[suite_name] = suite_data
 
     return results
-
-
-# ============================================================
-# VISION PERTURBATION OBJECT ANALYSIS
-# ============================================================
-
 def analyze_vision_objects(batch_dir):
-    """Analyze which objects get displaced under different vision perturbations.
+    """
+    Analyze which objects get displaced under different vision perturbations.
 
     Compares object displacements across perturbation types to determine:
     does visual corruption cause the robot to interact with wrong objects?

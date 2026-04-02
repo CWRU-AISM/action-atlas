@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Build scene state JSONs and video/ablation indices for X-VLA, SmolVLA, GR00T.
+"""
+Build scene state JSONs and video/ablation indices for X-VLA, SmolVLA, GR00T.
 
 Outputs:
     action_atlas/data/smolvla_scene_state/{suite}_baseline.json
@@ -55,13 +56,7 @@ def write_json(path: Path, data: dict):
         json.dump(data, f, separators=(",", ":"))
     size_mb = path.stat().st_size / (1024 * 1024)
     print(f"  Wrote {path.name} ({size_mb:.1f} MB)")
-
-
-# =============================================================================
 # SmolVLA Scene State
-# =============================================================================
-
-
 def build_smolvla_baseline(suite: str, results_path: Path) -> Optional[dict]:
     """Build SmolVLA baseline scene state from baselines/results.json."""
     data = safe_load_json(results_path)
@@ -105,7 +100,6 @@ def build_smolvla_baseline(suite: str, results_path: Path) -> Optional[dict]:
 
 
 def build_smolvla_grid_ablation(suite: str, results_path: Path) -> Optional[dict]:
-    """Build SmolVLA grid ablation scene state."""
     data = safe_load_json(results_path)
     if data is None:
         return None
@@ -150,7 +144,6 @@ def build_smolvla_grid_ablation(suite: str, results_path: Path) -> Optional[dict
 
 
 def build_smolvla_metaworld_baseline(results_path: Path) -> Optional[dict]:
-    """Build SmolVLA MetaWorld baseline scene state."""
     data = safe_load_json(results_path)
     if data is None:
         return None
@@ -177,7 +170,6 @@ def build_smolvla_metaworld_baseline(results_path: Path) -> Optional[dict]:
 
 
 def build_smolvla_scene_state():
-    """Build all SmolVLA scene state files."""
     print("\n=== Building SmolVLA Scene State ===")
     out_dir = DATA_DIR / "smolvla_scene_state"
 
@@ -204,15 +196,8 @@ def build_smolvla_scene_state():
         result = build_smolvla_metaworld_baseline(mw_path)
         if result:
             write_json(out_dir / "metaworld_baseline.json", result)
-
-
-# =============================================================================
 # SmolVLA Ablation Index
-# =============================================================================
-
-
 def build_smolvla_ablation_index():
-    """Build SmolVLA concept ablation index."""
     print("\n=== Building SmolVLA Ablation Index ===")
     entries = []
 
@@ -258,13 +243,7 @@ def build_smolvla_ablation_index():
     }
     write_json(DATA_DIR / "smolvla_ablation_index.json", index)
     return index
-
-
-# =============================================================================
 # X-VLA Scene State
-# =============================================================================
-
-
 LIBERO_TASK_DESCRIPTIONS = {}
 
 
@@ -352,7 +331,8 @@ def build_xvla_libero_baseline(suite_short: str) -> Optional[dict]:
 
 
 def build_xvla_libero_grid_ablation(suite_short: str) -> Optional[dict]:
-    """Build X-VLA LIBERO grid ablation from grid_results.json.
+    """
+    Build X-VLA LIBERO grid ablation from grid_results.json.
 
     X-VLA grid format: grid[condition] = {"per_task": {task_id: {success_rate, ...}}, "mean_success_rate": float}
     """
@@ -605,7 +585,8 @@ def build_xvla_simplerenv_baseline(env: str) -> Optional[dict]:
 
 
 def build_xvla_simplerenv_grid(env: str) -> Optional[dict]:
-    """Build X-VLA SimplerEnv grid ablation from grid_results.json.
+    """
+    Build X-VLA SimplerEnv grid ablation from grid_results.json.
 
     Same per_task format as LIBERO: grid[condition] = {"per_task": {...}, "mean_success_rate": float}
     """
@@ -688,13 +669,7 @@ def build_xvla_scene_state():
         result = build_xvla_simplerenv_grid(env)
         if result:
             write_json(out_dir / f"simplerenv_{env}_grid_ablation.json", result)
-
-
-# =============================================================================
 # GR00T Scene State
-# =============================================================================
-
-
 GROOT_TASK_DESCRIPTIONS = {
     "libero_goal": {
         0: "open the middle drawer of the cabinet",
@@ -801,7 +776,6 @@ def build_groot_fraction_to_failure(suite: str) -> Optional[dict]:
 
 
 def build_groot_steering(suite: str) -> Optional[dict]:
-    """Build GR00T steering scene state."""
     suite_dir = Path(f"/data/groot_rollouts_batch2/sae_steering/{suite}")
     if not suite_dir.exists():
         return None
@@ -989,13 +963,7 @@ def build_groot_scene_state():
         result = build_groot_cross_suite_ablation(suite)
         if result:
             write_json(out_dir / f"{suite}_cross_suite_ablation.json", result)
-
-
-# =============================================================================
 # GR00T Ablation Index (Video Index)
-# =============================================================================
-
-
 def build_groot_ablation_index():
     """Build GR00T video/ablation index across all experiment types."""
     print("\n=== Building GR00T Ablation Index ===")
@@ -1090,13 +1058,7 @@ def build_groot_ablation_index():
     write_json(DATA_DIR / "groot_ablation_index.json", index)
     print(f"  Total GR00T videos indexed: {len(videos)}")
     return index
-
-
-# =============================================================================
 # Main
-# =============================================================================
-
-
 def main():
     print("Building scene state JSONs and ablation indices for X-VLA, SmolVLA, GR00T")
     print(f"Output directory: {DATA_DIR}")

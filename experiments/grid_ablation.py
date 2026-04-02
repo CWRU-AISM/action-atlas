@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Layer-by-layer ablation across all tasks for any supported VLA model.
+"""
+Layer-by-layer ablation across all tasks for any supported VLA model.
 
 Zero (or mean-replace) each layer's output one at a time and measure
 success rate. Produces a [layers x tasks] grid showing which layers
@@ -69,11 +70,13 @@ class GridAblationConfig:
     """Task indices to evaluate. Default: all tasks in suite."""
 
     layers: Optional[List[str]] = None
-    """Layer labels to ablate (e.g. 'transformer_L0', 'expert_4').
+    """
+    Layer labels to ablate (e.g. 'transformer_L0', 'expert_4').
     Default: all layers in model."""
 
     layer_group: Optional[str] = None
-    """Ablate only layers in this group (e.g. 'eagle', 'dit', 'expert').
+    """
+    Ablate only layers in this group (e.g. 'eagle', 'dit', 'expert').
     Overridden by --layers if both are set."""
 
     ablation_mode: str = "zero"
@@ -95,7 +98,8 @@ class GridAblationConfig:
     """GPU device index."""
 
     n_action_steps: Optional[int] = None
-    """Override action chunk size (default: use checkpoint config).
+    """
+    Override action chunk size (default: use checkpoint config).
     Higher values = fewer model forward passes = faster, but may affect
     accuracy if the model was trained with n_action_steps=1."""
 

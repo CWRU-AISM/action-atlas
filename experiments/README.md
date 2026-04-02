@@ -57,6 +57,63 @@ python experiments/concept_ablation.py --model xvla --suite libero_object \
     --layer transformer_L12
 ```
 
+## SimplerEnv Experiments (X-VLA cross-embodiment)
+
+Scripts in `experiments/simplerenv/` run X-VLA on SimplerEnv (WidowX and
+Google Robot). These require the `simpler_env` conda environment (Python 3.10,
+numpy<2). See `setup/SETUP.md` for installation.
+
+```bash
+conda activate simpler_env
+export MUJOCO_GL=egl
+
+python experiments/simplerenv/xvla_simplerenv_eval.py --model widowx --all-tasks --n_episodes 20
+python experiments/simplerenv/xvla_simplerenv_grid_ablation.py --model widowx --n-episodes 3
+python experiments/simplerenv/xvla_simplerenv_counterfactual.py --model widowx --all-tasks --n_episodes 3
+python experiments/simplerenv/xvla_simplerenv_vision_perturbation.py --model widowx --all-tasks --n_episodes 3
+python experiments/simplerenv/xvla_simplerenv_cross_task_injection.py --model widowx --all-pairs
+```
+
+| Script | Purpose |
+|--------|---------|
+| `xvla_simplerenv_eval.py` | Baseline eval with activation collection |
+| `xvla_simplerenv_grid_ablation.py` | Layer-by-layer zeroing |
+| `xvla_simplerenv_counterfactual.py` | Prompt perturbations |
+| `xvla_simplerenv_cross_task_injection.py` | Cross-task activation injection |
+| `xvla_simplerenv_vision_perturbation.py` | Image perturbation robustness |
+| `xvla_simplerenv_temporal_injection.py` | Temporal activation injection |
+| `xvla_simplerenv_concept_ablation.py` | SAE concept ablation |
+| `xvla_simplerenv_concept_steering.py` | SAE concept steering |
+| `xvla_simplerenv_reconstruction_eval.py` | SAE reconstruction fidelity |
+
+## MetaWorld Experiments (SmolVLA)
+
+Scripts in `experiments/metaworld/` run SmolVLA on MetaWorld MT50 tasks
+(50 tasks across easy/medium/hard/very_hard). Uses the `actionatlas`
+conda environment (Python 3.12). Checkpoint: `jadechoghari/smolvla_metaworld`.
+
+```bash
+conda activate actionatlas
+export MUJOCO_GL=egl
+
+python experiments/metaworld/run_smolvla_metaworld.py --difficulty easy --n-episodes 10
+python experiments/metaworld/smolvla_metaworld_grid_ablation.py --difficulty easy --n-episodes 3
+python experiments/metaworld/smolvla_metaworld_counterfactual.py --difficulty easy --output-dir outputs/mw_cf
+python experiments/metaworld/smolvla_metaworld_vision_perturbation.py --difficulty easy --n-episodes 3
+python experiments/metaworld/smolvla_metaworld_cross_task_injection.py --difficulty easy
+```
+
+| Script | Purpose |
+|--------|---------|
+| `run_smolvla_metaworld.py` | Baseline eval with activation collection |
+| `smolvla_metaworld_grid_ablation.py` | Layer-by-layer MLP zeroing |
+| `smolvla_metaworld_counterfactual.py` | Prompt perturbations (5 categories) |
+| `smolvla_metaworld_enhanced_counterfactual.py` | Compositional/paraphrase/specificity prompts |
+| `smolvla_metaworld_cross_task_injection.py` | Cross-task activation injection |
+| `smolvla_metaworld_vision_perturbation.py` | Image perturbation robustness (23 perturbations) |
+| `smolvla_metaworld_concept_id.py` | SAE concept identification (Cohen's d) |
+| `validate_smolvla_sae_metaworld.py` | SAE reconstruction fidelity |
+
 ## Shared Modules
 
 | Module | Purpose |

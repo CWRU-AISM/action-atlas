@@ -114,7 +114,8 @@ def serve_video_response(path: Path, filename: str = None):
 
 
 def parse_ablation_filename(filename: str) -> dict:
-    """Parse ablation video filename into components.
+    """
+    Parse ablation video filename into components.
 
     Format: ablation_L{layer}_{concept_type}_{concept}_task{N}_ep{M}.mp4
     Returns: {layer, concept_type, concept, task, episode, is_baseline}
@@ -174,7 +175,6 @@ def load_ablation_index(model: str) -> Optional[list]:
 
 
 def get_vla_config(model: str = 'pi05'):
-    """Get configuration for VLA model."""
     if model in ('openvla', 'openvla_oft'):
         return {
             'model': 'openvla',
@@ -277,7 +277,8 @@ def get_vla_config(model: str = 'pi05'):
 
 def load_clustering_data(suite: str, layer: str, model: str = 'pi05',
                          method: str = 'ffn', pathway: str = 'expert') -> Optional[Dict]:
-    """Load clustering data for a specific layer.
+    """
+    Load clustering data for a specific layer.
 
     Args:
         suite: LIBERO suite name (e.g., 'concepts', 'goal', 'spatial', 'object', '10')

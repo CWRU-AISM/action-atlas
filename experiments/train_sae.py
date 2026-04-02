@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Train TopK sparse autoencoders on collected VLA activations.
+"""
+Train TopK sparse autoencoders on collected VLA activations.
 
 Model-agnostic: just needs a directory of activation .pt files.
 Trains one SAE per layer with early stopping and saves checkpoints
@@ -42,7 +43,8 @@ class TrainSAEConfig:
     """TopK SAE training configuration."""
 
     activations_dir: str = ""
-    """Directory containing activation .pt files (one per layer).
+    """
+    Directory containing activation .pt files (one per layer).
     Expected structure: activations_dir/task{N}/ep{M}/layer_name.pt
     or activations_dir/layer_name.pt (pre-concatenated)."""
 

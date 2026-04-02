@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Generate feature descriptions for SAE features using LLM APIs.
+"""
+Generate feature descriptions for SAE features using LLM APIs.
 
 Supports all VLA models (Pi0.5, OpenVLA-OFT, X-VLA, SmolVLA, GR00T).
 Uses Claude, Gemini, or rule-based fallback to produce human-readable

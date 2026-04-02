@@ -53,9 +53,6 @@ SPATIAL_CONCEPTS = {
     "front": {"tasks": [2]},
     "middle": {"tasks": [0]},
 }
-
-
-# LIBERO OBJECT SUITE
 # 0: pick up the alphabet soup and place it in the basket
 # 1: pick up the bbq sauce and place it in the basket
 # 2: pick up the butter and place it in the basket
@@ -89,9 +86,6 @@ OBJECT_OBJECT_CONCEPTS = {
 OBJECT_SPATIAL_CONCEPTS = {
     "in": {"tasks": list(range(10))},
 }
-
-
-# LIBERO SPATIAL SUITE
 # 0: pick up the black bowl between the plate and the ramekin and place it on the plate
 # 1: pick up the black bowl from table center and place it on the plate
 # 2: pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate
@@ -172,9 +166,6 @@ LIBERO_10_SPATIAL_CONCEPTS = {
     "right": {"tasks": [6, 7]},
     "bottom": {"tasks": [5]},
 }
-
-
-# SIMPLERENV WIDOWX CONCEPTS
 # Task IDs (alphabetical order):
 # 0: widowx_carrot_on_plate
 # 1: widowx_put_eggplant_in_basket
@@ -202,9 +193,6 @@ WIDOWX_SPATIAL_CONCEPTS = {
     "in": {"tasks": [1]},
     "stack": {"tasks": [3]},
 }
-
-
-# SIMPLERENV GOOGLE ROBOT CONCEPTS
 # Task IDs (alphabetical order):
 # 0: google_robot_close_middle_drawer
 # 1: google_robot_close_top_drawer
@@ -230,10 +218,6 @@ GOOGLE_ROBOT_SPATIAL_CONCEPTS = {
     "top": {"tasks": [1, 4]},
     "near": {"tasks": [2]},
 }
-
-
-# LOOKUP HELPERS
-
 # All LIBERO concept dicts by suite
 ALL_CONCEPTS = {
     "goal": {
@@ -290,7 +274,8 @@ ALL_CONCEPTS = {
 
 
 def get_concept_task_mapping(suite: str) -> Dict[str, Dict[str, Dict]]:
-    """Get all concepts organized by type for a given suite.
+    """
+    Get all concepts organized by type for a given suite.
 
     Returns: {concept_type: {concept_name: {"tasks": [task_ids]}}}
     """

@@ -206,7 +206,8 @@ def _load_vp_results(model: str) -> Optional[dict]:
 
 
 def _convert_experiment_vp_to_vp_results(model: str, vp_section: dict) -> dict:
-    """Convert experiment_results vision_perturbation format to vp_results format.
+    """
+    Convert experiment_results vision_perturbation format to vp_results format.
 
     experiment_results format:
       { "suite_name": { "per_perturbation": { "blur_light": { "overall_success_rate": 0.9, "per_task": {...} } } } }
@@ -619,12 +620,7 @@ def extract_video_frame():
             'success': False,
             'error': str(e)
         }), 500
-
-
-# ============================================================================
 # Experiment Statistics Endpoint
-# ============================================================================
-
 import re
 
 
@@ -784,7 +780,8 @@ def get_perturbation_videos():
 
 @perturbation_bp.route('/api/vla/vp_comparison', methods=['GET'])
 def get_vp_comparison():
-    """Get vision perturbation baseline/perturbation video pairs for comparison.
+    """
+    Get vision perturbation baseline/perturbation video pairs for comparison.
     
     Query params:
         model: Model name (pi05, openvla, xvla, smolvla, groot)

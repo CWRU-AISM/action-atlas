@@ -79,7 +79,6 @@ def count_files(directory, extension, recursive=True):
 
 
 def count_files_in_subdirs(directory, extension, subdirs):
-    """Count files in specific subdirectories."""
     total = 0
     for sd in subdirs:
         path = os.path.join(directory, sd)
@@ -101,7 +100,8 @@ def count_scene_json(directory):
 
 
 def parse_concept_ablation_json(filepath):
-    """Parse a concept ablation/steering JSON to count episodes.
+    """
+    Parse a concept ablation/steering JSON to count episodes.
 
     Handles the standard structure:
       {n_episodes: N, tasks: {concept: {tasks: {task_id: {results}}}}}
@@ -248,7 +248,6 @@ def count_from_json(model):
 # ── Disk-based counting ───────────────────────────────────────────────────────
 
 def count_pi05_disk():
-    """Count Pi0.5 episodes from disk."""
     rollouts = DISK_PATHS["pi05"]["rollouts"]
     ca_dir = DISK_PATHS["pi05"]["concept_ablation_jsons"]
     sections = {}
@@ -336,7 +335,6 @@ def count_pi05_disk():
 
 
 def count_oft_disk():
-    """Count OFT episodes from disk."""
     rollouts = DISK_PATHS["oft"]["rollouts"]
     ca_dir = DISK_PATHS["oft"]["concept_ablation_jsons"]
     sections = {}
@@ -380,7 +378,6 @@ def count_oft_disk():
 
 
 def count_xvla_disk():
-    """Count X-VLA episodes from disk."""
     libero_dir = DISK_PATHS["xvla"]["libero"]
     simplerenv_dir = DISK_PATHS["xvla"]["simplerenv"]
     ca_dir = DISK_PATHS["xvla"]["concept_ablation"]
@@ -577,7 +574,6 @@ def count_smolvla_disk():
 
 
 def count_groot_disk():
-    """Count GR00T episodes from disk."""
     b1 = DISK_PATHS["groot"]["batch1"]
     b2 = DISK_PATHS["groot"]["batch2"]
     sections = {}
@@ -638,7 +634,6 @@ def count_groot_disk():
 
 
 def count_act_disk():
-    """Count ACT episodes from disk."""
     rollouts = DISK_PATHS["act"]["rollouts"]
     interp_dir = os.path.join(rollouts, "act_aloha_interp")
     sections = {}
@@ -680,7 +675,8 @@ def count_act_disk():
 # ── Merge and output ──────────────────────────────────────────────────────────
 
 def merge_sections(json_sections, disk_sections, dedup_map=None):
-    """Merge JSON-based and disk-based sections into unified section list.
+    """
+    Merge JSON-based and disk-based sections into unified section list.
 
     Uses max(json, disk) for the canonical episode count per section.
     dedup_map: dict mapping disk_key -> json_key for overlapping sections.

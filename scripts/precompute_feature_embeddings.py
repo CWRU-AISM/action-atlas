@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Pre-compute sentence embeddings for all SAE feature descriptions.
+"""
+Pre-compute sentence embeddings for all SAE feature descriptions.
 
 Uses sentence-transformers on A100 GPUs to encode feature descriptions
 into embeddings for fast semantic search in the Action Atlas frontend.

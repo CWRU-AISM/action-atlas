@@ -715,7 +715,6 @@ def serve_vla_video_options(video_path: str):
 
 @videos_bp.route('/api/vla/video/oft_ablation/<suite>/<filename>', methods=['GET'])
 def serve_oft_ablation_video(suite: str, filename: str):
-    """Serve OFT concept ablation videos."""
     if '..' in suite or '..' in filename:
         abort(400, description="Invalid path")
     video_path = OFT_ABLATION_VIDEO_DIR / suite / filename

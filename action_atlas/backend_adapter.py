@@ -1,4 +1,5 @@
-"""Action Atlas API - backward compatibility shim.
+"""
+Action Atlas API - backward compatibility shim.
 
 The API has been split into focused modules under action_atlas/api/.
 This file re-exports the combined blueprint for existing code that

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""SAE hooks for per-token ablation and steering.
+"""
+SAE hooks for per-token ablation and steering.
 
 Processes each token position through the SAE independently
 (no mean pooling across sequence dimension).
@@ -22,7 +23,6 @@ class TopKSAE(nn.Module):
         self.hidden_dim = hidden_dim
 
     def encode(self, x: torch.Tensor) -> torch.Tensor:
-        """Encode with TopK sparsity."""
         z = self.encoder(x)
         topk_vals, topk_idx = torch.topk(z, self.k, dim=-1)
         z_sparse = torch.zeros_like(z)
@@ -30,11 +30,9 @@ class TopKSAE(nn.Module):
         return z_sparse
 
     def encode_raw(self, x: torch.Tensor) -> torch.Tensor:
-        """Get raw encoder output (before TopK)."""
         return self.encoder(x)
 
     def decode(self, z: torch.Tensor) -> torch.Tensor:
-        """Decode from latent space."""
         return self.decoder(z)
 
     def forward(self, x: torch.Tensor):
@@ -43,7 +41,8 @@ class TopKSAE(nn.Module):
 
 
 class PerTokenAblationHook:
-    """Ablation hook that processes each token position through SAE independently.
+    """
+    Ablation hook that processes each token position through SAE independently.
 
     Uses a residual approach: computes the delta between normal and ablated
     SAE reconstructions, then applies that delta to the original activations.
@@ -72,11 +71,9 @@ class PerTokenAblationHook:
         self.ablate_end = end
 
     def reset(self):
-        """Reset step counter for new episode."""
         self.current_step = 0
 
     def clear(self):
-        """Clear ablation configuration."""
         self.ablate_features = []
         self.ablate_start = 0
         self.ablate_end = float('inf')
@@ -174,11 +171,9 @@ class PerTokenSteeringHook:
         self.steer_end = end
 
     def reset(self):
-        """Reset step counter for new episode."""
         self.current_step = 0
 
     def clear(self):
-        """Clear steering configuration."""
         self.steer_features = []
         self.steer_strength = 0.0
         self.feature_means = None

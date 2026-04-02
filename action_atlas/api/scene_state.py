@@ -7,7 +7,8 @@ scene_state_bp = Blueprint("scene_state", __name__)
 
 
 def _load_merged_results(suite: str, seed: str = 'seed123') -> Optional[dict]:
-    """Load merged_results.json for Pi0.5 cross-task experiments. Uses cache.
+    """
+    Load merged_results.json for Pi0.5 cross-task experiments. Uses cache.
 
     For suites without a merged_results.json (e.g. LIBERO-10), merges all
     available batch results.json files into a single dict.
@@ -145,7 +146,6 @@ def _load_merged_results(suite: str, seed: str = 'seed123') -> Optional[dict]:
 
 
 def _load_oft_scene_state(suite: str) -> Optional[dict]:
-    """Load baked OFT scene state data."""
     oft_dir = Path(__file__).parent / 'data' / 'oft_scene_state'
     suite_map = {
         'goal': 'libero_goal', 'object': 'libero_object',
@@ -285,7 +285,8 @@ def _load_model_scene_state(model: str, suite: str, experiment_type: str = 'base
 
 
 def _convert_tasks_to_pairs(data: dict) -> dict:
-    """Convert tasks-based scene state format to pairs+results format.
+    """
+    Convert tasks-based scene state format to pairs+results format.
 
     Tasks format has per-task trials with trajectories.  We generate
     pairwise entries so the scene-state UI can display baseline
@@ -593,11 +594,7 @@ def get_scene_state():
             'final_state': scene.get('final_state', {}) or cond_data.get('final_state', {}),
         },
     })
-
-
-# ============================================================
 # Concept Ablation Scene State (SmolVLA, GR00T)
-# ============================================================
 _concept_ablation_scene_cache: Dict[str, dict] = {}
 
 
@@ -728,12 +725,7 @@ def get_action_trajectories():
         'ablated_steps': len(ablated_traj),
         'baseline_available': len(baseline_traj) > 0,
     })
-
-
-# ---------------------------------------------------------------------------
 # Experiment Results API (SmolVLA, X-VLA, GR00T)
-# ---------------------------------------------------------------------------
-
 # Cache for experiment results (loaded once on first request)
 _experiment_results_cache: Dict = {}
 

@@ -49,7 +49,6 @@ def load_descriptions(layer: str = "action_expert_layer_12", suite: str = "conce
 
 
 def load_concept_features(layer: str = "action_expert_layer_12"):
-    """Load concept associations for features."""
     if not CONCEPT_FILE.exists():
         return {}
 
@@ -71,7 +70,6 @@ def load_concept_features(layer: str = "action_expert_layer_12"):
 
 
 def get_tfidf_embeddings(texts):
-    """Get TF-IDF embeddings."""
     vectorizer = TfidfVectorizer(max_features=5000, stop_words='english')
     tfidf_matrix = vectorizer.fit_transform(texts)
 
@@ -83,7 +81,6 @@ def get_tfidf_embeddings(texts):
 
 
 def get_sbert_embeddings(texts, model_name="all-MiniLM-L6-v2"):
-    """Get sentence-transformer embeddings."""
     if not HAS_SBERT:
         raise ImportError("sentence-transformers not available")
 
@@ -93,7 +90,6 @@ def get_sbert_embeddings(texts, model_name="all-MiniLM-L6-v2"):
 
 
 def compute_umap(embeddings, n_neighbors=15, min_dist=0.1):
-    """Compute UMAP projection."""
     reducer = umap.UMAP(
         n_components=2,
         n_neighbors=n_neighbors,
@@ -105,7 +101,6 @@ def compute_umap(embeddings, n_neighbors=15, min_dist=0.1):
 
 
 def hierarchical_clustering(embeddings, n_clusters=30):
-    """Hierarchical agglomerative clustering."""
     clustering = AgglomerativeClustering(
         n_clusters=n_clusters,
         metric='cosine',
@@ -115,7 +110,6 @@ def hierarchical_clustering(embeddings, n_clusters=30):
 
 
 def hdbscan_clustering(coords, min_cluster_size=15, min_samples=5):
-    """HDBSCAN clustering on UMAP coordinates."""
     clusterer = hdbscan.HDBSCAN(
         min_cluster_size=min_cluster_size,
         min_samples=min_samples,
@@ -169,7 +163,6 @@ def get_concept_colors(indices, feature_concepts):
 
 
 def generate_cluster_colors(labels):
-    """Generate colors for cluster labels."""
     unique_labels = np.unique(labels)
     n_clusters = len(unique_labels)
 
