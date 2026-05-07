@@ -1,16 +1,16 @@
-"""Experiment data loading helpers."""
+# Experiment data loading helpers
 from .helpers import *
 from .data_loaders import *
 
 def _count_files(directory: Path, pattern: str) -> int:
-    """Count files matching a glob pattern, returning 0 if directory is missing."""
+    # Count files matching a glob pattern, returning 0 if directory is missing
     if not directory.exists():
         return 0
     return len(list(directory.glob(pattern)))
 
 
 def _rcount_files(directory: Path, pattern: str) -> int:
-    """Recursively count files matching a glob pattern, returning 0 if missing."""
+    # Recursively count files matching a glob pattern, returning 0 if missing
     if not directory.exists():
         return 0
     return sum(1 for _ in directory.rglob(pattern))
@@ -18,7 +18,7 @@ def _rcount_files(directory: Path, pattern: str) -> int:
 
 def _dir_experiment_entry(directory: Path, pattern: str, description: str,
                           category: str, recursive: bool = False) -> Optional[dict]:
-    """Build an experiment entry by scanning a directory, or None if empty."""
+    # Build an experiment entry by scanning a directory, or None if empty
     count = _rcount_files(directory, pattern) if recursive else _count_files(directory, pattern)
     if count == 0:
         return None
@@ -26,7 +26,7 @@ def _dir_experiment_entry(directory: Path, pattern: str, description: str,
 
 
 def _load_experiment_results(model: str) -> Optional[Dict]:
-    """Load pre-aggregated experiment results for a model."""
+    # Load pre-aggregated experiment results for a model
     if model in _experiment_results_cache:
         return _experiment_results_cache[model]
     results_path = _API_DATA_DIR / f"experiment_results_{model}.json"
@@ -37,7 +37,7 @@ def _load_experiment_results(model: str) -> Optional[Dict]:
 
 
 def _resolve_file_model(model: str) -> str:
-    """Map a model param name to the file suffix for experiment_results_<name>.json."""
+    # Map a model param name to the file suffix for experiment_results_<name>.json
     return MODEL_FILE_MAP.get(model, model)
 
 
@@ -72,18 +72,35 @@ def _load_known_stats() -> Dict:
     return result
 
 
+_OFT_MANIFEST_PATH = Path(__file__).resolve().parent.parent / "data" / "oft_manifest.json"
+_OFT_MANIFEST: Optional[Dict[str, Dict[str, str]]] = None
+
+
+def _load_oft_manifest() -> Dict[str, Dict[str, str]]:
+    """
+    Read the baked OFT manifest produced by ``scripts/build_oft_manifest.py``.
+
+    The manifest maps suite -> experiment_type -> canonical run directory name.
+    Loaded once and cached.
+    """
+    global _OFT_MANIFEST
+    if _OFT_MANIFEST is None:
+        payload = load_json_cached(_OFT_MANIFEST_PATH, "oft_manifest") or {}
+        _OFT_MANIFEST = payload.get("models", {}).get("openvla", {})
+    return _OFT_MANIFEST
+
+
 def _find_latest_oft_result(suite: str, experiment_type: str) -> Optional[Path]:
-    """Find the most recent OFT results.json for a given experiment type."""
-    suite_dir = OFT_DATA_DIR / suite
-    if not suite_dir.exists():
+    """
+    Resolve the canonical OFT results.json path for ``(suite, experiment_type)``.
+
+    Returns ``None`` when the manifest has no entry for the request, which is the
+    one legitimate "not found" case. The caller surfaces a clean 404.
+    """
+    run_name = _load_oft_manifest().get(suite, {}).get(experiment_type)
+    if run_name is None:
         return None
-    for run_dir in sorted(suite_dir.iterdir(), reverse=True):
-        if not run_dir.is_dir():
-            continue
-        results_file = run_dir / experiment_type / "results.json"
-        if results_file.exists():
-            return results_file
-    return None
+    return OFT_DATA_DIR / suite / run_name / experiment_type / "results.json"
 
 
 def _scan_dirs_to_experiment_types(experiment_types: dict, specs: list) -> None:
@@ -141,7 +158,7 @@ def _parse_ablation_video_filename(stem: str) -> dict:
     return result
 # Layer Metrics
 def _build_layer_connections_from_config(model: str, suite: str) -> dict:
-    """Build layer connection data from model config and concept_id files."""
+    # Build layer connection data from model config and concept_id files
     config = get_vla_config(model)
     layers = []
     layer_concept_counts = _load_concept_counts_for_model(model, suite, config)
@@ -170,7 +187,7 @@ def _build_layer_connections_from_config(model: str, suite: str) -> dict:
     return {'layers': layers, 'model': model, 'suite': suite}
 # OFT Ablation Videos
 def _get_groot_temporal_ablation():
-    """Load GR00T temporal ablation from experiment_results_groot.json."""
+    # Load GR00T temporal ablation from experiment_results_groot.json
     data = _load_experiment_results('groot')
     if data is None or 'temporal_ablation' not in data:
         return jsonify({'status': 404, 'error': {'code': 'NO_DATA', 'message': 'No temporal ablation data found for GR00T.'}}), 404
@@ -214,7 +231,7 @@ def _get_groot_temporal_ablation():
 
 
 def _get_smolvla_temporal_ablation():
-    """Aggregate SmolVLA temporal ablation from concept ablation result files."""
+    # Aggregate SmolVLA temporal ablation from concept ablation result files
     baked_path = _API_DATA_DIR / 'smolvla_temporal_ablation.json'
     baked = load_json_cached(baked_path, "smolvla_temporal_ablation")
     if baked is not None:

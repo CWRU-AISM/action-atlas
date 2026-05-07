@@ -1,4 +1,4 @@
-"""Action Atlas API - features routes."""
+# Action Atlas API - features routes
 import re
 from pathlib import Path
 
@@ -21,7 +21,7 @@ _feature_embeddings_cache = {}
 
 @features_bp.route('/api/vla/scatter', methods=['GET'])
 def get_vla_scatter():
-    """Get scatter plot data for VLA features."""
+    # Get scatter plot data for VLA features
     sae_id = request.args.get('sae_id')
     method = request.args.get('method', 'ffn')
     pathway = request.args.get('pathway', 'expert')
@@ -97,7 +97,7 @@ def get_vla_scatter():
 
 @features_bp.route('/api/vla/feature/detail', methods=['GET'])
 def get_vla_feature_detail():
-    """Get details for a specific VLA feature."""
+    # Get details for a specific VLA feature
     feature_id = request.args.get('feature_id')
     sae_id = request.args.get('sae_id')
 
@@ -162,7 +162,7 @@ def get_vla_feature_detail():
 
 @features_bp.route('/api/vla/search', methods=['POST'])
 def search_vla_features():
-    """Search for VLA features by description."""
+    # Search for VLA features by description
     data = request.get_json()
     query = data.get('query', '')
     suite = data.get('suite', 'spatial')
@@ -201,7 +201,7 @@ def search_vla_features():
 
 
 def load_all_layers_data(suite, method='ffn', pathway='expert'):
-    """Load and combine data from all layers for multi-layer visualization."""
+    # Load and combine data from all layers for multi-layer visualization
     config = get_vla_config()
     all_coords = []
     all_indices = []
@@ -239,7 +239,7 @@ def load_all_layers_data(suite, method='ffn', pathway='expert'):
 
 
 def _detect_model_from_sae_id(sae_id, llm_param=''):
-    """Detect model from explicit llm param or sae_id pattern matching."""
+    # Detect model from explicit llm param or sae_id pattern matching
     model_aliases = {
         'pi05': 'pi05', 'openvla': 'openvla', 'oft': 'openvla',
         'xvla': 'xvla', 'smolvla': 'smolvla', 'groot': 'groot',
@@ -258,7 +258,7 @@ def _detect_model_from_sae_id(sae_id, llm_param=''):
 
 
 def _rgb_to_hex(rgb):
-    """Convert RGB float [0,1] array to hex color string."""
+    # Convert RGB float [0,1] array to hex color string
     return '#{:02x}{:02x}{:02x}'.format(
         int(rgb[0] * 255), int(rgb[1] * 255), int(rgb[2] * 255)
     )
@@ -415,13 +415,13 @@ def get_sae_scatter():
 
 @features_bp.route('/api/feature/detail', methods=['GET'])
 def get_feature_detail():
-    """Standard Action Atlas feature detail endpoint."""
+    # Standard Action Atlas feature detail endpoint
     return get_vla_feature_detail()
 
 
 @features_bp.route('/api/sae/list', methods=['GET'])
 def get_sae_list():
-    """List available SAEs for the frontend dropdown."""
+    # List available SAEs for the frontend dropdown
     config = get_vla_config()
     saes = []
 
@@ -452,7 +452,7 @@ def get_sae_list():
 
 @features_bp.route('/api/concepts/features', methods=['GET'])
 def get_concept_features():
-    """Get features for a specific concept across all layers."""
+    # Get features for a specific concept across all layers
     concept = request.args.get('concept')
     concept_type = request.args.get('type', 'motion')
     model = request.args.get('model', 'pi05')
@@ -524,7 +524,7 @@ def get_concept_features():
 
 @features_bp.route('/api/query/search', methods=['POST'])
 def vla_query_search():
-    """Search VLA feature descriptions by text query."""
+    # Search VLA feature descriptions by text query
     try:
         data = request.get_json()
         query = data.get('query', '').lower()
@@ -613,7 +613,7 @@ def vla_query_search():
 
 @features_bp.route('/api/feature/steer', methods=['POST'])
 def vla_steer_feature():
-    """Feature steering using pre-computed experiment results."""
+    # Feature steering using pre-computed experiment results
     try:
         data = request.get_json()
 

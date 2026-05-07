@@ -1,4 +1,4 @@
-"""Success tracking and video-result matching."""
+# Success tracking and video-result matching
 from .helpers import *
 from .data_loaders import *
 
@@ -873,7 +873,7 @@ def _load_layer_connections_pi05(pathway: str = 'expert') -> dict:
 
 
 def register_vla_routes(app):
-    """Register VLA routes with Flask app."""
+    # Register VLA routes with Flask app
     app.register_blueprint(vla_bp)
     print("Registered Action Atlas routes")
 

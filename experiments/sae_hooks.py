@@ -12,7 +12,7 @@ from typing import List, Optional
 
 
 class TopKSAE(nn.Module):
-    """TopK Sparse Autoencoder with correct per-token processing."""
+    # TopK Sparse Autoencoder with correct per-token processing
 
     def __init__(self, input_dim: int, hidden_dim: int, k: int = 64):
         super().__init__()
@@ -65,7 +65,7 @@ class PerTokenAblationHook:
         self.enabled: bool = True
 
     def set_ablation(self, features: List[int], start: int = 0, end: float = float('inf')):
-        """Configure which features to ablate and temporal window."""
+        # Configure which features to ablate and temporal window
         self.ablate_features = features
         self.ablate_start = start
         self.ablate_end = end
@@ -80,7 +80,7 @@ class PerTokenAblationHook:
         self.current_step = 0
 
     def __call__(self, module, input, output):
-        """Forward hook that ablates specified features."""
+        # Forward hook that ablates specified features
         # Skip if disabled or no features to ablate
         if not self.enabled or not self.ablate_features:
             self.current_step += 1
@@ -140,7 +140,7 @@ class PerTokenAblationHook:
 
 
 class PerTokenSteeringHook:
-    """Steering hook that amplifies/suppresses SAE features per token position."""
+    # Steering hook that amplifies/suppresses SAE features per token position
 
     def __init__(self, sae: TopKSAE, act_mean: torch.Tensor, act_std: torch.Tensor,
                  device: str = 'cuda'):
@@ -163,7 +163,7 @@ class PerTokenSteeringHook:
     def set_steering(self, features: List[int], strength: float,
                      feature_means: Optional[torch.Tensor] = None,
                      start: int = 0, end: float = float('inf')):
-        """Configure steering parameters."""
+        # Configure steering parameters
         self.steer_features = features
         self.steer_strength = strength
         self.feature_means = feature_means
@@ -180,7 +180,7 @@ class PerTokenSteeringHook:
         self.current_step = 0
 
     def __call__(self, module, input, output):
-        """Forward hook that steers specified features."""
+        # Forward hook that steers specified features
         if not self.enabled or not self.steer_features or self.steer_strength == 0:
             self.current_step += 1
             return output

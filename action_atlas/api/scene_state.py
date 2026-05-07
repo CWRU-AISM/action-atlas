@@ -1,4 +1,4 @@
-"""Action Atlas API - scene_state routes."""
+# Action Atlas API - scene_state routes
 from flask import Blueprint, request, jsonify, send_file, abort, make_response, redirect
 from .helpers import *
 from .data_loaders import *
@@ -180,7 +180,7 @@ _model_scene_state_cache: Dict[str, dict] = {}
 
 
 def _load_model_scene_state(model: str, suite: str, experiment_type: str = 'baseline') -> Optional[dict]:
-    """Load baked scene state data for SmolVLA, X-VLA, or GR00T."""
+    # Load baked scene state data for SmolVLA, X-VLA, or GR00T
     model_dirs = {
         'xvla': 'xvla_scene_state',
         'smolvla': 'smolvla_scene_state',
@@ -341,7 +341,7 @@ def _convert_tasks_to_pairs(data: dict) -> dict:
 
 @scene_state_bp.route('/api/vla/scene_state/pairs', methods=['GET'])
 def get_scene_state_pairs():
-    """List available pairs for cross-task scene state data."""
+    # List available pairs for cross-task scene state data
     suite = request.args.get('suite', 'goal')
     seed = request.args.get('seed', 'seed123')
     model = request.args.get('model', 'pi05')
@@ -471,7 +471,7 @@ def get_scene_state_pairs():
 
 @scene_state_bp.route('/api/vla/scene_state', methods=['GET'])
 def get_scene_state():
-    """Get trajectory data for a specific pair and condition."""
+    # Get trajectory data for a specific pair and condition
     suite = request.args.get('suite', 'goal')
     pair = request.args.get('pair', 'pair_0_1')
     condition = request.args.get('condition', 'baseline_task_0')
@@ -600,7 +600,7 @@ _concept_ablation_scene_cache: Dict[str, dict] = {}
 
 @scene_state_bp.route('/api/vla/action_trajectories/files', methods=['GET'])
 def get_action_trajectory_files():
-    """List available OFT ablation files for action trajectory comparison."""
+    # List available OFT ablation files for action trajectory comparison
     if not OFT_ABLATION_DIR.exists():
         return jsonify({'files': [], 'error': 'Ablation directory not found'}), 404
 
@@ -623,7 +623,7 @@ def get_action_trajectory_files():
 
 @scene_state_bp.route('/api/vla/action_trajectories', methods=['GET'])
 def get_action_trajectories():
-    """Get OFT action trajectory data for baseline vs ablated comparison."""
+    # Get OFT action trajectory data for baseline vs ablated comparison
     layer = request.args.get('layer', 'L04')
     suite = request.args.get('suite', 'libero_goal')
     concept = request.args.get('concept', '')

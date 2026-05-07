@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Action Atlas Backend Server. Run with: python run.py [--port PORT]"""
+# Action Atlas Backend Server. Run with: python run.py [--port PORT]
 
 import sys
 import argparse

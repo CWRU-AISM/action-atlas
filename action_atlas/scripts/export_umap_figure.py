@@ -22,7 +22,7 @@ LAYER_COLORS = [
 ]
 
 def load_layer_data(layer_num: int):
-    """Load UMAP data for a specific layer."""
+    # Load UMAP data for a specific layer
     possible_files = [
         DATA_DIR / f"hierarchical_clustering_layer_{layer_num}_goal.npz",
         DATA_DIR / f"hierarchical_clustering_layer_{layer_num}_concepts.npz",
@@ -43,7 +43,7 @@ def load_layer_data(layer_num: int):
 
 
 def plot_single_layer(layer_num: int, cluster_level: int = 10, dpi: int = 300):
-    """Generate UMAP scatter plot for a single layer."""
+    # Generate UMAP scatter plot for a single layer
     data = load_layer_data(layer_num)
     if data is None:
         print(f"No data found for layer {layer_num}")
@@ -89,7 +89,7 @@ def plot_single_layer(layer_num: int, cluster_level: int = 10, dpi: int = 300):
 
 
 def plot_all_layers(dpi: int = 300):
-    """Generate combined UMAP visualization with all layers."""
+    # Generate combined UMAP visualization with all layers
     fig, ax = plt.subplots(figsize=(14, 14), dpi=dpi)
 
     all_coords = []
@@ -152,7 +152,7 @@ def plot_all_layers(dpi: int = 300):
 
 
 def plot_layer_grid(dpi: int = 300):
-    """Generate a grid of UMAP plots for all layers."""
+    # Generate a grid of UMAP plots for all layers
     fig, axes = plt.subplots(3, 6, figsize=(24, 12), dpi=dpi)
     axes = axes.flatten()
 

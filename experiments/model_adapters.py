@@ -41,7 +41,8 @@ def _resolve_checkpoint(checkpoint: str) -> str:
 
 
 class ModelAdapter(ABC):
-    """Base interface for VLA model adapters."""
+    # Base interface for VLA model adapters
+    ...
 
     name: str
     model: Any = None
@@ -49,7 +50,8 @@ class ModelAdapter(ABC):
 
     @abstractmethod
     def load_model(self, checkpoint: str, device: str = "cuda") -> Any:
-        """Load model from checkpoint, return the model object."""
+        # Load model from checkpoint, return the model object
+        ...
 
     @abstractmethod
     def get_layer_groups(self) -> Dict[str, List]:
@@ -60,7 +62,8 @@ class ModelAdapter(ABC):
         """
 
     def get_all_layers(self) -> List[Tuple[str, Any]]:
-        """Flat list of (label, module) for all hookable layers."""
+        # Flat list of (label, module) for all hookable layers
+        ...
         result = []
         for group_name, layers in self.get_layer_groups().items():
             for i, layer in enumerate(layers):
@@ -98,7 +101,8 @@ class ModelAdapter(ABC):
 
     @property
     def default_checkpoints(self) -> Dict[str, str]:
-        """Map suite name -> default checkpoint path."""
+        # Map suite name -> default checkpoint path
+        ...
         return {}
 
     @property
@@ -789,7 +793,8 @@ ADAPTERS = {
 
 
 def get_adapter(model_name: str) -> ModelAdapter:
-    """Get an adapter instance by model name."""
+    # Get an adapter instance by model name
+    ...
     if model_name not in ADAPTERS:
         raise ValueError(f"Unknown model: {model_name}. Choose from: {list(ADAPTERS.keys())}")
     return ADAPTERS[model_name]()

@@ -283,7 +283,7 @@ def get_concept_task_mapping(suite: str) -> Dict[str, Dict[str, Dict]]:
 
 
 def get_all_concept_names(suite: str) -> List[Tuple[str, str]]:
-    """Get all (concept_type, concept_name) pairs for a suite."""
+    # Get all (concept_type, concept_name) pairs for a suite
     result = []
     for ctype, concepts in ALL_CONCEPTS.get(suite, {}).items():
         for cname in concepts:

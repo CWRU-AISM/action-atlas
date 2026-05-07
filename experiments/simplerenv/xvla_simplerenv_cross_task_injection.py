@@ -39,13 +39,13 @@ from common import (
 
 @dataclass
 class CrossTaskInjectionConfig:
-    """X-VLA SimplerEnv cross-task activation injection."""
+    # X-VLA SimplerEnv cross-task activation injection
 
     model: str
-    """Model name: widowx, google-robot"""
+    # Model name: widowx, google-robot
 
     task_pairs: Optional[List[str]] = None
-    """Task pairs as 'A,B' (e.g., 0,1 0,2 1,3)"""
+    # Task pairs as 'A,B' (e.g., 0,1 0,2 1,3)
 
     all_pairs: bool = False
     seed: int = 42

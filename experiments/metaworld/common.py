@@ -53,7 +53,7 @@ def log_ram(label=""):
 
 
 def get_tasks_from_args(args):
-    """Parse task list from CLI args (--tasks or --difficulty)."""
+    # Parse task list from CLI args (--tasks or --difficulty)
     if args.tasks:
         return [t.strip() for t in args.tasks.split(",")]
     if args.difficulty:
@@ -67,7 +67,7 @@ def get_tasks_from_args(args):
 
 
 def get_scene_state(env):
-    """Extract TCP, object, and goal positions from MetaWorld env."""
+    # Extract TCP, object, and goal positions from MetaWorld env
     uw = env._env.unwrapped if hasattr(env._env, "unwrapped") else env._env
     state = {}
     try:
@@ -87,7 +87,7 @@ def get_scene_state(env):
 
 
 def compute_obj_displacement(scene_states):
-    """Compute object displacement from first to last scene state."""
+    # Compute object displacement from first to last scene state
     if (len(scene_states) >= 2
             and "obj_pos" in scene_states[0] and "obj_pos" in scene_states[-1]):
         init_obj = np.array(scene_states[0]["obj_pos"])
@@ -97,7 +97,7 @@ def compute_obj_displacement(scene_states):
 
 
 def cosine_similarity(a, b):
-    """Cosine similarity between two arrays (flattened)."""
+    # Cosine similarity between two arrays (flattened)
     a_flat = np.array(a).flatten().astype(np.float64)
     b_flat = np.array(b).flatten().astype(np.float64)
     norm_a = np.linalg.norm(a_flat)
@@ -192,7 +192,7 @@ class PerTokenCollector:
 
 
 class MeanPoolCollector:
-    """Collect mean-pooled activations: (hidden_dim,) per step per layer."""
+    # Collect mean-pooled activations: (hidden_dim,) per step per layer
 
     def __init__(self, policy):
         self.handles = []

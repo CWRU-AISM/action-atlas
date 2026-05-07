@@ -19,7 +19,7 @@ MAX_TRAJ_POINTS = 100
 
 
 def subsample(points, max_n=MAX_TRAJ_POINTS):
-    """Subsample a list of points to at most max_n points, preserving first and last."""
+    # Subsample a list of points to at most max_n points, preserving first and last
     if not points or len(points) <= max_n:
         return points
     n = len(points)
@@ -28,7 +28,7 @@ def subsample(points, max_n=MAX_TRAJ_POINTS):
 
 
 def extract_condition_data(cond_data):
-    """Extract trajectory data from a condition (baseline or injection)."""
+    # Extract trajectory data from a condition (baseline or injection)
     scene = cond_data.get("scene")
     if scene is None:
         return None
@@ -57,7 +57,7 @@ def extract_condition_data(cond_data):
 
 
 def process_baseline_results(results, suite_name):
-    """Process baseline results into baked format."""
+    # Process baseline results into baked format
     baseline = results.get("baseline", {})
     if not baseline:
         return None
@@ -85,7 +85,7 @@ def process_baseline_results(results, suite_name):
 
 
 def process_cross_task_results(results, suite_name):
-    """Process cross-task results into baked format (compatible with Pi0.5 scene state)."""
+    # Process cross-task results into baked format (compatible with Pi0.5 scene state)
     cross_task = results.get("cross_task", {})
     if not cross_task:
         return None
@@ -127,7 +127,7 @@ def process_cross_task_results(results, suite_name):
 
 
 def process_null_injection_results(results, suite_name):
-    """Process null injection results into baked format."""
+    # Process null injection results into baked format
     null_inj = results.get("null_injection", {})
     if not null_inj:
         return None

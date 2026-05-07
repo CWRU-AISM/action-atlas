@@ -33,7 +33,7 @@ BACKUP_FILE = PROJECT_ROOT / "action_atlas" / "data" / "concept_features_ffn_bac
 
 
 def parse_concept_key(concept_key: str):
-    """Parse 'motion/put' -> ('motion', 'put')."""
+    # Parse 'motion/put' -> ('motion', 'put')
     parts = concept_key.split("/", 1)
     if len(parts) == 2:
         return parts[0], parts[1]
@@ -151,7 +151,7 @@ def build_layer_key_pi05(pathway: str, layer_num: int) -> str:
 
 
 def build_layer_key_oft(layer_num: int) -> str:
-    """Build platform layer key for OpenVLA-OFT."""
+    # Build platform layer key for OpenVLA-OFT
     return f"openvla_oft_layer_{layer_num}"
 
 
@@ -322,7 +322,7 @@ def build_output(pi05_data: dict, oft_data: dict) -> dict:
 
 
 def print_summary(output: dict):
-    """Print a summary of the generated data."""
+    # Print a summary of the generated data
     metadata = output.get("_metadata", {})
 
     # Count by model

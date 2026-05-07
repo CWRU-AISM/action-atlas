@@ -1,4 +1,4 @@
-"""Action Atlas API - interventions routes."""
+# Action Atlas API - interventions routes
 import json
 import re
 from pathlib import Path
@@ -29,19 +29,19 @@ _METAWORLD_KEYS = [
 
 
 def _natural_sort_key(k: str) -> list:
-    """Sort key that handles embedded integers naturally (L2 before L10)."""
+    # Sort key that handles embedded integers naturally (L2 before L10)
     parts = re.split(r'(\d+)', k)
     return [int(p) if p.isdigit() else p.lower() for p in parts]
 
 
 def _load_experiment_results_cached(model: str) -> Optional[dict]:
-    """Load experiment_results_<model>.json with caching."""
+    # Load experiment_results_<model>.json with caching
     path = API_DATA_DIR / f"experiment_results_{model}.json"
     return load_json_cached(path, f"experiment_results_{model}")
 
 
 def _resolve_suite_data(data: dict, suite: str) -> dict:
-    """Look up suite data trying the original key, the alternate form, and metaworld variants."""
+    # Look up suite data trying the original key, the alternate form, and metaworld variants
     suite_data = data.get(suite, {})
     if not suite_data:
         alt = normalize_suite(suite) if not suite.startswith('libero_') else suite_short(suite)
@@ -55,7 +55,7 @@ def _resolve_suite_data(data: dict, suite: str) -> dict:
 
 
 def _load_ablation_index_videos(model: str, experiment_type: str) -> list:
-    """Load and cache videos of a given experiment_type from a model's ablation index."""
+    # Load and cache videos of a given experiment_type from a model's ablation index
     cache_key = f'injection_videos_{model}_{experiment_type}'
     if cache_key in _ablation_summary_cache:
         return _ablation_summary_cache[cache_key]
@@ -75,7 +75,7 @@ def _load_ablation_index_videos(model: str, experiment_type: str) -> list:
 
 
 def _filter_videos_by_suite(videos: list, suite: str, limit: int = 50) -> dict:
-    """Filter video list by suite and build a filename -> path map."""
+    # Filter video list by suite and build a filename -> path map
     result = {}
     for v in videos:
         if v.get('suite', '') == suite or suite in v.get('path', ''):
@@ -87,7 +87,7 @@ def _filter_videos_by_suite(videos: list, suite: str, limit: int = 50) -> dict:
 # Grid Ablation
 @interventions_bp.route('/api/vla/grid_ablation', methods=['GET'])
 def get_grid_ablation():
-    """Interactive grid ablation data for ACT-ALOHA and OpenVLA-OFT."""
+    # Interactive grid ablation data for ACT-ALOHA and OpenVLA-OFT
     model = request.args.get('model', 'act')
     task = request.args.get('task', 'AlohaInsertion-v0')
     suite = request.args.get('suite', 'libero_goal')
@@ -103,7 +103,7 @@ def get_grid_ablation():
 
 
 def _grid_ablation_act(task: str):
-    """ACT-ALOHA grid ablation from rollout dirs or JSON fallback."""
+    # ACT-ALOHA grid ablation from rollout dirs or JSON fallback
     base_dir = ALOHA_DATA_DIR / f"grid_ablation_{task}"
     grid = {}
     baseline = None
@@ -195,7 +195,7 @@ def _grid_ablation_act(task: str):
 
 
 def _grid_ablation_openvla(suite: str):
-    """OpenVLA-OFT grid ablation from per-run results files."""
+    # OpenVLA-OFT grid ablation from per-run results files
     results_file = _find_latest_oft_result(suite, 'grid_ablation')
     if not results_file:
         return jsonify({'status': 404, 'error': f'No OFT grid ablation for {suite}'}), 404
@@ -232,7 +232,7 @@ def _grid_ablation_openvla(suite: str):
 
 
 def _grid_ablation_generic(model: str, suite: str):
-    """Grid ablation for xvla / smolvla / groot / pi05 from experiment_results JSON."""
+    # Grid ablation for xvla / smolvla / groot / pi05 from experiment_results JSON
     exp_data = _load_experiment_results_cached(model)
     if exp_data is None:
         return jsonify({'status': 404, 'error': f'No experiment results for {model}'}), 404
@@ -291,7 +291,7 @@ def _grid_ablation_generic(model: str, suite: str):
 # Counterfactual
 @interventions_bp.route('/api/vla/counterfactual', methods=['GET'])
 def get_counterfactual():
-    """Counterfactual prompting results from OFT and Pi0.5 experiments."""
+    # Counterfactual prompting results from OFT and Pi0.5 experiments
     model = request.args.get('model', 'openvla')
     suite = request.args.get('suite', 'libero_goal')
 
@@ -312,7 +312,7 @@ def get_counterfactual():
 
 
 def _counterfactual_openvla(results_file: Path, suite: str):
-    """Counterfactual from raw OFT per-run results files."""
+    # Counterfactual from raw OFT per-run results files
     with open(results_file) as f:
         data = json.load(f)
 
@@ -362,7 +362,7 @@ def _counterfactual_openvla(results_file: Path, suite: str):
 
 
 def _counterfactual_pi05(suite: str):
-    """Pi0.5 counterfactual data from validation results."""
+    # Pi0.5 counterfactual data from validation results
     suite_key = suite_short(suite)
 
     valid_dir = Path(__file__).parent.parent / 'results' / 'valid' / 'counterfactual'
@@ -440,7 +440,7 @@ def _counterfactual_pi05(suite: str):
 
 
 def _counterfactual_generic(model: str, suite: str):
-    """Counterfactual for xvla / smolvla / groot / act / oft from baked or experiment results."""
+    # Counterfactual for xvla / smolvla / groot / act / oft from baked or experiment results
     # Try baked SimplerEnv/custom counterfactual data first
     if 'simplerenv' in suite:
         baked = load_json_cached(

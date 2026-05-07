@@ -1,4 +1,4 @@
-"""Action Atlas API - experiments routes."""
+# Action Atlas API - experiments routes
 import json
 import traceback
 from pathlib import Path
@@ -21,6 +21,7 @@ from .concept_helpers import _load_concept_counts_for_model
 from .videos import load_video_index
 
 experiments_bp = Blueprint("experiments", __name__)
+
 # Directory constants not yet in helpers (defined in features.py)
 XVLA_STEERING_DIR = Path("/data/batch_1/xvla_concept_steering")
 SMOLVLA_CONCEPT_ID_DIR = Path("/data/smolvla_rollouts/concept_id")
@@ -34,7 +35,11 @@ _API_DATA_DIR = Path(__file__).parent / "data"
 
 # Cache for experiment results (loaded once on first request)
 _experiment_results_cache: Dict = {}
+
+
 # Shared helpers
+
+
 from .experiment_helpers import *
 
 @experiments_bp.route('/api/vla/layer_metrics', methods=['GET'])
@@ -161,10 +166,13 @@ def get_layer_metrics():
             'available_models': list(prefix_map.keys())
         }
     })
+
+
 # Prompts
+
 @experiments_bp.route('/api/vla/prompts', methods=['GET'])
 def get_vla_prompts():
-    """Get prompts/task descriptions for autocomplete."""
+    # Get prompts/task descriptions for autocomplete
     model = request.args.get('model', 'pi05')
     video_index = load_video_index(model)
 
@@ -176,10 +184,13 @@ def get_vla_prompts():
 
     prompts = video_index.get('prompts_for_autocomplete', [])
     return jsonify({'prompts': prompts, 'model': model, 'total': len(prompts)})
+
+
 # Experiments
+
 @experiments_bp.route('/api/vla/experiments', methods=['GET'])
 def get_vla_experiments():
-    """Get list of experiment types with counts and descriptions."""
+    # Get list of experiment types with counts and descriptions
     model = request.args.get('model', 'pi05')
 
     experiment_definitions = {
@@ -278,10 +289,13 @@ def get_vla_experiments():
         'status': 200,
         'data': {'model': model, 'experiments': experiments, 'total_experiment_types': len(experiments)}
     })
+
+
 # Findings
+
 @experiments_bp.route('/api/vla/findings', methods=['GET'])
 def get_vla_findings():
-    """Get key findings from the VLA interpretability research."""
+    # Get key findings from the VLA interpretability research
     model = request.args.get('model', 'pi05')
 
     findings_file = _API_DATA_DIR / "findings.json"
@@ -386,10 +400,13 @@ def get_vla_findings():
         return jsonify({'status': 404, 'error': {'code': 'MODEL_NOT_FOUND', 'message': f'No findings available for model: {model}'}}), 404
 
     return jsonify({'status': 200, 'data': findings})
+
+
 # Experiment Stats
+
 @experiments_bp.route('/api/vla/experiment_stats', methods=['GET'])
 def get_experiment_stats():
-    """Get aggregated experiment statistics for analytics."""
+    # Get aggregated experiment statistics for analytics
     model = request.args.get('model', 'pi05')
     video_index = load_video_index(model)
     if video_index is None:
@@ -459,10 +476,13 @@ def get_experiment_stats():
     ablation_summary['concept_averages'] = concept_averages
 
     return jsonify({'model': model, 'total_videos': len(videos), 'by_experiment_type': by_experiment_type, 'by_suite': by_suite, 'by_experiment_and_suite': by_experiment_and_suite, 'ablation_summary': ablation_summary, 'experiment_types': list(video_index.get('experiment_types', {}).keys()), 'suites': list(video_index.get('suites', {}).keys())})
+
+
 # Experiment Results
+
 @experiments_bp.route('/api/vla/experiment_results', methods=['GET'])
 def get_experiment_results():
-    """Get experiment results for a video or experiment directory."""
+    # Get experiment results for a video or experiment directory
     video_path = request.args.get('video_path')
     experiment_dir = request.args.get('experiment_dir')
 
@@ -515,10 +535,13 @@ def get_experiment_results():
         return jsonify({'success': True, 'experiment_dir': str(exp_dir), 'results_file': str(results_json), 'summary': summary})
     except (json.JSONDecodeError, IOError) as e:
         return jsonify({'success': False, 'error': f'Failed to parse results.json: {str(e)}'}), 500
+
+
 # Experiment Types
+
 @experiments_bp.route('/api/vla/experiment_types', methods=['GET'])
 def get_experiment_types():
-    """Get available experiment types with counts and suites."""
+    # Get available experiment types with counts and suites
     model = request.args.get('model', 'pi05')
     experiment_types = {}
 
@@ -610,10 +633,13 @@ def get_experiment_types():
         }
 
     return jsonify({'experiment_types': experiment_types, 'model': model, 'total_experiments': sum(et.get('count', 0) for et in experiment_types.values())})
+
+
 # Layer Connections
+
 @experiments_bp.route('/api/vla/layer_connections', methods=['GET'])
 def get_layer_connections():
-    """Get data-driven layer connection information for the wire visualization."""
+    # Get data-driven layer connection information for the wire visualization
     model = request.args.get('model', 'openvla')
     suite = request.args.get('suite', 'libero_goal')
     pathway = request.args.get('pathway', 'expert')
@@ -641,6 +667,7 @@ def get_layer_connections():
 
 @experiments_bp.route('/api/vla/oft_ablation_videos', methods=['GET'])
 def get_oft_ablation_videos():
+    # Get available OFT concept ablation videos
     suite = request.args.get('suite', 'libero_goal')
     concept_filter = request.args.get('concept', None)
     layer_filter = request.args.get('layer', None)
@@ -688,10 +715,13 @@ def get_oft_ablation_videos():
         'available_suites': [d.name for d in OFT_ABLATION_VIDEO_DIR.iterdir() if d.is_dir()] if OFT_ABLATION_VIDEO_DIR.exists() else [],
         'available_concepts': sorted(all_concepts), 'available_layers': sorted(all_layers),
     }})
+
+
 # ACT Results
+
 @experiments_bp.route('/api/vla/act_results', methods=['GET'])
 def get_act_results():
-    """Get ACT-ALOHA experiment results (grid ablation + injection)."""
+    # Get ACT-ALOHA experiment results (grid ablation + injection)
     experiment = request.args.get('experiment', 'all')
     task_filter = request.args.get('task', None)
 
@@ -738,9 +768,13 @@ def get_act_results():
         result['baselines'] = {'transfer_cube': all_data.get('baseline_transfer_cube', {}), 'insertion': all_data.get('baseline_insertion', {})}
 
     return jsonify({'status': 200, 'data': result})
+
+
 # Model Experiment Results (aggregated JSON)
+
 @experiments_bp.route('/api/experiments/<model>', methods=['GET'])
 def get_model_experiment_results(model: str):
+    # Get aggregated experiment results for a model
     if model not in VALID_MODELS:
         return jsonify({'status': 400, 'error': {'code': 'INVALID_MODEL', 'message': f'Model must be one of: {VALID_MODELS}'}}), 400
 
@@ -804,10 +838,13 @@ def get_model_experiment_results(model: str):
         'total_episodes_label': known.get('label', 'N/A'), 'overall_success_rate': known.get('overall_success_rate'),
         'baseline_success_rate': known.get('baseline_success_rate'), 'full_data': data,
     }})
+
+
 # List Available Experiment Models
+
 @experiments_bp.route('/api/experiments', methods=['GET'])
 def list_available_experiment_models():
-    """List all models with available experiment data."""
+    # List all models with available experiment data
     available = []
     skip_keys = ('model', 'model_name', 'description', 'architecture', 'params', 'timestamp', 'environments')
     for model in ['smolvla', 'xvla', 'groot']:
@@ -825,10 +862,13 @@ def list_available_experiment_models():
             'sections': sections, 'file_size_kb': round(results_path.stat().st_size / 1024, 1),
         })
     return jsonify({'status': 200, 'data': {'models': available, 'n_models': len(available)}})
+
+
 # Temporal Ablation
+
 @experiments_bp.route('/api/vla/temporal_ablation/<model>', methods=['GET'])
 def get_temporal_ablation_data(model: str):
-    """Get temporal ablation data for a model. Supported: groot, smolvla."""
+    # Get temporal ablation data for a model. Supported: groot, smolvla
     supported_models = ['groot', 'smolvla']
     if model not in supported_models:
         return jsonify({'status': 200, 'data': {'model': model, 'available': False, 'message': f'Temporal ablation data not yet available for {model}. Available for: GR00T N1.5, SmolVLA.', 'supported_models': supported_models}})
@@ -839,7 +879,7 @@ def get_temporal_ablation_data(model: str):
 
 @experiments_bp.route('/api/experiments/<model>/summary', methods=['GET'])
 def get_model_experiment_summary(model: str):
-    """Get a compact summary of experiment results for dashboard views."""
+    # Get a compact summary of experiment results for dashboard views
     if model not in VALID_MODELS:
         return jsonify({'status': 400, 'error': {'code': 'INVALID_MODEL', 'message': f'Model must be one of: {VALID_MODELS}'}}), 400
 

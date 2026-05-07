@@ -22,7 +22,7 @@ explore_bp = Blueprint('explore', __name__)
 
 
 def get_llm_config(llm_model):
-    """Get the corresponding configuration according to the LLM model"""
+    # Get the corresponding configuration according to the LLM model
     if llm_model == 'gpt2-small':
         return {
             'clustering_path': CLUSTERING_PATH_GPT,
@@ -52,7 +52,7 @@ def get_llm_config(llm_model):
 
 
 def get_similar_features(layer, type_, feature_id, llm_model='gemma_2_2b'):
-    """获取特征的相似特征列表"""
+    # 获取特征的相似特征列表
     config = get_llm_config(llm_model)
     
     if config['similarities_path'] is None:  # The GPT2 model currently has no similarity data
@@ -101,7 +101,7 @@ def convert_sae_id(sae_id, llm_model='gemma_2_2b'):
 
 @explore_bp.route('/api/sae/scatter', methods=['GET'])
 def get_scatter_plot():
-    """Get the two-dimensional scatter plot data of SAE characteristics"""
+    # Get the two-dimensional scatter plot data of SAE characteristics
     sae_id = request.args.get('sae_id')
     query = request.args.get('query')
     llm_model = request.args.get('llm', 'gemma_2_2b')
@@ -250,7 +250,7 @@ def get_scatter_plot():
 
 
 def tokens_to_sentence(tokens: List[str]) -> Tuple[str, List[str]]:
-    """Concatenate tokens into a sentence and return a list of processed tokens"""
+    # Concatenate tokens into a sentence and return a list of processed tokens
     processed_tokens = [token.replace("▁", " ") for token in tokens]
     sentence = "".join(processed_tokens).strip()
     return sentence, processed_tokens
@@ -258,7 +258,7 @@ def tokens_to_sentence(tokens: List[str]) -> Tuple[str, List[str]]:
 
 @explore_bp.route('/api/feature/detail', methods=['GET'])
 def get_feature_detail():
-    """Get the details of a specific feature"""
+    # Get the details of a specific feature
     feature_id = request.args.get('feature_id')
     sae_id = request.args.get('sae_id')
     llm_model = request.args.get('llm', 'gemma_2_2b') 

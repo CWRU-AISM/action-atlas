@@ -1,4 +1,4 @@
-"""Configuration for Action Atlas."""
+# Configuration for Action Atlas
 from pathlib import Path
 
 # Base paths

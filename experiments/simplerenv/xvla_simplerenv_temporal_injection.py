@@ -166,10 +166,10 @@ def run_episode_with_switch(policy, env, domain_id, device, tokenizer,
 
 @dataclass
 class TemporalInjectionConfig:
-    """X-VLA SimplerEnv temporal injection experiments."""
+    # X-VLA SimplerEnv temporal injection experiments
 
     model: str
-    """Model name: widowx, google-robot"""
+    # Model name: widowx, google-robot
 
     task: Optional[str] = None
     all_tasks: bool = False

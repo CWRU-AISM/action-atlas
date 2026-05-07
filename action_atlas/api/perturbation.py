@@ -1,4 +1,4 @@
-"""Action Atlas API - perturbation routes."""
+# Action Atlas API - perturbation routes
 from flask import Blueprint, request, jsonify, send_file, abort, make_response, redirect
 from .helpers import *
 from .data_loaders import *
@@ -162,7 +162,7 @@ _vp_results_cache: Dict[str, dict] = {}
 
 
 def _load_vp_results(model: str) -> Optional[dict]:
-    """Load baked VP results for a model, with caching."""
+    # Load baked VP results for a model, with caching
     if model in _vp_results_cache:
         return _vp_results_cache[model]
 
@@ -626,7 +626,7 @@ import re
 
 @perturbation_bp.route('/api/vla/perturbation_videos', methods=['GET'])
 def get_perturbation_videos():
-    """Find rollout videos matching a perturbation type to show what the robot did."""
+    # Find rollout videos matching a perturbation type to show what the robot did
     perturbation_type = request.args.get('type', 'noise')
     suite = request.args.get('suite', '')
     model = request.args.get('model', 'pi05')

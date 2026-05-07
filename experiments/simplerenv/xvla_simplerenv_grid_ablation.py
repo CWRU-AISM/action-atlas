@@ -35,18 +35,18 @@ from common import (
 
 @dataclass
 class GridAblationConfig:
-    """X-VLA SimplerEnv grid ablation: layer-by-layer zeroing across all tasks."""
+    # X-VLA SimplerEnv grid ablation: layer-by-layer zeroing across all tasks
 
     model: str
-    """Model name: widowx, google-robot"""
+    # Model name: widowx, google-robot
 
     layers: Optional[List[int]] = None
-    """Specific layers to ablate (default: all 24)"""
+    # Specific layers to ablate (default: all 24)
 
     tasks: Optional[List[str]] = None
     n_episodes: int = 3
     ablation_mode: str = "zero"
-    """Ablation mode: zero, mean"""
+    # Ablation mode: zero, mean
 
     max_steps: int = DEFAULT_MAX_STEPS
     seed: int = 42

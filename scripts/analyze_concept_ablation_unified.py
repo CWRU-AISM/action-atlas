@@ -335,7 +335,7 @@ def parse_groot_schema(data):
     return records
 # Data Loading
 def load_all_data():
-    """Load and normalize all concept ablation + steering data."""
+    # Load and normalize all concept ablation + steering data
     all_records = {}  # model_key -> list of records
     all_steering = {}
     all_ftf = {}
@@ -495,7 +495,7 @@ def compute_layer_gradient(records):
 
 
 def compute_per_suite(records):
-    """Break down by suite."""
+    # Break down by suite
     by_suite = defaultdict(list)
     for r in records:
         by_suite[r["suite"]].append(r["delta_pp"])
@@ -513,7 +513,7 @@ def compute_per_suite(records):
 
 
 def compute_steering_summary(steering_records):
-    """Summarize steering dose-response per multiplier."""
+    # Summarize steering dose-response per multiplier
     by_mult = defaultdict(list)
     for r in steering_records:
         mult = r.get("multiplier", 0)
@@ -533,7 +533,7 @@ def compute_steering_summary(steering_records):
 
 
 def classify_width_resilience(profile):
-    """Classify as narrow/wide/mixed based on profile."""
+    # Classify as narrow/wide/mixed based on profile
     if profile is None:
         return "N/A"
     zero = profile["zero_effect_pct"]
@@ -644,7 +644,7 @@ def print_report(all_records, all_steering, all_ftf, file_counts):
 
 
 def emit_latex_table(all_profiles):
-    """Emit LaTeX table for direct inclusion in paper."""
+    # Emit LaTeX table for direct inclusion in paper
     print(r"\begin{table}[t]")
     print(r"\centering")
     print(r"\caption{Width-dependent causal profiles across architectures. Zero effect: fraction of concept-task pairs with $|\Delta| < 1$pp. Destruction: fraction with $\Delta < -50$pp. Kill-switches: concepts causing $> 50$pp drop on any task.}")
@@ -681,7 +681,7 @@ def emit_latex_table(all_profiles):
 
 
 def emit_action_atlas_json(all_records, all_steering, all_ftf, all_profiles, output_path):
-    """Emit JSON for Action Atlas integration."""
+    # Emit JSON for Action Atlas integration
     output = {
         "generated": datetime.now().isoformat(),
         "profiles": {},

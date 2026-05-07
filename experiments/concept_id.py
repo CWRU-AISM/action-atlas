@@ -37,13 +37,13 @@ from experiments.concept_identification import get_concept_task_mapping
 
 @dataclass
 class ConceptIDConfig:
-    """SAE-based concept identification."""
+    # SAE-based concept identification
 
     sae_dir: str = ""
-    """Directory containing trained SAE checkpoints (layer_name/sae_best.pt)."""
+    # Directory containing trained SAE checkpoints (layer_name/sae_best.pt)
 
     activations_dir: str = ""
-    """Directory containing activation .pt files."""
+    # Directory containing activation .pt files
 
     suite: str = "libero_object"
     """
@@ -52,17 +52,17 @@ class ConceptIDConfig:
     widowx, google_robot"""
 
     layers: Optional[List[str]] = None
-    """Layer names to process. Default: all found in sae_dir."""
+    # Layer names to process. Default: all found in sae_dir
 
     output_dir: Optional[str] = None
     top_k_features: int = 20
-    """Number of top features to report per concept."""
+    # Number of top features to report per concept
 
     max_samples_per_task: int = 50000
 
 
 def load_sae_checkpoint(sae_path: Path, device: str = "cuda"):
-    """Load SAE model and normalization stats from checkpoint."""
+    # Load SAE model and normalization stats from checkpoint
     data = torch.load(sae_path, map_location="cpu", weights_only=True)
     config = data["config"]
     sae = TopKSAE(config["input_dim"], config["hidden_dim"], k=config.get("k", 64))
@@ -115,7 +115,7 @@ def load_task_activations(act_dir: Path, layer_name: str, n_tasks: int,
 
 def compute_concept_scores(sae, act_mean, act_std, task_acts, concept_mapping,
                            device="cuda", top_k=20):
-    """Compute Cohen's d x frequency for each concept's features."""
+    # Compute Cohen's d x frequency for each concept's features
     # Encode all task activations through SAE
     task_features = {}
     for tid, acts in task_acts.items():

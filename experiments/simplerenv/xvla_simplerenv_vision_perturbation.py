@@ -32,10 +32,10 @@ from xvla_vision_perturbation import get_standard_perturbations
 
 @dataclass
 class VisionPerturbationConfig:
-    """X-VLA SimplerEnv vision perturbation robustness test."""
+    # X-VLA SimplerEnv vision perturbation robustness test
 
     model: str
-    """Model name: widowx, google-robot"""
+    # Model name: widowx, google-robot
 
     task: Optional[str] = None
     all_tasks: bool = False

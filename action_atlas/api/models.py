@@ -1,4 +1,4 @@
-"""Action Atlas API - models routes."""
+# Action Atlas API - models routes
 from flask import Blueprint, request, jsonify, send_file, abort, make_response, redirect
 from .helpers import *
 
@@ -7,7 +7,7 @@ models_bp = Blueprint("models", __name__)
 
 @models_bp.route('/api/vla/models', methods=['GET'])
 def get_vla_models():
-    """Get available VLA models and their configurations."""
+    # Get available VLA models and their configurations
     model = request.args.get('model', 'pi05')
     config = get_vla_config(model)
     # Convert Path to string for JSON serialization
@@ -99,7 +99,7 @@ def get_vla_models():
 
 @models_bp.route('/api/vla/suites', methods=['GET'])
 def get_vla_suites():
-    """Get available task suites for VLA."""
+    # Get available task suites for VLA
     model = request.args.get('model', 'pi05')
     config = get_vla_config(model)
     available_suites = []
@@ -126,7 +126,7 @@ def get_vla_suites():
 
 @models_bp.route('/api/vla/layers', methods=['GET'])
 def get_vla_layers():
-    """Get available layers for a given suite."""
+    # Get available layers for a given suite
     suite = request.args.get('suite', 'spatial')
     model = request.args.get('model', 'pi05')
     config = get_vla_config(model)

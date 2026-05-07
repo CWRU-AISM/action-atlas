@@ -25,7 +25,7 @@ MAX_TRAJ_POINTS = 100
 
 
 def subsample(points, max_n=MAX_TRAJ_POINTS):
-    """Subsample a list of points to at most max_n points, preserving first and last."""
+    # Subsample a list of points to at most max_n points, preserving first and last
     if not points or len(points) <= max_n:
         return points
     n = len(points)
@@ -70,7 +70,7 @@ def extract_condition_data(cond_data):
 
 
 def process_file(name, src_path):
-    """Process one merged_results.json file and return baked data + stats."""
+    # Process one merged_results.json file and return baked data + stats
     print(f"\n{'='*60}")
     print(f"Processing: {name}")
     print(f"Source: {src_path}")

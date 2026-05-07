@@ -1,4 +1,4 @@
-"""Action Atlas API - videos routes."""
+# Action Atlas API - videos routes
 from flask import Blueprint, request, jsonify, send_file, abort, make_response, redirect
 from .helpers import *
 from .data_loaders import *
@@ -8,7 +8,7 @@ videos_bp = Blueprint("videos", __name__)
 
 
 def load_video_index(model: str) -> Optional[Dict]:
-    """Load video index for a specific model."""
+    # Load video index for a specific model
     video_index_path = Path(__file__).parent / "data" / "videos" / model / "index.json"
     if not video_index_path.exists():
         return None
@@ -644,8 +644,10 @@ def serve_vla_video(video_path: str):
             # Pi05 index paths are relative to pi05/ dir - need pi05/ prefix for Tigris.
             # Known top-level Tigris prefixes that already map correctly:
             tigris_top_prefixes = ('aloha/', 'openvla/', 'pi05/', 'pi05_ablation/',
-                                   'pi05_baseline/', 'oft_ablation/',
-                                   'xvla/', 'smolvla/', 'groot/',
+                                   'pi05_baseline/', 'oft_ablation/', 'oft_baseline/',
+                                   'xvla/', 'xvla_baseline/',
+                                   'smolvla/', 'smolvla_baseline/',
+                                   'groot/', 'groot_baseline/',
                                    'groot_fraction_to_failure/',
                                    'xvla_ablation/', 'smolvla_ablation/')
             # Vision perturbation paths need source dir remapping to strip

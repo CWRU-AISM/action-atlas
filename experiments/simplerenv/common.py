@@ -145,7 +145,7 @@ def log_ram(label=""):
 # Rotation / action conversion
 
 def rotate6d_to_euler_xyz(v6):
-    """Convert 6D rotation to Euler XYZ. Matches the official X-VLA code."""
+    # Convert 6D rotation to Euler XYZ. Matches the official X-VLA code
     v6 = np.asarray(v6, dtype=np.float64)
     if v6.shape[-1] != 6:
         raise ValueError(f"Last dimension must be 6, got {v6.shape[-1]}")
@@ -318,7 +318,7 @@ def get_base_env(env):
 
 
 def compare_trajectories(actions_a, actions_b):
-    """Compare two action trajectories by cosine similarity and XYZ diff."""
+    # Compare two action trajectories by cosine similarity and XYZ diff
     min_len = min(len(actions_a), len(actions_b))
     if min_len == 0:
         return {"cosine": 0.0, "xyz_diff": 0.0}
@@ -489,7 +489,7 @@ class ActivationCollector:
         self.handles = []
 
     def get_activations(self):
-        """Return {name: tensor[n_fwd_passes, seq_len, 1024]}."""
+        # Return {name: tensor[n_fwd_passes, seq_len, 1024]}
         return {name: torch.stack(acts, dim=0)
                 for name, acts in self.activations.items() if acts}
 
@@ -510,7 +510,7 @@ class ZeroAblationHook:
 
 
 class MeanAblationHook:
-    """Replace a layer's output with its exponential running mean."""
+    # Replace a layer's output with its exponential running mean
 
     def __init__(self):
         self.enabled = True

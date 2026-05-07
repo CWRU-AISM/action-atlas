@@ -144,7 +144,7 @@ class VectorDB:
         return transfer_time
     
     def search(self, query_vector, k=10000):
-        """Execute search to retrieve top k results, choosing between GPU or CPU based on k value"""
+        # Execute search to retrieve top k results, choosing between GPU or CPU based on k value
         if not self.is_initialized:
             raise RuntimeError("Please load the index first")
 
@@ -206,7 +206,7 @@ class VectorDB:
         return results, search_time
 
     def search_within_file(self, query_vector, target_file_path, k=100):
-        """Search for nearest neighbor vectors only in the specified file"""
+        # Search for nearest neighbor vectors only in the specified file
         if not self.is_initialized:
             raise RuntimeError("Please load the index first")
 
@@ -250,7 +250,7 @@ class VectorDB:
         return results
 
     def get_file_info(self, global_index):
-        """Get file information based on global index"""
+        # Get file information based on global index
         for file_info in self.file_mappings:
             if file_info['start_idx'] <= global_index < file_info['end_idx']:
                 local_index = global_index - file_info['start_idx']

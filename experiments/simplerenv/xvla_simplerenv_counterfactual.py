@@ -32,7 +32,7 @@ from common import (
 
 
 def get_counterfactual_prompts(baseline_prompt):
-    """Generate counterfactual prompts for a given task."""
+    # Generate counterfactual prompts for a given task
     prompts = {
         'baseline': baseline_prompt,
         'null': "",
@@ -60,10 +60,10 @@ def get_counterfactual_prompts(baseline_prompt):
 
 @dataclass
 class CounterfactualConfig:
-    """X-VLA SimplerEnv counterfactual prompting."""
+    # X-VLA SimplerEnv counterfactual prompting
 
     model: str
-    """Model name: widowx, google-robot"""
+    # Model name: widowx, google-robot
 
     task: Optional[str] = None
     all_tasks: bool = False

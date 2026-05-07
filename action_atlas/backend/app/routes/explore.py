@@ -1,4 +1,4 @@
-"""Feature exploration API routes for Action Atlas."""
+# Feature exploration API routes for Action Atlas
 
 import json
 import numpy as np
@@ -11,14 +11,14 @@ explore_bp = Blueprint('explore', __name__)
 
 
 def get_vla_config(vla_model: str):
-    """Get configuration for a VLA model."""
+    # Get configuration for a VLA model
     if vla_model not in VLA_CONFIGS:
         return None
     return VLA_CONFIGS[vla_model]
 
 
 def get_description(data, feature_id):
-    """Get feature description, returning a placeholder if descriptions aren't available."""
+    # Get feature description, returning a placeholder if descriptions aren't available
     if 'descriptions' in data.files:
         try:
             return str(data['descriptions'][feature_id])
@@ -28,7 +28,7 @@ def get_description(data, feature_id):
 
 
 def load_viz_data(vla_model: str, layer_name: str):
-    """Load preprocessed Action Atlas data for a layer."""
+    # Load preprocessed Action Atlas data for a layer
     config = get_vla_config(vla_model)
     if config is None:
         return None
@@ -64,7 +64,7 @@ def load_analysis_results(vla_model: str):
 
 
 def search_features_by_concept(query: str, vla_model: str, layer_name: str, data):
-    """Search for features matching a concept query."""
+    # Search for features matching a concept query
     query_lower = query.lower()
 
     # Check if query matches known concepts
@@ -127,7 +127,7 @@ def search_features_by_concept(query: str, vla_model: str, layer_name: str, data
 
 @explore_bp.route('/api/vla/concepts', methods=['GET'])
 def get_concepts():
-    """Get all defined concepts and their statistics."""
+    # Get all defined concepts and their statistics
     vla_model = request.args.get('model', DEFAULT_VLA_MODEL)
     layer_name = request.args.get('layer', 'action_expert_layer_10')
 
@@ -171,7 +171,7 @@ def get_concepts():
 
 @explore_bp.route('/api/vla/tasks', methods=['GET'])
 def get_tasks():
-    """Get task definitions for a VLA model."""
+    # Get task definitions for a VLA model
     vla_model = request.args.get('model', DEFAULT_VLA_MODEL)
     config = get_vla_config(vla_model)
 
@@ -192,7 +192,7 @@ def get_tasks():
 
 @explore_bp.route('/api/vla/feature/<int:feature_id>', methods=['GET'])
 def get_feature_detail(feature_id: int):
-    """Get details for a specific feature."""
+    # Get details for a specific feature
     vla_model = request.args.get('model', DEFAULT_VLA_MODEL)
     layer_name = request.args.get('layer', 'action_expert_layer_10')
 

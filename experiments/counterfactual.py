@@ -42,7 +42,7 @@ from experiments.utils import (
 
 @dataclass
 class CounterfactualConfig:
-    """Counterfactual prompting experiment."""
+    # Counterfactual prompting experiment
 
     model: str = "xvla"
     suite: str = "libero_object"
@@ -57,8 +57,8 @@ class CounterfactualConfig:
     gpu: int = 0
 
     n_action_steps: Optional[int] = None
-    """Override action chunk size for faster inference."""
-    """GPU device index."""
+    # Override action chunk size for faster inference
+    # GPU device index
 
     conditions: Optional[List[str]] = None
     """
@@ -66,13 +66,13 @@ class CounterfactualConfig:
     opposite, generic). Format: 'negation' uses 'do not {task}'."""
 
     collect_activations: bool = False
-    """Capture activations under each condition."""
+    # Capture activations under each condition
 
     per_token: bool = True
 
 
 def make_prompt(condition: str, task_desc: str) -> str:
-    """Generate the counterfactual prompt for a condition."""
+    # Generate the counterfactual prompt for a condition
     template = COUNTERFACTUAL_PROMPTS.get(condition, condition)
     if "{task}" in template:
         return template.format(task=task_desc)

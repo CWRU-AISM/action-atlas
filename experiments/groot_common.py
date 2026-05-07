@@ -44,11 +44,11 @@ from experiments.hooks import (
 # GR00T-specific ActivationCollector with register_hooks for eagle/dit/vlsa
 
 class GR00TActivationCollector(ActivationCollector):
-    """ActivationCollector with GR00T-specific hook registration."""
+    # ActivationCollector with GR00T-specific hook registration
 
     def register_hooks(self, model, eagle_layers_idx=None, dit_layers_idx=None,
                        vl_sa_layers_idx=None):
-        """Register hooks on GR00T layers (auto-detects N1.5 vs N1.6)."""
+        # Register hooks on GR00T layers (auto-detects N1.5 vs N1.6)
         eagle_layers = get_groot_eagle_layers(model)
         dit_blocks = get_groot_dit_blocks(model)
         vl_sa_blocks = get_groot_vl_self_attention_blocks(model)
@@ -82,7 +82,7 @@ class GR00TActivationCollector(ActivationCollector):
 # Layer access (version-aware)
 
 def get_groot_eagle_layers(model):
-    """Get Eagle VLM language layers (N1.5 and N1.6)."""
+    # Get Eagle VLM language layers (N1.5 and N1.6)
     if hasattr(model, 'backbone'):
         backbone = model.backbone
         for path_attr in ['eagle_model', 'model']:
@@ -96,7 +96,7 @@ def get_groot_eagle_layers(model):
 
 
 def get_groot_dit_blocks(model):
-    """Get DiT action head transformer blocks (N1.5: 16, N1.6: 32)."""
+    # Get DiT action head transformer blocks (N1.5: 16, N1.6: 32)
     if hasattr(model, 'action_head'):
         ah = model.action_head
         if hasattr(ah, 'diffusion_model') and hasattr(ah.diffusion_model, 'transformer_blocks'):
@@ -107,7 +107,7 @@ def get_groot_dit_blocks(model):
 
 
 def get_groot_vl_self_attention_blocks(model):
-    """Get VL self-attention blocks bridging Eagle VLM to DiT (N1.5: 4 blocks)."""
+    # Get VL self-attention blocks bridging Eagle VLM to DiT (N1.5: 4 blocks)
     if hasattr(model, 'action_head'):
         ah = model.action_head
         if hasattr(ah, 'vl_self_attention') and hasattr(ah.vl_self_attention, 'transformer_blocks'):
@@ -138,7 +138,7 @@ COUNTERFACTUAL_PROMPTS = {
 
 
 def load_metadata_stats(checkpoint_path):
-    """Load normalization statistics from checkpoint's metadata.json."""
+    # Load normalization statistics from checkpoint's metadata.json
     meta_path = Path(checkpoint_path) / "experiment_cfg" / "metadata.json"
     if not meta_path.exists():
         return None
@@ -164,6 +164,7 @@ def load_metadata_stats(checkpoint_path):
 
 
 def normalize_state(state_8d, stats):
+    # Normalize 8D state to [-1, 1] using min-max from training data
     s_min, s_max = stats["state_min"], stats["state_max"]
     denom = s_max - s_min
     mask = denom != 0
@@ -173,6 +174,7 @@ def normalize_state(state_8d, stats):
 
 
 def denormalize_action(action_7d, stats):
+    # Denormalize 7D action from [-1, 1] back to original scale
     a_min, a_max = stats["action_min"], stats["action_max"]
     denom = a_max - a_min
     mask = denom != 0
@@ -182,6 +184,7 @@ def denormalize_action(action_7d, stats):
 
 
 def quat2axisangle(quat):
+    # Convert quaternion [x, y, z, w] to axis-angle
     w = np.clip(quat[3], -1.0, 1.0)
     den = np.sqrt(1.0 - w * w)
     if math.isclose(den, 0.0):
@@ -190,7 +193,7 @@ def quat2axisangle(quat):
 
 
 def get_libero_state_groot(obs, env=None):
-    """Convert LIBERO observation to GR00T 8D state."""
+    # Convert LIBERO observation to GR00T 8D state
     eef_pos = obs.get("robot0_eef_pos", np.zeros(3))
     eef_quat = obs.get("robot0_eef_quat", np.array([0, 0, 0, 1]))
     axis_angle = quat2axisangle(eef_quat)
@@ -199,7 +202,7 @@ def get_libero_state_groot(obs, env=None):
 
 
 def build_groot_inputs(images, state_8d, task_desc, stats, eagle_processor, device):
-    """Build input dict for GR00T model.get_action()."""
+    # Build input dict for GR00T model.get_action()
     from einops import rearrange
 
     agentview = images["agentview"]
@@ -248,7 +251,7 @@ def build_groot_inputs(images, state_8d, task_desc, stats, eagle_processor, devi
 
 
 def build_eagle_processor():
-    """Build the Eagle processor for VLM tokenization."""
+    # Build the Eagle processor for VLM tokenization
     from transformers import AutoProcessor
     from lerobot.policies.groot.utils import ensure_eagle_cache_ready
     from lerobot.utils.constants import HF_LEROBOT_HOME
@@ -267,7 +270,7 @@ def build_eagle_processor():
 
 
 def load_groot_n15(checkpoint, device):
-    """Load GR00T N1.5 model."""
+    # Load GR00T N1.5 model
     from lerobot.policies.groot.groot_n1 import GR00TN15
 
     print(f"Loading GR00T N1.5 from {checkpoint}...")
@@ -288,7 +291,7 @@ def load_groot_n15(checkpoint, device):
 # Environment setup
 
 def setup_libero_envs(suite):
-    """Set up LIBERO benchmark environments for a suite."""
+    # Set up LIBERO benchmark environments for a suite
     from libero.libero import benchmark
     benchmark_dict = benchmark.get_benchmark_dict()
     suite_key = "libero_10" if suite in ("libero_10", "libero_long") else suite
@@ -299,7 +302,7 @@ def setup_libero_envs(suite):
 
 
 def create_libero_env(task, resolution=256):
-    """Create a single LIBERO OffScreenRenderEnv for a task."""
+    # Create a single LIBERO OffScreenRenderEnv for a task
     from experiments.libero_utils import get_libero_env
     return get_libero_env(task, resolution=resolution)
 
@@ -310,7 +313,7 @@ def run_groot_episode(model, env, task_desc, device, max_steps, eagle_processor,
                       collector=None, save_video=False, action_horizon=16,
                       perturbation_fn=None, force_fresh_actions=False,
                       scene_state_fn=None):
-    """Run a single episode with GR00T model."""
+    # Run a single episode with GR00T model
     from experiments.libero_utils import get_libero_images, set_control_mode
 
     obs = env.reset()

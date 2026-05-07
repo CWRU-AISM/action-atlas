@@ -32,23 +32,23 @@ from common import (
 
 @dataclass
 class MetaWorldEvalConfig:
-    """SmolVLA MetaWorld baseline evaluation."""
+    # SmolVLA MetaWorld baseline evaluation
 
     checkpoint: str = DEFAULT_CHECKPOINT
     tasks: Optional[str] = None
-    """Comma-separated task names (e.g., reach-v3,push-v3)"""
+    # Comma-separated task names (e.g., reach-v3,push-v3)
 
     difficulty: Optional[str] = None
-    """Difficulty group(s): easy,medium,hard,very_hard"""
+    # Difficulty group(s): easy,medium,hard,very_hard
 
     n_episodes: int = 10
     resolution: int = DEFAULT_RESOLUTION
     save_activations: bool = False
     mean_pool: bool = False
-    """Mean-pool activations across tokens (much smaller files)"""
+    # Mean-pool activations across tokens (much smaller files)
 
     action_horizon: int = 10
-    """Reuse predicted actions for N steps (default 10, chunk_size=50)"""
+    # Reuse predicted actions for N steps (default 10, chunk_size=50)
 
     save_video: bool = True
     no_video: bool = False

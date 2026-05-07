@@ -403,7 +403,7 @@ def run_episode_with_hook(policy, env, domain_id, device, tokenizer,
 
 def evaluate_model(model_type, layers, sae_dir, pooling, n_episodes,
                    max_steps, device, output_dir, tasks_override=None):
-    """Evaluate reconstruction fidelity for one model type."""
+    # Evaluate reconstruction fidelity for one model type
     config = MODEL_CONFIGS[model_type]
     checkpoint = config["checkpoint"]
     domain_id = config["domain_id"]
@@ -566,7 +566,7 @@ def evaluate_model(model_type, layers, sae_dir, pooling, n_episodes,
 
 
 def print_summary(all_model_results, output_dir):
-    """Print a summary table of reconstruction fidelity."""
+    # Print a summary table of reconstruction fidelity
     print("RECONSTRUCTION FIDELITY SUMMARY")
 
     for model_name, results in all_model_results.items():
@@ -597,23 +597,23 @@ def print_summary(all_model_results, output_dir):
 
 @dataclass
 class ReconstructionEvalConfig:
-    """X-VLA SimplerEnv SAE reconstruction fidelity evaluation."""
+    # X-VLA SimplerEnv SAE reconstruction fidelity evaluation
 
     model: str
-    """Robot model to evaluate: widowx, google-robot, all"""
+    # Robot model to evaluate: widowx, google-robot, all
 
     pooling: str
-    """Pooling mode: pertoken, meanpool"""
+    # Pooling mode: pertoken, meanpool
 
     sae_dir: str
-    """Path to SAE model directory"""
+    # Path to SAE model directory
 
     task: Optional[str] = None
-    """Specific task to evaluate (overrides model defaults)"""
+    # Specific task to evaluate (overrides model defaults)
 
     layer: Optional[int] = None
     layers: Optional[str] = None
-    """Comma-separated layer indices"""
+    # Comma-separated layer indices
 
     all_layers: bool = False
     n_episodes: int = 5

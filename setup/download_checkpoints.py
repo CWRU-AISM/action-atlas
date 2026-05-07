@@ -153,7 +153,7 @@ CHECKPOINTS = {
 
 
 def download_checkpoint(name: str, output_dir: Path, force: bool = False):
-    """Download a checkpoint from HuggingFace."""
+    # Download a checkpoint from HuggingFace
     if name not in CHECKPOINTS:
         raise ValueError(f"Unknown checkpoint: {name}. Available: {list(CHECKPOINTS.keys())}")
 
@@ -180,7 +180,7 @@ def download_checkpoint(name: str, output_dir: Path, force: bool = False):
 
 
 def list_checkpoints():
-    """Print available checkpoints organized by category."""
+    # Print available checkpoints organized by category
     print("Available checkpoints:\n")
 
     categories = [

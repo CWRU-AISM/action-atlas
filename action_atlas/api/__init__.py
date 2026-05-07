@@ -1,8 +1,8 @@
-"""Action Atlas API - split into focused modules."""
+# Action Atlas API - split into focused modules
 
 
 def register_all_routes(app):
-    """Register all API route blueprints."""
+    # Register all API route blueprints
     from .models import models_bp
     from .features import features_bp
     from .search import search_bp

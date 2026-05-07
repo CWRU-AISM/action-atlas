@@ -214,14 +214,14 @@ def compute_temporal_summary(results):
 
 
 def count_trajectories():
-    """Count saved trajectory and video files."""
+    # Count saved trajectory and video files
     n_traj = sum(1 for _ in TRAJ_DIR.rglob("*.npz")) if TRAJ_DIR.exists() else 0
     n_video = sum(1 for _ in TRAJ_DIR.rglob("*.mp4")) if TRAJ_DIR.exists() else 0
     return n_traj, n_video
 
 
 def update_atlas_json(ablation_summary, steering_summary, ftf_summary, temporal_summary, n_traj, n_video, dry_run=False):
-    """Update experiment_results_smolvla.json with concept ablation data."""
+    # Update experiment_results_smolvla.json with concept ablation data
     with open(ATLAS_DATA) as f:
         atlas = json.load(f)
 

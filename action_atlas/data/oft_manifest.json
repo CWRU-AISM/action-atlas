@@ -1,0 +1,48 @@
+{
+  "models": {
+    "openvla": {
+      "libero_10": {
+        "counterfactual_prompting": "20260130_214224",
+        "cross_prompt_injection": "20260130_214236",
+        "cross_task_injection": "20260130_223453",
+        "grid_ablation": "20260130_203141",
+        "null_injection": "20260130_214236",
+        "same_scene_injection": "20260130_222210",
+        "temporal_injection": "20260130_222406",
+        "visual_perturbations": "20260130_203142"
+      },
+      "libero_goal": {
+        "counterfactual_prompting": "20260130_220550",
+        "cross_prompt_injection": "20260130_215429",
+        "cross_task_injection": "20260130_223525",
+        "grid_ablation": "20260130_203142",
+        "null_injection": "20260130_214236",
+        "same_scene_injection": "20260130_223025",
+        "temporal_injection": "20260130_214222",
+        "visual_perturbations": "20260130_203142"
+      },
+      "libero_object": {
+        "counterfactual_prompting": "20260130_220928",
+        "cross_prompt_injection": "20260130_215809",
+        "cross_task_injection": "20260130_223520",
+        "grid_ablation": "20260130_215248",
+        "null_injection": "20260130_215041",
+        "same_scene_injection": "20260130_220730",
+        "temporal_injection": "20260130_220138",
+        "visual_perturbations": "20260130_203142"
+      },
+      "libero_spatial": {
+        "counterfactual_prompting": "20260130_223244",
+        "cross_prompt_injection": "20260130_214824",
+        "cross_task_injection": "20260130_223300",
+        "grid_ablation": "20260130_214822",
+        "null_injection": "20260130_215957",
+        "same_scene_injection": "20260130_215817",
+        "temporal_injection": "20260130_215434",
+        "visual_perturbations": "20260130_214224"
+      }
+    }
+  },
+  "oft_data_dir": "/data/openvla_rollouts/openvla_oft",
+  "version": 1
+}

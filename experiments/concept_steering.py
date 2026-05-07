@@ -43,7 +43,7 @@ from experiments.utils import (
 
 @dataclass
 class ConceptSteeringConfig:
-    """SAE-based concept steering experiment."""
+    # SAE-based concept steering experiment
 
     model: str = "xvla"
     suite: str = "libero_object"
@@ -54,13 +54,13 @@ class ConceptSteeringConfig:
     layer: str = ""
 
     n_features: int = 5
-    """Number of top features to steer per concept."""
+    # Number of top features to steer per concept
 
     strengths: Tuple[float, ...] = (-2.0, -1.0, 1.0, 2.0)
-    """Steering strengths to test. Negative = suppress, positive = amplify."""
+    # Steering strengths to test. Negative = suppress, positive = amplify
 
     concepts: Optional[List[str]] = None
-    """Specific concepts to steer (e.g. 'motion/put'). Default: all."""
+    # Specific concepts to steer (e.g. 'motion/put'). Default: all
 
     n_episodes: int = 3
     tasks: Optional[List[int]] = None
@@ -72,8 +72,8 @@ class ConceptSteeringConfig:
     gpu: int = 0
 
     n_action_steps: Optional[int] = None
-    """Override action chunk size for faster inference."""
-    """GPU device index."""
+    # Override action chunk size for faster inference
+    # GPU device index
 
 
 def main(cfg):

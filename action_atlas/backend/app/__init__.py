@@ -1,4 +1,4 @@
-"""Action Atlas Backend."""
+# Action Atlas Backend
 import sys
 from pathlib import Path
 from flask import Flask

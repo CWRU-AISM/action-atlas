@@ -14,7 +14,7 @@ class GlobalState:
         return cls._instance
     
     def save_current_query(self, query_text, query_vector):
-        """保存当前查询"""
+        # 保存当前查询
         self._current_query = {
             'query_text': query_text,
             'query_vector': query_vector,
@@ -22,5 +22,5 @@ class GlobalState:
         }
     
     def get_current_query(self):
-        """获取当前查询"""
+        # 获取当前查询
         return self._current_query

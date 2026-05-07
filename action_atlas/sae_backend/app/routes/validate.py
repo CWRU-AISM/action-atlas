@@ -61,7 +61,7 @@ def get_explanation_embedding(sae_id: str, feature_id: str, llm_model='gemma_2_2
 
 
 def get_feature_info(sae_id: str, feature_id: str, llm_model='gemma_2_2b') -> tuple:
-    """Get the embedding and original explanation of the feature"""
+    # Get the embedding and original explanation of the feature
     try:
         config = get_llm_config(llm_model)
         
@@ -84,7 +84,7 @@ def get_feature_info(sae_id: str, feature_id: str, llm_model='gemma_2_2b') -> tu
 
 
 def get_token_related_features(prompt: str, token_index: int, sae_id: str, llm_model='gemma_2_2b', top_k: int = 30) -> list:
-    """Get the list of features related to a specific token in the prompt"""
+    # Get the list of features related to a specific token in the prompt
     try:
         config = get_llm_config(llm_model)
         
@@ -136,7 +136,7 @@ def get_token_related_features(prompt: str, token_index: int, sae_id: str, llm_m
 
 @validate_bp.route('/api/feature/steer', methods=['POST'])
 def steer_feature():
-    """Validate the impact of features on model output"""
+    # Validate the impact of features on model output
     data = request.get_json()
     
     required_fields = ['feature_id', 'sae_id', 'prompt', 'feature_strengths']

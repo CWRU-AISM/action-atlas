@@ -1,4 +1,4 @@
-"""Shared helpers for Action Atlas API."""
+# Shared helpers for Action Atlas API
 import json
 import os
 import numpy as np
@@ -67,17 +67,17 @@ _json_cache: Dict[str, dict] = {}
 
 
 def normalize_suite(suite: str) -> str:
-    """Normalize suite name to full form (e.g. 'goal' -> 'libero_goal')."""
+    # Normalize suite name to full form (e.g. 'goal' -> 'libero_goal')
     return SUITE_MAP.get(suite, suite)
 
 
 def suite_short(suite: str) -> str:
-    """Get short suite name (e.g. 'libero_goal' -> 'goal')."""
+    # Get short suite name (e.g. 'libero_goal' -> 'goal')
     return suite.replace("libero_", "") if suite.startswith("libero_") else suite
 
 
 def detect_model_from_layer(layer_id: str) -> str:
-    """Detect model name from layer ID prefix."""
+    # Detect model name from layer ID prefix
     if any(x in layer_id for x in ("dit_layer_", "eagle_layer_", "vlsa_layer_")):
         return "groot"
     if any(x in layer_id for x in ("vlm_layer_", "expert_layer_")):
@@ -86,7 +86,7 @@ def detect_model_from_layer(layer_id: str) -> str:
 
 
 def load_json_cached(path: Path, cache_key: str = None) -> Optional[dict]:
-    """Load JSON file with caching. Returns None if file doesn't exist."""
+    # Load JSON file with caching. Returns None if file doesn't exist
     key = cache_key or str(path)
     if key in _json_cache:
         return _json_cache[key]
@@ -102,7 +102,7 @@ def load_json_cached(path: Path, cache_key: str = None) -> Optional[dict]:
 
 
 def serve_video_response(path: Path, filename: str = None):
-    """Serve a video file with CORS headers."""
+    # Serve a video file with CORS headers
     if not path.exists():
         abort(404)
     name = filename or path.name
@@ -155,7 +155,7 @@ def parse_ablation_filename(filename: str) -> dict:
 
 
 def parse_concept_name(name: str):
-    """Parse 'type/name' concept format into (category, subconcept)."""
+    # Parse 'type/name' concept format into (category, subconcept)
     if "/" in name:
         parts = name.split("/", 1)
         return parts[0], parts[1]
@@ -166,7 +166,7 @@ def parse_concept_name(name: str):
 
 
 def load_ablation_index(model: str) -> Optional[list]:
-    """Load baked ablation index for a model."""
+    # Load baked ablation index for a model
     fname = ABLATION_INDEX_FILES.get(model)
     if not fname:
         return None
@@ -175,6 +175,7 @@ def load_ablation_index(model: str) -> Optional[list]:
 
 
 def get_vla_config(model: str = 'pi05'):
+    # Get configuration for VLA model
     if model in ('openvla', 'openvla_oft'):
         return {
             'model': 'openvla',
@@ -392,7 +393,7 @@ def load_clustering_data(suite: str, layer: str, model: str = 'pi05',
 
 
 def load_feature_metadata(suite: str) -> List[Dict]:
-    """Load feature metadata for a suite."""
+    # Load feature metadata for a suite
     config = get_vla_config()
     filepath = config['data_dir'] / suite / "feature_metadata.json"
 
@@ -404,7 +405,7 @@ def load_feature_metadata(suite: str) -> List[Dict]:
 
 
 def load_concept_features() -> Optional[Dict]:
-    """Load concept-to-feature mapping data (cached)."""
+    # Load concept-to-feature mapping data (cached)
     path = Path(__file__).parent.parent / "data" / "concept_features.json"
     return load_json_cached(path, "concept_features")
 

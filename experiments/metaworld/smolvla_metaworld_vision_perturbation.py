@@ -161,7 +161,7 @@ def black_image(img):
 
 
 def frozen_image(img, _cache={}):
-    """Return the first frame for the entire episode (set externally)."""
+    # Return the first frame for the entire episode (set externally)
     if 'frame' in _cache:
         return _cache['frame'].copy()
     return img
@@ -204,7 +204,7 @@ PERTURBATIONS = {
 
 
 def make_perturbation_transform(pert_fn):
-    """Wrap a perturbation function to handle frozen_first_frame state."""
+    # Wrap a perturbation function to handle frozen_first_frame state
     if pert_fn is frozen_image:
         first_frame_holder = {}
 
@@ -218,14 +218,14 @@ def make_perturbation_transform(pert_fn):
 
 @dataclass
 class VisionPerturbationConfig:
-    """SmolVLA MetaWorld vision perturbation experiments."""
+    # SmolVLA MetaWorld vision perturbation experiments
 
     checkpoint: str = DEFAULT_CHECKPOINT
     tasks: Optional[str] = None
     difficulty: Optional[str] = None
     n_episodes: int = 3
     perturbations: Optional[str] = None
-    """Comma-separated list of perturbation names. Default: all."""
+    # Comma-separated list of perturbation names. Default: all
 
     resolution: int = DEFAULT_RESOLUTION
     save_video: bool = False

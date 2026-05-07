@@ -21,7 +21,7 @@ OUT_DIR = Path("data/processed/contrastive")
 
 
 def process_aggregate_file(agg_path: Path, model: str, output_dir: Path):
-    """Process one aggregate description file → one clustering NPZ per layer."""
+    # Process one aggregate description file → one clustering NPZ per layer
     with open(agg_path) as f:
         data = json.load(f)
 

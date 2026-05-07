@@ -21,7 +21,7 @@ from collections import defaultdict
 from datetime import datetime
 # Helpers
 def safe_load_json(path: Path) -> dict | None:
-    """Load a JSON file, returning None on failure."""
+    # Load a JSON file, returning None on failure
     try:
         with open(path) as f:
             return json.load(f)
@@ -30,7 +30,7 @@ def safe_load_json(path: Path) -> dict | None:
 
 
 def load_jsonl(path: Path) -> list[dict]:
-    """Load a JSONL file, returning a list of dicts."""
+    # Load a JSONL file, returning a list of dicts
     results = []
     try:
         with open(path) as f:
@@ -47,14 +47,14 @@ def load_jsonl(path: Path) -> list[dict]:
 
 
 def compute_success_rate(episodes: list[dict]) -> float:
-    """Compute success rate from a list of episode dicts with 'success' key."""
+    # Compute success rate from a list of episode dicts with 'success' key
     if not episodes:
         return 0.0
     return sum(1 for ep in episodes if ep.get("success", False)) / len(episodes)
 
 
 def round_val(v, decimals=4):
-    """Round a numeric value for JSON output."""
+    # Round a numeric value for JSON output
     if isinstance(v, float):
         return round(v, decimals)
     return v

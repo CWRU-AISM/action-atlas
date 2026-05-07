@@ -69,7 +69,7 @@ MEDIUM_SPECIFIC_PROMPTS = {
 
 
 def generate_compositional_prompts(task_name, task_desc, all_tasks, all_descs):
-    """Generate compositional prompts combining two task descriptions."""
+    # Generate compositional prompts combining two task descriptions
     configs = []
     other_tasks = [t for t in all_tasks if t != task_name][:5]
 
@@ -97,7 +97,7 @@ def generate_compositional_prompts(task_name, task_desc, all_tasks, all_descs):
 
 
 def generate_paraphrase_prompts(task_name, task_desc):
-    """Generate paraphrased versions of the task description."""
+    # Generate paraphrased versions of the task description
     configs = []
     desc_lower = task_desc.lower()
 
@@ -117,7 +117,7 @@ def generate_paraphrase_prompts(task_name, task_desc):
 
 
 def generate_specificity_prompts(task_name, task_desc):
-    """Generate prompts at different specificity levels."""
+    # Generate prompts at different specificity levels
     configs = []
     desc_lower = task_desc.lower()
 
@@ -147,7 +147,7 @@ def generate_specificity_prompts(task_name, task_desc):
 
 
 def generate_same_visual_different_goal(task_name, task_desc, all_tasks, all_descs):
-    """Same visual scene (env), different goal instruction."""
+    # Same visual scene (env), different goal instruction
     configs = []
     other_tasks = [t for t in all_tasks if t != task_name]
     selected = other_tasks[:6]
@@ -208,7 +208,7 @@ def generate_all_enhanced_configs(tasks, task_descriptions, seeds=(42,)):
 
 @dataclass
 class EnhancedCounterfactualConfig:
-    """SmolVLA MetaWorld enhanced counterfactual prompting."""
+    # SmolVLA MetaWorld enhanced counterfactual prompting
 
     output_dir: str
     checkpoint: str = DEFAULT_CHECKPOINT

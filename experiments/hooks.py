@@ -1,4 +1,4 @@
-"""Reusable forward hooks for activation capture, ablation, and injection."""
+# Reusable forward hooks for activation capture, ablation, and injection
 
 from collections import defaultdict
 from typing import List, Optional

@@ -58,7 +58,7 @@ OFT_SUITES = ["libero_goal", "libero_object", "libero_spatial", "libero_10"]
 OUTPUT_DIR = Path(__file__).parent.parent / 'results' / 'experiment_results'
 # Utilities
 def wilson_ci(successes, total, z=1.96):
-    """Wilson score confidence interval."""
+    # Wilson score confidence interval
     if total == 0:
         return 0.0, 0.0, 0.0
     p_hat = successes / total
@@ -69,7 +69,7 @@ def wilson_ci(successes, total, z=1.96):
 
 
 def cosine_sim(a, b):
-    """Cosine similarity between two vectors."""
+    # Cosine similarity between two vectors
     dot = np.dot(a, b)
     na = np.linalg.norm(a)
     nb = np.linalg.norm(b)
@@ -79,7 +79,7 @@ def cosine_sim(a, b):
 
 
 def classify_behavior(cos_src, cos_dst, threshold=THRESHOLD):
-    """Classify episode as source, destination, or ambiguous."""
+    # Classify episode as source, destination, or ambiguous
     diff = cos_src - cos_dst
     if diff > threshold:
         return "source"
@@ -90,12 +90,12 @@ def classify_behavior(cos_src, cos_dst, threshold=THRESHOLD):
 
 
 def eef_velocity(eef_trajectory):
-    """Compute velocity (deltas) from EEF position trajectory."""
+    # Compute velocity (deltas) from EEF position trajectory
     arr = np.array(eef_trajectory)
     return np.diff(arr, axis=0).flatten()
 # Pi0.5 Analysis
 def load_pi05_episodes():
-    """Load all Pi0.5 cross-task injection episodes from results.json files."""
+    # Load all Pi0.5 cross-task injection episodes from results.json files
     episodes = []
 
     for suite, exp_dirs in PI05_CROSS_TASK_DIRS.items():
@@ -195,7 +195,7 @@ def load_pi05_episodes():
 
 
 def analyze_pi05():
-    """Run displacement analysis on Pi0.5 cross-task injection data."""
+    # Run displacement analysis on Pi0.5 cross-task injection data
     print("\n" + "=" * 60)
     print("Pi0.5 CROSS-TASK DISPLACEMENT ANALYSIS")
     print("=" * 60)
@@ -442,7 +442,7 @@ def load_oft_episodes():
 
 
 def analyze_oft():
-    """Run displacement analysis on OFT cross-task injection data."""
+    # Run displacement analysis on OFT cross-task injection data
     print("\n" + "=" * 60)
     print("OpenVLA-OFT CROSS-TASK DISPLACEMENT ANALYSIS")
     print("=" * 60)
@@ -497,7 +497,7 @@ def analyze_oft():
     return results
 # Shared Statistics
 def _compute_displacement_stats(episodes, label=""):
-    """Compute displacement statistics for a group of episodes."""
+    # Compute displacement statistics for a group of episodes
     if not episodes:
         return {"n": 0, "label": label}
 

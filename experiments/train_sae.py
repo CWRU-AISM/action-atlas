@@ -40,7 +40,7 @@ import tyro
 
 @dataclass
 class TrainSAEConfig:
-    """TopK SAE training configuration."""
+    # TopK SAE training configuration
 
     activations_dir: str = ""
     """
@@ -49,31 +49,31 @@ class TrainSAEConfig:
     or activations_dir/layer_name.pt (pre-concatenated)."""
 
     output_dir: str = "outputs/saes"
-    """Where to save trained SAE checkpoints."""
+    # Where to save trained SAE checkpoints
 
     layers: Optional[List[str]] = None
-    """Layer names to train (e.g. 'transformer_L00'). Default: all found."""
+    # Layer names to train (e.g. 'transformer_L00'). Default: all found
 
     expansion: float = 8.0
-    """SAE expansion ratio (hidden_dim = input_dim * expansion)."""
+    # SAE expansion ratio (hidden_dim = input_dim * expansion)
 
     k: int = 64
-    """TopK sparsity: number of active features per input."""
+    # TopK sparsity: number of active features per input
 
     epochs: int = 100
     batch_size: int = 4096
     lr: float = 3e-4
     patience: int = 5
-    """Early stopping patience (epochs without improvement)."""
+    # Early stopping patience (epochs without improvement)
 
     max_samples: int = 500_000
-    """Max training samples per layer (subsampled if exceeded)."""
+    # Max training samples per layer (subsampled if exceeded)
 
     device: str = "cuda"
 
 
 class TopKSAE(nn.Module):
-    """TopK sparse autoencoder."""
+    # TopK sparse autoencoder
 
     def __init__(self, input_dim: int, expansion: float = 8.0, k: int = 64):
         super().__init__()
@@ -98,7 +98,7 @@ class TopKSAE(nn.Module):
 
 
 def load_activations(act_dir: Path, layer_name: str, max_samples: int) -> Optional[torch.Tensor]:
-    """Load activations for a given layer, handling multiple directory layouts."""
+    # Load activations for a given layer, handling multiple directory layouts
     all_acts = []
 
     # Layout 1: Single concatenated file
@@ -135,7 +135,7 @@ def load_activations(act_dir: Path, layer_name: str, max_samples: int) -> Option
 
 
 def train_sae_on_activations(activations: torch.Tensor, cfg: TrainSAEConfig) -> dict:
-    """Train a TopK SAE on activation vectors."""
+    # Train a TopK SAE on activation vectors
     input_dim = activations.shape[1]
     act_mean = activations.mean(dim=0)
     act_std = activations.std(dim=0).clamp(min=1e-8)

@@ -1,4 +1,4 @@
-"""Aggregate SmolVLA experiment results."""
+# Aggregate SmolVLA experiment results
 from pathlib import Path
 import json
 
@@ -153,7 +153,7 @@ def aggregate_smolvla() -> dict:
 
 
 def _extract_smolvla_grid(data: dict) -> dict:
-    """Extract grid ablation summary from SmolVLA grid results."""
+    # Extract grid ablation summary from SmolVLA grid results
     conditions = data.get("conditions", [])
     tasks = data.get("tasks", [])
     grid = data.get("grid", {})
@@ -197,7 +197,7 @@ def _extract_smolvla_grid(data: dict) -> dict:
 
 
 def _aggregate_counterfactual_entries(entries: list[dict], **extra) -> dict:
-    """Aggregate counterfactual JSONL entries into summary statistics."""
+    # Aggregate counterfactual JSONL entries into summary statistics
     by_category = defaultdict(list)
     for entry in entries:
         cat = entry.get("category", "unknown")
@@ -239,7 +239,7 @@ def _aggregate_counterfactual_entries(entries: list[dict], **extra) -> dict:
 
 
 def _extract_cross_task(data: dict, environment: str = "metaworld") -> dict:
-    """Extract cross-task injection summary."""
+    # Extract cross-task injection summary
     pairs = data.get("pairs", {})
     injection_groups = data.get("injection_groups", [])
 

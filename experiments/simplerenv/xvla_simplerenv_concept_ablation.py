@@ -68,7 +68,7 @@ def run_ablation_experiment(
     layer_idx, robot, concepts, n_episodes, max_steps,
     top_n_features, skip_baseline=False,
 ):
-    """Run ablation experiments for all concepts on all tasks."""
+    # Run ablation experiments for all concepts on all tasks
     results = {
         "model": "xvla",
         "robot": robot,
@@ -170,16 +170,16 @@ def run_ablation_experiment(
 
 @dataclass
 class ConceptAblationConfig:
-    """X-VLA concept ablation on SimplerEnv."""
+    # X-VLA concept ablation on SimplerEnv
 
     robot: str
-    """Robot type: widowx, google-robot"""
+    # Robot type: widowx, google-robot
 
     layer: Optional[int] = None
-    """Single layer index"""
+    # Single layer index
 
     layers: Optional[str] = None
-    """Comma-separated layers"""
+    # Comma-separated layers
 
     all_layers: bool = False
     n_episodes: int = 5
@@ -191,7 +191,7 @@ class ConceptAblationConfig:
     sae_dir: str = SAE_DIR
     checkpoint: Optional[str] = None
     tasks: Optional[List[str]] = None
-    """Specific tasks (default: all for robot)"""
+    # Specific tasks (default: all for robot)
 
 
 def main(cfg):

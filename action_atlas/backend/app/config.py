@@ -1,4 +1,4 @@
-"""Action Atlas configuration. Model configs, concept definitions, server settings."""
+# Action Atlas configuration. Model configs, concept definitions, server settings
 
 from pathlib import Path
 

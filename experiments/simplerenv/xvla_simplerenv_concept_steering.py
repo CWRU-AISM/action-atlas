@@ -68,7 +68,7 @@ def run_steering_experiment(
     layer_idx, robot, concepts, n_episodes, max_steps,
     top_n_features, strengths, skip_baseline=False,
 ):
-    """Run steering experiments across multiple strength levels."""
+    # Run steering experiments across multiple strength levels
     results = {
         "model": "xvla",
         "robot": robot,
@@ -175,16 +175,16 @@ def run_steering_experiment(
 
 @dataclass
 class ConceptSteeringConfig:
-    """X-VLA concept steering on SimplerEnv."""
+    # X-VLA concept steering on SimplerEnv
 
     robot: str
-    """Robot type: widowx, google-robot"""
+    # Robot type: widowx, google-robot
 
     layer: Optional[int] = None
-    """Single layer index"""
+    # Single layer index
 
     layers: Optional[str] = None
-    """Comma-separated layers"""
+    # Comma-separated layers
 
     all_layers: bool = False
     strengths: tuple[float, ...] = (0.5, 1.0, 2.0, 5.0)
@@ -197,7 +197,7 @@ class ConceptSteeringConfig:
     sae_dir: str = SAE_DIR
     checkpoint: Optional[str] = None
     tasks: Optional[List[str]] = None
-    """Specific tasks (default: all for robot)"""
+    # Specific tasks (default: all for robot)
 
 
 def main(cfg):

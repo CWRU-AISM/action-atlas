@@ -39,7 +39,7 @@ MODEL_CONFIGS = {
 
 
 def load_all_descriptions(desc_dir: Path) -> list[dict]:
-    """Load all feature descriptions from a model's description directory."""
+    # Load all feature descriptions from a model's description directory
     entries = []
     if not desc_dir.exists():
         return entries

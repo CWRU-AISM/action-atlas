@@ -11,7 +11,7 @@ ablation_bp = Blueprint('ablation', __name__)
 
 
 def get_ablation_results(vla_model: str):
-    """Load ablation experiment results from multiple directories."""
+    # Load ablation experiment results from multiple directories
     config = VLA_CONFIGS.get(vla_model)
     if config is None:
         return None
@@ -69,7 +69,7 @@ def get_ablation_experiment_results():
 
 @ablation_bp.route('/api/vla/ablation/summary', methods=['GET'])
 def get_ablation_summary():
-    """Get summary of ablation effects for each concept."""
+    # Get summary of ablation effects for each concept
     vla_model = request.args.get('model', DEFAULT_VLA_MODEL)
 
     results = get_ablation_results(vla_model)

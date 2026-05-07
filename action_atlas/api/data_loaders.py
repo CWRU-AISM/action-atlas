@@ -1,4 +1,4 @@
-"""Data loading utilities for Action Atlas API."""
+# Data loading utilities for Action Atlas API
 from .helpers import *
 
 def parse_success_from_path(video_path: str, video_data: Optional[Dict] = None) -> Optional[bool]:

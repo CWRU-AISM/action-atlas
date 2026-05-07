@@ -137,7 +137,7 @@ def compute_hierarchical_clustering(
     embeddings: np.ndarray,
     n_clusters_list: List[int] = [10, 30, 90]
 ) -> Dict:
-    """Compute hierarchical clustering at multiple levels."""
+    # Compute hierarchical clustering at multiple levels
     if not HAS_SKLEARN:
         raise ImportError("scikit-learn is required. Install with: pip install scikit-learn")
 
@@ -188,7 +188,7 @@ def generate_cluster_colors(n_clusters: int) -> np.ndarray:
 
 
 def compute_cluster_centers(coords: np.ndarray, labels: np.ndarray) -> np.ndarray:
-    """Compute cluster centers in 2D space."""
+    # Compute cluster centers in 2D space
     unique_labels = np.unique(labels)
     centers = np.zeros((len(unique_labels), 2))
 
@@ -204,7 +204,7 @@ def extract_cluster_topics(
     labels: np.ndarray,
     n_words: int = 5
 ) -> Dict:
-    """Extract topic words for each cluster using TF-IDF."""
+    # Extract topic words for each cluster using TF-IDF
     if not HAS_SKLEARN:
         return {}
 
@@ -237,7 +237,7 @@ def extract_cluster_topics(
 
 
 def build_faiss_index(embeddings: np.ndarray, output_path: Path):
-    """Build and save FAISS index for similarity search."""
+    # Build and save FAISS index for similarity search
     if not HAS_FAISS:
         print("Warning: FAISS not available, skipping index creation")
         return
@@ -261,7 +261,7 @@ def build_viz_data(
     suite: str,
     use_tfidf: bool = False
 ):
-    """Build all Action Atlas data files from feature descriptions."""
+    # Build all Action Atlas data files from feature descriptions
 
     # Load descriptions
     with open(descriptions_file) as f:

@@ -29,7 +29,7 @@ def get_llm_config(llm_model):
         }
 
 def calculate_sae_distribution(results, top_n):
-    """Calculate the SAE distribution of the top_n features"""
+    # Calculate the SAE distribution of the top_n features
     sae_counts = Counter()
     total = min(top_n, len(results))
     

@@ -1,4 +1,4 @@
-"""Shared utilities for VLA interpretability experiments."""
+# Shared utilities for VLA interpretability experiments
 
 import ctypes
 import gc
@@ -62,7 +62,7 @@ def get_scene_state(env) -> dict:
 
 
 def summarize_scene(scene_states: list) -> dict:
-    """Summarize a trajectory of scene states: EEF path + object displacements."""
+    # Summarize a trajectory of scene states: EEF path + object displacements
     if not scene_states:
         return {}
     summary = {"n_steps": len(scene_states)}
@@ -86,7 +86,7 @@ def summarize_scene(scene_states: list) -> dict:
 
 
 def compare_trajectories(a: np.ndarray, b: np.ndarray) -> dict:
-    """Compare two action trajectories (cosine similarity + xyz L2)."""
+    # Compare two action trajectories (cosine similarity + xyz L2)
     n = min(len(a), len(b))
     if n == 0:
         return {"cos": 0.0, "xyz": 0.0}
@@ -98,7 +98,7 @@ def compare_trajectories(a: np.ndarray, b: np.ndarray) -> dict:
 
 
 def top_moved_objects(displacements: dict, n: int = 3, threshold: float = 0.01):
-    """Return top N most-displaced objects above threshold."""
+    # Return top N most-displaced objects above threshold
     moved = {k: v for k, v in displacements.items() if v["distance"] > threshold}
     ranked = sorted(moved.items(), key=lambda x: -x[1]["distance"])
     return [(k, v["distance"]) for k, v in ranked[:n]]
@@ -139,7 +139,7 @@ def save_results(data: dict, path: Path):
 
 
 class ImagePerturbations:
-    """Standard image perturbations. All take uint8 HWC RGB and return same."""
+    # Standard image perturbations. All take uint8 HWC RGB and return same
 
     @staticmethod
     def gaussian_noise(img, std=25.0):
@@ -233,7 +233,7 @@ class ImagePerturbations:
 
 
 def get_standard_perturbations() -> list:
-    """Return list of (name, fn) tuples for standard perturbation suite."""
+    # Return list of (name, fn) tuples for standard perturbation suite
     P = ImagePerturbations
     return [
         ("baseline", lambda x: x),

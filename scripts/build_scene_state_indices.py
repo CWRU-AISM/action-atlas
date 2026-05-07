@@ -33,7 +33,7 @@ MAX_TRAJ_POINTS = 100
 
 
 def subsample(points: list, max_n: int = MAX_TRAJ_POINTS) -> list:
-    """Subsample a list of points to at most max_n, preserving first and last."""
+    # Subsample a list of points to at most max_n, preserving first and last
     if not points or len(points) <= max_n:
         return points
     n = len(points)
@@ -58,7 +58,7 @@ def write_json(path: Path, data: dict):
     print(f"  Wrote {path.name} ({size_mb:.1f} MB)")
 # SmolVLA Scene State
 def build_smolvla_baseline(suite: str, results_path: Path) -> Optional[dict]:
-    """Build SmolVLA baseline scene state from baselines/results.json."""
+    # Build SmolVLA baseline scene state from baselines/results.json
     data = safe_load_json(results_path)
     if data is None:
         return None
@@ -248,7 +248,7 @@ LIBERO_TASK_DESCRIPTIONS = {}
 
 
 def get_libero_task_descriptions() -> Dict[str, Dict[int, str]]:
-    """Load LIBERO task descriptions from SmolVLA baselines (shared across models)."""
+    # Load LIBERO task descriptions from SmolVLA baselines (shared across models)
     global LIBERO_TASK_DESCRIPTIONS
     if LIBERO_TASK_DESCRIPTIONS:
         return LIBERO_TASK_DESCRIPTIONS
@@ -268,7 +268,7 @@ def get_libero_task_descriptions() -> Dict[str, Dict[int, str]]:
 
 
 def build_xvla_libero_baseline(suite_short: str) -> Optional[dict]:
-    """Build X-VLA LIBERO baseline from grid_ablation/baseline per-episode JSONs."""
+    # Build X-VLA LIBERO baseline from grid_ablation/baseline per-episode JSONs
     suite_name = f"libero_{suite_short}" if not suite_short.startswith("libero_") else suite_short
     suite_key = suite_name.replace("libero_", "")
 
@@ -385,7 +385,7 @@ def build_xvla_libero_grid_ablation(suite_short: str) -> Optional[dict]:
 
 
 def build_xvla_libero_cross_task(suite_short: str) -> Optional[dict]:
-    """Build X-VLA LIBERO cross-task scene state from per-episode JSONs."""
+    # Build X-VLA LIBERO cross-task scene state from per-episode JSONs
     suite_name = f"libero_{suite_short}" if not suite_short.startswith("libero_") else suite_short
     cross_dir = Path(f"/data/batch_1/xvla_libero/experiments/cross_task_{suite_name}")
     if not cross_dir.exists():
@@ -460,7 +460,7 @@ def build_xvla_libero_cross_task(suite_short: str) -> Optional[dict]:
 
 
 def build_xvla_libero_counterfactual(suite_short: str) -> Optional[dict]:
-    """Build X-VLA LIBERO counterfactual scene state."""
+    # Build X-VLA LIBERO counterfactual scene state
     suite_name = f"libero_{suite_short}" if not suite_short.startswith("libero_") else suite_short
 
     # Try v2 first, fall back to v1
@@ -529,7 +529,7 @@ def build_xvla_libero_counterfactual(suite_short: str) -> Optional[dict]:
 
 
 def build_xvla_simplerenv_baseline(env: str) -> Optional[dict]:
-    """Build X-VLA SimplerEnv baseline from per-episode JSONs."""
+    # Build X-VLA SimplerEnv baseline from per-episode JSONs
     baseline_dir = Path(f"/data/batch_1/xvla_SIMPLERENV/baselines/{env}_baseline")
     if not baseline_dir.exists():
         return None
@@ -632,7 +632,7 @@ def build_xvla_simplerenv_grid(env: str) -> Optional[dict]:
 
 
 def build_xvla_scene_state():
-    """Build all X-VLA scene state files."""
+    # Build all X-VLA scene state files
     print("\n=== Building X-VLA Scene State ===")
     out_dir = DATA_DIR / "xvla_scene_state"
 
@@ -700,7 +700,7 @@ GROOT_TASK_DESCRIPTIONS = {
 
 
 def build_groot_fraction_to_failure(suite: str) -> Optional[dict]:
-    """Build GR00T fraction-to-failure scene state with trajectory data."""
+    # Build GR00T fraction-to-failure scene state with trajectory data
     layers_data = []
 
     for batch_root in [
@@ -828,7 +828,7 @@ def build_groot_steering(suite: str) -> Optional[dict]:
 
 
 def build_groot_temporal_ablation(suite: str) -> Optional[dict]:
-    """Build GR00T temporal ablation scene state."""
+    # Build GR00T temporal ablation scene state
     suite_dir = Path(f"/data/groot_rollouts_batch2/sae_temporal_ablation/{suite}")
     if not suite_dir.exists():
         return None
@@ -900,7 +900,7 @@ def build_groot_temporal_ablation(suite: str) -> Optional[dict]:
 
 
 def build_groot_cross_suite_ablation(suite: str) -> Optional[dict]:
-    """Build GR00T cross-suite ablation scene state."""
+    # Build GR00T cross-suite ablation scene state
     suite_dir = Path(f"/data/groot_rollouts_batch2/sae_cross_suite_ablation/{suite}")
     if not suite_dir.exists():
         return None
@@ -937,7 +937,7 @@ def build_groot_cross_suite_ablation(suite: str) -> Optional[dict]:
 
 
 def build_groot_scene_state():
-    """Build all GR00T scene state files."""
+    # Build all GR00T scene state files
     print("\n=== Building GR00T Scene State ===")
     out_dir = DATA_DIR / "groot_scene_state"
 
@@ -965,7 +965,7 @@ def build_groot_scene_state():
             write_json(out_dir / f"{suite}_cross_suite_ablation.json", result)
 # GR00T Ablation Index (Video Index)
 def build_groot_ablation_index():
-    """Build GR00T video/ablation index across all experiment types."""
+    # Build GR00T video/ablation index across all experiment types
     print("\n=== Building GR00T Ablation Index ===")
 
     videos = []

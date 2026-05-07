@@ -66,7 +66,7 @@ def classify_behavior(cos_to_src, cos_to_dst, threshold=0.05):
 
 
 def analyze_libero_pair(pair_data):
-    """Analyze a single LIBERO cross-task pair for displacement behavior."""
+    # Analyze a single LIBERO cross-task pair for displacement behavior
     results = []
 
     task_a = pair_data.get('task_a')
@@ -85,7 +85,7 @@ def analyze_libero_pair(pair_data):
     baseline_b = pair_data.get(f'baseline_task_{task_b}', {})
 
     def get_moved_objects(scene_data, min_dist=0.01):
-        """Get objects that were significantly displaced."""
+        # Get objects that were significantly displaced
         disps = scene_data.get('scene', {}).get('object_displacements', {})
         return {obj: d['distance'] for obj, d in disps.items() if d['distance'] > min_dist}
 
@@ -145,7 +145,7 @@ def analyze_libero_pair(pair_data):
 
 
 def analyze_simplerenv_pair(pair_data):
-    """Analyze a single SimplerEnv cross-task pair."""
+    # Analyze a single SimplerEnv cross-task pair
     results = []
 
     task_a = pair_data.get('task_a')
@@ -187,7 +187,7 @@ def analyze_simplerenv_pair(pair_data):
 
 
 def aggregate_by_condition(all_results):
-    """Aggregate displacement results by injection condition."""
+    # Aggregate displacement results by injection condition
     by_condition = defaultdict(lambda: {
         'total': 0, 'source': 0, 'destination': 0, 'ambiguous': 0,
         'successes': 0, 'cos_src_vals': [], 'cos_dst_vals': []
@@ -209,7 +209,7 @@ def aggregate_by_condition(all_results):
 
 
 def aggregate_object_displacement(all_results):
-    """For LIBERO: aggregate which objects get displaced under injection."""
+    # For LIBERO: aggregate which objects get displaced under injection
     obj_stats = defaultdict(lambda: {'times_displaced': 0, 'as_src_target': 0, 'as_dst_target': 0, 'as_neither': 0})
 
     for r in all_results:

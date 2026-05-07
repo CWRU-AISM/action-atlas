@@ -39,7 +39,7 @@ def parse_perturbation_from_filename(fname: str) -> str:
 
 
 def bake_openvla():
-    """Bake OFT VP results from 24 individual results.json files."""
+    # Bake OFT VP results from 24 individual results.json files
     oft_base = PROJECT_ROOT / "videos" / "openvla_rollouts" / "openvla_oft"
     results_files = list(oft_base.rglob("visual_perturbations/results.json"))
     print(f"[OFT] Found {len(results_files)} VP results files")
@@ -196,7 +196,7 @@ def bake_openvla():
 
 
 def bake_pi05():
-    """Bake Pi0.5 VP results from video index metadata."""
+    # Bake Pi0.5 VP results from video index metadata
     pi05_index_path = VIDEO_DIR / "pi05" / "index.json"
     if not pi05_index_path.exists():
         print(f"[Pi0.5] Video index not found at {pi05_index_path}")

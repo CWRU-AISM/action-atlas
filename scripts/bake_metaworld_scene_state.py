@@ -69,7 +69,7 @@ TASK_DESCRIPTIONS = {}  # Will be populated from results.json
 
 
 def subsample_trajectory(traj, max_points=100):
-    """Subsample a trajectory list to at most max_points evenly spaced entries."""
+    # Subsample a trajectory list to at most max_points evenly spaced entries
     if len(traj) <= max_points:
         return traj
     step = max(1, len(traj) // max_points)
@@ -77,7 +77,7 @@ def subsample_trajectory(traj, max_points=100):
 
 
 def extract_eef_from_scene_states(scene_states, max_points=100):
-    """Extract tcp_pos trajectory from scene_states list."""
+    # Extract tcp_pos trajectory from scene_states list
     traj = []
     for s in scene_states:
         if isinstance(s, dict) and "tcp_pos" in s:
@@ -90,7 +90,7 @@ def extract_eef_from_scene_states(scene_states, max_points=100):
 
 
 def extract_obj_displacement(scene_states):
-    """Compute object displacement from first to last scene state."""
+    # Compute object displacement from first to last scene state
     if not scene_states or len(scene_states) < 2:
         return {}
 
@@ -113,12 +113,12 @@ def extract_obj_displacement(scene_states):
 
 
 def extract_eef_from_agent_pos(agent_pos_traj, max_points=100):
-    """Extract EEF xyz from agent_pos_trajectory (first 3 elements)."""
+    # Extract EEF xyz from agent_pos_trajectory (first 3 elements)
     traj = [[p[0], p[1], p[2]] for p in agent_pos_traj if len(p) >= 3]
     return subsample_trajectory(traj, max_points)
 # 1. BASELINE
 def bake_baseline(dry_run=False):
-    """Bake baseline scene state with EEF trajectories from episode JSONs."""
+    # Bake baseline scene state with EEF trajectories from episode JSONs
     base_dir = BATCH2_DIR / "metaworld_baseline"
     results_path = base_dir / "results.json"
     traj_dir = base_dir / "trajectories"
@@ -340,7 +340,7 @@ def bake_grid_ablation(dry_run=False):
         print(f"  Combined grid ablation: {out_path} ({sz / 1024:.0f} KB)")
 # 3. CROSS-TASK TRANSFER
 def bake_cross_task(dry_run=False):
-    """Bake cross-task transfer scene state for all difficulty levels."""
+    # Bake cross-task transfer scene state for all difficulty levels
     cross_dir = BATCH2_DIR / "metaworld_cross_task"
     all_difficulties = {}
 

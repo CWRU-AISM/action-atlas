@@ -1,9 +1,9 @@
-"""Aggregate X-VLA experiment results."""
+# Aggregate X-VLA experiment results
 from pathlib import Path
 import json
 
 def aggregate_xvla() -> dict:
-    """Aggregate all X-VLA experiment results."""
+    # Aggregate all X-VLA experiment results
     result = {
         "model": "xvla",
         "model_name": "X-VLA",
@@ -161,7 +161,7 @@ def _extract_xvla_grid(data: dict) -> dict:
 
 
 def _aggregate_xvla_counterfactual(cf_dir: Path, suite: str) -> dict:
-    """Aggregate X-VLA counterfactual results from per-task directories."""
+    # Aggregate X-VLA counterfactual results from per-task directories
     summary = {
         "environment": "libero",
         "suite": suite,
@@ -220,7 +220,7 @@ def _aggregate_xvla_counterfactual(cf_dir: Path, suite: str) -> dict:
 
 
 def _categorize_condition(cond_name: str) -> str:
-    """Map a condition name to a category."""
+    # Map a condition name to a category
     if cond_name == "baseline":
         return "baseline"
     elif cond_name == "null":
@@ -235,7 +235,7 @@ def _categorize_condition(cond_name: str) -> str:
 
 
 def _extract_xvla_cross_task(data: dict) -> dict:
-    """Extract X-VLA cross-task injection summary."""
+    # Extract X-VLA cross-task injection summary
     task_pairs = data.get("task_pairs", [])
     pairs_data = data.get("pairs", {})
 
@@ -268,7 +268,7 @@ def _extract_xvla_cross_task(data: dict) -> dict:
 
 
 def _aggregate_xvla_vision(vision_dir: Path, suite: str) -> dict:
-    """Aggregate X-VLA vision perturbation from per-task directories."""
+    # Aggregate X-VLA vision perturbation from per-task directories
     per_perturbation = defaultdict(lambda: {"successes": 0, "total": 0, "per_task": {}})
     all_perturbations = set()
 

@@ -50,7 +50,7 @@ from experiments.utils import (
 
 @dataclass
 class CrossTaskInjectionConfig:
-    """Cross-task activation injection experiment."""
+    # Cross-task activation injection experiment
 
     model: str = "xvla"
     suite: str = "libero_object"
@@ -63,14 +63,14 @@ class CrossTaskInjectionConfig:
     gpu: int = 0
 
     n_action_steps: Optional[int] = None
-    """Override action chunk size for faster inference."""
-    """GPU device index."""
+    # Override action chunk size for faster inference
+    # GPU device index
 
     phase: str = "both"
-    """Phase to run: 'capture', 'inject', or 'both'."""
+    # Phase to run: 'capture', 'inject', or 'both'
 
     tasks: Optional[List[int]] = None
-    """Tasks to capture activations for (capture phase)."""
+    # Tasks to capture activations for (capture phase)
 
     pairs: Optional[List[str]] = None
     """
@@ -78,7 +78,7 @@ class CrossTaskInjectionConfig:
     Default: all unique pairs from captured tasks."""
 
     layers: Optional[List[str]] = None
-    """Layer labels to capture/inject. Default: all."""
+    # Layer labels to capture/inject. Default: all
 
 
 def parse_pairs(pairs_str: List[str]) -> List[Tuple[int, int]]:
@@ -90,7 +90,7 @@ def parse_pairs(pairs_str: List[str]) -> List[Tuple[int, int]]:
 
 
 def capture_activations(adapter, suite, task_ids, layers, max_steps, seed, output_dir):
-    """Phase 1: Run each task and capture all forward-pass activations."""
+    # Phase 1: Run each task and capture all forward-pass activations
     capture_dir = output_dir / "captures"
     capture_dir.mkdir(exist_ok=True)
 
@@ -140,7 +140,7 @@ def capture_activations(adapter, suite, task_ids, layers, max_steps, seed, outpu
 
 def inject_activations(adapter, suite, pairs, capture_dir, layers, max_steps, seed,
                        output_dir, record_video):
-    """Phase 2: For each pair (A,B), inject A's activations into B's environment."""
+    # Phase 2: For each pair (A,B), inject A's activations into B's environment
     task_suite, all_tasks = adapter.setup_suite(suite)
     inject_dir = output_dir / "injections"
     inject_dir.mkdir(exist_ok=True)

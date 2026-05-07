@@ -190,7 +190,7 @@ def encode_all_tasks(
 
 
 def compute_group_stats(encoded_tasks: Dict[str, np.ndarray], task_names: Set[str]):
-    """Compute mean, std, freq for a group of tasks."""
+    # Compute mean, std, freq for a group of tasks
     arrays = [encoded_tasks[t] for t in sorted(task_names) if t in encoded_tasks]
     if not arrays:
         return None
@@ -209,7 +209,7 @@ def compute_contrastive_scores(
     concept_tasks: List[str],
     all_task_names: Set[str],
 ) -> Optional[Dict]:
-    """Compute Cohen's d and frequency for each SAE feature."""
+    # Compute Cohen's d and frequency for each SAE feature
     concept_set = set(concept_tasks) & all_task_names
     non_concept_set = all_task_names - concept_set
 
@@ -257,7 +257,7 @@ def compute_contrastive_scores(
 
 
 def run_concept_id(component, layer_idx, sae_dir, data_dir, output_dir, device='cpu'):
-    """Run contrastive concept ID for one component/layer on MetaWorld."""
+    # Run contrastive concept ID for one component/layer on MetaWorld
     sae_path = sae_dir / f'{component}_L{layer_idx:02d}.pt'
     if not sae_path.exists():
         print(f"  No SAE at {sae_path}")
@@ -327,7 +327,7 @@ def run_concept_id(component, layer_idx, sae_dir, data_dir, output_dir, device='
 
 
 def print_summary(output_dir: Path):
-    """Print summary of all concept ID results."""
+    # Print summary of all concept ID results
     files = sorted(output_dir.glob('*.json'))
     if not files:
         print("\nNo results found.")
@@ -370,10 +370,10 @@ def print_summary(output_dir: Path):
 
 @dataclass
 class ConceptIdConfig:
-    """MetaWorld contrastive concept identification for SmolVLA."""
+    # MetaWorld contrastive concept identification for SmolVLA
 
     component: List[str] = ("expert",)
-    """Component types: expert, vlm"""
+    # Component types: expert, vlm
 
     layer: int = -1
     all_layers: bool = False

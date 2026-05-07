@@ -10,3 +10,6 @@
 [submodule "SimplerEnv"]
 	path = SimplerEnv
 	url = https://github.com/squarefk/SimplerEnv.git
+[submodule "temporal_saes"]
+	path = temporal_saes
+	url = https://github.com/AI4LIFE-GROUP/temporal-saes.git

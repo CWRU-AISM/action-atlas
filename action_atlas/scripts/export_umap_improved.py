@@ -41,7 +41,7 @@ CLUSTER_COLORS_30 = [
 
 
 def load_layer_data(layer_num: int):
-    """Load UMAP data for a specific layer."""
+    # Load UMAP data for a specific layer
     possible_files = [
         DATA_DIR / f"hierarchical_clustering_layer_{layer_num}_goal.npz",
         DATA_DIR / f"hierarchical_clustering_layer_{layer_num}_concepts.npz",
@@ -60,7 +60,7 @@ def load_layer_data(layer_num: int):
 
 
 def plot_layer_2d_dark(layer_num: int, dpi: int = 300):
-    """Generate dark-themed 2D UMAP for a layer with cluster colors."""
+    # Generate dark-themed 2D UMAP for a layer with cluster colors
     data = load_layer_data(layer_num)
     if data is None:
         print(f"No data for layer {layer_num}")
@@ -115,7 +115,7 @@ def plot_layer_2d_dark(layer_num: int, dpi: int = 300):
 
 
 def plot_all_layers_2d_dark(dpi: int = 300):
-    """Combined 2D plot with all layers, dark theme."""
+    # Combined 2D plot with all layers, dark theme
     fig, ax = plt.subplots(figsize=(16, 16), dpi=dpi, facecolor='#1a1a2e')
     ax.set_facecolor('#1a1a2e')
 
@@ -178,7 +178,7 @@ def plot_all_layers_2d_dark(dpi: int = 300):
 
 
 def plot_layer_3d_interactive(layer_num: int):
-    """Generate interactive 3D UMAP using plotly."""
+    # Generate interactive 3D UMAP using plotly
     data = load_layer_data(layer_num)
     if data is None:
         print(f"No data for layer {layer_num}")
@@ -256,7 +256,7 @@ def plot_layer_3d_interactive(layer_num: int):
 
 
 def plot_all_layers_3d():
-    """Generate 3D visualization with all layers."""
+    # Generate 3D visualization with all layers
     all_coords = []
     all_colors = []
     all_layers = []
@@ -322,7 +322,7 @@ def plot_all_layers_3d():
 
 
 def plot_layer_grid_dark(dpi: int = 300):
-    """Generate 3x6 grid of all layers with dark theme."""
+    # Generate 3x6 grid of all layers with dark theme
     fig, axes = plt.subplots(3, 6, figsize=(30, 15), dpi=dpi, facecolor='#1a1a2e')
     axes = axes.flatten()
 

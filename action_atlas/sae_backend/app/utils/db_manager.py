@@ -14,7 +14,7 @@ class DBManager:
         return cls._instance
     
     def get_vector_db(self, vector_db_path, embedding_path):
-        """获取向量数据库实例"""
+        # 获取向量数据库实例
         # 使用路径作为key来区分不同的数据库
         db_key = vector_db_path
         

@@ -1,15 +1,15 @@
-"""Concept data loading helpers."""
+# Concept data loading helpers
 from .helpers import *
 from .data_loaders import *
 
 def _load_experiment_results(model: str) -> Optional[Dict]:
-    """Load pre-aggregated experiment results for a model (late import to avoid circular)."""
+    # Load pre-aggregated experiment results for a model (late import to avoid circular)
     from .experiments import _load_experiment_results as _load
     return _load(model)
 
 
 def _collect_concepts_from_keys(concept_keys: list, all_concepts: dict) -> None:
-    """Classify concept keys into category sets using parse_concept_name."""
+    # Classify concept keys into category sets using parse_concept_name
     for concept_name in concept_keys:
         category, subconcept = parse_concept_name(concept_name)
         if category in all_concepts:
@@ -17,12 +17,12 @@ def _collect_concepts_from_keys(concept_keys: list, all_concepts: dict) -> None:
 
 
 def _build_response_data(all_concepts: dict) -> dict:
-    """Build sorted response data from concept sets, omitting empty categories."""
+    # Build sorted response data from concept sets, omitting empty categories
     return {ct: sorted(concepts) for ct, concepts in all_concepts.items() if concepts}
 
 
 def _get_openvla_concept_list():
-    """Load concept list from OFT concept ID JSON files."""
+    # Load concept list from OFT concept ID JSON files
     config = get_vla_config('openvla')
     concept_id_dir = config.get('concept_id_dir')
     all_concepts = {'motion': set(), 'object': set(), 'spatial': set()}
@@ -50,7 +50,7 @@ def _get_openvla_concept_list():
 
 
 def _extract_concept_counts_from_layer(layer_data: dict) -> dict:
-    """Extract concept feature counts from a single layer entry in concept_features.json."""
+    # Extract concept feature counts from a single layer entry in concept_features.json
     motion_count = sum(
         v.get('concept_features', 0)
         for v in layer_data.get('motion', {}).values()
@@ -91,7 +91,7 @@ def _extract_concept_counts_from_layer(layer_data: dict) -> dict:
 
 
 def _load_concept_counts_from_descriptions(model: str, suite: str, config: dict) -> dict:
-    """Fallback: extract concept counts from bundled description files."""
+    # Fallback: extract concept counts from bundled description files
     import re as _re
     result = {}
 
@@ -316,7 +316,7 @@ def _load_concept_ablation_scene(model: str, suite: str, component: str) -> Opti
 
 
 def _load_oft_ablation(layer: str, suite: str) -> Optional[dict]:
-    """Load OFT concept ablation data for a layer/suite."""
+    # Load OFT concept ablation data for a layer/suite
     cache_key = f"{layer}_{suite}"
     if cache_key in _oft_ablation_cache:
         return _oft_ablation_cache[cache_key]

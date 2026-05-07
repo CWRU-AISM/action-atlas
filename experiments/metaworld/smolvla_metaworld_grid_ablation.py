@@ -32,21 +32,21 @@ from common import (
 
 @dataclass
 class GridAblationConfig:
-    """SmolVLA MetaWorld grid ablation: layer-by-layer MLP zeroing."""
+    # SmolVLA MetaWorld grid ablation: layer-by-layer MLP zeroing
 
     checkpoint: str = DEFAULT_CHECKPOINT
     tasks: Optional[str] = None
     difficulty: Optional[str] = None
     n_episodes: int = 3
     layers: Optional[List[str]] = None
-    """Layer names to ablate (e.g., expert_0 vlm_8). Default: all."""
+    # Layer names to ablate (e.g., expert_0 vlm_8). Default: all
 
     resolution: int = DEFAULT_RESOLUTION
     output_dir: Optional[str] = None
     resume: bool = False
     save_video: bool = False
     save_trajectory: bool = False
-    """Save actions, agent_pos, scene_states per episode"""
+    # Save actions, agent_pos, scene_states per episode
 
 
 def main(cfg):

@@ -34,16 +34,16 @@ from common import (
 
 @dataclass
 class EvalConfig:
-    """X-VLA SimplerEnv cross-embodiment evaluation."""
+    # X-VLA SimplerEnv cross-embodiment evaluation
 
     model: str
-    """Model name: widowx, google-robot"""
+    # Model name: widowx, google-robot
 
     task: Optional[str] = None
-    """Specific task name (e.g. widowx_stack_cube)"""
+    # Specific task name (e.g. widowx_stack_cube)
 
     all_tasks: bool = False
-    """Evaluate all tasks for the selected model"""
+    # Evaluate all tasks for the selected model
 
     n_episodes: int = 20
     max_steps: int = DEFAULT_MAX_STEPS

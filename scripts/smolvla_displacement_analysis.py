@@ -40,7 +40,7 @@ from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
 def wilson_ci(successes, total, z=1.96):
-    """Wilson score confidence interval for a proportion."""
+    # Wilson score confidence interval for a proportion
     if total == 0:
         return 0.0, 0.0, 0.0
     p_hat = successes / total
@@ -51,13 +51,13 @@ def wilson_ci(successes, total, z=1.96):
 
 
 def format_rate(successes, total):
-    """Format a rate with Wilson CI."""
+    # Format a rate with Wilson CI
     rate, lo, hi = wilson_ci(successes, total)
     return f"{rate:.1f}% ({successes}/{total}) [CI: {lo:.1f}-{hi:.1f}%]"
 
 
 def load_json(path):
-    """Load JSON, return None on failure."""
+    # Load JSON, return None on failure
     try:
         with open(path) as f:
             return json.load(f)
@@ -66,7 +66,7 @@ def load_json(path):
 
 
 def cosine_similarity(a, b):
-    """Cosine similarity between two action sequences (as flat vectors)."""
+    # Cosine similarity between two action sequences (as flat vectors)
     a = np.array(a).flatten()
     b = np.array(b).flatten()
     # Truncate to same length
@@ -82,7 +82,7 @@ def cosine_similarity(a, b):
 
 
 def trajectory_distance(traj_a, traj_b):
-    """Mean Euclidean distance between two TCP trajectories (3D positions)."""
+    # Mean Euclidean distance between two TCP trajectories (3D positions)
     a = np.array(traj_a)
     b = np.array(traj_b)
     min_len = min(len(a), len(b))
@@ -110,7 +110,7 @@ def classify_behavior(cos_to_src, cos_to_dst, threshold=0.05):
 
 
 def extract_tcp_trajectory(scene_states):
-    """Extract TCP positions from scene_states list."""
+    # Extract TCP positions from scene_states list
     positions = []
     for s in scene_states:
         if isinstance(s, dict) and 'tcp_pos' in s:
@@ -119,7 +119,7 @@ def extract_tcp_trajectory(scene_states):
 
 
 def compute_object_displacement(scene_states):
-    """Compute total object displacement from scene_states."""
+    # Compute total object displacement from scene_states
     if not scene_states or len(scene_states) < 2:
         return 0.0, None, None
     first = scene_states[0]
@@ -135,7 +135,7 @@ def compute_object_displacement(scene_states):
 
 
 def compute_goal_distance(scene_states):
-    """Compute final distance from object to goal."""
+    # Compute final distance from object to goal
     if not scene_states:
         return float('inf')
     last = scene_states[-1]
@@ -292,7 +292,7 @@ def analyze_pair(pair_data, traj_dir=None):
 
     return results
 def aggregate_by_condition(all_results):
-    """Aggregate displacement results by injection group."""
+    # Aggregate displacement results by injection group
     by_condition = defaultdict(lambda: {
         'total': 0, 'source': 0, 'destination': 0, 'ambiguous': 0,
         'successes': 0, 'cos_src_vals': [], 'cos_dst_vals': [],
@@ -324,7 +324,7 @@ def aggregate_by_condition(all_results):
 
 
 def aggregate_by_component(all_results):
-    """Aggregate by expert vs VLM component."""
+    # Aggregate by expert vs VLM component
     by_component = defaultdict(lambda: {
         'total': 0, 'source': 0, 'destination': 0, 'ambiguous': 0,
         'successes': 0, 'cos_src_vals': [], 'cos_dst_vals': [],
@@ -369,7 +369,7 @@ def aggregate_by_layer_group(all_results):
 
     return by_layer
 def load_baseline_stats(baseline_dir):
-    """Load baseline statistics from metaworld_baseline directory."""
+    # Load baseline statistics from metaworld_baseline directory
     stats = {}
     if not baseline_dir or not baseline_dir.exists():
         return stats
@@ -403,7 +403,7 @@ def load_baseline_stats(baseline_dir):
 
     return stats
 def generate_report(all_difficulty_results, baseline_stats, output_dir):
-    """Generate markdown report and JSON output."""
+    # Generate markdown report and JSON output
 
     lines = []
     lines.append("# SmolVLA Cross-Task Displacement Analysis")
@@ -794,7 +794,7 @@ def main():
 
 
 def process_difficulty(diff_dir):
-    """Process all pair files in a single difficulty directory."""
+    # Process all pair files in a single difficulty directory
     results = []
     traj_base = diff_dir / 'trajectories'
 

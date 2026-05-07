@@ -33,7 +33,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def load_descriptions(layer: str = "action_expert_layer_12", suite: str = "concepts"):
-    """Load feature descriptions for a layer."""
+    # Load feature descriptions for a layer
     desc_file = DESC_DIR / f"descriptions_{layer}_{suite}.json"
     if not desc_file.exists():
         print(f"Description file not found: {desc_file}")
@@ -120,7 +120,7 @@ def hdbscan_clustering(coords, min_cluster_size=15, min_samples=5):
 
 
 def get_concept_colors(indices, feature_concepts):
-    """Get colors based on primary concept association."""
+    # Get colors based on primary concept association
     concept_colors = {
         # Motion concepts
         ('motion', 'put'): '#ef4444',
@@ -180,7 +180,7 @@ def generate_cluster_colors(labels):
 
 
 def plot_comparison(coords_list, colors_list, titles, output_path, figsize=(16, 5)):
-    """Plot comparison of different clustering approaches."""
+    # Plot comparison of different clustering approaches
     n_plots = len(coords_list)
     fig, axes = plt.subplots(1, n_plots, figsize=figsize)
 
@@ -306,7 +306,7 @@ def main():
 
 
 def generate_legend(output_path):
-    """Generate a legend showing concept colors."""
+    # Generate a legend showing concept colors
     concepts = {
         'Motion': [('put', '#ef4444'), ('open', '#f97316'), ('push', '#eab308'), ('interact', '#84cc16')],
         'Object': [('bowl', '#22c55e'), ('plate', '#14b8a6'), ('stove', '#06b6d4'),

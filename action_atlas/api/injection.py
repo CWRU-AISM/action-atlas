@@ -1,4 +1,4 @@
-"""Action Atlas API - injection and steering routes."""
+# Action Atlas API - injection and steering routes
 from flask import Blueprint, request, jsonify
 from .helpers import *
 from .data_loaders import *
@@ -7,7 +7,7 @@ from .experiment_helpers import _find_latest_oft_result
 injection_bp = Blueprint("injection", __name__)
 @injection_bp.route('/api/vla/injection', methods=['GET'])
 def get_injection():
-    """Cross-task and same-scene injection results."""
+    # Cross-task and same-scene injection results
     model = request.args.get('model', 'openvla')
     suite = request.args.get('suite', 'libero_goal')
     injection_type = request.args.get('type', 'cross_task')
@@ -23,7 +23,7 @@ def get_injection():
 
 
 def _injection_act(injection_type: str):
-    """ACT injection data from rollout dirs or all_results.json fallback."""
+    # ACT injection data from rollout dirs or all_results.json fallback
     data_file = None
     videos = {}
 
@@ -89,7 +89,7 @@ def _injection_act(injection_type: str):
 
 
 def _injection_openvla(model: str, suite: str, injection_type: str):
-    """OpenVLA/OFT injection from per-run results or experiment_results_oft.json."""
+    # OpenVLA/OFT injection from per-run results or experiment_results_oft.json
     exp_type = f'{injection_type}_injection'
     results_file = _find_latest_oft_result(suite, exp_type)
 
@@ -199,7 +199,7 @@ def _injection_openvla(model: str, suite: str, injection_type: str):
 
 
 def _injection_generic(model: str, suite: str, injection_type: str):
-    """Injection for pi05 / xvla / smolvla / groot from baked or experiment results."""
+    # Injection for pi05 / xvla / smolvla / groot from baked or experiment results
     # Try baked injection data first (has per-pair results from disk)
     baked_inj = load_json_cached(
         API_DATA_DIR / f'{model}_injection_baked.json',
@@ -232,7 +232,7 @@ def _injection_from_baked(
     model: str, suite: str, injection_type: str,
     baked_inj: dict, baked_suite: dict,
 ):
-    """Format baked injection pairs for the frontend."""
+    # Format baked injection pairs for the frontend
     baked_pairs = baked_suite['pairs']
     conditions = {}
     total_success = 0
@@ -291,7 +291,7 @@ def _injection_from_experiment_results(
     model: str, suite: str, injection_type: str,
     exp_data: dict, ct: dict, suite_data: dict,
 ):
-    """Format experiment_results cross_task injection for the frontend."""
+    # Format experiment_results cross_task injection for the frontend
     pairs = suite_data.get('pairs', {})
     runs = suite_data.get('runs', [])
     conditions = {}
@@ -460,7 +460,7 @@ def _injection_from_experiment_results(
 # Steering
 @injection_bp.route('/api/vla/steering_concepts', methods=['GET'])
 def get_steering_concepts():
-    """Get available concepts for steering with pre-computed success curves."""
+    # Get available concepts for steering with pre-computed success curves
     steering_dir = API_DATA_DIR / "libero_10" / "steering_results"
     concepts = []
     if steering_dir.exists():
@@ -496,9 +496,7 @@ def get_steering_concepts():
     })
 
 
-###############################################################################
 # Scene State / Trajectory Visualization Endpoints
-###############################################################################
 
 # Cache for large merged_results.json files (they're 20-50MB each)
 _scene_state_cache: Dict[str, dict] = {}

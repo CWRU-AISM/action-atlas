@@ -44,7 +44,7 @@ def load_sae(path, device):
 
 
 def make_sae_hook(sae):
-    """Forward hook that replaces MLP output with SAE reconstruction."""
+    # Forward hook that replaces MLP output with SAE reconstruction
     def hook_fn(module, input, output):
         h = output[0] if isinstance(output, tuple) else output
         orig_dtype = h.dtype
@@ -58,7 +58,7 @@ def make_sae_hook(sae):
 
 def run_validation_episode(policy, preprocessor, postprocessor, task_name,
                            resolution, device):
-    """Run one MetaWorld episode, return (success, n_steps)."""
+    # Run one MetaWorld episode, return (success, n_steps)
     env = create_env(task_name, resolution)
     result = run_episode(policy, env, preprocessor, postprocessor, device)
     env.close()
@@ -67,17 +67,17 @@ def run_validation_episode(policy, preprocessor, postprocessor, task_name,
 
 @dataclass
 class ValidateSAEConfig:
-    """Validate SAE reconstruction on MetaWorld rollouts."""
+    # Validate SAE reconstruction on MetaWorld rollouts
 
     component: str
-    """Component type: expert, vlm"""
+    # Component type: expert, vlm
 
     layer: int = -1
     layers: Optional[List[int]] = None
     all_layers: bool = False
     sae_dir: str = "rollouts/smolvla/sae_models/metaworld"
     tasks: Optional[str] = None
-    """Comma-separated task names (default: VALIDATION_TASKS)"""
+    # Comma-separated task names (default: VALIDATION_TASKS)
 
     n_episodes: int = 3
     checkpoint: str = DEFAULT_CHECKPOINT

@@ -33,7 +33,7 @@ LAYER_COLORS = [
 
 
 def load_layer_data(layer_num: int):
-    """Load UMAP data for a specific layer."""
+    # Load UMAP data for a specific layer
     possible_files = [
         DATA_DIR / f"hierarchical_clustering_layer_{layer_num}_goal.npz",
         DATA_DIR / f"hierarchical_clustering_layer_{layer_num}_concepts.npz",
@@ -54,7 +54,7 @@ def load_layer_data(layer_num: int):
 
 
 def get_cluster_label(topic_words: list, max_words: int = 2) -> str:
-    """Extract a clean, short label from topic words."""
+    # Extract a clean, short label from topic words
     if not topic_words:
         return ""
     # Take first few words and clean them up
@@ -69,7 +69,7 @@ def get_cluster_label(topic_words: list, max_words: int = 2) -> str:
 
 
 def plot_layer_large(layer_num: int, dpi: int = 300, point_size: int = 50, add_labels: bool = True):
-    """Generate clean, large-point UMAP for paper with concept labels."""
+    # Generate clean, large-point UMAP for paper with concept labels
     data = load_layer_data(layer_num)
     if data is None:
         print(f"No data for layer {layer_num}")
@@ -165,7 +165,7 @@ def plot_layer_large(layer_num: int, dpi: int = 300, point_size: int = 50, add_l
 
 
 def plot_all_layers_paper(dpi: int = 300):
-    """Combined plot with all layers - paper quality."""
+    # Combined plot with all layers - paper quality
     fig, ax = plt.subplots(figsize=(14, 12), dpi=dpi)
 
     all_coords = []
@@ -227,7 +227,7 @@ def plot_all_layers_paper(dpi: int = 300):
 
 
 def plot_layer_grid_paper(dpi: int = 300, add_labels: bool = True):
-    """3x6 grid for paper - compact but visible with concept labels."""
+    # 3x6 grid for paper - compact but visible with concept labels
     fig, axes = plt.subplots(3, 6, figsize=(28, 14), dpi=dpi)
     axes = axes.flatten()
 
@@ -308,7 +308,7 @@ def plot_layer_grid_paper(dpi: int = 300, add_labels: bool = True):
 
 
 def plot_single_cluster_focus(layer_num: int = 12, dpi: int = 300):
-    """Zoomed view of specific clusters for detail with concept labels."""
+    # Zoomed view of specific clusters for detail with concept labels
     data = load_layer_data(layer_num)
     if data is None:
         return None

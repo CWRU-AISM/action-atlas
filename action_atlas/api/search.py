@@ -1,4 +1,4 @@
-"""Action Atlas API - feature search and semantic search."""
+# Action Atlas API - feature search and semantic search
 from flask import Blueprint, request, jsonify
 from .helpers import *
 from .data_loaders import *
@@ -17,7 +17,7 @@ SMOLVLA_ABLATION_DIR = Path("/data/openvla_rollouts/smolvla/concept_ablation")
 
 
 def _load_feature_embeddings(model_key):
-    """Load pre-computed feature embeddings from NPZ file."""
+    # Load pre-computed feature embeddings from NPZ file
     if model_key in _feature_embeddings_cache:
         return _feature_embeddings_cache[model_key]
 

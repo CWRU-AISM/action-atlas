@@ -1,4 +1,4 @@
-"""Action Atlas API: concept routes."""
+# Action Atlas API: concept routes
 import json
 from pathlib import Path
 from typing import Dict, Optional
@@ -24,7 +24,7 @@ from .concept_helpers import *
 
 @concepts_bp.route('/api/concepts/list', methods=['GET'])
 def get_concept_list():
-    """Get available concepts organized by type (reads from actual data)."""
+    # Get available concepts organized by type (reads from actual data)
     model = request.args.get('model', 'pi05')
 
     if model in ('openvla', 'openvla_oft'):
@@ -133,7 +133,7 @@ def get_concept_list():
 
 @concepts_bp.route('/api/concepts/summary', methods=['GET'])
 def get_concepts_summary():
-    """Get summary of all concepts across all layers."""
+    # Get summary of all concepts across all layers
     data = load_concept_features()
     if data is None:
         return jsonify({
@@ -519,7 +519,11 @@ def ablation_videos_alias():
             'available_suites': available_suites,
         }
     })
+
+
 # Concept Counts and Layer Analysis
+
+
 @concepts_bp.route('/api/vla/concept_id', methods=['GET'])
 def get_concept_id():
     """
@@ -577,7 +581,7 @@ def get_concept_id():
         })
 
     def _extract_concepts(data):
-        """Extract concept dict from either nested or flat format."""
+        # Extract concept dict from either nested or flat format
         concepts = data.get('concepts', {})
         if concepts:
             return concepts
@@ -685,7 +689,7 @@ def get_concept_id():
 
 @concepts_bp.route('/api/vla/scene_state/concept_ablation', methods=['GET'])
 def get_concept_ablation_scene_state():
-    """Get concept ablation scene state data (tasks, conditions, trials with EEF trajectories)."""
+    # Get concept ablation scene state data (tasks, conditions, trials with EEF trajectories)
     model = request.args.get('model', 'smolvla')
     suite = request.args.get('suite', 'libero_spatial')
     component = request.args.get('component', 'expert')
@@ -732,7 +736,7 @@ def get_concept_ablation_scene_state():
 
 @concepts_bp.route('/api/vla/scene_state/concept_ablation/summary', methods=['GET'])
 def get_concept_ablation_scene_summary():
-    """List available concept ablation scene state files."""
+    # List available concept ablation scene state files
     model = request.args.get('model', 'smolvla')
     dir_name = MODEL_SCENE_STATE_DIRS.get(model, f'{model}_scene_state')
     data_dir = Path(__file__).parent / 'data' / dir_name

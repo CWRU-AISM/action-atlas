@@ -1,9 +1,9 @@
-"""Aggregate GR00T experiment results."""
+# Aggregate GR00T experiment results
 from pathlib import Path
 import json
 
 def aggregate_groot() -> dict:
-    """Aggregate all GR00T experiment results."""
+    # Aggregate all GR00T experiment results
     result = {
         "model": "groot",
         "model_name": "GR00T N1.5",
@@ -207,7 +207,7 @@ def _aggregate_groot_counterfactual(cf_dir: Path, suite: str) -> dict:
 
 
 def _extract_groot_cross_task(data: dict) -> dict:
-    """Extract GR00T cross-task injection summary."""
+    # Extract GR00T cross-task injection summary
     task_pairs = data.get("task_pairs", [])
     pairs_data = data.get("pairs", {})
 
@@ -275,7 +275,7 @@ def _aggregate_groot_vision(vision_dir: Path, suite: str) -> dict:
 
 
 def _aggregate_groot_ftf(suite_dir: Path, suite: str) -> dict:
-    """Aggregate GR00T fraction-to-failure results across layers."""
+    # Aggregate GR00T fraction-to-failure results across layers
     per_layer = {}
     for layer_dir in sorted(suite_dir.iterdir()):
         if not layer_dir.is_dir():
@@ -400,7 +400,7 @@ def _aggregate_groot_steering(suite_dir: Path, suite: str) -> dict:
 
 
 def _aggregate_groot_temporal(suite_dir: Path, suite: str) -> dict:
-    """Aggregate GR00T temporal ablation results across layers."""
+    # Aggregate GR00T temporal ablation results across layers
     per_layer = {}
     for layer_dir in sorted(suite_dir.iterdir()):
         if not layer_dir.is_dir():
@@ -492,7 +492,7 @@ def main():
 
 
 def _print_summary(model: str, data: dict, file_size: int):
-    """Print a summary of what was aggregated."""
+    # Print a summary of what was aggregated
     print(f"\n  Model: {data.get('model_name', model)}")
     print(f"  File size: {file_size / 1024:.1f} KB")
 

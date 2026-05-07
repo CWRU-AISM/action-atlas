@@ -101,43 +101,43 @@ SUITES = ["libero_goal", "libero_object", "libero_spatial", "libero_10"]
 
 @dataclass
 class DescriptionConfig:
-    """Generate SAE feature descriptions using LLM or rules."""
+    # Generate SAE feature descriptions using LLM or rules
 
     model: str = "xvla"
-    """Model name: pi05, xvla, oft, smolvla, groot"""
+    # Model name: pi05, xvla, oft, smolvla, groot
 
     pathway: str = "expert"
-    """Model pathway: expert, vlm, paligemma, transformer, eagle, dit, vlsa, single"""
+    # Model pathway: expert, vlm, paligemma, transformer, eagle, dit, vlsa, single
 
     concept_id_dir: str = ""
-    """Directory containing concept ID JSON files."""
+    # Directory containing concept ID JSON files
 
     output_dir: str = ""
-    """Output directory for descriptions. Default: action_atlas/data/descriptions/{model}/"""
+    # Output directory for descriptions. Default: action_atlas/data/descriptions/{model}/
 
     suites: Tuple[str, ...] = ("libero_goal",)
-    """Task suites to process."""
+    # Task suites to process
 
     layers: Optional[List[int]] = None
-    """Specific layers. Default: all layers for the pathway."""
+    # Specific layers. Default: all layers for the pathway
 
     llm: str = "auto"
-    """LLM backend: auto (try claude then gemini), claude, gemini, rules"""
+    # LLM backend: auto (try claude then gemini), claude, gemini, rules
 
     max_features_per_concept: int = 10
-    """Max features to describe per concept."""
+    # Max features to describe per concept
 
     batch_size: int = 20
-    """Features per API call."""
+    # Features per API call
 
     max_retries: int = 3
 
     pooling: str = "mean"
-    """Pooling mode for SmolVLA concept ID files: mean or pertoken"""
+    # Pooling mode for SmolVLA concept ID files: mean or pertoken
 
 
 def init_llm_client(llm_choice: str):
-    """Initialize LLM client. Returns (client, llm_type) or (None, 'rules')."""
+    # Initialize LLM client. Returns (client, llm_type) or (None, 'rules')
     if llm_choice == "rules":
         return None, "rules"
 
@@ -169,7 +169,7 @@ def init_llm_client(llm_choice: str):
 
 
 def call_llm(client, llm_type: str, prompt: str) -> str:
-    """Call LLM and return response text."""
+    # Call LLM and return response text
     if llm_type == "claude":
         resp = client.messages.create(
             model="claude-sonnet-4-20250514", max_tokens=4000,
@@ -183,7 +183,7 @@ def call_llm(client, llm_type: str, prompt: str) -> str:
 
 
 def load_concept_id_file(filepath: Path, concept_key: Optional[str]) -> Dict:
-    """Load concept ID JSON and return {concept_name: [(feature_idx, score, cohens_d), ...]}."""
+    # Load concept ID JSON and return {concept_name: [(feature_idx, score, cohens_d), ...]}
     data = json.loads(filepath.read_text())
 
     if concept_key:
@@ -219,7 +219,7 @@ def load_concept_id_file(filepath: Path, concept_key: Optional[str]) -> Dict:
 
 
 def build_feature_associations(concepts: Dict, max_per_concept: int) -> Dict[int, List[Tuple[str, float, float]]]:
-    """Build feature_idx -> [(concept_name, score, cohens_d), ...] mapping."""
+    # Build feature_idx -> [(concept_name, score, cohens_d), ...] mapping
     associations = {}
     for cname, features in concepts.items():
         for fidx, score, d in features[:max_per_concept]:
@@ -231,7 +231,7 @@ def build_feature_associations(concepts: Dict, max_per_concept: int) -> Dict[int
 
 def build_prompt(features_batch: List[Tuple[int, List]], model_name: str,
                  pathway: str, layer: int, n_layers: int, suite: str) -> str:
-    """Build batched LLM prompt for feature descriptions."""
+    # Build batched LLM prompt for feature descriptions
     lines = [
         f"Analyze these SAE features from a robot manipulation policy.",
         f"",
@@ -262,7 +262,7 @@ def build_prompt(features_batch: List[Tuple[int, List]], model_name: str,
 
 
 def generate_descriptions(cfg: DescriptionConfig):
-    """Main description generation pipeline."""
+    # Main description generation pipeline
     model_cfg = MODEL_CONFIGS.get(cfg.model)
     if not model_cfg:
         raise ValueError(f"Unknown model: {cfg.model}. Options: {list(MODEL_CONFIGS.keys())}")

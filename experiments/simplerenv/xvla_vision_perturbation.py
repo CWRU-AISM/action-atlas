@@ -53,7 +53,7 @@ class PerturbationConfig:
 
 
 class ImagePerturbations:
-    """Collection of image perturbation functions."""
+    # Collection of image perturbation functions
 
     @staticmethod
     def gaussian_noise(img: np.ndarray, std: float = 25.0) -> np.ndarray:
@@ -146,7 +146,7 @@ class ImagePerturbations:
 
 
 def get_standard_perturbations() -> List[PerturbationConfig]:
-    """Get list of standard perturbations to test."""
+    # Get list of standard perturbations to test
     return [
         # Baseline
         PerturbationConfig("baseline", lambda x: x),
@@ -191,7 +191,7 @@ def get_standard_perturbations() -> List[PerturbationConfig]:
 
 
 def get_breaking_perturbations() -> List[PerturbationConfig]:
-    """Get only perturbations that typically break models (for quick validation)."""
+    # Get only perturbations that typically break models (for quick validation)
     return [
         PerturbationConfig("baseline", lambda x: x),
         PerturbationConfig("rotate_15", ImagePerturbations.rotate, {"angle": 15}),

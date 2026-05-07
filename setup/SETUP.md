@@ -39,23 +39,17 @@ python -c "import libero; print('LIBERO OK')"
 | `lerobot/` | huggingface/lerobot | Model policies: X-VLA, SmolVLA, GR00T N1.5, Pi0.5 |
 | `LIBERO/` | Lifelong-Robot-Learning/LIBERO | LIBERO benchmark environments |
 | `openvla_oft/` | moojink/openvla-oft | OpenVLA-OFT model (separate conda env) |
-| `SimplerEnv/` | squarefk/SimplerEnv | SimplerEnv simulation (WidowX, Google Robot) |
 
 ## Conda Environments
 
-| Environment | Python | Models / Envs | Key constraint |
-|-------------|--------|---------------|---------------|
-| **actionatlas** | 3.12 | X-VLA, SmolVLA, Pi0.5 on LIBERO; SmolVLA on MetaWorld | transformers==4.53 |
-| **groot** | 3.12 | GR00T N1.5 on LIBERO | transformers>=5.0, flash-attn, peft |
-| **openvla-oft** | 3.10 | OpenVLA-OFT on LIBERO | torch==2.2, prismatic |
-| **simpler_env** | 3.10 | X-VLA on SimplerEnv (WidowX, Google Robot) | numpy<2, sapien 2.2.x |
+| Environment | Python | Models | Key constraint |
+|-------------|--------|--------|---------------|
+| **actionatlas** | 3.12 | X-VLA, SmolVLA, Pi0.5 | transformers==4.53 |
+| **groot** | 3.12 | GR00T N1.5 | transformers>=5.0, flash-attn, peft |
+| **openvla-oft** | 3.10 | OpenVLA-OFT | torch==2.2, prismatic |
 
 GR00T requires `transformers>=5.0` for its Eagle VLM processor, which
 conflicts with the other models. A separate environment avoids this.
-
-SimplerEnv requires Python 3.10 and numpy<2 because SAPIEN 2.x is compiled
-against the NumPy 1.x C ABI. NumPy 2.x causes a segfault in
-`env.step()` (SAPIEN's `PinocchioModel.compute_forward_kinematics`).
 
 ## Detailed Installation
 
@@ -117,69 +111,6 @@ If `import libero` fails after installation, add it to your PYTHONPATH:
 export PYTHONPATH=$PYTHONPATH:$(pwd)/LIBERO
 ```
 
-### SimplerEnv Environment (X-VLA cross-embodiment)
-
-SimplerEnv provides WidowX and Google Robot simulation environments for
-X-VLA cross-embodiment experiments. Requires a separate conda env because
-SAPIEN 2.x needs Python 3.10 and numpy<2.
-
-```bash
-# Create env (use /data if root disk is low on space)
-conda create -y -n simpler_env python=3.10 -p /data/miniconda3/envs/simpler_env
-conda activate simpler_env
-
-# PyTorch
-pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
-
-# Install SimplerEnv + ManiSkill2 (included as submodule)
-cd SimplerEnv && git submodule update --init --recursive
-cd ManiSkill2_real2sim && pip install -e . && cd ..
-pip install -e . && cd ..
-
-# Lerobot (need pre-3.12 version for Python 3.10 compat)
-# Checkout the last commit before the Python 3.12 requirement (d324ffe8)
-cd /path/to/lerobot && git worktree add /data/lerobot_py310 d324ffe8
-cd /data/lerobot_py310 && pip install -e .
-
-# CRITICAL: downgrade numpy after all installs (SAPIEN segfaults with numpy 2.x)
-pip install 'numpy<2'
-
-# Extra dependencies
-pip install transformers tqdm charset_normalizer httpx
-
-# Verify
-python -c "import simpler_env; print('SimplerEnv OK')"
-python -c "
-import sys, types
-for m in ['lerobot.policies.groot', 'lerobot.policies.groot.configuration_groot',
-          'lerobot.policies.groot.modeling_groot', 'lerobot.policies.groot.groot_n1']:
-    sys.modules[m] = types.ModuleType(m)
-sys.modules['lerobot.policies.groot.configuration_groot'].GrootConfig = type('GrootConfig', (), {})
-sys.modules['lerobot.policies.groot.modeling_groot'].GrootPolicy = type('GrootPolicy', (), {})
-from lerobot.policies.xvla.modeling_xvla import XVLAPolicy
-print('X-VLA OK')
-"
-```
-
-The GR00T stub is needed because lerobot's policy `__init__` imports GR00T,
-which triggers a xformers/diffusers import chain that segfaults in the
-simpler_env conda env due to an incompatible xformers binary.
-
-SimplerEnv experiments are in `experiments/simplerenv/`:
-```bash
-conda activate simpler_env
-export MUJOCO_GL=egl
-export TORCH_COMPILE_DISABLE=1
-
-# Smoke test
-python experiments/simplerenv/xvla_simplerenv_eval.py \
-    --model widowx --task widowx_stack_cube --n_episodes 1
-
-# Full evaluation
-python experiments/simplerenv/xvla_simplerenv_eval.py \
-    --model widowx --all-tasks --n_episodes 20
-```
-
 ### HuggingFace Authentication
 
 Pi0.5 and GR00T require gated model access:
@@ -193,23 +124,81 @@ Accept the license at https://huggingface.co/google/paligemma-3b-pt-224
 
 ## Download Checkpoints
 
+The model adapters in `experiments/model_adapters.py` and `experiments/groot_common.py` know which HuggingFace repo to load for each (model, suite) pair, so most checkpoints download lazily on first use. Pre-download is optional but recommended for offline runs and Docker builds.
+
+### Pi0.5
+
+| Suite | HF repo |
+|-------|---------|
+| All 4 LIBERO suites | `lerobot/pi05_libero_finetuned` |
+
 ```bash
-mkdir -p checkpoints
-
-# Pi0.5
-hf download lerobot/pi05_libero_finetuned \
-    --local-dir checkpoints/pi05_libero_finetuned
-
-# X-VLA and SmolVLA download automatically when loading()
-
-# GR00T N1.5 (per-suite, from lerobot community)
-hf download aractingi/libero-groot-goal \
-    --local-dir checkpoints/groot_libero_goal
-hf download liorbenhorin-nv/groot-libero_object-64_40000 \
-    --local-dir checkpoints/groot_libero_object
-hf download liorbenhorin-nv/groot-libero_spatial-128_20000 \
-    --local-dir checkpoints/groot_libero_spatial
+hf download lerobot/pi05_libero_finetuned --local-dir checkpoints/pi05_libero_finetuned
 ```
+
+### X-VLA
+
+| Suite | HF repo |
+|-------|---------|
+| All 4 LIBERO suites | `lerobot/xvla-libero` |
+| SimplerEnv WidowX | `lerobot/xvla-widowx` |
+| SimplerEnv Google Robot | `lerobot/xvla-google_robot` |
+
+X-VLA downloads automatically on first load; pre-download with `hf download lerobot/xvla-libero` if you want it cached locally.
+
+### SmolVLA
+
+| Suite | HF repo |
+|-------|---------|
+| All 4 LIBERO suites | `HuggingFaceVLA/smolvla_libero` |
+| MetaWorld MT50 | `jadechoghari/smolvla_metaworld` |
+
+```bash
+hf download HuggingFaceVLA/smolvla_libero --local-dir checkpoints/smolvla_libero
+hf download jadechoghari/smolvla_metaworld --local-dir checkpoints/smolvla_metaworld
+```
+
+### GR00T N1.5
+
+GR00T uses a different checkpoint per LIBERO suite (community-maintained, no single official LIBERO release).
+
+| Suite | HF repo |
+|-------|---------|
+| `libero_goal` | `aractingi/libero-groot-goal` |
+| `libero_object` | `liorbenhorin-nv/groot-libero_object-64_40000` |
+| `libero_spatial` | `liorbenhorin-nv/groot-libero_spatial-128_20000` |
+| `libero_10` | `aractingi/groot-libero-10` |
+
+```bash
+hf download aractingi/libero-groot-goal                    --local-dir checkpoints/groot_libero_goal
+hf download liorbenhorin-nv/groot-libero_object-64_40000   --local-dir checkpoints/groot_libero_object
+hf download liorbenhorin-nv/groot-libero_spatial-128_20000 --local-dir checkpoints/groot_libero_spatial
+hf download aractingi/groot-libero-10                      --local-dir checkpoints/groot_libero_10
+```
+
+The `libero_spatial` checkpoint underperforms the published reference (community fine-tunes range 68 to 94 percent; official reports 97.65 percent); spatial intervention experiments are reported with that caveat.
+
+### OpenVLA-OFT
+
+OFT uses one checkpoint per LIBERO suite (official `moojink` releases). Loaded only inside the `openvla-oft` conda environment.
+
+| Suite | HF repo |
+|-------|---------|
+| `libero_spatial` | `moojink/openvla-7b-oft-finetuned-libero-spatial` |
+| `libero_object` | `moojink/openvla-7b-oft-finetuned-libero-object` |
+| `libero_goal` | `moojink/openvla-7b-oft-finetuned-libero-goal` |
+| `libero_10` | `moojink/openvla-7b-oft-finetuned-libero-10` |
+| Combined (4 suites) | `moojink/openvla-7b-oft-finetuned-libero-spatial-object-goal-10` |
+
+```bash
+conda activate openvla-oft
+hf download moojink/openvla-7b-oft-finetuned-libero-spatial --local-dir checkpoints/openvla-oft-spatial
+hf download moojink/openvla-7b-oft-finetuned-libero-object  --local-dir checkpoints/openvla-oft-object
+hf download moojink/openvla-7b-oft-finetuned-libero-goal    --local-dir checkpoints/openvla-oft-goal
+hf download moojink/openvla-7b-oft-finetuned-libero-10      --local-dir checkpoints/openvla-oft-10
+```
+
+Each OFT checkpoint is ~16 GB (7B base + LoRA adapter + dataset statistics).
 
 ## Running Experiments
 

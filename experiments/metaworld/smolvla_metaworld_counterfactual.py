@@ -44,7 +44,7 @@ NEGATION_TEMPLATES = ["do not {task}", "stop", "don't move"]
 
 
 def generate_counterfactual_prompts(tasks, task_descriptions, seeds=(42, 123, 456)):
-    """Generate prompt configurations for counterfactual experiments."""
+    # Generate prompt configurations for counterfactual experiments
     configs = []
 
     for task_name in tasks:
@@ -91,7 +91,7 @@ def generate_counterfactual_prompts(tasks, task_descriptions, seeds=(42, 123, 45
 
 @dataclass
 class CounterfactualConfig:
-    """SmolVLA MetaWorld counterfactual prompting."""
+    # SmolVLA MetaWorld counterfactual prompting
 
     output_dir: str
     checkpoint: str = DEFAULT_CHECKPOINT

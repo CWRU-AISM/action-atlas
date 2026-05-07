@@ -1,5 +1,3 @@
-# /root/autodl-tmp/learning/sae_backend/app/__init__.py
-
 from flask import Flask
 from app.routes import input_bp , explore_bp, validate_bp
 from app.utils.errors import register_error_handlers

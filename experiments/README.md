@@ -24,7 +24,9 @@ Run any script with `--help` for options.
 | `vision_perturbation.py` | Visual robustness (24 perturbation types) |
 | `counterfactual.py` | Language prompt variations |
 | `cross_task_injection.py` | Activation swapping between tasks |
-| `train_sae.py` | TopK sparse autoencoder training |
+| `cross_task_injection_v2.py` | Cross-task injection with cosine override metrics and per-pathway layer groups |
+| `train_sae.py` | TopK sparse autoencoder training (per-token) |
+| `train_temporal_sae.py` | Temporal SAE training (per-token TopK + adjacent-pair InfoNCE) |
 | `concept_id.py` | Concept identification using Cohen's d |
 | `concept_ablation.py` | Remove concept features, measure impact |
 | `concept_steering.py` | Amplify/suppress concept features |
@@ -40,9 +42,15 @@ python experiments/baseline.py --model xvla --suite libero_object \
 # 2. Find critical layers
 python experiments/grid_ablation.py --model xvla --suite libero_object
 
-# 3. Train SAEs
+# 3. Train SAEs (per-token)
 python experiments/train_sae.py \
     --activations-dir outputs/xvla_experiments/baseline_libero_object/activations
+
+# 3b. Train Temporal SAEs (alpha=1.0 matches Bhalla et al. 2025; alpha=0 reduces to per-token)
+python experiments/train_temporal_sae.py \
+    --activations-dir outputs/xvla_experiments/baseline_libero_object/activations \
+    --output-dir outputs/xvla_tsae/libero_object \
+    --alpha 1.0 --tau 1.0
 
 # 4. Identify concepts
 python experiments/concept_id.py \

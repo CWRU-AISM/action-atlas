@@ -62,7 +62,7 @@ MODELS = ["pi05", "oft", "xvla", "smolvla", "groot", "act"]
 # ── Utility functions ─────────────────────────────────────────────────────────
 
 def count_files(directory, extension, recursive=True):
-    """Count files with given extension. Fast os.walk-based approach."""
+    # Count files with given extension. Fast os.walk-based approach
     if not os.path.isdir(directory):
         return 0
     count = 0
@@ -88,7 +88,7 @@ def count_files_in_subdirs(directory, extension, subdirs):
 
 
 def count_scene_json(directory):
-    """Count *_scene.json or scene.json files (GR00T episode proxy)."""
+    # Count *_scene.json or scene.json files (GR00T episode proxy)
     if not os.path.isdir(directory):
         return 0
     count = 0
@@ -148,7 +148,7 @@ def parse_concept_ablation_json(filepath):
 
 
 def recursive_episode_count(obj):
-    """Recursively find and sum episode counts from nested dicts/lists."""
+    # Recursively find and sum episode counts from nested dicts/lists
     total = 0
     sr_list = []
 
@@ -200,7 +200,7 @@ def recursive_episode_count(obj):
 
 
 def weighted_avg_sr(sr_list):
-    """Compute weighted average success rate from [(n_episodes, sr), ...]."""
+    # Compute weighted average success rate from [(n_episodes, sr), ...]
     if not sr_list:
         return None
     total_eps = sum(n for n, _ in sr_list)
@@ -212,7 +212,7 @@ def weighted_avg_sr(sr_list):
 # ── JSON-based counting ───────────────────────────────────────────────────────
 
 def count_from_json(model):
-    """Extract episode counts and success rates from experiment_results JSON."""
+    # Extract episode counts and success rates from experiment_results JSON
     json_path = DATA_DIR / f"experiment_results_{model}.json"
     if not json_path.exists():
         return {}
@@ -471,7 +471,7 @@ def count_xvla_disk():
 
 
 def count_smolvla_disk():
-    """Count SmolVLA episodes from disk, with batch deduplication."""
+    # Count SmolVLA episodes from disk, with batch deduplication
     b1 = DISK_PATHS["smolvla"]["batch1"]
     b2 = DISK_PATHS["smolvla"]["batch2"]
     sections = {}
@@ -735,7 +735,7 @@ def merge_sections(json_sections, disk_sections, dedup_map=None):
 
 
 def compute_model_stats(model):
-    """Compute full stats for a model combining JSON and disk sources."""
+    # Compute full stats for a model combining JSON and disk sources
     print(f"  Processing {model}...")
 
     # 1. Count from experiment_results JSON

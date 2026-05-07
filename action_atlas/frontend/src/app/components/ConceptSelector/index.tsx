@@ -234,11 +234,11 @@ export default function ConceptSelector() {
                   Total: <strong>{getTotalFeatures().toLocaleString()}</strong>
                 </Typography>
                 <Typography variant="caption" sx={{ fontSize: "0.7rem" }}>
-                  Strong (&gt;3x): <strong>{getStrongFeatures().toLocaleString()}</strong>
+                  Strong (Cohen&apos;s d &ge; 1.0): <strong>{getStrongFeatures().toLocaleString()}</strong>
                 </Typography>
               </Box>
               <Typography variant="caption" display="block" sx={{ fontSize: "0.65rem", color: "text.secondary" }}>
-                Selectivity = in-concept / out-concept activation ratio
+                Score = Cohen&apos;s d &times; activation frequency (in-concept vs out-of-concept)
               </Typography>
               {conceptLayers && (
                 <Box mt={1}>

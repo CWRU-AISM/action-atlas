@@ -42,7 +42,7 @@ from common import preprocess_observation
 def run_episode_with_capture(policy, env, preprocessor, postprocessor, device,
                              expert_layers, vlm_layers,
                              save_trajectory=False, save_frames=False):
-    """Run one episode, capture all MLP activations. Returns (result, captured)."""
+    # Run one episode, capture all MLP activations. Returns (result, captured)
     capture_hooks = {}
     handles = []
     for i, layer in enumerate(expert_layers):
@@ -110,7 +110,7 @@ def run_episode_with_capture(policy, env, preprocessor, postprocessor, device,
 def run_injection_episode(policy, env, preprocessor, postprocessor, device,
                           injection_hooks,
                           save_trajectory=False, save_frames=False):
-    """Run episode with activation injection. Returns result dict."""
+    # Run episode with activation injection. Returns result dict
     policy.reset()
     observation, info = env.reset()
     actions = []
@@ -161,19 +161,19 @@ def run_injection_episode(policy, env, preprocessor, postprocessor, device,
 
 @dataclass
 class CrossTaskInjectionConfig:
-    """SmolVLA MetaWorld cross-task activation injection."""
+    # SmolVLA MetaWorld cross-task activation injection
 
     checkpoint: str = DEFAULT_CHECKPOINT
     tasks: Optional[str] = None
     difficulty: Optional[str] = None
     pairs: Optional[List[str]] = None
     per_layer: bool = False
-    """Add per-layer injection groups (64 extra conditions per pair)"""
+    # Add per-layer injection groups (64 extra conditions per pair)
 
     resolution: int = DEFAULT_RESOLUTION
     save_video: bool = False
     save_trajectory: bool = False
-    """Save actions, agent_pos, scene_states per episode"""
+    # Save actions, agent_pos, scene_states per episode
 
     resume: bool = False
     output_dir: Optional[str] = None
