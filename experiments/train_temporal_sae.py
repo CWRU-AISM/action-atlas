@@ -193,7 +193,7 @@ def train_temporal_sae(
     positives_n = (positives - act_mean) / act_std
 
     n_pairs = anchors_n.shape[0]
-    print(f"  pairs={n_pairs:,} dim={input_dim} hidden={hidden_dim} k={cfg.k} alpha={cfg.alpha} tau={cfg.tau}")
+    print(f"pairs={n_pairs:,} dim={input_dim} hidden={hidden_dim} k={cfg.k} alpha={cfg.alpha} tau={cfg.tau}")
 
     sae = TopKSAE(input_dim, cfg.expansion, cfg.k).to(cfg.device)
     optimizer = optim.Adam(sae.parameters(), lr=cfg.lr)
@@ -277,7 +277,7 @@ def train_temporal_sae(
         if epoch % 5 == 0 or epoch == cfg.epochs - 1 or wait >= cfg.patience:
             cos_str = f" cos_adj={cos_adj:.4f}" if cos_adj is not None else ""
             print(
-                f"  epoch={epoch:3d} recon={avg_recon:.6f} contr={avg_contr:.4f} "
+                f"epoch={epoch:3d} recon={avg_recon:.6f} contr={avg_contr:.4f} "
                 f"EV={ev:.4f} L0={l0:.0f} dead={dead_frac:.3f}{cos_str}"
             )
 

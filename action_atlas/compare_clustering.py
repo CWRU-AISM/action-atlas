@@ -201,13 +201,11 @@ def plot_comparison(coords_list, colors_list, titles, output_path, figsize=(16, 
 
 
 def main():
-    print("=" * 60)
     print("Clustering Comparison for VLA Features")
-    print("=" * 60)
 
     # Load data
     layer = "action_expert_layer_12"
-    print(f"\nLoading descriptions for {layer}...")
+    print(f"Loading descriptions for {layer}")
     indices, texts = load_descriptions(layer)
 
     if texts is None:
@@ -217,26 +215,26 @@ def main():
     print(f"Loaded {len(texts)} feature descriptions")
 
     # Load concept associations
-    print("Loading concept associations...")
+    print("Loading concept associations")
     feature_concepts = load_concept_features(layer)
     print(f"Found concept associations for {len(feature_concepts)} features")
 
     # 1. TF-IDF embeddings
-    print("\n[1] Computing TF-IDF embeddings...")
+    print("Computing TF-IDF embeddings")
     tfidf_emb = get_tfidf_embeddings(texts)
     print(f"TF-IDF embedding shape: {tfidf_emb.shape}")
 
     # 2. UMAP on TF-IDF
-    print("[2] Computing UMAP projection...")
+    print("Computing UMAP projection")
     umap_coords = compute_umap(tfidf_emb)
 
     # 3. Hierarchical clustering
-    print("[3] Hierarchical clustering...")
+    print("Hierarchical clustering")
     hier_labels = hierarchical_clustering(tfidf_emb, n_clusters=30)
     hier_colors = generate_cluster_colors(hier_labels)
 
     # 4. HDBSCAN clustering
-    print("[4] HDBSCAN clustering...")
+    print("HDBSCAN clustering")
     hdb_labels = hdbscan_clustering(umap_coords, min_cluster_size=10, min_samples=3)
     hdb_colors = generate_cluster_colors(hdb_labels)
     n_hdb_clusters = len(set(hdb_labels)) - (1 if -1 in hdb_labels else 0)
@@ -244,11 +242,11 @@ def main():
     print(f"HDBSCAN found {n_hdb_clusters} clusters, {n_noise} noise points")
 
     # 5. Concept-based coloring
-    print("[5] Concept-based coloring...")
+    print("Concept-based coloring")
     concept_colors = get_concept_colors(indices, feature_concepts)
 
     # Generate comparison plot 1: TF-IDF embeddings
-    print("\n[6] Generating comparison plots...")
+    print("Generating comparison plots")
     plot_comparison(
         [umap_coords, umap_coords, umap_coords],
         [hier_colors, hdb_colors, concept_colors],
@@ -260,23 +258,23 @@ def main():
 
     # 6. Sentence-transformers embeddings (if available)
     if HAS_SBERT:
-        print("\n[7] Computing Sentence-Transformer embeddings...")
+        print("Computing Sentence-Transformer embeddings")
         try:
             sbert_emb = get_sbert_embeddings(texts)
             print(f"SBERT embedding shape: {sbert_emb.shape}")
 
             # UMAP on SBERT
-            print("[8] Computing UMAP on SBERT embeddings...")
+            print("Computing UMAP on SBERT embeddings")
             sbert_umap = compute_umap(sbert_emb)
 
             # HDBSCAN on SBERT UMAP
-            print("[9] HDBSCAN on SBERT...")
+            print("HDBSCAN on SBERT")
             sbert_hdb_labels = hdbscan_clustering(sbert_umap, min_cluster_size=10, min_samples=3)
             sbert_hdb_colors = generate_cluster_colors(sbert_hdb_labels)
             n_sbert_clusters = len(set(sbert_hdb_labels)) - (1 if -1 in sbert_hdb_labels else 0)
 
             # Concept coloring on SBERT UMAP
-            print("[10] Generating SBERT comparison...")
+            print("Generating SBERT comparison")
             plot_comparison(
                 [sbert_umap, sbert_umap],
                 [sbert_hdb_colors, concept_colors],
@@ -297,12 +295,10 @@ def main():
             print(f"SBERT comparison failed: {e}")
 
     # Generate legend image
-    print("\n[11] Generating concept color legend...")
+    print("Generating concept color legend")
     generate_legend(OUTPUT_DIR / "concept_color_legend.png")
 
-    print(f"\n{'='*60}")
     print(f"All outputs saved to: {OUTPUT_DIR}")
-    print(f"{'='*60}")
 
 
 def generate_legend(output_path):

@@ -895,8 +895,8 @@ export default function SectionC1() {
       }
     } catch (error: any) {
       if (error.name !== "AbortError") {
-        console.error("分析token失败:", error);
-        setAnalysisError(error.message || "分析过程中发生错误");
+        console.error("Token analysis failed:", error);
+        setAnalysisError(error.message || "An error occurred during analysis");
       }
     } finally {
       setIsAnalyzing(false);

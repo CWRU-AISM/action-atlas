@@ -131,7 +131,7 @@ class PerTokenReconstructionHook:
         if not self._verified:
             ratio = recon_error / max(act_norm_val, 1e-8)
             n_active = (z.detach().abs() > 0).sum(dim=-1).float().mean().item()
-            print(f"    [RECON] error={recon_error:.4f}, norm={act_norm_val:.4f}, "
+            print(f"[RECON] error={recon_error:.4f}, norm={act_norm_val:.4f}, "
                   f"ratio={ratio:.4f}, active={n_active:.0f}")
             self._verified = True
 
@@ -225,7 +225,7 @@ class MeanPooledReconstructionHook:
         if not self._verified:
             ratio = recon_error / max(act_norm_val, 1e-8)
             n_active = (z.detach().abs() > 0).sum(dim=-1).float().mean().item()
-            print(f"    [RECON meanpool] delta={recon_error:.4f}, mean_norm={act_norm_val:.4f}, "
+            print(f"[RECON meanpool] delta={recon_error:.4f}, mean_norm={act_norm_val:.4f}, "
                   f"ratio={ratio:.4f}, active={n_active:.0f}")
             self._verified = True
 
@@ -416,14 +416,14 @@ def evaluate_model(model_type, layers, sae_dir, pooling, n_episodes,
     print(f"Episodes/task: {n_episodes}")
     print(f"SAE dir: {sae_dir}")
 
-    print("\nLoading X-VLA policy...")
+    print("\nLoading X-VLA policy")
     t0 = time.time()
     policy, tokenizer = load_xvla_policy(model_type, checkpoint, device)
-    print(f"  Loaded in {time.time()-t0:.1f}s")
+    print(f"Loaded in {time.time()-t0:.1f}s")
 
     results_path = output_dir / f"{model_type}_reconstruction_results.json"
     if results_path.exists():
-        print(f"  Loading existing results for resume...")
+        print(f"Loading existing results for resume")
         with open(results_path) as f:
             all_results = json.load(f)
     else:
@@ -446,19 +446,19 @@ def evaluate_model(model_type, layers, sae_dir, pooling, n_episodes,
         if layer_key in all_results.get("per_layer", {}):
             existing = all_results["per_layer"][layer_key]
             fid = existing.get("overall_fidelity", "?")
-            print(f"\n  Layer {layer_idx}: SKIP (already done, fidelity={fid})")
+            print(f"\nLayer {layer_idx}: SKIP (already done, fidelity={fid})")
             continue
 
         sae_path = Path(sae_dir) / f"layer_{layer_idx:02d}" / "sae_best.pt"
         if not sae_path.exists():
-            print(f"\n  Layer {layer_idx}: SKIP (no SAE at {sae_path})")
+            print(f"\nLayer {layer_idx}: SKIP (no SAE at {sae_path})")
             continue
 
-        print(f"  Layer {layer_idx}")
+        print(f"Layer {layer_idx}")
         t_layer = time.time()
 
         sae, act_mean, act_std = load_xvla_sae(sae_dir, layer_idx, device)
-        print(f"  SAE: {sae.input_dim} -> {sae.hidden_dim}, k={sae.k}")
+        print(f"SAE: {sae.input_dim} -> {sae.hidden_dim}, k={sae.k}")
 
         if pooling == "meanpool":
             hook = MeanPooledReconstructionHook(sae, act_mean, act_std, device)
@@ -473,10 +473,10 @@ def evaluate_model(model_type, layers, sae_dir, pooling, n_episodes,
         for task_name in tasks:
             baseline_rate = SIMPLERENV_BASELINES.get(task_name, 0.0)
             if baseline_rate == 0.0:
-                print(f"    {task_name}: SKIP (no baseline)")
+                print(f"{task_name}: SKIP (no baseline)")
                 continue
 
-            print(f"    {task_name} (baseline={baseline_rate*100:.0f}%)")
+            print(f"{task_name} (baseline={baseline_rate*100:.0f}%)")
 
             env = simpler_env.make(task_name, max_episode_steps=max_steps)
             hook.reset_stats()
@@ -495,7 +495,7 @@ def evaluate_model(model_type, layers, sae_dir, pooling, n_episodes,
                 )
                 successes.append(result["success"])
                 status = "OK" if result["success"] else "FAIL"
-                print(f"      Ep {ep+1}: {status} ({result['steps']} steps)")
+                print(f"Ep {ep+1}: {status} ({result['steps']} steps)")
 
             env.close()
 
@@ -506,7 +506,7 @@ def evaluate_model(model_type, layers, sae_dir, pooling, n_episodes,
 
             delta = recon_rate - baseline_rate
             sign = "+" if delta > 0 else ""
-            print(f"      -> {recon_rate*100:.0f}% (fidelity={fidelity:.2f}, "
+            print(f"-> {recon_rate*100:.0f}% (fidelity={fidelity:.2f}, "
                   f"delta={sign}{delta*100:.0f}pp, err_ratio={avg_err_ratio:.4f})")
 
             layer_results["per_task"][task_name] = {
@@ -537,10 +537,10 @@ def evaluate_model(model_type, layers, sae_dir, pooling, n_episodes,
             layer_results["overall_fidelity"] = round(overall_fidelity, 4)
 
             elapsed = time.time() - t_layer
-            print(f"\n  Layer {layer_idx} DONE in {elapsed:.0f}s -- fidelity={overall_fidelity:.3f}")
+            print(f"\nLayer {layer_idx} DONE in {elapsed:.0f}s -- fidelity={overall_fidelity:.3f}")
         else:
             layer_results["overall_fidelity"] = None
-            print(f"\n  Layer {layer_idx} DONE -- no tasks evaluated")
+            print(f"\nLayer {layer_idx} DONE -- no tasks evaluated")
 
         all_results["per_layer"][layer_key] = layer_results
 
@@ -570,27 +570,27 @@ def print_summary(all_model_results, output_dir):
     print("RECONSTRUCTION FIDELITY SUMMARY")
 
     for model_name, results in all_model_results.items():
-        print(f"\n  {model_name}:")
-        print(f"    Avg fidelity: {results.get('avg_fidelity', 'N/A')}")
-        print(f"    Min fidelity: {results.get('min_fidelity', 'N/A')}")
-        print(f"    Max fidelity: {results.get('max_fidelity', 'N/A')}")
+        print(f"\n{model_name}:")
+        print(f"Avg fidelity: {results.get('avg_fidelity', 'N/A')}")
+        print(f"Min fidelity: {results.get('min_fidelity', 'N/A')}")
+        print(f"Max fidelity: {results.get('max_fidelity', 'N/A')}")
 
         per_layer = results.get("per_layer", {})
         if per_layer:
-            print(f"    Per-layer:")
+            print(f"Per-layer:")
             for layer_key in sorted(per_layer.keys(), key=int):
                 layer_data = per_layer[layer_key]
                 fid = layer_data.get("overall_fidelity", "?")
                 recon = layer_data.get("overall_recon_rate", "?")
                 base = layer_data.get("overall_baseline_rate", "?")
-                print(f"      L{int(layer_key):>2d}: fidelity={fid}, recon={recon}, baseline={base}")
+                print(f"L{int(layer_key):>2d}: fidelity={fid}, recon={recon}, baseline={base}")
 
                 for task_name, task_data in layer_data.get("per_task", {}).items():
                     short_name = task_name.split("_", 1)[-1] if "_" in task_name else task_name
                     t_fid = task_data.get("fidelity", "?")
                     t_recon = task_data.get("recon_success", "?")
                     t_base = task_data.get("baseline_success", "?")
-                    print(f"            {short_name}: {t_recon*100:.0f}% / {t_base*100:.0f}% (fid={t_fid:.2f})")
+                    print(f"{short_name}: {t_recon*100:.0f}% / {t_base*100:.0f}% (fid={t_fid:.2f})")
 
     print(f"\nResults saved to: {output_dir}")
 

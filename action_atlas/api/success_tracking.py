@@ -314,7 +314,7 @@ def get_bulk_success(video_path: str, model: str) -> Optional[bool]:
             return model_map[key]
 
     # Try stripping openvla_oft/ prefix (video index includes model subdir but
-    # success map keys are relative to /data/openvla_rollouts which doesn't have it)
+    # success map keys are relative to the openvla_rollouts data dir which doesn't have it)
     if parent.startswith('openvla_oft/'):
         stripped_parent = parent[len('openvla_oft/'):]
         key = f"{stripped_parent}/{stem}"
@@ -329,12 +329,12 @@ def get_success_from_results_json(video_path: str, model: str = 'pi05') -> Optio
     Look up success/failure status from results.json files.
 
     For pi05 videos:
-        - Searches /data/robotsteering/pi05_rollouts/*/results.json
+        - Searches the pi05_rollouts data dir for */results.json
         - Results structure: results -> pair_X_Y -> inject_X_into_Y -> {video_name} -> success
         - Also handles: results -> pair_X_Y -> baseline_task_N -> success
 
     For openvla videos:
-        - Searches /data/openvla_rollouts/*/results.json
+        - Searches the openvla_rollouts data dir for */results.json
         - Results structure: conditions -> task_N -> {condition} -> success
 
     Args:
@@ -669,7 +669,7 @@ def _load_layer_connections_openvla(suite: str) -> dict:
     n_layers = 32
     score_threshold = 1.0
 
-    # --- Load probing R2 per layer ---
+    # Load probing R2 per layer
     r2_per_layer = {}
     auc_per_layer = {}
     probing_file = OFT_PROBING_DIR / f"oft_multilayer_probing_{suite}.json"
@@ -681,7 +681,7 @@ def _load_layer_connections_openvla(suite: str) -> dict:
             r2_per_layer[idx] = layer_data.get('nsteps_r2', 0.0)
             auc_per_layer[idx] = layer_data.get('success_auc', 0.0)
 
-    # --- Load concept counts per layer ---
+    # Load concept counts per layer
     layers_data = []
     for layer_idx in range(n_layers):
         filename = f"oft_concept_id_layer{layer_idx:02d}_{suite}.json"
@@ -734,7 +734,7 @@ def _load_layer_connections_openvla(suite: str) -> dict:
             'top_concepts': concepts_detail[:5],
         })
 
-    # --- Build connections ---
+    # Build connections
     connections = []
     for i in range(n_layers - 1):
         target_r2 = layers_data[i + 1]['r2']

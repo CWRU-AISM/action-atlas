@@ -76,23 +76,23 @@ def load_all_descriptions(desc_dir: Path) -> list[dict]:
 
 
 def main():
-    print("Loading sentence-transformers model (all-MiniLM-L6-v2)...")
+    print("Loading sentence-transformers model (all-MiniLM-L6-v2)")
     t0 = time.time()
     encoder = SentenceTransformer("all-MiniLM-L6-v2", device="cuda")
-    print(f"  Model loaded in {time.time()-t0:.1f}s")
+    print(f"Model loaded in {time.time()-t0:.1f}s")
 
     total_features = 0
 
     for config_name, config in MODEL_CONFIGS.items():
         desc_dir = DESC_DIR / config['dir']
-        print(f"\nProcessing {config_name} from {desc_dir}...")
+        print(f"\nProcessing {config_name} from {desc_dir}")
 
         entries = load_all_descriptions(desc_dir)
         if not entries:
-            print(f"  No descriptions found, skipping")
+            print(f"No descriptions found, skipping")
             continue
 
-        print(f"  {len(entries)} feature descriptions loaded")
+        print(f"{len(entries)} feature descriptions loaded")
 
         # Extract descriptions for encoding
         descriptions = [e["description"] for e in entries]
@@ -108,8 +108,8 @@ def main():
             show_progress_bar=True,
             normalize_embeddings=True,  # For cosine similarity via dot product
         )
-        print(f"  Encoded {len(descriptions)} descriptions in {time.time()-t1:.1f}s")
-        print(f"  Embedding shape: {embeddings.shape}")
+        print(f"Encoded {len(descriptions)} descriptions in {time.time()-t1:.1f}s")
+        print(f"Embedding shape: {embeddings.shape}")
 
         # Save as npz
         out_path = OUTPUT_DIR / f"{config_name}_embeddings.npz"
@@ -121,7 +121,7 @@ def main():
             layers=layers,
             suites=suites,
         )
-        print(f"  Saved to {out_path} ({out_path.stat().st_size / 1024:.0f} KB)")
+        print(f"Saved to {out_path} ({out_path.stat().st_size / 1024:.0f} KB)")
         total_features += len(entries)
 
     # Also save the encoder's query embedding function as a small index

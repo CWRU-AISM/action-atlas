@@ -20,7 +20,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from collections import defaultdict
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+
+# Paths
 
 BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "action_atlas" / "data"
@@ -29,37 +31,37 @@ OUTPUT_PATH = DATA_DIR / "experiment_stats.json"
 # Data directories per model
 DISK_PATHS = {
     "pi05": {
-        "rollouts": "/data/robotsteering/pi05_rollouts",
+        "rollouts": str(DATA_ROOT / "pi05_rollouts"),
         "concept_ablation_jsons": str(BASE_DIR / "results" / "experiment_results" / "pi05_concept_ablation"),
     },
     "oft": {
-        "rollouts": "/data/openvla_rollouts/openvla_oft",
+        "rollouts": str(DATA_ROOT / "openvla_rollouts/openvla_oft"),
         "concept_ablation_jsons": str(BASE_DIR / "results" / "experiment_results" / "oft_concept_ablation"),
     },
     "xvla": {
-        "libero": "/data/batch_1/xvla_libero",
-        "simplerenv": "/data/batch_1/xvla_SIMPLERENV",
-        "concept_ablation": "/data/batch_1/xvla_concept_ablation",
-        "concept_steering": "/data/batch_1/xvla_concept_steering",
-        "reconstruction": "/data/batch_1/xvla_reconstruction",
+        "libero": str(DATA_ROOT / "batch_1/xvla_libero"),
+        "simplerenv": str(DATA_ROOT / "batch_1/xvla_SIMPLERENV"),
+        "concept_ablation": str(DATA_ROOT / "batch_1/xvla_concept_ablation"),
+        "concept_steering": str(DATA_ROOT / "batch_1/xvla_concept_steering"),
+        "reconstruction": str(DATA_ROOT / "batch_1/xvla_reconstruction"),
     },
     "smolvla": {
-        "batch1": "/data/smolvla_rollouts/smolvla",
-        "batch2": "/data/smolvla_rollouts",
+        "batch1": str(DATA_ROOT / "smolvla_rollouts/smolvla"),
+        "batch2": str(DATA_ROOT / "smolvla_rollouts"),
     },
     "groot": {
-        "batch1": "/data/groot_rollouts",
-        "batch2": "/data/groot_rollouts_batch2",
+        "batch1": str(DATA_ROOT / "groot_rollouts"),
+        "batch2": str(DATA_ROOT / "groot_rollouts_batch2"),
     },
     "act": {
-        "rollouts": "/data/robotsteering/aloha_rollouts",
+        "rollouts": str(DATA_ROOT / "aloha_rollouts"),
     },
 }
 
 MODELS = ["pi05", "oft", "xvla", "smolvla", "groot", "act"]
 
 
-# ── Utility functions ─────────────────────────────────────────────────────────
+# Utility functions
 
 def count_files(directory, extension, recursive=True):
     # Count files with given extension. Fast os.walk-based approach
@@ -106,7 +108,7 @@ def parse_concept_ablation_json(filepath):
     Handles the standard structure:
       {n_episodes: N, tasks: {concept: {tasks: {task_id: {results}}}}}
     For steering files with strengths:
-      {n_episodes: N, strengths: [...], tasks: {concept: {tasks: ...}}}
+      {n_episodes: N, strengths: [], tasks: {concept: {tasks: {}}}}
     Episodes = n_concepts * n_tasks * n_episodes [* n_strengths]
     """
     try:
@@ -200,7 +202,7 @@ def recursive_episode_count(obj):
 
 
 def weighted_avg_sr(sr_list):
-    # Compute weighted average success rate from [(n_episodes, sr), ...]
+    # Compute weighted average success rate from [(n_episodes, sr)]
     if not sr_list:
         return None
     total_eps = sum(n for n, _ in sr_list)
@@ -209,7 +211,7 @@ def weighted_avg_sr(sr_list):
     return sum(n * sr for n, sr in sr_list) / total_eps
 
 
-# ── JSON-based counting ───────────────────────────────────────────────────────
+# JSON-based counting
 
 def count_from_json(model):
     # Extract episode counts and success rates from experiment_results JSON
@@ -245,7 +247,7 @@ def count_from_json(model):
     return sections
 
 
-# ── Disk-based counting ───────────────────────────────────────────────────────
+# Disk-based counting
 
 def count_pi05_disk():
     rollouts = DISK_PATHS["pi05"]["rollouts"]
@@ -287,7 +289,7 @@ def count_pi05_disk():
     }
 
     # Temporal
-    temp_dir = os.path.join(rollouts, "cheng_libero10_5-9_temporal")
+    temp_dir = os.path.join(rollouts, "libero10_5-9_temporal")
     sections["temporal_injection"] = {
         "episodes_disk": count_files(temp_dir, ".mp4"),
         "source": "disk_mp4",
@@ -301,7 +303,7 @@ def count_pi05_disk():
     }
 
     # Displacement
-    disp_dir = os.path.join(rollouts, "groot_feb13_pi05")
+    disp_dir = os.path.join(rollouts, "groot_pi05")
     sections["displacement"] = {
         "episodes_disk": count_files(disp_dir, ".mp4"),
         "source": "disk_mp4",
@@ -476,7 +478,7 @@ def count_smolvla_disk():
     b2 = DISK_PATHS["smolvla"]["batch2"]
     sections = {}
 
-    # ── LIBERO (batch1 primary, batch2 baselines are duplicates) ──
+    # LIBERO (batch1 primary, batch2 baselines are duplicates)
 
     # Baselines: batch1 only (batch2 baselines are duplicates per
     # DATA_VERIFICATION.md)
@@ -510,7 +512,7 @@ def count_smolvla_disk():
         "source": "disk_mp4" if ga_mp4 >= ga_npz else "disk_npz",
     }
 
-    # ── MetaWorld (batch2) ──
+    # MetaWorld (batch2)
 
     # MetaWorld baselines
     mw_base = os.path.join(b2, "metaworld_baseline")
@@ -579,7 +581,7 @@ def count_groot_disk():
     sections = {}
     suites = ["libero_goal", "libero_long", "libero_object"]
 
-    # ── Batch 1: Suite experiments ──
+    # Batch 1: Suite experiments
     # Use mp4 as primary proxy; npz for baselines (which have no mp4)
     suite_exp_types = [
         "baseline", "counterfactual", "cross_task",
@@ -600,8 +602,8 @@ def count_groot_disk():
             "source": source,
         }
 
-    # ── Batch 1: SAE experiments (npz = 1 per episode, paired with
-    #    *_scene.json) ──
+    # Batch 1: SAE experiments (npz = 1 per episode, paired with
+    # *_scene.json)
     sae_b1_types = [
         "sae_feature_ablation",
         "sae_fraction_to_failure",
@@ -615,7 +617,7 @@ def count_groot_disk():
             "source": "disk_npz",
         }
 
-    # ── Batch 2: SAE experiments ──
+    # Batch 2: SAE experiments
     sae_b2_types = [
         "sae_cross_suite_ablation",
         "sae_fraction_to_failure",
@@ -672,7 +674,7 @@ def count_act_disk():
     return sections
 
 
-# ── Merge and output ──────────────────────────────────────────────────────────
+# Merge and output
 
 def merge_sections(json_sections, disk_sections, dedup_map=None):
     """
@@ -736,7 +738,7 @@ def merge_sections(json_sections, disk_sections, dedup_map=None):
 
 def compute_model_stats(model):
     # Compute full stats for a model combining JSON and disk sources
-    print(f"  Processing {model}...")
+    print(f"Processing {model}")
 
     # 1. Count from experiment_results JSON
     json_sections = count_from_json(model)
@@ -813,7 +815,7 @@ def compute_model_stats(model):
 
 def main():
     start = time.time()
-    print("Computing experiment statistics from JSONs + disk...")
+    print("Computing experiment statistics from JSONs + disk")
 
     results = {
         "generated": datetime.now(timezone.utc).isoformat(),
@@ -827,7 +829,7 @@ def main():
         results[model] = stats
         grand_total += stats["total"]
         n_secs = len(stats["sections"])
-        print(f"    {model}: {stats['label']} episodes "
+        print(f"{model}: {stats['label']} episodes "
               f"({n_secs} sections)")
 
     # Also create openvla alias for backend compatibility

@@ -1136,8 +1136,8 @@ export default function AblationVisualizations({ selectedConcept, onConceptSelec
                         fontWeight: 600,
                         color: typeof value === 'number' && Math.abs(value) < 10 ? "#1f2937" : "#fff",
                         cursor: "pointer",
-                        transition: "transform 0.1s",
-                        "&:hover": { transform: "scale(1.05)" },
+                        transition: "filter 0.1s",
+                        "&:hover": { filter: "brightness(1.12)" },
                       }}
                     >
                       {typeof value === 'number' ? `${value > 0 ? "+" : ""}${value.toFixed(1)}` : "-"}

@@ -192,20 +192,15 @@ def plot_layer_grid(dpi: int = 300):
 
 
 if __name__ == "__main__":
-    print("Generating UMAP figures for paper...")
     print(f"Output directory: {OUTPUT_DIR}")
-    print()
 
     # Generate single layer plot (layer 12 as example)
-    print("1. Single layer plot (Layer 12)...")
     plot_single_layer(12, cluster_level=10, dpi=300)
 
     # Generate all layers combined
-    print("\n2. All layers combined plot...")
     plot_all_layers(dpi=300)
 
     # Generate layer grid
-    print("\n3. Layer grid plot...")
     plot_layer_grid(dpi=300)
 
     print(f"\n✨ Done! Figures saved to: {OUTPUT_DIR}")

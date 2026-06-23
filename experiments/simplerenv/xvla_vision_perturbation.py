@@ -388,21 +388,19 @@ def main():
     else:
         task_ids = list(range(10))
 
-    print(f"{'='*70}")
     print(f"X-VLA VISION PERTURBATION EXPERIMENTS")
     print(f"Suite: {args.suite}, Tasks: {task_ids}, Seeds: {args.seeds}")
     print(f"Output: {output_dir}")
-    print(f"{'='*70}")
 
     # Load X-VLA model
-    print(f"\n1. Loading X-VLA model from {args.checkpoint}...")
+    print(f"\n1. Loading X-VLA model from {args.checkpoint}")
     from lerobot.policies.xvla.modeling_xvla import XVLAPolicy
     policy = XVLAPolicy.from_pretrained(args.checkpoint)
     policy.eval().to(device)
-    print(f"   Model loaded: {sum(p.numel() for p in policy.parameters())/1e6:.1f}M params")
+    print(f"Model loaded: {sum(p.numel() for p in policy.parameters())/1e6:.1f}M params")
 
     # Create envs with control_mode=absolute
-    print(f"2. Creating environments ({args.suite}) with control_mode=absolute...")
+    print(f"2. Creating environments ({args.suite}) with control_mode=absolute")
     import gymnasium as gym
     from lerobot.envs.libero import create_libero_envs
     from lerobot.envs.factory import make_env_config, make_env_pre_post_processors
@@ -452,7 +450,7 @@ def main():
     save_video = not args.no_video
     all_results = []
 
-    print(f"\n3. Running {len(task_ids)} tasks x {len(perturbations)} perturbations x {len(args.seeds)} seeds...")
+    print(f"\n3. Running {len(task_ids)} tasks x {len(perturbations)} perturbations x {len(args.seeds)} seeds")
 
     for tid in task_ids:
         env = task_envs[tid]
@@ -469,15 +467,13 @@ def main():
         # Resume: skip if task already has results
         task_results_path = task_dir / "results.json"
         if task_results_path.exists():
-            print(f"\n  [SKIP] Task {tid} already done, loading...")
+            print(f"\n[SKIP] Task {tid} already done, loading")
             with open(task_results_path) as f:
                 task_data = json.load(f)
             all_results.extend(task_data.get("results", []))
             continue
 
-        print(f"\n{'='*60}")
         print(f"TASK {tid}: {task_description}")
-        print(f"{'='*60}")
 
         task_results = []
 
@@ -508,7 +504,7 @@ def main():
                 }
                 task_results.append(result_entry)
 
-                print(f"  t{tid} {p.name} s{seed}: {'OK' if result['is_success'] else 'FAIL'} ({result['n_steps']} steps)")
+                print(f"t{tid} {p.name} s{seed}: {'OK' if result['is_success'] else 'FAIL'} ({result['n_steps']} steps)")
 
                 if save_video and result['frames']:
                     video_path = task_dir / f"{p.name}_s{seed}.mp4"
@@ -536,10 +532,8 @@ def main():
                         "results": task_results}, f, indent=2)
         all_results.extend(task_results)
 
-    # ---- SUMMARY ----
-    print(f"\n{'='*70}")
+    # SUMMARY
     print("VISION PERTURBATION SUMMARY")
-    print(f"{'='*70}")
 
     by_perturbation = {}
     for r in all_results:
@@ -549,7 +543,6 @@ def main():
         by_perturbation[name].append(r['success'])
 
     print(f"\n{'Perturbation':<25} | {'Success Rate':>12} | {'N':>4}")
-    print("-" * 50)
     for name, successes in sorted(by_perturbation.items()):
         rate = sum(successes) / len(successes) * 100
         print(f"{name:<25} | {rate:>11.1f}% | {len(successes):>4}")

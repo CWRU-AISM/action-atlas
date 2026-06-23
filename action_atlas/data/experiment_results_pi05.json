@@ -195,137 +195,137 @@
         {
           "run_id": "comprehensive_cross_task_libero_goal_20260126_234343/batch_1",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_1/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_1/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_20260126_234343/batch_2",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_2/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_2/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_20260126_234343/batch_3",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_3/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343/batch_3/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_1",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_1/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_1/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_2",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_2/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_2/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_3",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_3/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_3/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_4",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_4/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_4/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_5",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_5/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_5/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_6",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_6/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_6/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_7",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_7/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_7/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_8",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_8/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_8/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_9",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_9/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/batch_9/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_1",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_1/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_1/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_2",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_2/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_2/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_3",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_3/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_3/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_4",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_4/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_4/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_5",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_5/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_5/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_6",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_6/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312/batch_6/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_1",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_1/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_1/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_2",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_2/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_2/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_3",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_3/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_3/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_4",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_4/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_4/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_5",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_5/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_5/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_6",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_6/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_6/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_7",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_7/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_7/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_8",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_8/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_8/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_9",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_9/results.json"
+          "source": "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312/batch_9/results.json"
         }
       ],
       "n_runs": 39,
@@ -706,17 +706,17 @@
         {
           "run_id": "comprehensive_cross_task_libero_spatial_20260126_225619/batch_1",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_1/results.json"
+          "source": "pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_1/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_spatial_20260126_225619/batch_2",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_2/results.json"
+          "source": "pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_2/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_spatial_20260126_225619/batch_3",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_3/results.json"
+          "source": "pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/batch_3/results.json"
         }
       ],
       "n_runs": 26,
@@ -874,12 +874,12 @@
         {
           "run_id": "comprehensive_cross_task_libero_10_20260127_051354/batch_1",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_051354/batch_1/results.json"
+          "source": "pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_051354/batch_1/results.json"
         },
         {
           "run_id": "comprehensive_cross_task_libero_10_20260127_085109/batch_1",
           "experiment": "cross_task_injection",
-          "source": "/data/robotsteering/pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_085109/batch_1/results.json"
+          "source": "pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_085109/batch_1/results.json"
         }
       ],
       "n_runs": 23,
@@ -1141,7 +1141,7 @@
     "n_episodes": 0
   },
   "concept_ablation": {
-    "source": "/data/anon_supp/concept_id/pi05",
+    "source": "supplementary/concept_id/pi05",
     "n_files": 112
   },
   "vision_perturbation": {

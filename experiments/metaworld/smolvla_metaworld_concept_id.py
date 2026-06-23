@@ -260,29 +260,29 @@ def run_concept_id(component, layer_idx, sae_dir, data_dir, output_dir, device='
     # Run contrastive concept ID for one component/layer on MetaWorld
     sae_path = sae_dir / f'{component}_L{layer_idx:02d}.pt'
     if not sae_path.exists():
-        print(f"  No SAE at {sae_path}")
+        print(f"No SAE at {sae_path}")
         return None
 
     sae = load_sae(sae_path, device)
-    print(f"  SAE loaded: input_dim={sae.input_dim}, hidden_dim={sae.hidden_dim}, k={sae.k}")
+    print(f"SAE loaded: input_dim={sae.input_dim}, hidden_dim={sae.hidden_dim}, k={sae.k}")
 
-    print(f"  Loading activations...")
+    print(f"Loading activations")
     t0 = time.time()
     task_acts = load_activations_by_task(data_dir, component, layer_idx)
     t1 = time.time()
 
     if not task_acts:
-        print(f"  No activation data found")
+        print(f"No activation data found")
         return None
 
     total_samples = sum(v.shape[0] for v in task_acts.values())
-    print(f"  {len(task_acts)} tasks, {total_samples:,} total samples ({t1-t0:.1f}s)")
+    print(f"{len(task_acts)} tasks, {total_samples:,} total samples ({t1-t0:.1f}s)")
 
-    print(f"  Encoding through SAE...")
+    print(f"Encoding through SAE")
     t2 = time.time()
     encoded_tasks = encode_all_tasks(sae, task_acts, device=device)
     t3 = time.time()
-    print(f"  Encoding done ({t3-t2:.1f}s)")
+    print(f"Encoding done ({t3-t2:.1f}s)")
 
     all_task_names = set(encoded_tasks.keys())
 
@@ -295,13 +295,13 @@ def run_concept_id(component, layer_idx, sae_dir, data_dir, output_dir, device='
                 encoded_tasks, concept_tasks, all_task_names
             )
             if scores is None:
-                print(f"    {full_name}: SKIPPED (insufficient data)")
+                print(f"{full_name}: SKIPPED (insufficient data)")
                 continue
 
             top = scores['top_features'][0] if scores['top_features'] else {}
             top_score = top.get('score', 0)
             top_d = top.get('cohens_d', 0)
-            print(f"    {full_name}: top_score={top_score:.3f}, top_d={top_d:.3f}, "
+            print(f"{full_name}: top_score={top_score:.3f}, top_d={top_d:.3f}, "
                   f"+tasks={scores['n_positive_tasks']}, -tasks={scores['n_negative_tasks']}")
 
             all_concepts[full_name] = scores
@@ -321,7 +321,7 @@ def run_concept_id(component, layer_idx, sae_dir, data_dir, output_dir, device='
     out_path = output_dir / f'smolvla_{component}_L{layer_idx:02d}_metaworld_concept_id.json'
     with open(out_path, 'w') as f:
         json.dump(output, f, indent=2)
-    print(f"  Saved: {out_path} ({len(all_concepts)} concepts)")
+    print(f"Saved: {out_path} ({len(all_concepts)} concepts)")
 
     return output
 
@@ -356,14 +356,14 @@ def print_summary(output_dir: Path):
                 })
 
     for comp in sorted(component_summaries.keys()):
-        print(f"\n--- {comp.upper()} ---")
+        print(f"\n{comp.upper()}")
         concept_best = {}
         for cname, entries in component_summaries[comp].items():
             best = max(entries, key=lambda x: x['score'])
             concept_best[cname] = best
 
         for cname, best in sorted(concept_best.items(), key=lambda x: -x[1]['score']):
-            print(f"  {cname:30s}  best_score={best['score']:.3f}  "
+            print(f"{cname:30s}  best_score={best['score']:.3f}  "
                   f"d={best['cohens_d']:.3f}  "
                   f"layer={best['layer']:2d}  feat={best['feature_idx']}")
 
@@ -434,7 +434,7 @@ def main(cfg):
                 device=cfg.device,
             )
             elapsed = time.time() - t0
-            print(f"  Layer time: {elapsed:.1f}s")
+            print(f"Layer time: {elapsed:.1f}s")
 
     total_elapsed = time.time() - total_start
     print(f"\nTotal time: {total_elapsed:.1f}s")

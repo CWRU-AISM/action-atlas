@@ -41,9 +41,7 @@ const OrbitControls = dynamic(
   { ssr: false }
 );
 
-// ------------------------------------------------------------------
 // Types
-// ------------------------------------------------------------------
 interface PairInfo {
   id: string;
   task_a: number;
@@ -79,9 +77,7 @@ interface SceneStateResponse {
   scene: SceneData;
 }
 
-// ------------------------------------------------------------------
 // Color helpers
-// ------------------------------------------------------------------
 const OBJECT_COLORS = [
   "#f97316", "#8b5cf6", "#06b6d4", "#ec4899", "#84cc16",
   "#14b8a6", "#f43f5e", "#eab308", "#3b82f6", "#a855f7",
@@ -127,9 +123,7 @@ function viridisColor(t: number): string {
   return `rgb(${r},${g},${b})`;
 }
 
-// ------------------------------------------------------------------
 // 3D Trajectory Plot -- Three.js with viridis colormap
-// ------------------------------------------------------------------
 interface TrajectoryPlotProps {
   scene: SceneData | null;
   label: string;
@@ -772,12 +766,8 @@ function TrajectoryPlot({
   );
 }
 
-// ------------------------------------------------------------------
 // Main SceneState Component
-// ------------------------------------------------------------------
-// ---------------------------------------------------------------
 // Model display name helper
-// ---------------------------------------------------------------
 const MODEL_DISPLAY_NAMES: Record<string, string> = {
   pi05: "Pi0.5",
   openvla: "OpenVLA-OFT",
@@ -786,9 +776,7 @@ const MODEL_DISPLAY_NAMES: Record<string, string> = {
   groot: "GR00T N1.5",
 };
 
-// ---------------------------------------------------------------
 // Suite options per model for scene-state
-// ---------------------------------------------------------------
 const MODEL_SUITES: Record<string, { value: string; label: string }[]> = {
   pi05: [
     { value: "goal", label: "LIBERO Goal" },
@@ -821,9 +809,7 @@ const MODEL_SUITES: Record<string, { value: string; label: string }[]> = {
   ],
 };
 
-// ---------------------------------------------------------------
 // Displacement analysis inline data
-// ---------------------------------------------------------------
 interface DisplacementMetrics {
   sourceOverrideRate: number;
   overrideRateLabel: string;
@@ -2122,9 +2108,7 @@ export default function SceneState() {
   );
 }
 
-// ---------------------------------------------------------------
 // DisplacementInline - Displacement analysis rendered inside SceneState
-// ---------------------------------------------------------------
 function DisplacementInline({ model }: { model: string }) {
   const fullData = DISPLACEMENT_DATA[model] || { ...DEFAULT_DISPLACEMENT, modelName: MODEL_DISPLAY_NAMES[model] || model.toUpperCase() };
   const hasObjectDisp = !!fullData.objectDisplacement;

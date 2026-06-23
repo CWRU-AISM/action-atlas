@@ -136,8 +136,8 @@ def main(cfg):
             if feat_ids:
                 concept_features[key] = feat_ids
 
-    print(f"  concepts: {len(concept_features)}")
-    print(f"  strengths: {list(cfg.strengths)}")
+    print(f"concepts: {len(concept_features)}")
+    print(f"strengths: {list(cfg.strengths)}")
 
     # Register hook
     hook = PerTokenSteeringHook(sae, act_mean, act_std, device=device)
@@ -162,7 +162,7 @@ def main(cfg):
             env.close()
         rate = successes / cfg.n_episodes
         baseline_results[str(tid)] = {"success_rate": rate, "successes": successes}
-        print(f"  Task {tid}: {rate:.0%}")
+        print(f"Task {tid}: {rate:.0%}")
     results["baseline"] = baseline_results
 
     # Run steering conditions
@@ -200,7 +200,7 @@ def main(cfg):
 
                 rate = successes / cfg.n_episodes
                 bl_rate = baseline_results.get(str(tid), {}).get("success_rate", 0)
-                print(f"  Task {tid}: {rate:.0%} (delta {rate - bl_rate:+.0%})")
+                print(f"Task {tid}: {rate:.0%} (delta {rate - bl_rate:+.0%})")
                 cond_results[str(tid)] = {
                     "success_rate": rate, "successes": successes,
                     "delta": rate - bl_rate,

@@ -11,17 +11,17 @@ be contributed back to the hosted instance.
 
 Examples:
     # X-VLA features using Gemini
-    GOOGLE_API_KEY=... python action_atlas/generate_feature_descriptions.py \\
+    GOOGLE_API_KEY=<key> python action_atlas/generate_feature_descriptions.py \\
         --model xvla --concept-id-dir results/xvla_concept_id \\
         --suites libero_goal libero_object
 
     # SmolVLA VLM pathway
-    GOOGLE_API_KEY=... python action_atlas/generate_feature_descriptions.py \\
+    GOOGLE_API_KEY=<key> python action_atlas/generate_feature_descriptions.py \\
         --model smolvla --pathway vlm \\
-        --concept-id-dir /data/smolvla_rollouts/concept_id
+        --concept-id-dir data/smolvla_rollouts/concept_id
 
     # Pi0.5 with Claude
-    ANTHROPIC_API_KEY=... python action_atlas/generate_feature_descriptions.py \\
+    ANTHROPIC_API_KEY=<key> python action_atlas/generate_feature_descriptions.py \\
         --model pi05 --pathway expert --llm claude
 
     # Rule-based only (no API key needed)
@@ -285,11 +285,11 @@ def generate_descriptions(cfg: DescriptionConfig):
     parse_re = re.compile(r"\[FEATURE\s+(\d+)\]\s*(.*)")
 
     print(f"Generating descriptions: {model_cfg['full_name']} ({cfg.pathway})")
-    print(f"  Concept ID dir: {concept_id_dir}")
-    print(f"  Output: {output_dir}")
-    print(f"  LLM: {llm_type}")
-    print(f"  Suites: {list(cfg.suites)}")
-    print(f"  Layers: {layers}")
+    print(f"Concept ID dir: {concept_id_dir}")
+    print(f"Output: {output_dir}")
+    print(f"LLM: {llm_type}")
+    print(f"Suites: {list(cfg.suites)}")
+    print(f"Layers: {layers}")
 
     for suite in cfg.suites:
         # Find concept ID files for this suite
@@ -303,7 +303,7 @@ def generate_descriptions(cfg: DescriptionConfig):
             # Try with pathway prefix
             files = sorted(concept_id_dir.glob(f"*{cfg.pathway}*{suite}*"))
         if not files:
-            print(f"  No concept ID files found for {suite}")
+            print(f"No concept ID files found for {suite}")
             continue
 
         for filepath in files:
@@ -317,18 +317,18 @@ def generate_descriptions(cfg: DescriptionConfig):
 
             out_file = output_dir / f"descriptions_{cfg.model}_{cfg.pathway}_layer{layer:02d}_{suite}.json"
             if out_file.exists():
-                print(f"  [SKIP] {out_file.name} (exists)")
+                print(f"[SKIP] {out_file.name} (exists)")
                 continue
 
-            print(f"\n  Layer {layer}, {suite}")
+            print(f"Layer {layer}, {suite}")
             concepts = load_concept_id_file(filepath, model_cfg["concept_key"])
             associations = build_feature_associations(concepts, cfg.max_features_per_concept)
 
             if not associations:
-                print(f"    No features found")
+                print(f"No features found")
                 continue
 
-            print(f"    {len(associations)} unique features from {len(concepts)} concepts")
+            print(f"{len(associations)} unique features from {len(concepts)} concepts")
 
             descriptions = {}
             feature_list = list(associations.items())
@@ -357,7 +357,7 @@ def generate_descriptions(cfg: DescriptionConfig):
                         if attempt < cfg.max_retries - 1:
                             time.sleep(2 ** (attempt + 1))
                         else:
-                            print(f"    API failed after {cfg.max_retries} attempts: {e}")
+                            print(f"API failed after {cfg.max_retries} attempts: {e}")
                             for fidx, assocs in batch:
                                 if str(fidx) not in descriptions:
                                     primary = assocs[0][0] if assocs else "unknown"
@@ -379,9 +379,9 @@ def generate_descriptions(cfg: DescriptionConfig):
                 "descriptions": descriptions,
             }
             out_file.write_text(json.dumps(result, indent=2))
-            print(f"    Saved {len(descriptions)} descriptions to {out_file.name}")
+            print(f"Saved {len(descriptions)} descriptions to {out_file.name}")
 
-    print(f"\nDone. Descriptions saved to {output_dir}")
+    print(f"Done. Descriptions saved to {output_dir}")
 
 
 if __name__ == "__main__":

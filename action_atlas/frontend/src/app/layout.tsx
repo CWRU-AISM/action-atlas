@@ -19,10 +19,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
         />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Limelight&display=swap"
-        />
       </head>
       <body
         className={`antialiased font-roboto`}

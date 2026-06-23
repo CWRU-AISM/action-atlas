@@ -369,23 +369,18 @@ def plot_single_cluster_focus(layer_num: int = 12, dpi: int = 300):
 
 
 if __name__ == "__main__":
-    print("Generating paper-quality UMAP figures...")
     print(f"Output: {OUTPUT_DIR}\n")
 
     # All layers combined
-    print("1. All layers combined...")
     plot_all_layers_paper(dpi=300)
 
     # Grid view
-    print("\n2. Layer grid...")
     plot_layer_grid_paper(dpi=300)
 
     # Cluster zoom for layer 12
-    print("\n3. Cluster zoom (Layer 12)...")
     plot_single_cluster_focus(12, dpi=300)
 
     # Individual layers with large points
-    print("\n4. Individual layers (large points)...")
     for layer in range(18):
         plot_layer_large(layer, dpi=300, point_size=40)
 

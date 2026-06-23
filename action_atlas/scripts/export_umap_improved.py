@@ -250,7 +250,7 @@ def plot_layer_3d_interactive(layer_num: int):
         fig.write_image(str(output_png), width=1200, height=1000, scale=2)
         print(f"Saved: {output_png}")
     except Exception as e:
-        print(f"  (Could not save PNG: {e})")
+        print(f"(Could not save PNG: {e})")
 
     return output_path
 
@@ -371,28 +371,21 @@ def plot_layer_grid_dark(dpi: int = 300):
 
 
 if __name__ == "__main__":
-    print("Generating improved UMAP figures...")
     print(f"Output: {OUTPUT_DIR}\n")
 
     # 2D dark theme plots
-    print("1. Single layer (Layer 12) - dark theme...")
     plot_layer_2d_dark(12, dpi=300)
 
-    print("\n2. All layers combined - dark theme...")
     plot_all_layers_2d_dark(dpi=300)
 
-    print("\n3. Layer grid - dark theme...")
     plot_layer_grid_dark(dpi=300)
 
     # 3D plots
-    print("\n4. 3D interactive (Layer 12)...")
     plot_layer_3d_interactive(12)
 
-    print("\n5. 3D all layers...")
     plot_all_layers_3d()
 
     # Generate all individual layers
-    print("\n6. All individual layers (dark theme)...")
     for layer in range(18):
         plot_layer_2d_dark(layer, dpi=300)
 

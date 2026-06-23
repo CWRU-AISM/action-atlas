@@ -5,12 +5,12 @@ export interface FeatureInfo {
   data: FeatureDetailResponse;
 }
 
-// 更新 SelectedToken 类型定义
+// Updated SelectedToken type definition
 export interface SelectedToken {
-  prompt: string; // 保存token所在的prompt
-  token_index: number; // token在prompt中的索引
-  token: string; // token的文本内容
-  activation_value: number; // token的激活值
+  prompt: string; // the prompt the token belongs to
+  token_index: number; // index of the token within the prompt
+  token: string; // text content of the token
+  activation_value: number; // activation value of the token
 }
 
 interface FeatureState {
@@ -41,7 +41,7 @@ export const featureSlice = createSlice({
       state.selectedTokens = action.payload;
     },
     addSelectedToken: (state, action: PayloadAction<SelectedToken>) => {
-      // 如果该token还未被选中（通过prompt和索引判断唯一性），则添加
+      // Add the token if it is not already selected (uniqueness by prompt and index)
       const exists = state.selectedTokens.some(
         (t) =>
           t.prompt === action.payload.prompt &&

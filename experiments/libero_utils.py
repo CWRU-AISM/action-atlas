@@ -272,7 +272,7 @@ def save_rollout_video(
     except ImportError:
         pass
     except Exception as e:
-        print(f"imageio failed: {e}, trying OpenCV...")
+        print(f"imageio failed: {e}, trying OpenCV")
 
     # Fallback to OpenCV with X264 codec
     try:

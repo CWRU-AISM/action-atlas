@@ -38,7 +38,7 @@ def load_all_results():
                 d["_filename"] = f.name
                 results.append(d)
         except (json.JSONDecodeError, IOError) as e:
-            print(f"  WARN: {f.name}: {e}")
+            print(f"WARN: {f.name}: {e}")
     return results
 
 
@@ -244,11 +244,11 @@ def update_atlas_json(ablation_summary, steering_summary, ftf_summary, temporal_
 
     if dry_run:
         print(f"\n[DRY RUN] Would write to {ATLAS_DATA}")
-        print(f"  concept_ablation: {ablation_summary['total_pairs']} pairs")
-        print(f"  steering: {steering_summary.get('count', 0)} entries")
-        print(f"  FTF: {ftf_summary['count']} entries")
-        print(f"  temporal: {temporal_summary['count']} entries")
-        print(f"  trajectories: {n_traj}, videos: {n_video}")
+        print(f"concept_ablation: {ablation_summary['total_pairs']} pairs")
+        print(f"steering: {steering_summary.get('count', 0)} entries")
+        print(f"FTF: {ftf_summary['count']} entries")
+        print(f"temporal: {temporal_summary['count']} entries")
+        print(f"trajectories: {n_traj}, videos: {n_video}")
     else:
         with open(ATLAS_DATA, "w") as f:
             json.dump(atlas, f, indent=2, default=str)
@@ -260,7 +260,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    print("=== SmolVLA Concept Ablation → Action Atlas ===")
+    print("SmolVLA Concept Ablation → Action Atlas")
     results = load_all_results()
     print(f"Loaded {len(results)} result files")
 
@@ -269,7 +269,7 @@ def main():
         for k in ["ablation", "fraction_to_failure", "temporal", "steering"]:
             if k in r:
                 modes[k] += 1
-    print(f"  ablation: {modes['ablation']}, FTF: {modes['fraction_to_failure']}, "
+    print(f"ablation: {modes['ablation']}, FTF: {modes['fraction_to_failure']}, "
           f"temporal: {modes['temporal']}, steering: {modes['steering']}")
 
     ablation_summary = compute_ablation_summary(results)
@@ -294,7 +294,7 @@ def main():
     for comp, stats in by_comp.items():
         z_pct = round(100 * stats["zero"] / max(stats["pairs"], 1), 1)
         d_pct = round(100 * stats["destructive"] / max(stats["pairs"], 1), 1)
-        print(f"  {comp}: {stats['pairs']} pairs, {z_pct}% zero, {d_pct}% destructive")
+        print(f"{comp}: {stats['pairs']} pairs, {z_pct}% zero, {d_pct}% destructive")
 
     update_atlas_json(ablation_summary, steering_summary, ftf_summary,
                       temporal_summary, n_traj, n_video, dry_run=args.dry_run)

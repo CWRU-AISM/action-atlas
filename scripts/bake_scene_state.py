@@ -8,15 +8,18 @@ and writes compact baked JSON files.
 """
 
 import json
+import os
 from pathlib import Path
 
-# --- Config ---
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+
+# Config
 SOURCES = {
-    "goal": "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/merged_results.json",
-    "spatial": "/data/robotsteering/pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/merged_results.json",
-    # groot Feb 13-14 Pi0.5 cross-task injection (45 pairs each, 8 conditions × 2 directions)
-    "object": "/data/robotsteering/pi05_rollouts/groot_feb13_pi05/object/results.json",
-    "10": "/data/robotsteering/pi05_rollouts/groot_feb13_pi05/10/results.json",
+    "goal": str(DATA_ROOT / "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312/merged_results.json"),
+    "spatial": str(DATA_ROOT / "pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619/merged_results.json"),
+    # groot Pi0.5 cross-task injection (45 pairs each, 8 conditions × 2 directions)
+    "object": str(DATA_ROOT / "pi05_rollouts/groot_pi05/object/results.json"),
+    "10": str(DATA_ROOT / "pi05_rollouts/groot_pi05/10/results.json"),
 }
 
 OUTPUT_DIR = Path(__file__).parent.parent / 'action_atlas' / 'data' / 'pi05_scene_state'
@@ -71,7 +74,6 @@ def extract_condition_data(cond_data):
 
 def process_file(name, src_path):
     # Process one merged_results.json file and return baked data + stats
-    print(f"\n{'='*60}")
     print(f"Processing: {name}")
     print(f"Source: {src_path}")
 
@@ -135,7 +137,7 @@ def process_file(name, src_path):
 
     output = {"pairs": pairs_out}
 
-    # --- Write output ---
+    # Write output
     out_path = OUTPUT_DIR / f"{name}.json"
     with open(out_path, "w") as f:
         json.dump(output, f, separators=(",", ":"))
@@ -143,19 +145,19 @@ def process_file(name, src_path):
     file_size_mb = out_path.stat().st_size / (1024 * 1024)
 
     print(f"\nStats for {name}:")
-    print(f"  Pairs: {len(pairs_out)}")
-    print(f"  Total conditions: {total_conditions}")
-    print(f"  Conditions with trajectories: {conditions_with_traj}")
-    print(f"  Output: {out_path}")
-    print(f"  File size: {file_size_mb:.2f} MB")
+    print(f"Pairs: {len(pairs_out)}")
+    print(f"Total conditions: {total_conditions}")
+    print(f"Conditions with trajectories: {conditions_with_traj}")
+    print(f"Output: {out_path}")
+    print(f"File size: {file_size_mb:.2f} MB")
 
     # Per-pair breakdown
     for p in pairs_out[:3]:
         n_cond = len(p["conditions"])
         n_traj = sum(1 for c in p["conditions"].values() if c.get("robot_eef_trajectory"))
-        print(f"    {p['key']}: {n_cond} conditions, {n_traj} with trajectories")
+        print(f"{p['key']}: {n_cond} conditions, {n_traj} with trajectories")
     if len(pairs_out) > 3:
-        print(f"    ... ({len(pairs_out) - 3} more pairs)")
+        print(f"({len(pairs_out) - 3} more pairs)")
 
     return len(pairs_out), total_conditions, conditions_with_traj
 
@@ -176,12 +178,11 @@ def main():
         grand_conditions += n_cond
         grand_with_traj += n_traj
 
-    print(f"\n{'='*60}")
     print(f"GRAND TOTALS:")
-    print(f"  Pairs: {grand_pairs}")
-    print(f"  Total conditions: {grand_conditions}")
-    print(f"  Conditions with trajectories: {grand_with_traj}")
-    print(f"  Output directory: {OUTPUT_DIR}")
+    print(f"Pairs: {grand_pairs}")
+    print(f"Total conditions: {grand_conditions}")
+    print(f"Conditions with trajectories: {grand_with_traj}")
+    print(f"Output directory: {OUTPUT_DIR}")
 
 
 if __name__ == "__main__":

@@ -22,7 +22,7 @@ class VectorDB:
         self.is_initialized = False
 
     def build_and_save(self, npz_directory, save_directory, batch_size=5):
-        print("Start building the index...")
+        print("Start building the index")
         start_time = time.time()
         
         os.makedirs(save_directory, exist_ok=True)
@@ -37,7 +37,7 @@ class VectorDB:
             batch_files = npz_files[i:i+batch_size]
             batch_embeddings = []
 
-            print(f"\nProcessing batch {i//batch_size + 1}/{(total_files-1)//batch_size + 1}")
+            print(f"Processing batch {i//batch_size + 1}/{(total_files-1)//batch_size + 1}")
 
             for file_idx, npz_file in enumerate(tqdm(batch_files, desc="Loading files")):
                 try:
@@ -89,7 +89,7 @@ class VectorDB:
             }, f)
         
         total_time = time.time() - start_time
-        print(f"\nIndex building completed!")
+        print(f"Index building completed!")
         print(f"Total number of vectors: {self.index.ntotal}")
         print(f"Number of processed files: {len(self.file_mappings)}")
         print(f"Building time: {total_time:.2f} seconds")
@@ -100,7 +100,7 @@ class VectorDB:
         return total_time
 
     def load_index(self, save_directory):
-        print("Loading index and metadata...")
+        print("Loading index and metadata")
         start_time = time.time()
         
         index_path = os.path.join(save_directory, "faiss_index.bin")
@@ -127,7 +127,7 @@ class VectorDB:
         if not self.is_initialized:
             raise RuntimeError("Please load the index first")
 
-        print("\nStarting to transfer index to GPU...")
+        print("Starting to transfer index to GPU")
         start_time = time.time()
         
         try:
@@ -136,7 +136,7 @@ class VectorDB:
             print("Index has been successfully transferred to GPU")
         except Exception as e:
             print(f"Failed to transfer to GPU: {str(e)}")
-            print("Continuing with CPU index...")
+            print("Continuing with CPU index")
             self.gpu_index = None
         
         transfer_time = time.time() - start_time
@@ -156,27 +156,27 @@ class VectorDB:
         max_gpu_k = 2048
         
         if self.gpu_index is not None and k <= max_gpu_k:
-            print(f"\nUsing GPU to query {k} results...")
+            print(f"Using GPU to query {k} results")
             distances, indices = self.gpu_index.search(query_vector.astype('float32'), k)
         else:
             if k > max_gpu_k:
-                print(f"\nk value ({k}) exceeds GPU limit ({max_gpu_k}), switching to CPU query...")
+                print(f"k value ({k}) exceeds GPU limit ({max_gpu_k}), switching to CPU query")
             else:
-                print("\nUsing CPU to query...")
+                print("Using CPU to query")
 
             # If GPU index exists, release it first
             if hasattr(self, 'gpu_index') and self.gpu_index is not None:
-                print("Releasing GPU resources...")
+                print("Releasing GPU resources")
                 del self.gpu_index
                 self.gpu_index = None
                 gc.collect()  # Trigger garbage collection
 
-            print("Executing CPU query...")
+            print("Executing CPU query")
             distances, indices = self.index.search(query_vector.astype('float32'), k)
 
             # If needed, recreate GPU index after query
             if hasattr(self, 'res') and self.res is not None:
-                print("Recreating GPU index...")
+                print("Recreating GPU index")
                 self.gpu_index = faiss.index_cpu_to_gpu(self.res, 0, self.index)
         
         distances = distances[0].tolist()
@@ -198,7 +198,7 @@ class VectorDB:
                     'distance': float(distances[i])
                 })
 
-        print(f"\nQuery completed:")
+        print(f"Query completed:")
         print(f"Query time: {search_time:.4f} seconds")
         print(f"Requested results: {k}")
         print(f"Actual results found: {len(results)}")

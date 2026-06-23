@@ -139,7 +139,7 @@ export const normalizeValue = (
     : ((value - min) / (max - min)) * 100;
 };
 
-// 添加自定义样式组件
+// Add custom styled component
 styled(TableCell)(({ theme }) => ({
   padding: "2px 20px",
   fontSize: "0.875rem",

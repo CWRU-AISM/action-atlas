@@ -194,7 +194,7 @@ def main(cfg):
     print(f"Tasks: {len(tasks)}, Device: {device}")
     print(f"Output: {output_dir}")
 
-    print("\nLoading model...")
+    print("\nLoading model")
     policy, preprocessor, postprocessor = load_smolvla_policy(
         cfg.checkpoint, device)
 
@@ -239,7 +239,7 @@ def main(cfg):
         if task_name in task_cache:
             task_cache.move_to_end(task_name)
             return task_cache[task_name]
-        print(f"    [capture] {task_name}...", end=" ", flush=True)
+        print(f"[capture] {task_name}", end=" ", flush=True)
         env = create_env(task_name, cfg.resolution)
         result, captured = run_episode_with_capture(
             policy, env, preprocessor, postprocessor, device,
@@ -265,7 +265,7 @@ def main(cfg):
         'timestamp': datetime.now().isoformat(), 'pairs': {},
     }
 
-    print(f"\nRunning {len(pairs)} pairs x {len(inject_layer_groups)} groups x 2 directions...")
+    print(f"\nRunning {len(pairs)} pairs x {len(inject_layer_groups)} groups x 2 directions")
 
     for pair_idx, (task_a, task_b) in enumerate(pairs):
         pair_key = f"cross_task_{task_a}_{task_b}"
@@ -387,7 +387,7 @@ def main(cfg):
         n_ok = sum(1 for k, v in pair_result.items()
                    if k.startswith('inject_') and v.get('success'))
         n_inj = sum(1 for k in pair_result if k.startswith('inject_'))
-        print(f"  [{pair_idx+1}/{len(pairs)}] ({task_a}, {task_b}): "
+        print(f"[{pair_idx+1}/{len(pairs)}] ({task_a}, {task_b}): "
               f"{n_ok}/{n_inj} success, {elapsed:.1f}s")
 
         with open(pair_file, 'w') as f:

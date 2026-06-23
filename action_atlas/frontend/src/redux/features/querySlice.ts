@@ -4,7 +4,7 @@ import {QueryResult} from "@/types/types";
 interface QueryState {
   query: string;
   optimizedQuery: string | null;
-  currentLLM: string; // 新增这行
+  currentLLM: string; // added
   queryResult: QueryResult;
   optimizedQueryResult: QueryResult | null;
   layerTypeData: {
@@ -45,7 +45,7 @@ export const querySlice = createSlice({
     setOptimizedQueryResult: (state, action: PayloadAction<QueryResult>) => {
       state.optimizedQueryResult = action.payload;
     },
-    // 添加新的 reducer：
+    // Add a new reducer
     setCurrentLLM: (state, action: PayloadAction<string>) => {
       state.currentLLM = action.payload;
     },

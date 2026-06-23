@@ -129,7 +129,7 @@ def main(cfg):
         obs, _ = env.reset(seed=0)
         baseline_prompt = get_base_env(env).get_language_instruction()
         prompts = get_counterfactual_prompts(baseline_prompt)
-        print(f"  Baseline: \"{baseline_prompt}\" | {len(prompts)} conditions")
+        print(f"Baseline: \"{baseline_prompt}\" | {len(prompts)} conditions")
 
         task_results = {
             "task": task_name, "baseline_prompt": baseline_prompt,
@@ -143,13 +143,13 @@ def main(cfg):
 
             cond_results_path = cond_dir / "results.json"
             if cond_results_path.exists():
-                print(f"  [SKIP] {cond_name}")
+                print(f"[SKIP] {cond_name}")
                 with open(cond_results_path) as f:
                     task_results["conditions"][cond_name] = json.load(f)
                 continue
 
-            disp = prompt_text[:50] + "..." if len(prompt_text) > 50 else prompt_text
-            print(f"  {cond_name}: \"{disp}\"")
+            disp = prompt_text[:50] + "" if len(prompt_text) > 50 else prompt_text
+            print(f"{cond_name}: \"{disp}\"")
 
             successes = []
             cond_data = {"condition": cond_name, "prompt": prompt_text, "episodes": []}
@@ -168,7 +168,7 @@ def main(cfg):
 
                 successes.append(result["success"])
                 status = "OK" if result["success"] else "FAIL"
-                print(f"    Ep {ep+1}: {status} ({result['steps']} steps)")
+                print(f"Ep {ep+1}: {status} ({result['steps']} steps)")
 
                 comp = {}
                 if cond_name == "baseline" and ep == 0:
@@ -214,7 +214,7 @@ def main(cfg):
             cond_data["success_rate"] = success_rate
             cond_data["success_count"] = sum(successes)
             cond_data["episodes"] = [{"episode": i, "success": s} for i, s in enumerate(successes)]
-            print(f"    Result: {success_rate*100:.1f}% ({sum(successes)}/{len(successes)})")
+            print(f"Result: {success_rate*100:.1f}% ({sum(successes)}/{len(successes)})")
 
             with open(cond_results_path, "w") as f:
                 json.dump(cond_data, f, indent=2)

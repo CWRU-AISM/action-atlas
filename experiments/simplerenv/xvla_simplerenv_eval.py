@@ -71,7 +71,7 @@ def main(cfg):
             else:
                 print(f"Task '{cfg.task}' not found. Available:")
                 for t in config["tasks"]:
-                    print(f"  {t}")
+                    print(f"{t}")
                 return
         tasks = matching
     else:
@@ -88,7 +88,7 @@ def main(cfg):
     print(f"Eval: {cfg.model} | tasks={tasks} | eps={cfg.n_episodes} | "
           f"activations={save_activations} | output={output_dir}")
 
-    print("Loading X-VLA model...")
+    print("Loading X-VLA model")
     t0 = time.time()
     policy, tokenizer = load_xvla_policy(cfg.model, checkpoint, device)
     if cfg.n_action_steps is not None:
@@ -141,7 +141,7 @@ def main(cfg):
 
             successes.append(result["success"])
             status = "SUCCESS" if result["success"] else "FAIL"
-            print(f"  Ep {ep+1:2d}/{cfg.n_episodes}: {status} ({result['steps']} steps)")
+            print(f"Ep {ep+1:2d}/{cfg.n_episodes}: {status} ({result['steps']} steps)")
 
             ep_data = {
                 "episode": ep, "episode_id": ep,
@@ -187,7 +187,7 @@ def main(cfg):
             {"episode": i, "episode_id": i, "success": s}
             for i, s in enumerate(successes)
         ]
-        print(f"  Result: {success_rate*100:.1f}% ({sum(successes)}/{len(successes)})")
+        print(f"Result: {success_rate*100:.1f}% ({sum(successes)}/{len(successes)})")
 
         with open(task_results_path, "w") as f:
             json.dump(task_results, f, indent=2)
@@ -206,7 +206,7 @@ def main(cfg):
         sr = result["success_rate"]
         sc = result["success_count"]
         ne = result["n_episodes"]
-        print(f"  {task_name}: {sr*100:.1f}% ({sc}/{ne})")
+        print(f"{task_name}: {sr*100:.1f}% ({sc}/{ne})")
         total_success += sc
         total_episodes += ne
 

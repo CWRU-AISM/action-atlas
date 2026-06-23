@@ -30,29 +30,29 @@ const VisualizationDashboard: React.FC = () => {
   const currentLLM = useAppSelector(state => state.query?.currentLLM || state.llm?.selectedLLM);
 
 const recalculateResRanks = (models: ModelData[]) => {
-  // 使用selectedAttrs而不是硬编码的属性
+  // Use selectedAttrs instead of hardcoded attributes
   const targetAttrs = selectedAttrs.length > 0 ? selectedAttrs : ["put_features", "open_features", "push_features", "pick_features"];
   const resModels = models.filter(model => model.type === "RES");
   
-  // 创建一个新的Map来存储每个模型的排名
+  // Create a new Map to store each model's ranking
   const rankMap = new Map<string, { [key: string]: number }>();
   
   targetAttrs.forEach(attr => {
-    // 按照value值降序排序
+    // Sort by value in descending order
     const sortedModels = [...resModels].sort((a, b) => {
       const aValue = (a[attr] as { value: number })?.value ?? 0;
       const bValue = (b[attr] as { value: number })?.value ?? 0;
       return bValue - aValue;
     });
 
-    // 处理相同值的排名逻辑
+    // Handle ranking logic for equal values
     let currentRank = 1;
     let previousValue: number | null = null;
     
     sortedModels.forEach((model, index) => {
       const currentValue = (model[attr] as { value: number })?.value ?? 0;
       
-      // 如果当前值与前一个值不同，更新排名
+      // If the current value differs from the previous one, update the rank
       if (previousValue !== null && currentValue !== previousValue) {
         currentRank = index + 1;
       }
@@ -76,18 +76,18 @@ const recalculateResRanks = (models: ModelData[]) => {
 //   const targetAttrs = selectedAttrs.length > 0 ? selectedAttrs : ["top_10_score", "top_100_score", "top_1000_score"];
 //   const resModels = models.filter(model => model.type === "RES");
   
-//   // 创建原始排名Map
+//   // Create the original ranking Map
 //   const rawRankMap = new Map<string, { [key: string]: number }>();
   
 //   targetAttrs.forEach(attr => {
-//     // 按照value值降序排序
+//     // Sort by value in descending order
 //     const sortedModels = [...resModels].sort((a, b) => {
 //       const aValue = (a[attr] as { value: number })?.value ?? 0;
 //       const bValue = (b[attr] as { value: number })?.value ?? 0;
 //       return bValue - aValue;
 //     });
 
-//     // 处理相同值的排名逻辑
+//     // Handle ranking logic for equal values
 //     let currentRank = 1;
 //     let previousValue: number | null = null;
     
@@ -108,27 +108,27 @@ const recalculateResRanks = (models: ModelData[]) => {
 //     });
 //   });
   
-//   // 进行最大最小归一化并乘以模型总层数
+//   // Min-max normalize and multiply by the total layer count
 //   const normalizedRankMap = new Map<string, { [key: string]: number }>();
-//   const totalLayers = resModels.length; // 总层数
+//   const totalLayers = resModels.length; // total layers
   
 //   targetAttrs.forEach(attr => {
-//     // 找出该属性的最大最小排名
+//     // Find the min and max rank for this attribute
 //     const ranks = Array.from(rawRankMap.values()).map(modelRanks => modelRanks[attr]);
 //     const minRank = Math.min(...ranks);
 //     const maxRank = Math.max(...ranks);
     
-//     // 归一化每个模型在该属性上的排名
+//     // Normalize each model's rank for this attribute
 //     rawRankMap.forEach((modelRanks, modelId) => {
 //       if (!normalizedRankMap.has(modelId)) {
 //         normalizedRankMap.set(modelId, {});
 //       }
 //       const normalizedRanks = normalizedRankMap.get(modelId)!;
       
-//       // 最大最小归一化：(rank - min) / (max - min) * totalLayers
-//       // 注意：排名越小越好，所以最好的排名(minRank)归一化后为0
+//       // Min-max normalization: (rank - min) / (max - min) * totalLayers
+//       // Note: a smaller rank is better, so the best rank (minRank) normalizes to 0
 //       if (maxRank === minRank) {
-//         normalizedRanks[attr] = 0; // 所有排名相同时归一化为0
+//         normalizedRanks[attr] = 0; // when all ranks are equal, normalize to 0
 //       } else {
 //         const normalizedRank = (modelRanks[attr] - minRank) / (maxRank - minRank) * totalLayers;
 //         normalizedRanks[attr] = normalizedRank;
@@ -142,13 +142,13 @@ const recalculateResRanks = (models: ModelData[]) => {
   const calculateAverageRank = (model: ModelData) => {
     if (model.type !== "RES") return modelData.length;
     
-    // 获取新的排名数据
+    // Get the new ranking data
     const rankMap = recalculateResRanks(modelData);
     const modelRanks = rankMap.get(model.id);
 
     if (!modelRanks) return modelData.length;
 
-    // 使用selectedAttrs而不是硬编码的属性
+    // Use selectedAttrs instead of hardcoded attributes
     const targetAttrs = selectedAttrs.length > 0 ? selectedAttrs : ["put_features", "open_features", "push_features", "pick_features"];
     const sum = targetAttrs.reduce((acc, attr) => {
       return acc + (modelRanks[attr] ?? modelData.length);
@@ -157,9 +157,9 @@ const recalculateResRanks = (models: ModelData[]) => {
     return sum / targetAttrs.length;
   };
 
-  // 动态获取层数，而不是硬编码26
+  // Get the layer count dynamically instead of hardcoding 26
   const maxLayer = modelData.length > 0 ? Math.max(...modelData.map(model => model.layer)) : 25;
-  const totalLayers = maxLayer + 1; // 因为层数从0开始
+  const totalLayers = maxLayer + 1; // because layer indices start at 0
 
   const groupedData = Array.from({length: totalLayers}, (_, layer) =>
     modelData.filter((model) => model.layer === layer)

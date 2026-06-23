@@ -19,6 +19,8 @@ import sys
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
+
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 # Helpers
 def safe_load_json(path: Path) -> dict | None:
     # Load a JSON file, returning None on failure
@@ -59,8 +61,8 @@ def round_val(v, decimals=4):
         return round(v, decimals)
     return v
 # SmolVLA aggregation
-SMOLVLA_LIBERO_DIR = Path("/data/smolvla_libero")
-SMOLVLA_METAWORLD_DIR = Path("/data/smolvla_rollouts")
+SMOLVLA_LIBERO_DIR = DATA_ROOT / "smolvla_libero"
+SMOLVLA_METAWORLD_DIR = DATA_ROOT / "smolvla_rollouts"
 SMOLVLA_LIBERO_SUITES = ["libero_goal", "libero_object", "libero_spatial", "libero_10"]
 SMOLVLA_MW_DIFFICULTIES = ["easy", "medium", "hard", "very_hard"]
 

@@ -1,6 +1,9 @@
 # Aggregate X-VLA experiment results
+import os
 from pathlib import Path
 import json
+
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
 def aggregate_xvla() -> dict:
     # Aggregate all X-VLA experiment results
@@ -22,7 +25,7 @@ def aggregate_xvla() -> dict:
         "displacement": {},
     }
 
-    # --- LIBERO Baselines (from grid ablation baseline condition) ---
+    # LIBERO Baselines (from grid ablation baseline condition)
     for suite in XVLA_LIBERO_SUITES:
         grid_path = XVLA_LIBERO_DIR / "experiments" / f"grid_ablation_{suite}" / "grid_results.json"
         data = safe_load_json(grid_path)
@@ -46,14 +49,14 @@ def aggregate_xvla() -> dict:
                 "overall_success_rate": round_val(overall),
             }
 
-    # --- LIBERO Grid Ablation ---
+    # LIBERO Grid Ablation
     for suite in XVLA_LIBERO_SUITES:
         grid_path = XVLA_LIBERO_DIR / "experiments" / f"grid_ablation_{suite}" / "grid_results.json"
         data = safe_load_json(grid_path)
         if data:
             result["grid_ablation"][suite] = _extract_xvla_grid(data)
 
-    # --- LIBERO Counterfactual ---
+    # LIBERO Counterfactual
     for suite in XVLA_LIBERO_SUITES:
         # Try v2 first, then plain
         cf_variant = f"counterfactual_{suite}_v2" if suite != "libero_10" else f"counterfactual_{suite}"
@@ -63,20 +66,20 @@ def aggregate_xvla() -> dict:
         if cf_dir.is_dir():
             result["counterfactual"][suite] = _aggregate_xvla_counterfactual(cf_dir, suite)
 
-    # --- LIBERO Cross-Task ---
+    # LIBERO Cross-Task
     for suite in XVLA_LIBERO_SUITES:
         ct_path = XVLA_LIBERO_DIR / "experiments" / f"cross_task_{suite}" / "results.json"
         data = safe_load_json(ct_path)
         if data:
             result["cross_task"][suite] = _extract_xvla_cross_task(data)
 
-    # --- LIBERO Vision Perturbation ---
+    # LIBERO Vision Perturbation
     for suite in XVLA_LIBERO_SUITES:
         vision_dir = XVLA_LIBERO_DIR / "experiments" / f"vision_{suite}"
         if vision_dir.is_dir():
             result["vision_perturbation"][suite] = _aggregate_xvla_vision(vision_dir, suite)
 
-    # --- Concept Ablation ---
+    # Concept Ablation
     for suite_short in ["goal", "object", "spatial", "10"]:
         for layer in [12, 20, 23]:
             abl_path = XVLA_CONCEPT_ABLATION_DIR / f"ablation_L{layer}_{suite_short}.json"
@@ -85,20 +88,20 @@ def aggregate_xvla() -> dict:
                 key = f"L{layer}_{suite_short}"
                 result["concept_ablation"][key] = _extract_xvla_concept_ablation(data)
 
-    # --- Concept Steering ---
+    # Concept Steering
     for json_file in sorted(XVLA_CONCEPT_STEERING_DIR.glob("*.json")) if XVLA_CONCEPT_STEERING_DIR.is_dir() else []:
         data = safe_load_json(json_file)
         if data:
             key = json_file.stem
             result["concept_steering"][key] = _extract_xvla_concept_steering(data)
 
-    # --- Displacement Analysis ---
-    disp_path = Path("/data/batch_1/xvla_displacement_analysis.json")
+    # Displacement Analysis
+    disp_path = DATA_ROOT / "batch_1/xvla_displacement_analysis.json"
     data = safe_load_json(disp_path)
     if data:
         result["displacement"] = _extract_xvla_displacement(data)
 
-    # --- SimplerEnv (check for experiments) ---
+    # SimplerEnv (check for experiments)
     if XVLA_SIMPLERENV_DIR.is_dir():
         se_experiments = XVLA_SIMPLERENV_DIR / "experiments"
         if se_experiments.is_dir():
@@ -313,8 +316,8 @@ def _extract_xvla_concept_ablation(data: dict) -> dict:
     Data structure:
         tasks: {
             concept_name: {
-                features: [...],
-                scores: [...],
+                features: [],
+                scores: [],
                 tasks: {
                     task_id: { success_rate, delta, successes, steps }
                 }
@@ -358,8 +361,8 @@ def _extract_xvla_concept_steering(data: dict) -> dict:
     Data structure:
         tasks: {
             concept_name: {
-                features: [...],
-                scores: [...],
+                features: [],
+                scores: [],
                 strengths: {
                     strength_val: {
                         task_id: { success_rate, delta, successes }
@@ -438,8 +441,8 @@ def _extract_xvla_displacement(data: dict) -> dict:
         }
     return summary
 # GR00T aggregation
-GROOT_MAIN_DIR = Path("/data/groot_rollouts")
-GROOT_BATCH2_DIR = Path("/data/groot_rollouts_batch2")
+GROOT_MAIN_DIR = DATA_ROOT / "groot_rollouts"
+GROOT_BATCH2_DIR = DATA_ROOT / "groot_rollouts_batch2"
 GROOT_SUITES = ["libero_goal", "libero_object", "libero_long"]
 GROOT_DIT_LAYERS = [f"dit_L{i:02d}" for i in range(16)]
 GROOT_EAGLE_LAYERS = [f"eagle_lm_L{i:02d}" for i in range(12)]

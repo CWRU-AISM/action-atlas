@@ -204,7 +204,7 @@ def main(cfg):
     print(f"Model: {cfg.model}, Tasks: {tasks}")
     print(f"Output: {output_dir}")
 
-    print("\nLoading X-VLA model...")
+    print("\nLoading X-VLA model")
     policy, tokenizer = load_xvla_policy(cfg.model, checkpoint, device)
     transformer_blocks = policy.model.transformer.blocks
     n_blocks = len(transformer_blocks)
@@ -242,11 +242,11 @@ def main(cfg):
         base_env = get_base_env(env)
         obs, _ = env.reset(seed=0)
         baseline_prompt = base_env.get_language_instruction()
-        print(f"  Prompt: \"{baseline_prompt}\"")
+        print(f"Prompt: \"{baseline_prompt}\"")
 
         task_results = {"task": task_name, "prompt": baseline_prompt, "conditions": {}}
 
-        print("\n  Running baseline (with activation capture)...")
+        print("\nRunning baseline (with activation capture)")
         capture_hooks = {}
         handles = []
         for layer_idx in injection_layers:
@@ -279,7 +279,7 @@ def main(cfg):
         del capture_hooks, handles
         torch.cuda.empty_cache()
 
-        print(f"    Baseline: {baseline_n_steps} steps, success={baseline_result['success']}")
+        print(f"Baseline: {baseline_n_steps} steps, success={baseline_result['success']}")
 
         bl_data = {
             "condition": "baseline", "prompt": baseline_prompt,
@@ -300,7 +300,7 @@ def main(cfg):
             "success": baseline_result["success"], "steps": baseline_n_steps,
         }
 
-        print("\n  Prompt switching experiments...")
+        print("\nPrompt switching experiments")
         for switch_t in switch_timesteps:
             if switch_t >= baseline_n_steps:
                 continue
@@ -308,7 +308,7 @@ def main(cfg):
                 cond_name = f"switch_t{switch_t}_{alt_name}"
                 cond_path = task_dir / f"{cond_name}.json"
                 if cond_path.exists():
-                    print(f"    [SKIP] {cond_name}")
+                    print(f"[SKIP] {cond_name}")
                     with open(cond_path) as f:
                         task_results["conditions"][cond_name] = json.load(f)
                     continue
@@ -341,13 +341,13 @@ def main(cfg):
                         pass
 
                 tag = "OK" if result["success"] else "FAIL"
-                print(f"    {cond_name}: {result['steps']} steps, {tag}")
+                print(f"{cond_name}: {result['steps']} steps, {tag}")
                 task_results["conditions"][cond_name] = {
                     "success": result["success"], "steps": result["steps"],
                     "switch_timestep": switch_t,
                 }
 
-        print("\n  Temporal injection experiments...")
+        print("\nTemporal injection experiments")
         for window_name, (frac_start, frac_end) in injection_windows.items():
             start_step = int(frac_start * baseline_n_steps)
             end_step = int(frac_end * baseline_n_steps)
@@ -358,7 +358,7 @@ def main(cfg):
                 cond_name = f"inject_{window_name}_L{layer_idx}"
                 cond_path = task_dir / f"{cond_name}.json"
                 if cond_path.exists():
-                    print(f"    [SKIP] {cond_name}")
+                    print(f"[SKIP] {cond_name}")
                     with open(cond_path) as f:
                         task_results["conditions"][cond_name] = json.load(f)
                     continue
@@ -403,7 +403,7 @@ def main(cfg):
                         pass
 
                 tag = "OK" if result["success"] else "FAIL"
-                print(f"    {cond_name}: {result['steps']} steps, {tag} ({hook.injection_count} injections)")
+                print(f"{cond_name}: {result['steps']} steps, {tag} ({hook.injection_count} injections)")
                 task_results["conditions"][cond_name] = {
                     "success": result["success"], "steps": result["steps"],
                     "injections": hook.injection_count,
@@ -426,12 +426,12 @@ def main(cfg):
             continue
         with open(tp) as f:
             tr = json.load(f)
-        print(f"\n  {task_name} (baseline: {'OK' if tr['conditions'].get('baseline', {}).get('success') else 'FAIL'}):")
+        print(f"\n{task_name} (baseline: {'OK' if tr['conditions'].get('baseline', {}).get('success') else 'FAIL'}):")
         for cn, cd in tr["conditions"].items():
             if cn == "baseline":
                 continue
             tag = "OK" if cd.get("success") else "FAIL"
-            print(f"    {cn}: {tag} ({cd.get('steps', '?')} steps)")
+            print(f"{cn}: {tag} ({cd.get('steps', '?')} steps)")
 
     print(f"\nResults saved to: {output_dir}")
 

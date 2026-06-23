@@ -99,12 +99,12 @@ def main(cfg):
 
             pert_results_path = pert_dir / "results.json"
             if pert_results_path.exists():
-                print(f"  [SKIP] {pert.name}")
+                print(f"[SKIP] {pert.name}")
                 with open(pert_results_path) as f:
                     task_results["perturbations"][pert.name] = json.load(f)
                 continue
 
-            print(f"  {pert.name}...", end=" ", flush=True)
+            print(f"{pert.name}", end=" ", flush=True)
             pert_fn = lambda img, p=pert: p.perturbation_fn(img, **p.params)
             successes = []
 
@@ -160,7 +160,7 @@ def main(cfg):
         rates = [all_results["tasks"].get(t, {}).get("perturbations", {}).get(pert.name, {}).get("success_rate", 0)
                  for t in tasks]
         if rates:
-            print(f"  {pert.name:<25} {np.mean(rates)*100:6.1f}%")
+            print(f"{pert.name:<25} {np.mean(rates)*100:6.1f}%")
 
     with open(output_dir / "all_results.json", "w") as f:
         json.dump(all_results, f, indent=2)

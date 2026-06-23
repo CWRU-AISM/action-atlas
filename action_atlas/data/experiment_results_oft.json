@@ -2289,7 +2289,7 @@
     }
   },
   "concept_ablation": {
-    "source": "/data/anon_supp/concept_id/oft",
+    "source": "supplementary/concept_id/oft",
     "n_files": 128
   }
 }

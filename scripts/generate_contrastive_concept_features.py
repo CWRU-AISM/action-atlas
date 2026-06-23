@@ -180,7 +180,7 @@ def process_pi05_files():
         basename = os.path.basename(filepath)
         match = file_regex.match(basename)
         if not match:
-            print(f"  WARNING: Skipping unrecognized file: {basename}")
+            print(f"WARNING: Skipping unrecognized file: {basename}")
             continue
 
         pathway = match.group(1)
@@ -208,11 +208,11 @@ def process_pi05_files():
                     entry["source_suites"] = suites_list
                     layer_data[layer_key][concept_type][concept_name] = entry
 
-    print(f"  Pi0.5: Processed {len(files)} files across {len(layer_data)} layers")
+    print(f"Pi0.5: Processed {len(files)} files across {len(layer_data)} layers")
     for lk in sorted(layer_data.keys()):
         n_concepts = sum(len(v) for v in layer_data[lk].values())
         suites = sorted(layer_suites[lk])
-        print(f"    {lk}: {n_concepts} concepts from suites {suites}")
+        print(f"{lk}: {n_concepts} concepts from suites {suites}")
 
     return dict(layer_data)
 
@@ -237,7 +237,7 @@ def process_oft_files():
         basename = os.path.basename(filepath)
         match = file_regex.match(basename)
         if not match:
-            print(f"  WARNING: Skipping unrecognized file: {basename}")
+            print(f"WARNING: Skipping unrecognized file: {basename}")
             continue
 
         layer_num = int(match.group(1))
@@ -260,11 +260,11 @@ def process_oft_files():
                     entry["source_suites"] = suites_list
                     layer_data[layer_key][concept_type][concept_name] = entry
 
-    print(f"  OFT: Processed {len(files)} files across {len(layer_data)} layers")
+    print(f"OFT: Processed {len(files)} files across {len(layer_data)} layers")
     for lk in sorted(layer_data.keys(), key=lambda x: int(x.split('_')[-1])):
         n_concepts = sum(len(v) for v in layer_data[lk].values())
         suites = sorted(layer_suites[lk])
-        print(f"    {lk}: {n_concepts} concepts from suites {suites}")
+        print(f"{lk}: {n_concepts} concepts from suites {suites}")
 
     return dict(layer_data)
 
@@ -274,11 +274,10 @@ def build_output(pi05_data: dict, oft_data: dict) -> dict:
     Build the final output dict. Structure:
 
     {
-        "_metadata": { ... },
-        "action_expert_layer_0": { "motion": { "put": { ... } }, ... },
-        "paligemma_layer_0": { ... },
-        "openvla_oft_layer_0": { ... },
-        ...
+        "_metadata": {},
+        "action_expert_layer_0": { "motion": { "put": {} } },
+        "paligemma_layer_0": {},
+        "openvla_oft_layer_0": {},
     }
     """
     output = {}
@@ -351,24 +350,23 @@ def print_summary(output: dict):
                 for cn in concepts:
                     all_concepts.add(f"{ct}/{cn}")
 
-    print(f"\n=== SUMMARY ===")
-    print(f"  Method: {metadata.get('concept_method', 'unknown')}")
-    print(f"  Pi0.5 Expert layers: {len(pi05_expert_layers)}")
-    print(f"  Pi0.5 PaliGemma layers: {len(pi05_pali_layers)}")
-    print(f"  OpenVLA-OFT layers: {len(oft_layers)}")
-    print(f"  Pi0.5 total concept entries: {total_concepts_pi05}")
-    print(f"  OFT total concept entries: {total_concepts_oft}")
-    print(f"  Unique concept types: {sorted(all_concept_types)}")
-    print(f"  Unique concepts: {len(all_concepts)}")
-    print(f"  All concepts: {sorted(all_concepts)}")
+    print(f"\nSUMMARY")
+    print(f"Method: {metadata.get('concept_method', 'unknown')}")
+    print(f"Pi0.5 Expert layers: {len(pi05_expert_layers)}")
+    print(f"Pi0.5 PaliGemma layers: {len(pi05_pali_layers)}")
+    print(f"OpenVLA-OFT layers: {len(oft_layers)}")
+    print(f"Pi0.5 total concept entries: {total_concepts_pi05}")
+    print(f"OFT total concept entries: {total_concepts_oft}")
+    print(f"Unique concept types: {sorted(all_concept_types)}")
+    print(f"Unique concepts: {len(all_concepts)}")
+    print(f"All concepts: {sorted(all_concepts)}")
 
 
 def main():
-    print("Generating concept_features.json from contrastive concept ID data...")
-    print(f"  Pi0.5 source: {PI05_DIR}")
-    print(f"  OFT source:   {OFT_DIR}")
-    print(f"  Output:        {OUTPUT_FILE}")
-    print()
+    print("Generating concept_features.json from contrastive concept ID data")
+    print(f"Pi0.5 source: {PI05_DIR}")
+    print(f"OFT source:   {OFT_DIR}")
+    print(f"Output:        {OUTPUT_FILE}")
 
     # Check source directories exist
     if not PI05_DIR.exists():
@@ -380,30 +378,30 @@ def main():
 
     # Backup existing file
     if OUTPUT_FILE.exists():
-        print(f"  Backing up existing concept_features.json -> {BACKUP_FILE.name}")
+        print(f"Backing up existing concept_features.json -> {BACKUP_FILE.name}")
         import shutil
         shutil.copy2(OUTPUT_FILE, BACKUP_FILE)
 
     # Process all files
-    print("\nProcessing Pi0.5 contrastive concept ID files...")
+    print("\nProcessing Pi0.5 contrastive concept ID files")
     pi05_data = process_pi05_files()
 
-    print("\nProcessing OpenVLA-OFT contrastive concept ID files...")
+    print("\nProcessing OpenVLA-OFT contrastive concept ID files")
     oft_data = process_oft_files()
 
     # Build and write output
     output = build_output(pi05_data, oft_data)
     print_summary(output)
 
-    print(f"\nWriting to {OUTPUT_FILE}...")
+    print(f"\nWriting to {OUTPUT_FILE}")
     with open(OUTPUT_FILE, 'w') as f:
         json.dump(output, f, indent=2)
 
     file_size_mb = OUTPUT_FILE.stat().st_size / (1024 * 1024)
-    print(f"  Written: {file_size_mb:.1f} MB")
+    print(f"Written: {file_size_mb:.1f} MB")
 
     # Validate: check that the backend can read the new format
-    print("\nValidation: checking key fields expected by backend...")
+    print("\nValidation: checking key fields expected by backend")
     errors = []
     for layer_key, layer_data in output.items():
         if layer_key.startswith("_"):
@@ -420,11 +418,11 @@ def main():
                         errors.append(f"  Missing '{field}' in {layer_key}/{concept_type}/{concept_name}")
 
     if errors:
-        print(f"  ERRORS ({len(errors)}):")
+        print(f"ERRORS ({len(errors)}):")
         for e in errors[:10]:
             print(e)
     else:
-        print("  All entries have required fields. OK.")
+        print("All entries have required fields. OK.")
 
     # Check UMAP compatibility
     print("\nUMAP Status:")
@@ -432,37 +430,37 @@ def main():
     pi05_umap_files = list(processed_dir.glob("pi05_*embedding.npz"))
     oft_umap_files = list(processed_dir.glob("openvla/*.npz")) if (processed_dir / "openvla").exists() else []
     hierarchical_files = list(processed_dir.glob("hierarchical_*.npz"))
-    print(f"  Pi0.5 UMAP NPZ files: {len(pi05_umap_files)}")
-    print(f"  OFT UMAP NPZ files: {len(oft_umap_files)}")
-    print(f"  Hierarchical clustering NPZ files: {len(hierarchical_files)}")
-    print(f"  NOTE: Existing UMAPs use FFN projection features. They will need")
-    print(f"  regeneration to match contrastive concept assignments.")
-    print(f"  The UMAP embeddings themselves (feature activations) are model-derived")
-    print(f"  and not method-dependent, but concept COLOR LABELS in the visualization")
-    print(f"  should be updated to use contrastive concept assignments.")
+    print(f"Pi0.5 UMAP NPZ files: {len(pi05_umap_files)}")
+    print(f"OFT UMAP NPZ files: {len(oft_umap_files)}")
+    print(f"Hierarchical clustering NPZ files: {len(hierarchical_files)}")
+    print(f"NOTE: Existing UMAPs use FFN projection features. They will need")
+    print(f"regeneration to match contrastive concept assignments.")
+    print(f"The UMAP embeddings themselves (feature activations) are model-derived")
+    print(f"and not method-dependent, but concept COLOR LABELS in the visualization")
+    print(f"should be updated to use contrastive concept assignments.")
 
     # Check description coverage
     print("\nDescription Coverage:")
     desc_dir = PROJECT_ROOT / "action_atlas" / "data" / "descriptions"
     if desc_dir.exists():
         desc_files = list(desc_dir.glob("*.json"))
-        print(f"  Description JSON files: {len(desc_files)}")
+        print(f"Description JSON files: {len(desc_files)}")
         # Check if descriptions cover the contrastive feature indices
         try:
             all_desc = json.load(open(desc_dir / "all_descriptions_concepts.json"))
             pi05_desc_layers = list(all_desc.keys())
-            print(f"  Pi0.5 description layers (concepts): {len(pi05_desc_layers)}")
+            print(f"Pi0.5 description layers (concepts): {len(pi05_desc_layers)}")
             # Count total described features
             total_described = sum(
                 len(v.get("descriptions", {})) for v in all_desc.values()
             )
-            print(f"  Total Pi0.5 described features (concepts): {total_described}")
+            print(f"Total Pi0.5 described features (concepts): {total_described}")
         except Exception as e:
-            print(f"  Could not read descriptions: {e}")
+            print(f"Could not read descriptions: {e}")
 
-        print(f"  NOTE: Descriptions are per-feature (not per-concept), so they remain")
-        print(f"  valid regardless of concept identification method. The same SAE features")
-        print(f"  are described; only the concept-to-feature MAPPING changes.")
+        print(f"NOTE: Descriptions are per-feature (not per-concept), so they remain")
+        print(f"valid regardless of concept identification method. The same SAE features")
+        print(f"are described; only the concept-to-feature MAPPING changes.")
 
     print("\nDone.")
 

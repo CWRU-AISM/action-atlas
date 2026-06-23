@@ -39,11 +39,6 @@
   95% { opacity: 0.2; }
 }
 
-@keyframes eyePulse {
-  0%, 100% { filter: drop-shadow(0 0 2px #22d3ee); }
-  50% { filter: drop-shadow(0 0 5px #22d3ee); }
-}
-
 .robot-arm-wave {
   transform-origin: 44px 36px;
   animation: wave 2s ease-in-out 0.3s 1;
@@ -51,10 +46,6 @@
 
 .robot-antenna-blink {
   animation: blink 3s ease-in-out infinite;
-}
-
-.robot-eye {
-  animation: eyePulse 2s ease-in-out infinite;
 }
 
 .robot-wave:hover .robot-arm-wave {

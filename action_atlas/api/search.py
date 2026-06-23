@@ -3,17 +3,20 @@ from flask import Blueprint, request, jsonify
 from .helpers import *
 from .data_loaders import *
 import numpy as np
+import os
 import re
 from pathlib import Path
+
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
 search_bp = Blueprint("search", __name__)
 PI05_CONCEPT_ABLATION_DIR = Path(__file__).parent.parent / "results" / "experiment_results" / "pi05_concept_ablation"
 PI05_ABLATION_VIDEO_DIR = PI05_CONCEPT_ABLATION_DIR / "videos"
 PI05_PROBES_DIR = Path(__file__).parent.parent / "results" / "valid" / "probes"
 
-XVLA_STEERING_DIR = Path("/data/batch_1/xvla_concept_steering")
-SMOLVLA_CONCEPT_ID_DIR = Path("/data/smolvla_rollouts/concept_id")
-SMOLVLA_ABLATION_DIR = Path("/data/openvla_rollouts/smolvla/concept_ablation")
+XVLA_STEERING_DIR = DATA_ROOT / "batch_1" / "xvla_concept_steering"
+SMOLVLA_CONCEPT_ID_DIR = DATA_ROOT / "smolvla_rollouts" / "concept_id"
+SMOLVLA_ABLATION_DIR = DATA_ROOT / "openvla_rollouts" / "smolvla" / "concept_ablation"
 
 
 def _load_feature_embeddings(model_key):

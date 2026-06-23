@@ -36,7 +36,7 @@ def get_llm_config(llm_model):
             'api_base_url': 'https://www.neuronpedia.org/api/feature/gpt2-small',
             'api_url_format': '{base_url}/{layer}-res_post_32k-oai/{index}'
         }
-    else:  # 默认 gemma_2_2b
+    else:  # default gemma_2_2b
         return {
             'clustering_path': CLUSTERING_PATH,
             'explanations_embedding_path': EXPLANATIONS_EMBEDDING_PATH,
@@ -52,7 +52,7 @@ def get_llm_config(llm_model):
 
 
 def get_similar_features(layer, type_, feature_id, llm_model='gemma_2_2b'):
-    # 获取特征的相似特征列表
+    # Get the list of features similar to this one
     config = get_llm_config(llm_model)
     
     if config['similarities_path'] is None:  # The GPT2 model currently has no similarity data
@@ -197,7 +197,7 @@ def get_scatter_plot():
 
             if not os.path.exists(target_file_path):
                 print(f"Error: File does not exist: {target_file_path}")
-                raise FileNotFoundError(f"未找到文件: {target_file_path}")
+                raise FileNotFoundError(f"File not found: {target_file_path}")
 
             results = db.search_within_file(
                 query_vector,
@@ -268,7 +268,7 @@ def get_feature_detail():
             'status': 400,
             'error': {
                 'code': 'MISSING_PARAMETERS',
-                'message': '缺少必要参数'
+                'message': 'Missing required parameter'
             }
         }), 400
 
@@ -277,7 +277,7 @@ def get_feature_detail():
             'status': 400,
             'error': {
                 'code': 'INVALID_LLM',
-                'message': f'不支持的LLM模型: {llm_model}'
+                'message': f'Unsupported LLM model: {llm_model}'
             }
         }), 400
 

@@ -84,18 +84,14 @@ const FindingsIcon = () => (
 function VLALogo() {
   return (
     <div className="flex items-center mr-4">
-      {/* Clean modern logo with gradient accent */}
+      {/* Clean modern logo with brand accent */}
       <div className="relative">
-        {/* Glow effect behind */}
-        <div className="absolute inset-0 blur-lg opacity-30 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg" />
         <div className="relative flex items-baseline">
           <span
             className="text-3xl font-black tracking-tight"
             style={{
-              background: "linear-gradient(135deg, #ef4444 0%, #f97316 50%, #ef4444 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              fontFamily: "'Inter', system-ui, sans-serif",
+              color: "#ef4444",
+              fontFamily: "'Roboto', system-ui, sans-serif",
               letterSpacing: "-0.02em"
             }}
           >
@@ -104,7 +100,7 @@ function VLALogo() {
           <span
             className="text-3xl font-black tracking-tight text-slate-200"
             style={{
-              fontFamily: "'Inter', system-ui, sans-serif",
+              fontFamily: "'Roboto', system-ui, sans-serif",
               letterSpacing: "-0.02em"
             }}
           >
@@ -120,8 +116,8 @@ function VLALogo() {
         {/* Head */}
         <rect x="20" y="14" width="24" height="18" rx="5" fill="#1e293b" stroke="#475569" strokeWidth="1.5" />
         {/* Eyes */}
-        <circle cx="28" cy="23" r="3" fill="#22d3ee" className="robot-eye" />
-        <circle cx="36" cy="23" r="3" fill="#22d3ee" className="robot-eye" />
+        <circle cx="28" cy="23" r="3" fill="#22d3ee" />
+        <circle cx="36" cy="23" r="3" fill="#22d3ee" />
         {/* Eye highlights */}
         <circle cx="29" cy="22" r="1" fill="white" opacity="0.7" />
         <circle cx="37" cy="22" r="1" fill="white" opacity="0.7" />

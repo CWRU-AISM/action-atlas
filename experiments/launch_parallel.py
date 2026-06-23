@@ -80,11 +80,11 @@ def main():
         print("Specify --suites or --split-tasks")
         sys.exit(1)
 
-    print(f"\nLaunched {len(processes)} processes. Waiting...")
+    print(f"\nLaunched {len(processes)} processes. Waiting")
     for gpu, label, p in processes:
         p.wait()
         status = "OK" if p.returncode == 0 else f"FAILED (exit {p.returncode})"
-        print(f"  GPU {gpu} ({label}): {status}")
+        print(f"GPU {gpu} ({label}): {status}")
 
 
 if __name__ == "__main__":

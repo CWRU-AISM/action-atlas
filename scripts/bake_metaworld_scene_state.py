@@ -7,11 +7,11 @@ cross_task, vision_perturbation, counterfactual) and produces scene state JSONs
 compatible with the Action Atlas SceneState viewer.
 
 Data sources:
-  - /data/smolvla_rollouts/metaworld_baseline/         (baselines, 50 tasks x 20 eps)
-  - /data/smolvla_rollouts/metaworld_grid_ablation/     (grid ablation, 4 difficulties)
-  - /data/smolvla_rollouts/metaworld_cross_task/        (cross-task transfer, 4 difficulties)
-  - /data/smolvla_rollouts/metaworld_vision_perturbation/ (vision perturbation, 4 difficulties)
-  - /data/smolvla_rollouts/metaworld_counterfactual_v2/ (counterfactual, 4 difficulties)
+  - smolvla_rollouts/metaworld_baseline/         (baselines, 50 tasks x 20 eps)
+  - smolvla_rollouts/metaworld_grid_ablation/     (grid ablation, 4 difficulties)
+  - smolvla_rollouts/metaworld_cross_task/        (cross-task transfer, 4 difficulties)
+  - smolvla_rollouts/metaworld_vision_perturbation/ (vision perturbation, 4 difficulties)
+  - smolvla_rollouts/metaworld_counterfactual_v2/ (counterfactual, 4 difficulties)
 
 Output: action_atlas/data/smolvla_scene_state/metaworld_{type}.json
 
@@ -32,9 +32,9 @@ For MetaWorld we produce:
           cond_name: { success_rate, n_episodes, successes }
       }}
   ]}
-  - cross_task: { suite, type, model, difficulty, pairs: [...] }
-  - vision_perturbation: { suite, type, model, difficulty, tasks: [...] }
-  - counterfactual: { suite, type, model, difficulty, tasks: [...] }
+  - cross_task: { suite, type, model, difficulty, pairs: [] }
+  - vision_perturbation: { suite, type, model, difficulty, tasks: [] }
+  - counterfactual: { suite, type, model, difficulty, tasks: [] }
 
 Usage:
     python scripts/bake_metaworld_scene_state.py
@@ -51,7 +51,9 @@ from pathlib import Path
 
 import numpy as np
 
-BATCH2_DIR = Path("/data/smolvla_rollouts")
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+
+BATCH2_DIR = DATA_ROOT / "smolvla_rollouts"
 OUTPUT_DIR = Path("action_atlas/data/smolvla_scene_state")
 
 DIFFICULTIES = ["easy", "medium", "hard_v2", "very_hard_v2"]
@@ -124,7 +126,7 @@ def bake_baseline(dry_run=False):
     traj_dir = base_dir / "trajectories"
 
     if not results_path.exists():
-        print("  [SKIP] No baseline results.json")
+        print("[SKIP] No baseline results.json")
         return
 
     with open(results_path) as f:
@@ -174,7 +176,7 @@ def bake_baseline(dry_run=False):
                     trials.append(trial)
                     total_trials += 1
                 except Exception as e:
-                    print(f"    Error reading {ep_json}: {e}")
+                    print(f"Error reading {ep_json}: {e}")
                     continue
 
         n_success = sum(1 for t in trials if t.get("success"))
@@ -200,14 +202,14 @@ def bake_baseline(dry_run=False):
         "tasks": tasks,
     }
 
-    print(f"  Baseline: {len(tasks)} tasks, {total_trials} trials, {total_with_traj} with trajectories")
+    print(f"Baseline: {len(tasks)} tasks, {total_trials} trials, {total_with_traj} with trajectories")
 
     if not dry_run:
         out_path = OUTPUT_DIR / "metaworld_baseline.json"
         with open(out_path, "w") as f:
             json.dump(output, f)
         sz = out_path.stat().st_size
-        print(f"  Wrote {out_path} ({sz / 1024:.0f} KB)")
+        print(f"Wrote {out_path} ({sz / 1024:.0f} KB)")
     return output
 # 2. GRID ABLATION
 def bake_grid_ablation(dry_run=False):
@@ -224,7 +226,7 @@ def bake_grid_ablation(dry_run=False):
         diff_dir = grid_dir / diff
         results_path = diff_dir / "results.json"
         if not results_path.exists():
-            print(f"  [SKIP] No grid_ablation/{diff}/results.json")
+            print(f"[SKIP] No grid_ablation/{diff}/results.json")
             continue
 
         with open(results_path) as f:
@@ -316,14 +318,14 @@ def bake_grid_ablation(dry_run=False):
         n_conds = len(conditions)
         n_tasks = len(tasks)
         n_traj_tasks = sum(1 for t in tasks if t.get("condition_trials"))
-        print(f"  Grid ablation {diff_label}: {n_tasks} tasks, {n_conds} conditions, {n_traj_tasks} tasks with trajectories")
+        print(f"Grid ablation {diff_label}: {n_tasks} tasks, {n_conds} conditions, {n_traj_tasks} tasks with trajectories")
 
         if not dry_run:
             out_path = OUTPUT_DIR / f"metaworld_{diff_label}_grid_ablation.json"
             with open(out_path, "w") as f:
                 json.dump(output, f)
             sz = out_path.stat().st_size
-            print(f"    Wrote {out_path} ({sz / 1024:.0f} KB)")
+            print(f"Wrote {out_path} ({sz / 1024:.0f} KB)")
 
     # Combined file
     if all_difficulties and not dry_run:
@@ -337,7 +339,7 @@ def bake_grid_ablation(dry_run=False):
         with open(out_path, "w") as f:
             json.dump(combined, f)
         sz = out_path.stat().st_size
-        print(f"  Combined grid ablation: {out_path} ({sz / 1024:.0f} KB)")
+        print(f"Combined grid ablation: {out_path} ({sz / 1024:.0f} KB)")
 # 3. CROSS-TASK TRANSFER
 def bake_cross_task(dry_run=False):
     # Bake cross-task transfer scene state for all difficulty levels
@@ -351,7 +353,7 @@ def bake_cross_task(dry_run=False):
 
         cross_files = sorted(diff_dir.glob("cross_task_*.json"))
         if not cross_files:
-            print(f"  [SKIP] No cross-task files in {diff}")
+            print(f"[SKIP] No cross-task files in {diff}")
             continue
 
         pairs = []
@@ -392,7 +394,7 @@ def bake_cross_task(dry_run=False):
                 pair["conditions"] = conditions
                 pairs.append(pair)
             except Exception as e:
-                print(f"    Error reading {cf}: {e}")
+                print(f"Error reading {cf}: {e}")
                 continue
 
         diff_label = DIFFICULTY_LABELS.get(diff, diff)
@@ -406,14 +408,14 @@ def bake_cross_task(dry_run=False):
         }
         all_difficulties[diff_label] = output
 
-        print(f"  Cross-task {diff_label}: {len(pairs)} pairs")
+        print(f"Cross-task {diff_label}: {len(pairs)} pairs")
 
         if not dry_run:
             out_path = OUTPUT_DIR / f"metaworld_{diff_label}_cross_task.json"
             with open(out_path, "w") as f:
                 json.dump(output, f)
             sz = out_path.stat().st_size
-            print(f"    Wrote {out_path} ({sz / 1024:.0f} KB)")
+            print(f"Wrote {out_path} ({sz / 1024:.0f} KB)")
 
     if all_difficulties and not dry_run:
         combined = {
@@ -426,7 +428,7 @@ def bake_cross_task(dry_run=False):
         with open(out_path, "w") as f:
             json.dump(combined, f)
         sz = out_path.stat().st_size
-        print(f"  Combined cross-task: {out_path} ({sz / 1024:.0f} KB)")
+        print(f"Combined cross-task: {out_path} ({sz / 1024:.0f} KB)")
 # 4. VISION PERTURBATION
 def bake_vision_perturbation(dry_run=False):
     """
@@ -441,7 +443,7 @@ def bake_vision_perturbation(dry_run=False):
         diff_dir = vp_dir / diff
         results_path = diff_dir / "results.json"
         if not results_path.exists():
-            print(f"  [SKIP] No vision_perturbation/{diff}/results.json")
+            print(f"[SKIP] No vision_perturbation/{diff}/results.json")
             continue
 
         with open(results_path) as f:
@@ -531,14 +533,14 @@ def bake_vision_perturbation(dry_run=False):
 
         n_tasks = len(tasks)
         n_traj = sum(1 for t in tasks if t.get("condition_trials"))
-        print(f"  Vision perturbation {diff_label}: {n_tasks} tasks, {len(perturbations)} perturbations, {n_traj} tasks with trajectories")
+        print(f"Vision perturbation {diff_label}: {n_tasks} tasks, {len(perturbations)} perturbations, {n_traj} tasks with trajectories")
 
         if not dry_run:
             out_path = OUTPUT_DIR / f"metaworld_{diff_label}_vision_perturbation.json"
             with open(out_path, "w") as f:
                 json.dump(output, f)
             sz = out_path.stat().st_size
-            print(f"    Wrote {out_path} ({sz / 1024:.0f} KB)")
+            print(f"Wrote {out_path} ({sz / 1024:.0f} KB)")
 
     if all_difficulties and not dry_run:
         combined = {
@@ -551,7 +553,7 @@ def bake_vision_perturbation(dry_run=False):
         with open(out_path, "w") as f:
             json.dump(combined, f)
         sz = out_path.stat().st_size
-        print(f"  Combined vision perturbation: {out_path} ({sz / 1024:.0f} KB)")
+        print(f"Combined vision perturbation: {out_path} ({sz / 1024:.0f} KB)")
 # 5. COUNTERFACTUAL
 def bake_counterfactual(dry_run=False):
     """
@@ -572,7 +574,7 @@ def bake_counterfactual(dry_run=False):
         meta_path = cf_dir / "metadata.jsonl"
         traj_dir = cf_dir / "trajectories"
         if not meta_path.exists():
-            print(f"  [SKIP] No counterfactual metadata for {diff_label}")
+            print(f"[SKIP] No counterfactual metadata for {diff_label}")
             continue
 
         # Read metadata
@@ -676,14 +678,14 @@ def bake_counterfactual(dry_run=False):
         }
         all_difficulties[diff_label] = output
 
-        print(f"  Counterfactual {diff_label}: {len(tasks)} tasks, {len(records)} records, {total_with_traj} with trajectories")
+        print(f"Counterfactual {diff_label}: {len(tasks)} tasks, {len(records)} records, {total_with_traj} with trajectories")
 
         if not dry_run:
             out_path = OUTPUT_DIR / f"metaworld_{diff_label}_counterfactual.json"
             with open(out_path, "w") as f:
                 json.dump(output, f)
             sz = out_path.stat().st_size
-            print(f"    Wrote {out_path} ({sz / 1024:.0f} KB)")
+            print(f"Wrote {out_path} ({sz / 1024:.0f} KB)")
 
     if all_difficulties and not dry_run:
         combined = {
@@ -696,7 +698,7 @@ def bake_counterfactual(dry_run=False):
         with open(out_path, "w") as f:
             json.dump(combined, f)
         sz = out_path.stat().st_size
-        print(f"  Combined counterfactual: {out_path} ({sz / 1024:.0f} KB)")
+        print(f"Combined counterfactual: {out_path} ({sz / 1024:.0f} KB)")
 def main():
     parser = argparse.ArgumentParser(
         description="Bake MetaWorld scene state JSONs for Action Atlas"
@@ -725,9 +727,7 @@ def main():
         bakers = {args.only: bakers[args.only]}
 
     for name, baker_fn in bakers.items():
-        print(f"\n{'='*60}")
-        print(f"Baking {name}...")
-        print(f"{'='*60}")
+        print(f"Baking {name}")
         baker_fn(dry_run=args.dry_run)
 
     print(f"\nDone! Output directory: {OUTPUT_DIR}")
@@ -736,7 +736,7 @@ def main():
         print("\nGenerated files:")
         for f in sorted(OUTPUT_DIR.glob("metaworld_*.json")):
             sz = f.stat().st_size
-            print(f"  {f.name} ({sz / 1024:.0f} KB)")
+            print(f"{f.name} ({sz / 1024:.0f} KB)")
 
 
 if __name__ == "__main__":

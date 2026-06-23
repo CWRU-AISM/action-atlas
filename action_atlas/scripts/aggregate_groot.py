@@ -26,7 +26,7 @@ def aggregate_groot() -> dict:
     for suite in GROOT_SUITES:
         suite_dir = GROOT_MAIN_DIR / suite
 
-        # --- Baselines ---
+        # Baselines
         baseline_path = suite_dir / "baseline" / "results.json"
         data = safe_load_json(baseline_path)
         if data:
@@ -51,29 +51,29 @@ def aggregate_groot() -> dict:
                 ),
             }
 
-        # --- Grid Ablation ---
+        # Grid Ablation
         grid_path = suite_dir / "grid_ablation" / "grid_results.json"
         data = safe_load_json(grid_path)
         if data:
             result["grid_ablation"][suite] = _extract_groot_grid(data)
 
-        # --- Counterfactual ---
+        # Counterfactual
         cf_dir = suite_dir / "counterfactual"
         if cf_dir.is_dir():
             result["counterfactual"][suite] = _aggregate_groot_counterfactual(cf_dir, suite)
 
-        # --- Cross-Task ---
+        # Cross-Task
         ct_path = suite_dir / "cross_task" / "results.json"
         data = safe_load_json(ct_path)
         if data:
             result["cross_task"][suite] = _extract_groot_cross_task(data)
 
-        # --- Visual Perturbation ---
+        # Visual Perturbation
         vp_dir = suite_dir / "visual_perturbation"
         if vp_dir.is_dir():
             result["vision_perturbation"][suite] = _aggregate_groot_vision(vp_dir, suite)
 
-    # --- Fraction to Failure (batch2) ---
+    # Fraction to Failure (batch2)
     ftf_dir = GROOT_BATCH2_DIR / "sae_fraction_to_failure"
     if ftf_dir.is_dir():
         for suite in GROOT_SUITES:
@@ -81,7 +81,7 @@ def aggregate_groot() -> dict:
             if suite_ftf_dir.is_dir():
                 result["fraction_to_failure"][suite] = _aggregate_groot_ftf(suite_ftf_dir, suite)
 
-    # --- Steering (batch2) ---
+    # Steering (batch2)
     steer_dir = GROOT_BATCH2_DIR / "sae_steering"
     if steer_dir.is_dir():
         for suite in GROOT_SUITES:
@@ -89,7 +89,7 @@ def aggregate_groot() -> dict:
             if suite_steer_dir.is_dir():
                 result["steering"][suite] = _aggregate_groot_steering(suite_steer_dir, suite)
 
-    # --- Temporal Ablation (batch2) ---
+    # Temporal Ablation (batch2)
     temp_dir = GROOT_BATCH2_DIR / "sae_temporal_ablation"
     if temp_dir.is_dir():
         for suite in GROOT_SUITES:
@@ -97,7 +97,7 @@ def aggregate_groot() -> dict:
             if suite_temp_dir.is_dir():
                 result["temporal_ablation"][suite] = _aggregate_groot_temporal(suite_temp_dir, suite)
 
-    # --- Cross-Suite Ablation (batch2) ---
+    # Cross-Suite Ablation (batch2)
     cs_dir = GROOT_BATCH2_DIR / "sae_cross_suite_ablation"
     if cs_dir.is_dir():
         for json_file in sorted(cs_dir.glob("*.json")):
@@ -320,7 +320,7 @@ def _aggregate_groot_steering(suite_dir: Path, suite: str) -> dict:
         baseline: { task_id: { task_desc, success_rate, successes } }
         groups: {
             group_name: {
-                features: [...],
+                features: [],
                 n_features: N,
                 strengths: {
                     strength: {
@@ -467,9 +467,7 @@ def main():
             print(f"WARNING: Unknown model '{model}', skipping")
             continue
 
-        print(f"\n{'='*60}")
-        print(f"Aggregating {model}...")
-        print(f"{'='*60}")
+        print(f"Aggregating {model}")
 
         try:
             data = AGGREGATORS[model]()
@@ -493,8 +491,8 @@ def main():
 
 def _print_summary(model: str, data: dict, file_size: int):
     # Print a summary of what was aggregated
-    print(f"\n  Model: {data.get('model_name', model)}")
-    print(f"  File size: {file_size / 1024:.1f} KB")
+    print(f"Model: {data.get('model_name', model)}")
+    print(f"File size: {file_size / 1024:.1f} KB")
 
     sections = [
         "baselines", "grid_ablation", "counterfactual", "cross_task",
@@ -507,9 +505,9 @@ def _print_summary(model: str, data: dict, file_size: int):
         if sdata:
             if isinstance(sdata, dict):
                 n_keys = len(sdata)
-                print(f"  {section}: {n_keys} entries")
+                print(f"{section}: {n_keys} entries")
             else:
-                print(f"  {section}: present")
+                print(f"{section}: present")
 
 
 if __name__ == "__main__":

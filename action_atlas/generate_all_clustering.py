@@ -32,12 +32,12 @@ def process_aggregate_file(agg_path: Path, model: str, output_dir: Path):
     for layer_key, layer_data in data.items():
         descs_dict = layer_data.get("descriptions", {})
         if not descs_dict or len(descs_dict) < 3:
-            print(f"  Skipping {layer_key}: only {len(descs_dict)} descriptions")
+            print(f"Skipping {layer_key}: only {len(descs_dict)} descriptions")
             continue
 
         feature_indices = list(descs_dict.keys())
         descriptions = list(descs_dict.values())
-        print(f"  {layer_key}: {len(descriptions)} features")
+        print(f"{layer_key}: {len(descriptions)} features")
 
         # Embeddings
         embeddings = get_embeddings(descriptions, use_sbert=True)
@@ -114,41 +114,35 @@ def process_aggregate_file(agg_path: Path, model: str, output_dir: Path):
             combined = np.vstack(all_embeddings)
             build_faiss_index(combined, output_dir)
 
-    print(f"  Done: {output_dir}")
+    print(f"Done: {output_dir}")
 
 
 def main():
-    # ===== GR00T =====
+    # GR00T
     groot_desc_dir = DESC_DIR / "groot"
     groot_out_dir = OUT_DIR / "groot"
     groot_agg_files = sorted(groot_desc_dir.glob("all_descriptions_groot_*.json"))
-    print(f"\n{'='*60}")
     print(f"GR00T: {len(groot_agg_files)} aggregate files")
-    print(f"{'='*60}")
     for agg in groot_agg_files:
-        print(f"\nProcessing {agg.name}...")
+        print(f"Processing {agg.name}")
         process_aggregate_file(agg, "groot", groot_out_dir)
 
-    # ===== SmolVLA =====
+    # SmolVLA
     smolvla_desc_dir = DESC_DIR / "smolvla"
     smolvla_out_dir = OUT_DIR / "smolvla"
     smolvla_agg_files = sorted(smolvla_desc_dir.glob("all_descriptions_smolvla_*.json"))
-    print(f"\n{'='*60}")
     print(f"SmolVLA: {len(smolvla_agg_files)} aggregate files")
-    print(f"{'='*60}")
     for agg in smolvla_agg_files:
-        print(f"\nProcessing {agg.name}...")
+        print(f"Processing {agg.name}")
         process_aggregate_file(agg, "smolvla", smolvla_out_dir)
 
-    # ===== Summary =====
-    print(f"\n{'='*60}")
+    # Summary
     print("SUMMARY")
-    print(f"{'='*60}")
     for model_dir in [groot_out_dir, smolvla_out_dir]:
         if model_dir.exists():
             npz_files = list(model_dir.glob("hierarchical_clustering_*.npz"))
             emb_files = list(model_dir.glob("*-embedding.npz"))
-            print(f"  {model_dir.name}: {len(npz_files)} clustering + {len(emb_files)} embedding files")
+            print(f"{model_dir.name}: {len(npz_files)} clustering + {len(emb_files)} embedding files")
 
 
 if __name__ == "__main__":

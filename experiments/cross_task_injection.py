@@ -99,7 +99,7 @@ def capture_activations(adapter, suite, task_ids, layers, max_steps, seed, outpu
     for tid in task_ids:
         task_file = capture_dir / f"task{tid}.pt"
         if task_file.exists():
-            print(f"  [SKIP] Task {tid} already captured")
+            print(f"[SKIP] Task {tid} already captured")
             continue
 
         _, task_obj, task_desc = all_tasks[tid]
@@ -125,7 +125,7 @@ def capture_activations(adapter, suite, task_ids, layers, max_steps, seed, outpu
             if hook.activations:
                 captured[label] = hook.activations
         torch.save(captured, task_file)
-        print(f"  Task {tid}: {len(captured)} layers, "
+        print(f"Task {tid}: {len(captured)} layers, "
               f"{sum(len(v) for v in captured.values())} total activations, "
               f"success={ep_result['success']}")
 
@@ -153,13 +153,13 @@ def inject_activations(adapter, suite, pairs, capture_dir, layers, max_steps, se
             result_json = pair_dir / "results.json"
 
             if result_json.exists():
-                print(f"  [SKIP] {pair_label}")
+                print(f"[SKIP] {pair_label}")
                 continue
 
             # Load source activations
             src_file = capture_dir / f"task{src}.pt"
             if not src_file.exists():
-                print(f"  [SKIP] {pair_label}: no capture for task {src}")
+                print(f"[SKIP] {pair_label}: no capture for task {src}")
                 continue
 
             src_activations = torch.load(src_file, map_location="cpu")
@@ -208,7 +208,7 @@ def inject_activations(adapter, suite, pairs, capture_dir, layers, max_steps, se
                 result["scene_summary"] = summarize_scene(ep_result["scene_states"])
 
             save_results(result, result_json)
-            print(f"  {pair_label}: success={ep_result['success']}, "
+            print(f"{pair_label}: success={ep_result['success']}, "
                   f"steps={ep_result['steps']}")
 
             for h in handles:
@@ -255,7 +255,7 @@ def main(cfg):
 
     # Phase 1: Capture
     if cfg.phase in ("capture", "both"):
-        print("\nPhase 1: Capturing activations...")
+        print("\nPhase 1: Capturing activations")
         capture_dir = capture_activations(
             adapter, cfg.suite, task_ids, layers,
             max_steps, cfg.seed, output_dir,
@@ -272,7 +272,7 @@ def main(cfg):
             pairs = [(a, b) for i, a in enumerate(task_ids)
                      for b in task_ids[i+1:]]
 
-        print(f"\nPhase 2: Injecting across {len(pairs)} pairs...")
+        print(f"\nPhase 2: Injecting across {len(pairs)} pairs")
         inject_activations(
             adapter, cfg.suite, pairs, capture_dir, layers,
             max_steps, cfg.seed, output_dir, cfg.record_video,

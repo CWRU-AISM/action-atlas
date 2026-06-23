@@ -23,6 +23,8 @@ from typing import Any, Dict, List, Optional, Tuple
 import numpy as np
 import torch
 
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+
 PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "lerobot" / "src"))
@@ -628,13 +630,13 @@ class OpenVLAOFTAdapter(ModelAdapter):
     @property
     def default_checkpoints(self):
         return {
-            "libero_spatial": "/data/checkpoints/openvla-oft-spatial",
-            "libero_object": "/data/checkpoints/openvla-oft-object",
-            "libero_goal": "/data/checkpoints/openvla-oft-goal",
-            "libero_10": "/data/checkpoints/openvla-oft-10",
+            "libero_spatial": str(DATA_ROOT / "checkpoints/openvla-oft-spatial"),
+            "libero_object": str(DATA_ROOT / "checkpoints/openvla-oft-object"),
+            "libero_goal": str(DATA_ROOT / "checkpoints/openvla-oft-goal"),
+            "libero_10": str(DATA_ROOT / "checkpoints/openvla-oft-10"),
         }
 
-    def load_model(self, checkpoint="/data/checkpoints/openvla-oft-goal", device="cuda"):
+    def load_model(self, checkpoint=str(DATA_ROOT / "checkpoints/openvla-oft-goal"), device="cuda"):
         os.environ.setdefault("TORCH_COMPILE_DISABLE", "1")
         os.environ.setdefault("MUJOCO_GL", "egl")
         checkpoint = _resolve_checkpoint(checkpoint)

@@ -64,7 +64,7 @@ def main(cfg):
     print(f"Tasks: {len(tasks)}, Episodes: {cfg.n_episodes}")
     print(f"Output: {output_dir}")
 
-    print("\nLoading model...")
+    print("\nLoading model")
     policy, preprocessor, postprocessor = load_smolvla_policy(
         cfg.checkpoint, device)
 
@@ -118,7 +118,7 @@ def main(cfg):
 
         for task_name in tasks:
             if task_name in cond_results and len(cond_results[task_name].get('episodes', [])) >= cfg.n_episodes:
-                print(f"  {task_name}: SKIP (exists)")
+                print(f"{task_name}: SKIP (exists)")
                 continue
 
             task_desc = TASK_DESCRIPTIONS.get(task_name, task_name)
@@ -163,7 +163,7 @@ def main(cfg):
                     save_video_frames(vid_dir / f"ep{ep:02d}.mp4", result['frames'], fps=10)
 
             success_rate = sum(successes) / len(successes)
-            print(f"  {task_name}: {success_rate*100:.0f}% ({sum(successes)}/{len(successes)})")
+            print(f"{task_name}: {success_rate*100:.0f}% ({sum(successes)}/{len(successes)})")
 
             cond_results[task_name] = {
                 'task_description': task_desc,

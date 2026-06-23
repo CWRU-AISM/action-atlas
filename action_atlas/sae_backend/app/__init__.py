@@ -11,7 +11,7 @@ from backend_adapter import vla_bp
 def create_app():
     app = Flask(__name__)
 
-    # 注册蓝图
+    # Register blueprints
     app.register_blueprint(input_bp)
     app.register_blueprint(explore_bp)
     app.register_blueprint(validate_bp)
@@ -19,7 +19,7 @@ def create_app():
     # Register VLA routes
     app.register_blueprint(vla_bp)
 
-    # 注册错误处理
+    # Register error handlers
     register_error_handlers(app)
 
     return app

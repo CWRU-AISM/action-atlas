@@ -104,7 +104,7 @@ def main(cfg):
     task_suite, all_tasks = adapter.setup_suite(cfg.suite)
     task_ids = cfg.tasks if cfg.tasks else list(range(len(all_tasks)))
 
-    print(f"  perturbations: {len(perturbations)}, tasks: {len(task_ids)}, "
+    print(f"perturbations: {len(perturbations)}, tasks: {len(task_ids)}, "
           f"episodes/cell: {cfg.n_episodes}")
 
     results = {}
@@ -119,7 +119,7 @@ def main(cfg):
         existing = load_results(p_json)
 
         if existing:
-            print(f"  [SKIP] Already completed")
+            print(f"[SKIP] Already completed")
             results[p_name] = existing
             continue
 
@@ -147,7 +147,7 @@ def main(cfg):
                 env.close()
 
             rate = successes / cfg.n_episodes
-            print(f"  Task {tid}: {rate:.0%} ({desc})")
+            print(f"Task {tid}: {rate:.0%} ({desc})")
             p_results[str(tid)] = {
                 "task_description": desc,
                 "success_rate": rate,
@@ -166,12 +166,11 @@ def main(cfg):
 
     print(f"\nVision Perturbation Results ({cfg.model} / {cfg.suite})")
     print(f"{'Perturbation':<25} {'Avg SR':>8} {'Delta':>8}")
-    print("-" * 42)
     for p_name, _ in perturbations:
         if p_name in results:
             avg = results[p_name].get("_avg_success_rate", 0)
             delta = avg - baseline_avg
-            print(f"  {p_name:<23} {avg:>7.0%} {delta:>+7.0%}")
+            print(f"{p_name:<23} {avg:>7.0%} {delta:>+7.0%}")
 
     summary = {
         "model": cfg.model,

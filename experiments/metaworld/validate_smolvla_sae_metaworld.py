@@ -117,7 +117,7 @@ def main(cfg):
             results = json.load(f)
         print(f"Resuming from {out_path} ({len(results)} entries)")
 
-    print("Loading SmolVLA MetaWorld model...")
+    print("Loading SmolVLA MetaWorld model")
     policy, preprocessor, postprocessor = load_smolvla_policy(
         cfg.checkpoint, device, cfg.action_horizon)
 
@@ -142,10 +142,10 @@ def main(cfg):
                 task_s += int(success)
                 total += 1
                 status = "OK" if success else "FAIL"
-                print(f"  {task_name} ep{ep}: {status} ({steps})")
+                print(f"{task_name} ep{ep}: {status} ({steps})")
             per_task[task_name] = task_s / cfg.n_episodes
         rate = successes / total if total > 0 else 0
-        print(f"  Baseline: {successes}/{total} = {rate:.1%}")
+        print(f"Baseline: {successes}/{total} = {rate:.1%}")
         results['baseline'] = {'successes': successes, 'total': total, 'rate': rate, 'per_task': per_task}
         with open(out_path, 'w') as f:
             json.dump(results, f, indent=2)
@@ -179,7 +179,7 @@ def main(cfg):
                 task_s += int(success)
                 total += 1
                 status = "OK" if success else "FAIL"
-                print(f"  {task_name} ep{ep}: {status} ({steps})")
+                print(f"{task_name} ep{ep}: {status} ({steps})")
             per_task[task_name] = task_s / cfg.n_episodes
 
         hook.remove()
@@ -187,7 +187,7 @@ def main(cfg):
         rate = successes / total if total > 0 else 0
         baseline_rate = results.get('baseline', {}).get('rate', 0)
         fidelity = rate / baseline_rate if baseline_rate > 0 else float('inf')
-        print(f"  {key}: {successes}/{total} = {rate:.1%} (fidelity={fidelity:.2f})")
+        print(f"{key}: {successes}/{total} = {rate:.1%} (fidelity={fidelity:.2f})")
 
         results[key] = {
             'successes': successes, 'total': total, 'rate': rate,
@@ -199,10 +199,10 @@ def main(cfg):
 
     print(f"\nSUMMARY")
     baseline_rate = results.get('baseline', {}).get('rate', 0)
-    print(f"  baseline: {baseline_rate:.1%}")
+    print(f"baseline: {baseline_rate:.1%}")
     for key in sorted(k for k in results if k != 'baseline'):
         r = results[key]
-        print(f"  {key}: {r['rate']:.1%} (fidelity={r.get('fidelity', 'N/A')})")
+        print(f"{key}: {r['rate']:.1%} (fidelity={r.get('fidelity', 'N/A')})")
     print(f"\nResults: {out_path}")
 
 

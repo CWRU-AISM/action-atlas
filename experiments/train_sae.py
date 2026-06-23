@@ -143,8 +143,8 @@ def train_sae_on_activations(activations: torch.Tensor, cfg: TrainSAEConfig) -> 
 
     n_samples = activations_norm.shape[0]
     hidden_dim = int(input_dim * cfg.expansion)
-    print(f"  Training: {n_samples:,} samples, dim={input_dim}")
-    print(f"  SAE: {input_dim} -> {hidden_dim} (k={cfg.k})")
+    print(f"Training: {n_samples:,} samples, dim={input_dim}")
+    print(f"SAE: {input_dim} -> {hidden_dim} (k={cfg.k})")
 
     sae = TopKSAE(input_dim, cfg.expansion, cfg.k).to(cfg.device)
     optimizer = optim.Adam(sae.parameters(), lr=cfg.lr)
@@ -192,11 +192,11 @@ def train_sae_on_activations(activations: torch.Tensor, cfg: TrainSAEConfig) -> 
             wait += 1
 
         if epoch % 5 == 0 or epoch == cfg.epochs - 1 or wait >= cfg.patience:
-            print(f"  Epoch {epoch:3d}: loss={avg_loss:.6f} EV={ev:.4f} "
+            print(f"Epoch {epoch:3d}: loss={avg_loss:.6f} EV={ev:.4f} "
                   f"L0={l0:.0f} dead={dead_frac:.3f} patience={wait}/{cfg.patience}")
 
         if wait >= cfg.patience:
-            print(f"  Early stopping at epoch {epoch}")
+            print(f"Early stopping at epoch {epoch}")
             break
 
     return {
@@ -231,10 +231,10 @@ def main(cfg: TrainSAEConfig):
             raise FileNotFoundError(f"No .pt files found under {act_dir}")
 
     print(f"SAE Training")
-    print(f"  activations: {act_dir}")
-    print(f"  layers: {len(layer_names)}")
-    print(f"  SAE: expansion={cfg.expansion}, k={cfg.k}")
-    print(f"  output: {output_dir}")
+    print(f"activations: {act_dir}")
+    print(f"layers: {len(layer_names)}")
+    print(f"SAE: expansion={cfg.expansion}, k={cfg.k}")
+    print(f"output: {output_dir}")
 
     results = {}
     for layer_name in layer_names:
@@ -243,12 +243,12 @@ def main(cfg: TrainSAEConfig):
         # Check if already trained
         layer_dir = output_dir / layer_name
         if (layer_dir / "sae_best.pt").exists():
-            print(f"  [SKIP] Already trained")
+            print(f"[SKIP] Already trained")
             continue
 
         activations = load_activations(act_dir, layer_name, cfg.max_samples)
         if activations is None or len(activations) == 0:
-            print(f"  [SKIP] No activations found")
+            print(f"[SKIP] No activations found")
             continue
 
         result = train_sae_on_activations(activations, cfg)
@@ -267,7 +267,7 @@ def main(cfg: TrainSAEConfig):
             "epochs_trained": final["epoch"] + 1,
         }
         results[layer_name] = layer_result
-        print(f"  Saved: {layer_dir}/sae_best.pt "
+        print(f"Saved: {layer_dir}/sae_best.pt "
               f"(loss={result['best_loss']:.6f}, EV={final['explained_var']:.4f})")
 
         del activations, result

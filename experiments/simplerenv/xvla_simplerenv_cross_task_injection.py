@@ -85,7 +85,7 @@ def main(cfg):
     print(f"Tasks: {task_names}")
     print(f"Output: {output_dir}")
 
-    print("\nLoading X-VLA model...")
+    print("\nLoading X-VLA model")
     policy, tokenizer = load_xvla_policy(cfg.model, checkpoint, device)
     transformer_blocks = policy.model.transformer.blocks
     n_blocks = len(transformer_blocks)
@@ -98,7 +98,7 @@ def main(cfg):
         env.close()
     print("\nTask prompts:")
     for i, prompt in task_prompts.items():
-        print(f"  {i}: {task_names[i]} -> \"{prompt}\"")
+        print(f"{i}: {task_names[i]} -> \"{prompt}\"")
 
     for task_a, task_b in task_pairs:
         pair_key = f"pair_{task_a}_{task_b}"
@@ -107,7 +107,7 @@ def main(cfg):
 
         pair_json = pair_dir / "pair_result.json"
         if pair_json.exists():
-            print(f"\n  [SKIP] {pair_key}")
+            print(f"\n[SKIP] {pair_key}")
             continue
 
         print(f"PAIR: {task_names[task_a]} <-> {task_names[task_b]}")
@@ -128,11 +128,11 @@ def main(cfg):
             src_prompt = task_prompts[src_tid]
             dst_prompt = task_prompts[dst_tid]
 
-            print(f"\n  {direction}")
-            print(f"    SRC: {src_name} ({src_prompt})")
-            print(f"    DST: {dst_name} ({dst_prompt})")
+            print(f"\n{direction}")
+            print(f"SRC: {src_name} ({src_prompt})")
+            print(f"DST: {dst_name} ({dst_prompt})")
 
-            print(f"\n    Capturing source baseline...")
+            print(f"\nCapturing source baseline")
             src_env = simpler_env.make(src_name, max_episode_steps=cfg.max_steps)
 
             transformer_hooks = {}
@@ -165,10 +165,10 @@ def main(cfg):
             del transformer_hooks, handles
             torch.cuda.empty_cache()
 
-            print(f"      Source: {src_result['steps']} steps, success={src_result['success']}")
+            print(f"Source: {src_result['steps']} steps, success={src_result['success']}")
             src_env.close()
 
-            print(f"    Capturing destination baseline...")
+            print(f"Capturing destination baseline")
             dst_env = simpler_env.make(dst_name, max_episode_steps=cfg.max_steps)
 
             dst_result = run_episode(
@@ -178,7 +178,7 @@ def main(cfg):
                 task_name=dst_name, episode_id=0, robot_type=cfg.model,
                 collect_step_infos=False,
             )
-            print(f"      Dest: {dst_result['steps']} steps, success={dst_result['success']}")
+            print(f"Dest: {dst_result['steps']} steps, success={dst_result['success']}")
 
             conditions = [
                 ("own_prompt_no_inject", dst_prompt, None),
@@ -220,7 +220,7 @@ def main(cfg):
                 total_inj = sum(h.injection_count for h in inj_hooks) if inj_hooks else 0
                 total_mm = sum(h.shape_mismatches for h in inj_hooks) if inj_hooks else 0
 
-                print(f"    {cond_label}: {result['steps']} steps, "
+                print(f"{cond_label}: {result['steps']} steps, "
                       f"cos_src={comp_src['cosine']:.4f}, cos_dst={comp_dst['cosine']:.4f}, "
                       f"success={result['success']}")
 
@@ -264,7 +264,7 @@ def main(cfg):
 
         with open(pair_json, "w") as f:
             json.dump(pair_results, f, indent=2)
-        print(f"    [SAVED] {pair_json}")
+        print(f"[SAVED] {pair_json}")
 
     print("CROSS-TASK INJECTION SUMMARY")
     for task_a, task_b in task_pairs:
@@ -273,14 +273,14 @@ def main(cfg):
             continue
         with open(pair_json) as f:
             pr = json.load(f)
-        print(f"\n  {task_names[task_a]} <-> {task_names[task_b]}:")
+        print(f"\n{task_names[task_a]} <-> {task_names[task_b]}:")
         for dk in [f"inject_{task_a}_into_{task_b}", f"inject_{task_b}_into_{task_a}"]:
             dr = pr.get(dk, {})
             if not dr:
                 continue
-            print(f"    {dk}:")
+            print(f"{dk}:")
             for cl, d in dr.items():
-                print(f"      {cl:<35} cos_src={d['cos_to_src']:.4f} cos_dst={d['cos_to_dst']:.4f} suc={'Y' if d['success'] else 'N'}")
+                print(f"{cl:<35} cos_src={d['cos_to_src']:.4f} cos_dst={d['cos_to_dst']:.4f} suc={'Y' if d['success'] else 'N'}")
 
     print(f"\nResults saved to: {output_dir}")
 

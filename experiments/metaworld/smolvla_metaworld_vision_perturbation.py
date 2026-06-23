@@ -256,7 +256,7 @@ def main(cfg):
     print(f"Device: {device}, Output: {output_dir}")
     print(f"Perturbations: {', '.join(perturbation_names)}")
 
-    print("\nLoading model...")
+    print("\nLoading model")
     policy, preprocessor, postprocessor = load_smolvla_policy(
         cfg.checkpoint, device)
 
@@ -283,7 +283,7 @@ def main(cfg):
 
     for pert_name in perturbation_names:
         if pert_name not in PERTURBATIONS:
-            print(f"  WARNING: Unknown perturbation '{pert_name}', skipping")
+            print(f"WARNING: Unknown perturbation '{pert_name}', skipping")
             continue
 
         pert_fn = PERTURBATIONS[pert_name]
@@ -295,7 +295,7 @@ def main(cfg):
             config_idx += 1
 
             if task_name in pert_results and len(pert_results[task_name].get('episodes', [])) >= cfg.n_episodes:
-                print(f"  [{config_idx}/{total_configs}] {task_name}: SKIP (exists)")
+                print(f"[{config_idx}/{total_configs}] {task_name}: SKIP (exists)")
                 continue
 
             task_desc = TASK_DESCRIPTIONS.get(task_name, task_name)
@@ -339,7 +339,7 @@ def main(cfg):
                     save_video_frames(vid_dir / f"ep{ep:02d}.mp4", result['frames'], fps=10)
 
             success_rate = sum(successes) / len(successes)
-            print(f"  [{config_idx}/{total_configs}] {task_name}: {success_rate*100:.0f}% "
+            print(f"[{config_idx}/{total_configs}] {task_name}: {success_rate*100:.0f}% "
                   f"({sum(successes)}/{len(successes)})")
 
             pert_results[task_name] = {

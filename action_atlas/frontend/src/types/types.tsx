@@ -9,21 +9,21 @@ export interface QueryResult {
   counts: number[];
 }
 
-// 用于存储左侧 Query search 表单的结构体,@/components/Concept Query
-// 一个绘制图像的结构体,@/components/Concept Query
+// Structure for the left-side Query search form,@/components/Concept Query
+// Structure for a rendered plot,@/components/Concept Query
 export interface PlotProps {
   queryResult: { bins: number[]; counts: number[] };
   chartRef: React.RefObject<ChartJS<"line">>;
 }
 
-// @/components/VisualizationDashboard 下拉框选项
+// @/components/VisualizationDashboard dropdown options
 export interface AttributeSelectProps {
   selectedAttrs: string[];
   setSelectedAttrs: React.Dispatch<React.SetStateAction<string[]>>;
   metricOptions: { value: string; label: string }[];
 }
 
-// @/components/VisualizationDashboard/index 假数据
+// @/components/VisualizationDashboard/index mock data
 export interface ModelData {
   id: string;
   type: string;
@@ -58,13 +58,13 @@ export interface ModelData {
     | undefined;
 }
 
-// @components/VisualizationDashBoard 可视化矩阵组件
+// @components/VisualizationDashBoard visualization matrix component
 export interface VisibleRange {
   start: number;
   end: number;
 }
 
-// @components/VisualizationDashBoard 可视化矩阵组件
+// @components/VisualizationDashBoard visualization matrix component
 export interface OverviewMatrixProps {
   modelData: ModelData[];
   visibleRange: VisibleRange;
@@ -117,7 +117,7 @@ export interface TokenStats {
   };
 }
 
-// ActivationData 类型
+// ActivationData type
 export interface ActivationData {
   sentence: string;
   similarity: number;
@@ -143,7 +143,7 @@ export interface Point {
   y: number;
   bin?: number;
   id: string;
-  // radius: number; // 新增属性
+  // radius: number; // added attribute
   sentence: { token: string; value: number }[];
   keyword: string;
   similarity: number;
@@ -222,7 +222,7 @@ export interface TreeViewProps {
 }
 
 export interface QueryInputProps {
-  onSubmit: (query: string, llm: string) => Promise<void>; // 修改这行，添加 llm 参数
+  onSubmit: (query: string, llm: string) => Promise<void>; // added the llm parameter
 }
 
 export const chartData = (queryResult: PlotProps["queryResult"]) => ({
@@ -296,26 +296,26 @@ export interface SimilarFeaturesPanelProps {
   onVisibleFeaturesChange?: (featureIds: string[]) => void;
 }
 
-// 添加与父组件相同的 FeatureInfo 接口
+// Same FeatureInfo interface as the parent component
 export interface FeatureInfo {
   explanation: string;
   cosine_similarity: number;
 }
 
-// 单个特征的激活信息
+// Activation info for a single feature
 export interface FeatureActivation {
   feature_id: string;
   activation: number;
 }
 
-// 每个令牌相关的特征信息
+// Feature info associated with each token
 export interface TokenFeatureInfo {
   prompt: string;
   token_index: number;
   features: FeatureActivation[];
 }
 
-// 令牌分析请求参数
+// Token analysis request parameters
 export interface TokenAnalysisRequest {
   feature_id: string;
   sae_id: string;
@@ -325,12 +325,12 @@ export interface TokenAnalysisRequest {
   }[];
 }
 
-// 将空接口替换为完整的定义
+// Replace the empty interface with a full definition
 export interface TokenAnalysisResults {
   original_explanation: string;
   related_features_intersection: string[];
   related_features_union: string[];
   prompt_token_features: {
-    [key: string]: TokenFeatureInfo; // 键的格式为: "prompt_tokenIndex"
+    [key: string]: TokenFeatureInfo; // key format: "prompt_tokenIndex"
   };
 }

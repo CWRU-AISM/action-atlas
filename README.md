@@ -3,8 +3,9 @@
 <p align="center">
   <a href="https://arxiv.org/abs/2603.19233"><img src="https://img.shields.io/badge/arXiv-2603.19233-b31b1b.svg" alt="arXiv"></a>
   <a href="https://cwru-aism.github.io/vla-interp-page/"><img src="https://img.shields.io/badge/Project-Page-blue" alt="Project Page"></a>
-  <a href="#"><img src="https://img.shields.io/badge/🤗_Data-Coming_Soon-yellow" alt="HuggingFace"></a>
-  <a href="#"><img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License"></a>
+  <a href="https://action-atlas.com"><img src="https://img.shields.io/badge/🌐_Action_Atlas-Explore-success" alt="Action Atlas"></a>
+  <a href="https://huggingface.co/collections/bag100/action-atlas-6a38c9fb18519c78e201a2c8"><img src="https://img.shields.io/badge/🤗_Data-HuggingFace-yellow" alt="HuggingFace"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License"></a>
 </p>
 
 <p align="center">
@@ -164,7 +165,23 @@ action-atlas/
 
 ## Data
 
-Experiment data (activations, SAE checkpoints, rollout videos) will be released on HuggingFace in the coming weeks.
+The release lives on HuggingFace, grouped in one collection:
+[Action Atlas](https://huggingface.co/collections/bag100/action-atlas-6a38c9fb18519c78e201a2c8).
+It is a set of datasets under the `bag100/action-atlas-*` namespace:
+
+- `action-atlas-viz` the visualization bundle the web frontend reads (download this to run the site locally).
+- `action-atlas-<model>` per-model SAEs, identified concepts, and trajectories, for `oft`, `pi05`, `xvla`, `groot`, `smolvla`.
+- `action-atlas-<model>-activations` the raw activations for retraining or verifying the SAEs. Rollout videos stream from a public Tigris bucket.
+
+Fetch any subset with the helper, which places files where the app and the experiment scripts expect them:
+
+```bash
+python setup/download_data.py --viz                       # frontend bundle (run the site)
+python setup/download_data.py --models pi05 --types saes  # one model's SAEs
+python setup/download_data.py --list                      # full list of repos
+```
+
+See `setup/DATA.md` for subset options and the per-model activation-to-SAE layer mapping.
 
 ## Citation
 

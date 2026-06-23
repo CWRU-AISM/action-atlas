@@ -555,15 +555,13 @@ export default function WireVisualization() {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  // ============================================================
   // MAIN DRAW FUNCTION
-  // ============================================================
   useEffect(() => {
     if (!svgRef.current || dimensions.width === 0) return;
 
     const arch = MODEL_ARCHITECTURES[currentModel] || MODEL_ARCHITECTURES.pi05;
 
-    // ---- ACT: Encoder-Decoder architecture diagram ----
+    // ACT: Encoder-Decoder architecture diagram
     if (currentModel === "act") {
       drawACTArchitecture();
       return;
@@ -595,9 +593,7 @@ export default function WireVisualization() {
 
   }, [layers, connections, selectedLayer, hoveredLayer, isExpanded, dimensions, currentModel, dataSource, handleLayerClick]);
 
-  // ============================================================
   // Common SVG setup helper
-  // ============================================================
   function setupSvg() {
     const svg = d3.select(svgRef.current!);
     svg.selectAll("*").remove();
@@ -673,9 +669,7 @@ export default function WireVisualization() {
     return { svg, g, width, height, margin, innerWidth, innerHeight };
   }
 
-  // ============================================================
   // Common: draw title and subtitle
-  // ============================================================
   function drawTitle(
     g: d3.Selection<SVGGElement, unknown, null, undefined>,
     innerWidth: number,
@@ -700,9 +694,7 @@ export default function WireVisualization() {
       .text(subtitle);
   }
 
-  // ============================================================
   // Common: attach node interactivity (hover, click, tooltip)
-  // ============================================================
   function attachNodeInteraction(
     el: d3.Selection<any, unknown, null, undefined>,
     layer: LayerInfo,
@@ -737,9 +729,7 @@ export default function WireVisualization() {
       });
   }
 
-  // ============================================================
   // Common: draw a node with shape, label, pie chart, glow
-  // ============================================================
   function drawLayerNode(
     nodeGroup: d3.Selection<SVGGElement, unknown, null, undefined>,
     layer: LayerInfo,
@@ -834,9 +824,7 @@ export default function WireVisualization() {
     return nodeG;
   }
 
-  // ============================================================
   // Common: draw animated flow particles along a connection line
-  // ============================================================
   function drawFlowParticles(
     flowGroup: d3.Selection<SVGGElement, unknown, null, undefined>,
     sourceX: number, sourceY: number,
@@ -885,9 +873,7 @@ export default function WireVisualization() {
     }
   }
 
-  // ============================================================
   // Common: draw pathway legend
-  // ============================================================
   function drawPathwayLegend(
     g: d3.Selection<SVGGElement, unknown, null, undefined>,
     innerWidth: number,
@@ -914,9 +900,7 @@ export default function WireVisualization() {
     });
   }
 
-  // ============================================================
   // ACT: Encoder-Decoder Architecture
-  // ============================================================
   function drawACTArchitecture() {
     const { g, innerWidth, innerHeight } = setupSvg();
 
@@ -1037,9 +1021,7 @@ export default function WireVisualization() {
     });
   }
 
-  // ============================================================
   // Pi0.5: Dual Sequential (paired nodes per layer — same layer processes both)
-  // ============================================================
   function drawDualSequential() {
     const { g, innerWidth, innerHeight } = setupSvg();
     const arch = MODEL_ARCHITECTURES.pi05;
@@ -1078,7 +1060,7 @@ export default function WireVisualization() {
     for (let i = 0; i < numExpert; i++) {
       const cx = xScale(i);
 
-      // --- Vertical bridge connecting the pair (drawn first, behind nodes) ---
+      // Vertical bridge connecting the pair (drawn first, behind nodes)
       connGroup.append("line")
         .attr("x1", cx)
         .attr("y1", topY + nodeRadius + 1)
@@ -1088,7 +1070,7 @@ export default function WireVisualization() {
         .attr("stroke-width", 2)
         .attr("stroke-opacity", 0.6);
 
-      // --- PaliGemma node (circle, top) ---
+      // PaliGemma node (circle, top)
       const paliSize = nodeRadius * 0.8;
       drawNodeShape(
         nodeGroup, "circle", cx, topY, paliSize,
@@ -1106,7 +1088,7 @@ export default function WireVisualization() {
         .style("pointer-events", "none")
         .text(i);
 
-      // --- Expert node (rounded_rect, bottom, with real data) ---
+      // Expert node (rounded_rect, bottom, with real data)
       const expertLayer = expertLayers[i];
       if (expertLayer) {
         const size = sizeScale(expertLayer.feature_count || 1);
@@ -1127,7 +1109,7 @@ export default function WireVisualization() {
           .text(i);
       }
 
-      // --- Shared layer label centered between the pair ---
+      // Shared layer label centered between the pair
       nodeGroup.append("text")
         .attr("x", cx)
         .attr("y", centerY)
@@ -1139,7 +1121,7 @@ export default function WireVisualization() {
         .style("pointer-events", "none")
         .text(`L${i}`);
 
-      // --- Sequential connections to previous pair ---
+      // Sequential connections to previous pair
       if (i > 0) {
         const prevX = xScale(i - 1);
 
@@ -1259,9 +1241,7 @@ export default function WireVisualization() {
     ]);
   }
 
-  // ============================================================
   // OpenVLA-OFT: Single Deep Stack (tall ellipses, action head)
-  // ============================================================
   function drawSingleDeep() {
     const { g, innerWidth, innerHeight } = setupSvg();
     const arch = MODEL_ARCHITECTURES.openvla;
@@ -1499,9 +1479,7 @@ export default function WireVisualization() {
     ]);
   }
 
-  // ============================================================
   // X-VLA: Single Flow (circles with flow matching output)
-  // ============================================================
   function drawSingleFlow() {
     const { g, svg, innerWidth, innerHeight } = setupSvg();
 
@@ -1722,9 +1700,7 @@ export default function WireVisualization() {
     ]);
   }
 
-  // ============================================================
   // SmolVLA: Dual Pathways (independent VLM + Expert tracks with cross-pathway connections)
-  // ============================================================
   function drawInterleaved() {
     const { g, innerWidth, innerHeight } = setupSvg();
     const arch = MODEL_ARCHITECTURES.smolvla;
@@ -1934,9 +1910,7 @@ export default function WireVisualization() {
     ]);
   }
 
-  // ============================================================
   // GR00T N1.5: Triple Pathway (proportional track lengths)
-  // ============================================================
   function drawTriple() {
     const { g, innerWidth, innerHeight } = setupSvg();
     const arch = MODEL_ARCHITECTURES.groot;
@@ -2219,9 +2193,7 @@ export default function WireVisualization() {
     ]);
   }
 
-  // ============================================================
   // Generic fallback (same as old behavior)
-  // ============================================================
   function drawGenericLayers() {
     const { g, innerWidth, innerHeight } = setupSvg();
     const arch = MODEL_ARCHITECTURES[currentModel] || MODEL_ARCHITECTURES.pi05;
@@ -2320,9 +2292,7 @@ export default function WireVisualization() {
     );
   }
 
-  // ============================================================
   // END OF DRAW FUNCTIONS
-  // ============================================================
 
   // Get selected layer features
   const selectedLayerFeatures = selectedLayer ? layerFeatures.get(selectedLayer.id) : null;

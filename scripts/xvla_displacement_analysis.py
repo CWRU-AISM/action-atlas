@@ -341,16 +341,15 @@ def main():
     output_dir = Path(args.output_dir) if args.output_dir else batch_dir
 
     print(f"Cross-task displacement analysis: {batch_dir}")
-    print("=" * 60)
 
     all_env_results = {}
 
-    # ─── LIBERO ───
+    # LIBERO
     libero_exp = batch_dir / "xvla_libero" / "experiments"
     if libero_exp.exists():
         for ct_dir in sorted(libero_exp.glob("cross_task_*")):
             suite = ct_dir.name.replace("cross_task_", "")
-            print(f"\n[LIBERO] {suite}...")
+            print(f"\n[LIBERO] {suite}")
             suite_results = []
 
             for pair_dir in sorted(ct_dir.glob("pair_*")):
@@ -360,14 +359,14 @@ def main():
 
             if suite_results:
                 all_env_results[f"libero/{suite}"] = suite_results
-                print(f"  {len(suite_results)} injection episodes analyzed")
+                print(f"{len(suite_results)} injection episodes analyzed")
 
-    # ─── SimplerEnv ───
+    # SimplerEnv
     simplerenv_exp = batch_dir / "xvla_SIMPLERENV" / "experiments"
     if simplerenv_exp.exists():
         for ct_dir in sorted(simplerenv_exp.glob("cross_task_*")):
             robot = ct_dir.name.replace("cross_task_", "")
-            print(f"\n[SimplerEnv] {robot}...")
+            print(f"\n[SimplerEnv] {robot}")
             robot_results = []
 
             for pair_dir in sorted(ct_dir.glob("pair_*")):
@@ -377,26 +376,25 @@ def main():
 
             if robot_results:
                 all_env_results[f"simplerenv/{robot}"] = robot_results
-                print(f"  {len(robot_results)} injection episodes analyzed")
+                print(f"{len(robot_results)} injection episodes analyzed")
 
-    # ─── Counterfactual Object Analysis ───
-    print("\n[Counterfactual] Analyzing object displacements...")
+    # Counterfactual Object Analysis
+    print("\n[Counterfactual] Analyzing object displacements")
     cf_objects = analyze_counterfactual_objects(batch_dir)
     for suite, sd in cf_objects.items():
         n_conds = len(sd['per_condition_objects'])
         n_objs = sum(len(objs) for objs in sd['per_condition_objects'].values())
-        print(f"  {suite}: {n_conds} conditions, {n_objs} object-condition pairs")
+        print(f"{suite}: {n_conds} conditions, {n_objs} object-condition pairs")
 
-    # ─── Vision Perturbation Object Analysis ───
-    print("\n[Vision] Analyzing object displacements...")
+    # Vision Perturbation Object Analysis
+    print("\n[Vision] Analyzing object displacements")
     vp_objects = analyze_vision_objects(batch_dir)
     for suite, sd in vp_objects.items():
         n_perts = len(sd['per_perturbation_objects'])
-        print(f"  {suite}: {n_perts} perturbations with object displacements")
+        print(f"{suite}: {n_perts} perturbations with object displacements")
 
-    # ─── Write outputs ───
-    print("\n" + "=" * 60)
-    print("Writing displacement analysis...")
+    # Write outputs
+    print("Writing displacement analysis")
 
     lines = []
     lines.append("# X-VLA Cross-Task Displacement Analysis")
@@ -409,7 +407,7 @@ def main():
     lines.append("- **Destination behavior**: cos(dst) - cos(src) > 0.05 (robot follows own task)")
     lines.append("- **Ambiguous**: |cos(src) - cos(dst)| <= 0.05\n")
 
-    # ─── Grand Summary ───
+    # Grand Summary
     lines.append("## Grand Summary\n")
     lines.append("| Environment | Total Injections | Source Behavior | Dest Behavior | Ambiguous | Dest Task Success |")
     lines.append("|-------------|-----------------|-----------------|---------------|-----------|-------------------|")
@@ -429,7 +427,7 @@ def main():
 
         lines.append(f"| {env_key} | {total} | {format_rate(source, total)} | {format_rate(dest, total)} | {format_rate(ambig, total)} | {format_rate(succ, total)} |")
 
-    # ─── Per-Environment Details ───
+    # Per-Environment Details
     for env_key in sorted(all_env_results.keys()):
         results = all_env_results[env_key]
         lines.append(f"\n---\n\n## {env_key}\n")
@@ -554,7 +552,7 @@ def main():
                 'mean_cos_to_dst': sum(agg['cos_dst_vals']) / len(agg['cos_dst_vals']) if agg['cos_dst_vals'] else None,
             }
 
-    # ─── Counterfactual Object Analysis ───
+    # Counterfactual Object Analysis
     if cf_objects:
         lines.append("\n---\n\n## Counterfactual Prompt - Object Displacement Analysis\n")
         lines.append("Which objects does the robot interact with under different prompt conditions?")
@@ -604,7 +602,7 @@ def main():
                 for cond, new_objs in wrong_object_conditions[:10]:
                     lines.append(f"- `{cond}`: displaced {', '.join(sorted(new_objs))}")
 
-    # ─── Vision Perturbation Object Analysis ───
+    # Vision Perturbation Object Analysis
     if vp_objects:
         lines.append("\n---\n\n## Vision Perturbation - Object Displacement Analysis\n")
         lines.append("Which objects does the robot interact with under different visual corruptions?")
@@ -640,7 +638,7 @@ def main():
             if total_perts > 0:
                 lines.append(f"\n**{wrong_pert_count}/{total_perts} perturbations** caused interaction with non-baseline objects.")
 
-    # ─── Key Findings ───
+    # Key Findings
     lines.append("\n---\n\n## Key Findings\n")
 
     # Compute overall stats across all environments

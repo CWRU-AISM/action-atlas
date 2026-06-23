@@ -1,6 +1,10 @@
 # Experiment data loading helpers
+import os
+from pathlib import Path
 from .helpers import *
 from .data_loaders import *
+
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
 def _count_files(directory: Path, pattern: str) -> int:
     # Count files matching a glob pattern, returning 0 if directory is missing
@@ -237,7 +241,7 @@ def _get_smolvla_temporal_ablation():
     if baked is not None:
         return jsonify({'status': 200, 'data': baked})
 
-    results_dir = Path("/data/smolvla_rollouts/smolvla/concept_ablation/results")
+    results_dir = DATA_ROOT / "smolvla_rollouts" / "smolvla" / "concept_ablation" / "results"
     if not results_dir.exists():
         return jsonify({'status': 404, 'error': {'code': 'NO_DATA', 'message': 'SmolVLA concept ablation results directory not found.'}}), 404
 

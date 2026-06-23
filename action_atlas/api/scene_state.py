@@ -417,7 +417,7 @@ def get_scene_state_pairs():
         conditions = []
         conditions_dict = pair_data.get('conditions', {})
 
-        # --- From the 'conditions' sub-dict (new baked format, flat keys) ---
+        # From the 'conditions' sub-dict (new baked format, flat keys)
         for key in sorted(conditions_dict.keys()):
             if key.startswith('baseline_task_'):
                 conditions.append(key)
@@ -425,7 +425,7 @@ def get_scene_state_pairs():
             if not key.startswith('baseline_task_'):
                 conditions.append(key)
 
-        # --- From top-level pair_data keys (old format) ---
+        # From top-level pair_data keys (old format)
         # Baselines: any key matching baseline_task_*
         for key in sorted(pair_data.keys()):
             if key.startswith('baseline_task_') and key not in conditions:

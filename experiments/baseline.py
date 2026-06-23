@@ -105,11 +105,11 @@ def main(cfg):
         for label, module in adapter.get_all_layers():
             gated = "dit" in label.lower()
             collector.register(module, label, gated=gated)
-        print(f"  Collecting activations from {len(collector.handles)} layers")
+        print(f"Collecting activations from {len(collector.handles)} layers")
 
     task_suite, all_tasks = adapter.setup_suite(cfg.suite)
     task_ids = cfg.tasks if cfg.tasks else list(range(len(all_tasks)))
-    print(f"  tasks: {len(task_ids)}, episodes: {cfg.n_episodes}")
+    print(f"tasks: {len(task_ids)}, episodes: {cfg.n_episodes}")
 
     all_results = {}
     start_time = time.time()
@@ -147,7 +147,7 @@ def main(cfg):
             env.close()
 
         rate = successes / cfg.n_episodes
-        print(f"  Task {tid}: {successes}/{cfg.n_episodes} = {rate:.0%} ({desc})")
+        print(f"Task {tid}: {successes}/{cfg.n_episodes} = {rate:.0%} ({desc})")
         all_results[str(tid)] = {
             "task_description": desc,
             "success_rate": rate,

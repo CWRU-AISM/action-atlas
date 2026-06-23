@@ -117,8 +117,8 @@ def main(cfg):
     task_suite, all_tasks = adapter.setup_suite(cfg.suite)
     task_ids = cfg.tasks if cfg.tasks else list(range(len(all_tasks)))
 
-    print(f"  conditions: {conditions}")
-    print(f"  tasks: {len(task_ids)}, episodes: {cfg.n_episodes}")
+    print(f"conditions: {conditions}")
+    print(f"tasks: {len(task_ids)}, episodes: {cfg.n_episodes}")
 
     results = {}
     start_time = time.time()
@@ -131,7 +131,7 @@ def main(cfg):
 
         existing = load_results(cond_json)
         if existing:
-            print(f"  [SKIP] Already completed")
+            print(f"[SKIP] Already completed")
             results[cond] = existing
             continue
 
@@ -173,7 +173,7 @@ def main(cfg):
                 env.close()
 
             rate = successes / cfg.n_episodes
-            print(f"  Task {tid}: {rate:.0%} (prompt: '{prompt[:50]}...')")
+            print(f"Task {tid}: {rate:.0%} (prompt: '{prompt[:50]}')")
             cond_results[str(tid)] = {
                 "task_description": desc,
                 "prompt_used": prompt,
@@ -193,12 +193,11 @@ def main(cfg):
 
     print(f"\nCounterfactual Results ({cfg.model} / {cfg.suite})")
     print(f"{'Condition':<20} {'Avg SR':>8} {'Delta':>8}")
-    print("-" * 38)
     for cond in conditions:
         if cond in results:
             avg = results[cond].get("_avg_success_rate", 0)
             delta = avg - baseline_avg
-            print(f"  {cond:<18} {avg:>7.0%} {delta:>+7.0%}")
+            print(f"{cond:<18} {avg:>7.0%} {delta:>+7.0%}")
 
     summary = {
         "model": cfg.model, "suite": cfg.suite, "checkpoint": checkpoint,

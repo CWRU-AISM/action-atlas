@@ -72,7 +72,7 @@ def main(cfg):
     print(f"MetaWorld eval: {len(tasks)} tasks | eps={cfg.n_episodes} | "
           f"horizon={cfg.action_horizon} | output={output_dir}")
 
-    print("\nLoading model...")
+    print("\nLoading model")
     policy, preprocessor, postprocessor = load_smolvla_policy(
         cfg.checkpoint, device, cfg.action_horizon)
 
@@ -115,7 +115,7 @@ def main(cfg):
 
             successes.append(result['success'])
             status = "OK" if result['success'] else f"FAIL({result['n_steps']})"
-            print(f"  ep {ep}: {status}", end="" if (ep + 1) % 5 != 0 else "\n")
+            print(f"ep {ep}: {status}", end="" if (ep + 1) % 5 != 0 else "\n")
 
             traj_dir = output_dir / "trajectories" / task_name
             traj_dir.mkdir(parents=True, exist_ok=True)
@@ -154,9 +154,8 @@ def main(cfg):
                 vid_dir.mkdir(parents=True, exist_ok=True)
                 save_video_frames(vid_dir / f"ep{ep:02d}.mp4", result['frames'], fps=10)
 
-        print()
         sr = sum(successes) / len(successes) if successes else 0
-        print(f"  Success rate: {sr*100:.0f}% ({sum(successes)}/{len(successes)})")
+        print(f"Success rate: {sr*100:.0f}% ({sum(successes)}/{len(successes)})")
 
         all_results['tasks'][task_name] = {
             'task_description': task_desc,
@@ -187,7 +186,7 @@ def main(cfg):
         diff_results = [all_results['tasks'][t] for t in diff_tasks if t in all_results['tasks']]
         if diff_results:
             avg = sum(r['success_rate'] for r in diff_results) / len(diff_results)
-            print(f"  {diff_name}: {avg*100:.1f}% ({len(diff_results)} tasks)")
+            print(f"{diff_name}: {avg*100:.1f}% ({len(diff_results)} tasks)")
 
     with open(output_dir / "results.json", 'w') as f:
         json.dump(all_results, f, indent=2)

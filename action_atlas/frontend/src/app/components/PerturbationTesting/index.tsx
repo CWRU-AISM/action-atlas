@@ -121,7 +121,7 @@ const DEFAULT_PERTURBATION_TYPES: PerturbationTypeConfig[] = [
   // Object perturbations
   { id: "object_remove", label: "Remove Object", hasStrength: false, icon: "✕", category: "object" },
   { id: "object_swap", label: "Swap Object", hasStrength: false, icon: "⇄", category: "object" },
-  { id: "object_color", label: "Object Color", hasStrength: true, icon: "🎨", category: "object" },
+  { id: "object_color", label: "Object Color", hasStrength: true, icon: "◧", category: "object" },
   { id: "object_size", label: "Object Size", hasStrength: true, icon: "⊡", category: "object" },
   { id: "object_position", label: "Object Position", hasStrength: true, icon: "↔", category: "object" },
   // Counterfactual / Injection experiments
@@ -1986,7 +1986,7 @@ export default function PerturbationTesting() {
                 );
               }
 
-              // ---- Fallback UI for models without per-concept ablation videos ----
+              // Fallback UI for models without per-concept ablation videos
               // (X-VLA, GR00T, or any model where concept video matching fails)
               return (
                 <>

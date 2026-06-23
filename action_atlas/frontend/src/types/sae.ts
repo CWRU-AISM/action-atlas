@@ -1,4 +1,4 @@
-// 保留原有接口用于其他组件
+// Keep the original interface for other components
 export interface FeaturePoint {
   index: number;
   coordinates: [number, number];
@@ -6,14 +6,14 @@ export interface FeaturePoint {
   description: string;
 }
 
-// 查询结果类型
+// Query result type
 export interface QueryResult {
   text: string;
   coordinates: [number, number];
   nearestFeatures: NearestFeature[];
 }
 
-// 最近特征类型
+// Nearest feature type
 export interface NearestFeature {
   feature_id: string;
   similarity: number;
@@ -21,7 +21,7 @@ export interface NearestFeature {
   coordinates: [number, number];
 }
 
-// 聚类数据类型
+// Cluster data type
 export interface ClusterData {
   clusterCount: number;
   labels: number[];

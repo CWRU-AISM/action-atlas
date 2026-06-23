@@ -136,7 +136,7 @@ def log_ram(label=""):
     proc = psutil.Process()
     rss_gb = proc.memory_info().rss / (1024**3)
     vm = psutil.virtual_memory()
-    print(f"  [RAM] {label}: process={rss_gb:.1f}GB, "
+    print(f"[RAM] {label}: process={rss_gb:.1f}GB, "
           f"system={vm.used/(1024**3):.1f}/{vm.total/(1024**3):.1f}GB ({vm.percent}%)")
     if vm.percent > 75:
         force_free_memory()
@@ -438,7 +438,7 @@ def load_concept_features(concept_id_dir, layer_idx, robot, top_n=30):
     path = os.path.join(concept_id_dir, f"xvla_concept_id_layer{layer_idx:02d}_{concept_key}.json")
 
     if not os.path.exists(path):
-        print(f"  WARNING: No concept ID file found: {path}")
+        print(f"WARNING: No concept ID file found: {path}")
         return {}
 
     with open(path) as f:

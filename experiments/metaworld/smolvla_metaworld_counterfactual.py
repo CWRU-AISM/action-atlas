@@ -116,7 +116,7 @@ def main(cfg):
     print(f"Tasks: {len(tasks)}, Device: {device}")
     print(f"Output: {output_dir}")
 
-    print("\nLoading model...")
+    print("\nLoading model")
     policy, preprocessor, postprocessor = load_smolvla_policy(
         cfg.checkpoint, device)
 
@@ -153,10 +153,10 @@ def main(cfg):
 
         traj_path = output_dir / "trajectories" / f"{key}.npz"
         if traj_path.exists():
-            print(f"  [{idx+1}/{len(configs)}] {key} -- SKIP")
+            print(f"[{idx+1}/{len(configs)}] {key} -- SKIP")
             continue
 
-        print(f"  [{idx+1}/{len(configs)}] {key} (task={task_name}, cat={category}, prompt='{prompt[:40]}')")
+        print(f"[{idx+1}/{len(configs)}] {key} (task={task_name}, cat={category}, prompt='{prompt[:40]}')")
 
         env = create_env(task_name, cfg.resolution)
 
@@ -168,7 +168,7 @@ def main(cfg):
         env.close()
 
         status = "OK" if result['success'] else f"FAIL({result['n_steps']})"
-        print(f"    -> {status}")
+        print(f"-> {status}")
 
         np.savez_compressed(str(traj_path),
                            actions=result['actions'],

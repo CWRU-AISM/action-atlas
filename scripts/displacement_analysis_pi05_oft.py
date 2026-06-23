@@ -25,10 +25,13 @@ Output:
 
 import json
 import math
+import os
 import numpy as np
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
+
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 # Configuration
 # Classification threshold (same as X-VLA analysis)
 THRESHOLD = 0.05
@@ -36,22 +39,22 @@ THRESHOLD = 0.05
 # Pi0.5 data locations
 PI05_CROSS_TASK_DIRS = {
     "libero_10": [
-        "/data/robotsteering/pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_051354",
-        "/data/robotsteering/pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_085109",
+        str(DATA_ROOT / "pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_051354"),
+        str(DATA_ROOT / "pi05_rollouts/cross_task_10/comprehensive_cross_task_libero_10_20260127_085109"),
     ],
     "libero_goal": [
-        "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343",
-        "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312",
-        "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312",
-        "/data/robotsteering/pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312",
+        str(DATA_ROOT / "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_20260126_234343"),
+        str(DATA_ROOT / "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed42_20260127_195312"),
+        str(DATA_ROOT / "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed123_20260127_195312"),
+        str(DATA_ROOT / "pi05_rollouts/cross_task_goal/comprehensive_cross_task_libero_goal_seed456_20260127_195312"),
     ],
     "libero_spatial": [
-        "/data/robotsteering/pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619",
+        str(DATA_ROOT / "pi05_rollouts/cross_task_spatial/comprehensive_cross_task_libero_spatial_20260126_225619"),
     ],
 }
 
 # OFT data location
-OFT_TRAJ_DIR = "/data/openvla_rollouts/openvla_oft/trajectories"
+OFT_TRAJ_DIR = str(DATA_ROOT / "openvla_rollouts/openvla_oft/trajectories")
 OFT_SUITES = ["libero_goal", "libero_object", "libero_spatial", "libero_10"]
 
 # Output
@@ -102,7 +105,7 @@ def load_pi05_episodes():
         for exp_dir_str in exp_dirs:
             exp_dir = Path(exp_dir_str)
             if not exp_dir.exists():
-                print(f"  SKIP (not found): {exp_dir}")
+                print(f"SKIP (not found): {exp_dir}")
                 continue
 
             # Check for merged results first
@@ -118,7 +121,7 @@ def load_pi05_episodes():
                     with open(bf) as f:
                         data = json.load(f)
                 except Exception as e:
-                    print(f"  ERROR loading {bf}: {e}")
+                    print(f"ERROR loading {bf}: {e}")
                     continue
 
                 results = data.get("results", {})
@@ -196,9 +199,7 @@ def load_pi05_episodes():
 
 def analyze_pi05():
     # Run displacement analysis on Pi0.5 cross-task injection data
-    print("\n" + "=" * 60)
     print("Pi0.5 CROSS-TASK DISPLACEMENT ANALYSIS")
-    print("=" * 60)
 
     episodes = load_pi05_episodes()
     print(f"\nTotal episodes loaded: {len(episodes)}")
@@ -210,8 +211,8 @@ def analyze_pi05():
     # Separate injection vs non-injection
     injection_eps = [e for e in episodes if e["is_injection"]]
     no_inject_eps = [e for e in episodes if not e["is_injection"]]
-    print(f"  Injection episodes: {len(injection_eps)}")
-    print(f"  No-injection episodes: {len(no_inject_eps)}")
+    print(f"Injection episodes: {len(injection_eps)}")
+    print(f"No-injection episodes: {len(no_inject_eps)}")
 
     results = {
         "meta": {
@@ -289,7 +290,7 @@ def load_oft_episodes():
     for suite in OFT_SUITES:
         suite_dir = traj_dir / suite
         if not suite_dir.exists():
-            print(f"  SKIP (not found): {suite_dir}")
+            print(f"SKIP (not found): {suite_dir}")
             continue
 
         # Load all baseline EEF trajectories
@@ -315,9 +316,9 @@ def load_oft_episodes():
                     else:
                         baselines[task_idx] = velocities[0]
             except Exception as e:
-                print(f"  ERROR loading baseline {bf}: {e}")
+                print(f"ERROR loading baseline {bf}: {e}")
 
-        print(f"  {suite}: loaded {len(baselines)} baseline trajectories")
+        print(f"{suite}: loaded {len(baselines)} baseline trajectories")
 
         # Load cross-task pair files
         for pf in sorted(suite_dir.glob("cross_task_pair_*.json")):
@@ -325,7 +326,7 @@ def load_oft_episodes():
                 with open(pf) as f:
                     pdata = json.load(f)
             except Exception as e:
-                print(f"  ERROR loading {pf}: {e}")
+                print(f"ERROR loading {pf}: {e}")
                 continue
 
             task_a = pdata["task_a"]
@@ -443,9 +444,7 @@ def load_oft_episodes():
 
 def analyze_oft():
     # Run displacement analysis on OFT cross-task injection data
-    print("\n" + "=" * 60)
     print("OpenVLA-OFT CROSS-TASK DISPLACEMENT ANALYSIS")
-    print("=" * 60)
 
     episodes = load_oft_episodes()
     print(f"\nTotal episodes loaded: {len(episodes)}")
@@ -557,12 +556,10 @@ def _compute_displacement_stats(episodes, label=""):
 
 
 def _print_summary(results, model_name):
-    print(f"\n{'='*60}")
     print(f"{model_name} DISPLACEMENT ANALYSIS RESULTS")
-    print(f"{'='*60}")
 
     gs = results["grand_summary"]
-    print(f"\n--- GRAND SUMMARY ---")
+    print(f"\nGRAND SUMMARY")
     print(f"Total episodes: {gs['n']}")
     print(f"Source behavior (cos_src - cos_dst > {THRESHOLD}): "
           f"{gs['source_behavior']['rate_pct']}% ({gs['source_behavior']['count']}/{gs['n']}) "
@@ -578,7 +575,7 @@ def _print_summary(results, model_name):
     print(f"Mean cos->src: {gs['mean_cos_to_src']:.4f} (+/- {gs['std_cos_to_src']:.4f})")
     print(f"Mean cos->dst: {gs['mean_cos_to_dst']:.4f} (+/- {gs['std_cos_to_dst']:.4f})")
 
-    print(f"\n--- BY SUITE ---")
+    print(f"\nBY SUITE")
     print(f"{'Suite':<25} {'N':>5} {'Source%':>8} {'Dest%':>7} {'Ambig%':>7} {'Override%':>10} {'cos->src':>9} {'cos->dst':>9} {'Succ%':>6}")
     for suite, stats in sorted(results["by_suite"].items()):
         print(f"{suite:<25} {stats['n']:>5} "
@@ -591,7 +588,7 @@ def _print_summary(results, model_name):
               f"{stats['success_rate_pct']:>5.1f}%")
 
     if "by_layer" in results:
-        print(f"\n--- BY LAYER ---")
+        print(f"\nBY LAYER")
         print(f"{'Layer':<25} {'N':>5} {'Source%':>8} {'Dest%':>7} {'Ambig%':>7} {'Override%':>10} {'cos->src':>9} {'cos->dst':>9}")
         for layer, stats in sorted(results["by_layer"].items()):
             print(f"{layer:<25} {stats['n']:>5} "
@@ -603,7 +600,7 @@ def _print_summary(results, model_name):
                   f"{stats['mean_cos_to_dst']:>9.4f}")
 
     if "by_prompt_type" in results:
-        print(f"\n--- BY PROMPT TYPE ---")
+        print(f"\nBY PROMPT TYPE")
         for pt, stats in sorted(results.get("by_prompt_type", {}).items()):
             print(f"{pt}: N={stats['n']}, "
                   f"Source={stats['source_behavior']['rate_pct']}%, "
@@ -612,7 +609,7 @@ def _print_summary(results, model_name):
                   f"Success={stats['success_rate_pct']}%")
 
     if "by_pathway" in results:
-        print(f"\n--- BY PATHWAY ---")
+        print(f"\nBY PATHWAY")
         for pw, stats in sorted(results.get("by_pathway", {}).items()):
             print(f"{pw}: N={stats['n']}, "
                   f"Source={stats['source_behavior']['rate_pct']}%, "
@@ -642,9 +639,7 @@ def main():
 
     # Print comparison summary
     if pi05_results and oft_results:
-        print("\n" + "=" * 60)
         print("CROSS-MODEL COMPARISON")
-        print("=" * 60)
         print(f"\n{'Model':<15} {'N':>6} {'Source%':>8} {'Dest%':>7} {'Ambig%':>7} {'Override%':>10} {'cos->src':>9} {'cos->dst':>9}")
         for name, res in [("Pi0.5", pi05_results), ("OFT", oft_results)]:
             gs = res["grand_summary"]

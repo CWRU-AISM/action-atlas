@@ -1,6 +1,9 @@
 # Action Atlas configuration. Model configs, concept definitions, server settings
 
+import os
 from pathlib import Path
+
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
 PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
 
@@ -10,7 +13,7 @@ VLA_CONFIGS = {
         "name": "Pi0.5 LIBERO Goal",
         "description": "Pi0.5 finetuned on LIBERO Goal Suite (10 tasks)",
         "sae_dir": PROJECT_ROOT / "outputs/pi05_saes/goal",
-        "activations_dir": Path("/data/robotsteering/pi05_activations/goal"),
+        "activations_dir": DATA_ROOT / "pi05_activations/goal",
         "analysis_dir": PROJECT_ROOT / "outputs/concept_analysis",
         "viz_data": PROJECT_ROOT / "action_atlas/data/processed",
         "layers": [f"action_expert_layer_{i}" for i in range(18)],
@@ -34,7 +37,7 @@ VLA_CONFIGS = {
         "name": "Pi0.5 LIBERO Spatial",
         "description": "Pi0.5 finetuned on LIBERO Spatial Suite",
         "sae_dir": PROJECT_ROOT / "outputs/pi05_saes/spatial",
-        "activations_dir": Path("/data/robotsteering/pi05_activations/spatial"),
+        "activations_dir": DATA_ROOT / "pi05_activations/spatial",
         "analysis_dir": PROJECT_ROOT / "outputs/concept_analysis",
         "viz_data": PROJECT_ROOT / "outputs/viz_data",
         "layers": [f"action_expert_layer_{i}" for i in range(12)],
@@ -46,8 +49,8 @@ VLA_CONFIGS = {
     "openvla_oft": {
         "name": "OpenVLA-OFT",
         "description": "OpenVLA 7B with OFT fine-tuning on LIBERO (L1 regression, 4 suites)",
-        "sae_dir": Path("/data/openvla_sae_checkpoints"),
-        "activations_dir": Path("/data/openvla_activations"),
+        "sae_dir": DATA_ROOT / "openvla_sae_checkpoints",
+        "activations_dir": DATA_ROOT / "openvla_activations",
         "analysis_dir": PROJECT_ROOT / "results/experiment_results/oft_concept_id",
         "concept_id_dir": PROJECT_ROOT / "results/experiment_results/oft_concept_id",
         "ablation_video_dir": PROJECT_ROOT / "results/experiment_results/oft_concept_ablation/videos",
@@ -78,7 +81,7 @@ VLA_CONFIGS = {
         "analysis_dir": PROJECT_ROOT / "results/act_aloha_interp",
         "grid_ablation_dir": PROJECT_ROOT / "results/act_aloha_interp/grid_ablation",
         "injection_dir": PROJECT_ROOT / "results/act_aloha_interp/injection",
-        "rollout_dir": Path("/data/robotsteering/aloha_rollouts/act_aloha_interp"),
+        "rollout_dir": DATA_ROOT / "aloha_rollouts/act_aloha_interp",
         "viz_data": None,
         "layers": [],  # ACT does not use per-layer SAEs
         "hidden_dim": 512,
@@ -93,15 +96,15 @@ VLA_CONFIGS = {
     "xvla": {
         "name": "X-VLA",
         "description": "X-VLA 1B with Florence-2 backbone, 24 TransformerBlocks, flow-matching (LIBERO + SimplerEnv)",
-        "sae_dir": Path("/data/batch_1/xvla_saes"),
-        "activations_dir": Path("/data/batch_1/xvla_libero"),
-        "analysis_dir": Path("/data/batch_1/xvla_concept_id"),
-        "concept_id_dir": Path("/data/batch_1/xvla_concept_id"),
-        "feature_descriptions_dir": Path("/data/batch_1/xvla_feature_descriptions"),
-        "ablation_dir": Path("/data/batch_1/xvla_concept_ablation"),
-        "steering_dir": Path("/data/batch_1/xvla_concept_steering"),
-        "oracle_probes_dir": Path("/data/batch_1/xvla_matched_oracle_probe"),
-        "displacement_analysis": Path("/data/batch_1/XVLA_DISPLACEMENT_ANALYSIS.md"),
+        "sae_dir": DATA_ROOT / "batch_1/xvla_saes",
+        "activations_dir": DATA_ROOT / "batch_1/xvla_libero",
+        "analysis_dir": DATA_ROOT / "batch_1/xvla_concept_id",
+        "concept_id_dir": DATA_ROOT / "batch_1/xvla_concept_id",
+        "feature_descriptions_dir": DATA_ROOT / "batch_1/xvla_feature_descriptions",
+        "ablation_dir": DATA_ROOT / "batch_1/xvla_concept_ablation",
+        "steering_dir": DATA_ROOT / "batch_1/xvla_concept_steering",
+        "oracle_probes_dir": DATA_ROOT / "batch_1/xvla_matched_oracle_probe",
+        "displacement_analysis": DATA_ROOT / "batch_1/XVLA_DISPLACEMENT_ANALYSIS.md",
         "viz_data": PROJECT_ROOT / "action_atlas/data/processed/xvla",
         "layers": [f"layer_{i}" for i in range(24)],
         "hidden_dim": 1024,
@@ -133,14 +136,14 @@ VLA_CONFIGS = {
     "smolvla": {
         "name": "SmolVLA",
         "description": "SmolVLA 450M with interleaved VLM (960-dim) + Expert (480-dim) pathways (LIBERO + MetaWorld)",
-        "sae_dir": Path("/data/smolvla_rollouts/sae_models"),
-        "activations_dir": Path("/data/smolvla_rollouts/smolvla/activations"),
-        "analysis_dir": Path("/data/smolvla_rollouts/concept_id"),
-        "concept_id_dir": Path("/data/smolvla_rollouts/concept_id"),
-        "ablation_dir": Path("/data/smolvla_rollouts/concept_ablation"),
-        "ffn_dir": Path("/data/smolvla_rollouts/ffn_contrastive"),
-        "oracle_probes_dir": Path("/data/smolvla_rollouts/oracle_probes"),
-        "displacement_analysis": Path("/data/smolvla_rollouts/metaworld_cross_task/SMOLVLA_DISPLACEMENT_ANALYSIS.md"),
+        "sae_dir": DATA_ROOT / "smolvla_rollouts/sae_models",
+        "activations_dir": DATA_ROOT / "smolvla_rollouts/smolvla/activations",
+        "analysis_dir": DATA_ROOT / "smolvla_rollouts/concept_id",
+        "concept_id_dir": DATA_ROOT / "smolvla_rollouts/concept_id",
+        "ablation_dir": DATA_ROOT / "smolvla_rollouts/concept_ablation",
+        "ffn_dir": DATA_ROOT / "smolvla_rollouts/ffn_contrastive",
+        "oracle_probes_dir": DATA_ROOT / "smolvla_rollouts/oracle_probes",
+        "displacement_analysis": DATA_ROOT / "smolvla_rollouts/metaworld_cross_task/SMOLVLA_DISPLACEMENT_ANALYSIS.md",
         "viz_data": PROJECT_ROOT / "action_atlas/data/processed/smolvla",
         "layers": (
             [f"vlm_layer_{i}" for i in range(32)] +
@@ -179,17 +182,17 @@ VLA_CONFIGS = {
     "groot": {
         "name": "GR00T N1.5",
         "description": "GR00T N1.5 3B with DiT (16L) + Eagle LM (12L) + VL-SA (4L) triple-pathway",
-        "sae_dir": Path("/data/groot_rollouts/sae_checkpoints_pertoken"),
-        "sae_meanpooled_dir": Path("/data/groot_rollouts/sae_checkpoints_meanpooled"),
-        "activations_dir": Path("/data/groot_rollouts"),
-        "analysis_dir": Path("/data/groot_rollouts/sae_feature_analysis"),
+        "sae_dir": DATA_ROOT / "groot_rollouts/sae_checkpoints_pertoken",
+        "sae_meanpooled_dir": DATA_ROOT / "groot_rollouts/sae_checkpoints_meanpooled",
+        "activations_dir": DATA_ROOT / "groot_rollouts",
+        "analysis_dir": DATA_ROOT / "groot_rollouts/sae_feature_analysis",
         "concept_id_dir": PROJECT_ROOT / "results/experiment_results/groot_concept_id",
-        "ablation_dir": Path("/data/groot_rollouts/sae_feature_ablation"),
-        "steering_dir": Path("/data/groot_rollouts_batch2/sae_steering"),
-        "fraction_to_failure_dir": Path("/data/groot_rollouts_batch2/sae_fraction_to_failure"),
-        "temporal_ablation_dir": Path("/data/groot_rollouts_batch2/sae_temporal_ablation"),
-        "cross_suite_dir": Path("/data/groot_rollouts_batch2/sae_cross_suite_ablation"),
-        "probing_dir": Path("/data/groot_rollouts/sae_probing"),
+        "ablation_dir": DATA_ROOT / "groot_rollouts/sae_feature_ablation",
+        "steering_dir": DATA_ROOT / "groot_rollouts_batch2/sae_steering",
+        "fraction_to_failure_dir": DATA_ROOT / "groot_rollouts_batch2/sae_fraction_to_failure",
+        "temporal_ablation_dir": DATA_ROOT / "groot_rollouts_batch2/sae_temporal_ablation",
+        "cross_suite_dir": DATA_ROOT / "groot_rollouts_batch2/sae_cross_suite_ablation",
+        "probing_dir": DATA_ROOT / "groot_rollouts/sae_probing",
         "viz_data": PROJECT_ROOT / "action_atlas/data/processed/groot",
         "layers": (
             [f"dit_layer_{i}" for i in range(16)] +

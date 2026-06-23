@@ -1,6 +1,9 @@
 # Aggregate SmolVLA experiment results
+import os
 from pathlib import Path
 import json
+
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
 def aggregate_smolvla() -> dict:
     result = {
@@ -19,7 +22,7 @@ def aggregate_smolvla() -> dict:
         "displacement": {},
     }
 
-    # --- LIBERO Baselines ---
+    # LIBERO Baselines
     for suite in SMOLVLA_LIBERO_SUITES:
         baseline_path = SMOLVLA_LIBERO_DIR / "baselines" / suite / "results.json"
         data = safe_load_json(baseline_path)
@@ -45,7 +48,7 @@ def aggregate_smolvla() -> dict:
                 ),
             }
 
-    # --- MetaWorld Baselines ---
+    # MetaWorld Baselines
     mw_baseline_path = SMOLVLA_METAWORLD_DIR / "metaworld_baseline" / "results.json"
     mw_data = safe_load_json(mw_baseline_path)
     if mw_data:
@@ -65,7 +68,7 @@ def aggregate_smolvla() -> dict:
             ),
         }
 
-    # --- LIBERO Grid Ablation ---
+    # LIBERO Grid Ablation
     for suite in SMOLVLA_LIBERO_SUITES:
         grid_path = SMOLVLA_LIBERO_DIR / "grid_ablation" / suite / "results.json"
         data = safe_load_json(grid_path)
@@ -73,7 +76,7 @@ def aggregate_smolvla() -> dict:
             grid_summary = _extract_smolvla_grid(data)
             result["grid_ablation"][suite] = grid_summary
 
-    # --- MetaWorld Grid Ablation ---
+    # MetaWorld Grid Ablation
     for diff in SMOLVLA_MW_DIFFICULTIES:
         grid_path = SMOLVLA_METAWORLD_DIR / "metaworld_grid_ablation" / diff / "results.json"
         data = safe_load_json(grid_path)
@@ -90,7 +93,7 @@ def aggregate_smolvla() -> dict:
             grid_summary["difficulty"] = variant
             result["grid_ablation"][f"metaworld_{variant}"] = grid_summary
 
-    # --- LIBERO Counterfactual ---
+    # LIBERO Counterfactual
     for suite in SMOLVLA_LIBERO_SUITES:
         cf_dir = SMOLVLA_LIBERO_DIR / "counterfactual" / suite
         metadata_path = cf_dir / "metadata.jsonl"
@@ -100,7 +103,7 @@ def aggregate_smolvla() -> dict:
                 entries, environment="libero", suite=suite
             )
 
-    # --- MetaWorld Counterfactual ---
+    # MetaWorld Counterfactual
     for suffix in ["", "_medium", "_hard", "_very_hard"]:
         cf_dir = SMOLVLA_METAWORLD_DIR / f"metaworld_counterfactual_v2{suffix}"
         metadata_path = cf_dir / "metadata.jsonl"
@@ -112,14 +115,14 @@ def aggregate_smolvla() -> dict:
                 entries, environment="metaworld", difficulty=difficulty
             )
 
-    # --- MetaWorld Cross-Task ---
+    # MetaWorld Cross-Task
     for diff in SMOLVLA_MW_DIFFICULTIES:
         ct_path = SMOLVLA_METAWORLD_DIR / "metaworld_cross_task" / diff / "results.json"
         data = safe_load_json(ct_path)
         if data:
             result["cross_task"][f"metaworld_{diff}"] = _extract_cross_task(data, environment="metaworld")
 
-    # --- LIBERO Cross-Task (activation-level NPZ data, summarize directory structure) ---
+    # LIBERO Cross-Task (activation-level NPZ data, summarize directory structure)
     for suite in SMOLVLA_LIBERO_SUITES:
         ct_dir = SMOLVLA_LIBERO_DIR / "cross_task" / suite
         if ct_dir.is_dir():
@@ -134,7 +137,7 @@ def aggregate_smolvla() -> dict:
                     "status": "raw_data_available",
                 }
 
-    # --- MetaWorld Vision Perturbation ---
+    # MetaWorld Vision Perturbation
     for diff in SMOLVLA_MW_DIFFICULTIES:
         vp_path = SMOLVLA_METAWORLD_DIR / "metaworld_vision_perturbation" / diff / "results.json"
         data = safe_load_json(vp_path)
@@ -143,7 +146,7 @@ def aggregate_smolvla() -> dict:
                 data, environment="metaworld", difficulty=diff
             )
 
-    # --- Displacement Analysis ---
+    # Displacement Analysis
     disp_path = SMOLVLA_METAWORLD_DIR / "metaworld_cross_task" / "smolvla_displacement_analysis.json"
     data = safe_load_json(disp_path)
     if data:
@@ -363,10 +366,10 @@ def _extract_displacement(data: dict) -> dict:
         }
     return summary
 # X-VLA aggregation
-XVLA_LIBERO_DIR = Path("/data/xvla_rollouts")
-XVLA_SIMPLERENV_DIR = Path("/data/xvla_simplerenv")
-XVLA_CONCEPT_ABLATION_DIR = Path("/data/batch_1/xvla_concept_ablation")
-XVLA_CONCEPT_STEERING_DIR = Path("/data/batch_1/xvla_concept_steering")
+XVLA_LIBERO_DIR = DATA_ROOT / "xvla_rollouts"
+XVLA_SIMPLERENV_DIR = DATA_ROOT / "xvla_simplerenv"
+XVLA_CONCEPT_ABLATION_DIR = DATA_ROOT / "batch_1/xvla_concept_ablation"
+XVLA_CONCEPT_STEERING_DIR = DATA_ROOT / "batch_1/xvla_concept_steering"
 XVLA_LIBERO_SUITES = ["libero_goal", "libero_object", "libero_spatial", "libero_10"]
 
 

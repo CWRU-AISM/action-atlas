@@ -186,7 +186,6 @@ def main():
 
     # Process each suite
     for result_file in result_files:
-        print(f"\n{'='*60}")
         print(f"Processing: {result_file}")
 
         with open(result_file) as f:
@@ -204,7 +203,7 @@ def main():
                 if pair_key not in results["cross_task"]:
                     with open(pf) as f:
                         results["cross_task"][pair_key] = json.load(f)
-            print(f"  Merged {len(pair_files)} per-pair files -> {len(results['cross_task'])} total cross-task pairs")
+            print(f"Merged {len(pair_files)} per-pair files -> {len(results['cross_task'])} total cross-task pairs")
 
         # Merge per-task baseline_task_*.json and null_injection_task_*.json
         for prefix, key in [("baseline_task_", "baseline"), ("null_injection_task_", "null_injection")]:
@@ -216,7 +215,7 @@ def main():
                     task_key = f"task_{task_id}"
                     with open(tf) as f:
                         results[key][task_key] = json.load(f)
-                print(f"  Loaded {len(task_files)} {key} task files")
+                print(f"Loaded {len(task_files)} {key} task files")
 
         suite_name = results.get("suite", result_file.parent.name.split("_20")[0])
 
@@ -228,7 +227,7 @@ def main():
                 json.dump(baseline_data, f, separators=(",", ":"))
             size_mb = out_path.stat().st_size / (1024 * 1024)
             n_tasks = len(baseline_data["tasks"])
-            print(f"  Baseline: {n_tasks} tasks -> {out_path} ({size_mb:.2f} MB)")
+            print(f"Baseline: {n_tasks} tasks -> {out_path} ({size_mb:.2f} MB)")
 
         # Process cross-task (compatible with existing Pi0.5 scene state format)
         cross_data = process_cross_task_results(results, suite_name)
@@ -239,7 +238,7 @@ def main():
             size_mb = out_path.stat().st_size / (1024 * 1024)
             n_pairs = len(cross_data["pairs"])
             n_cond = sum(len(p["conditions"]) for p in cross_data["pairs"])
-            print(f"  Cross-task: {n_pairs} pairs, {n_cond} conditions -> {out_path} ({size_mb:.2f} MB)")
+            print(f"Cross-task: {n_pairs} pairs, {n_cond} conditions -> {out_path} ({size_mb:.2f} MB)")
 
         # Process null injection
         null_data = process_null_injection_results(results, suite_name)
@@ -249,9 +248,8 @@ def main():
                 json.dump(null_data, f, separators=(",", ":"))
             size_mb = out_path.stat().st_size / (1024 * 1024)
             n_tasks = len(null_data["tasks"])
-            print(f"  Null injection: {n_tasks} tasks -> {out_path} ({size_mb:.2f} MB)")
+            print(f"Null injection: {n_tasks} tasks -> {out_path} ({size_mb:.2f} MB)")
 
-    print(f"\n{'='*60}")
     print(f"Done! Baked data in: {output_dir}")
 
 

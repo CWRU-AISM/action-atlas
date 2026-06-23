@@ -281,9 +281,7 @@ def build_viz_data(
 
     # Process each layer
     for layer_name, layer_data in data.items():
-        print(f"\n{'='*60}")
         print(f"Processing {layer_name}")
-        print(f"{'='*60}")
 
         descriptions_dict = layer_data.get('descriptions', {})
         if not descriptions_dict:
@@ -297,15 +295,15 @@ def build_viz_data(
         print(f"Found {len(descriptions)} feature descriptions")
 
         # Get embeddings
-        print("Computing embeddings...")
+        print("Computing embeddings")
         embeddings = get_embeddings(descriptions, client, use_tfidf=use_tfidf)
 
         # Compute UMAP coordinates
-        print("Computing UMAP coordinates...")
+        print("Computing UMAP coordinates")
         coords = compute_umap_coordinates(embeddings)
 
         # Compute hierarchical clustering
-        print("Computing hierarchical clustering...")
+        print("Computing hierarchical clustering")
         cluster_levels = [10, 30, 90]
         # Adjust cluster levels based on number of features
         cluster_levels = [min(n, len(descriptions) - 1) for n in cluster_levels if n < len(descriptions)]
@@ -349,7 +347,7 @@ def build_viz_data(
         print(f"Saved embeddings to {embedding_file}")
 
     # Build FAISS index for all embeddings combined (if dimensions match)
-    print("\nBuilding FAISS index...")
+    print("Building FAISS index")
     # Combine all embeddings
     all_embeddings = []
     all_metadata = []
@@ -381,7 +379,7 @@ def build_viz_data(
         print(f"Skipping combined FAISS index (mixed dimensions: {embedding_dims})")
         print("Using TF-IDF embeddings results in variable dimensions per layer")
 
-    print(f"\nAction Atlas data built successfully in {output_dir}")
+    print(f"Action Atlas data built successfully in {output_dir}")
 
 
 def main():

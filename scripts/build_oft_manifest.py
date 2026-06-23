@@ -13,7 +13,7 @@ Run this script after a new OFT eval batch lands to refresh the manifest.
 Usage:
 
     python scripts/build_oft_manifest.py
-    python scripts/build_oft_manifest.py --oft-data-dir /data/openvla_rollouts/openvla_oft
+    python scripts/build_oft_manifest.py --oft-data-dir data/openvla_rollouts/openvla_oft
 """
 import json
 import os
@@ -24,12 +24,14 @@ from typing import Dict, Optional
 
 import tyro
 
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+
 
 @dataclass
 class BuildOftManifestConfig:
     # Root of the OFT result tree, expected layout: <oft_data_dir>/<suite>/<run>/<experiment_type>/results.json
     oft_data_dir: str = os.environ.get(
-        "OFT_DATA_DIR", "/data/openvla_rollouts/openvla_oft"
+        "OFT_DATA_DIR", str(DATA_ROOT / "openvla_rollouts/openvla_oft")
     )
 
     # Where to write the manifest JSON.

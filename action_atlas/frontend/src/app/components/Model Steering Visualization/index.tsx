@@ -189,11 +189,6 @@ function RobotIcon({
     fillColor = `rgb(${r}, ${g}, ${b})`;
   }
 
-  // Glow effect intensity
-  const glowOpacity = isActive ? 0.3 + normalizedStrength * 0.4 : 0;
-  const glowColor =
-    steeringStrength >= 0 ? "rgba(255, 165, 0, " : "rgba(138, 43, 226, ";
-
   return (
     <motion.div
       className="relative"
@@ -202,18 +197,6 @@ function RobotIcon({
       }}
       transition={{ duration: 0.3 }}
     >
-      {/* Glow effect */}
-      {isActive && (
-        <motion.div
-          className="absolute inset-0 rounded-xl"
-          style={{
-            background: `radial-gradient(circle, ${glowColor}${glowOpacity}) 0%, transparent 70%)`,
-            filter: "blur(8px)",
-          }}
-          animate={{ opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        />
-      )}
       <svg width="50" height="50" viewBox="0 0 1024 1024">
         <motion.g
           animate={{ fill: fillColor }}

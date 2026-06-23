@@ -118,7 +118,7 @@ def save_video(frames: list, path, fps: int = 10):
             writer.append_data(frame)
         writer.close()
     except Exception as e:
-        print(f"  Warning: Could not save video {path}: {e}")
+        print(f"Warning: Could not save video {path}: {e}")
 
 
 

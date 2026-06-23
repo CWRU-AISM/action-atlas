@@ -421,7 +421,7 @@ def generate_report(all_difficulty_results, baseline_stats, output_dir):
 
     json_output = {'model': 'jadechoghari/smolvla_metaworld', 'difficulties': {}}
 
-    # ─── Grand Summary ───
+    # Grand Summary
     lines.append("## Grand Summary\n")
     lines.append("| Difficulty | Pairs | Total Injections | Source Behavior | Dest Behavior | Ambiguous | Dest Success |")
     lines.append("|------------|-------|-----------------|-----------------|---------------|-----------|--------------|")
@@ -450,7 +450,7 @@ def generate_report(all_difficulty_results, baseline_stats, output_dir):
         succ = sum(1 for r in all_results_flat if r['success'])
         lines.append(f"| **ALL** | {n_pairs} | {total} | {format_rate(source, total)} | {format_rate(dest, total)} | {format_rate(ambig, total)} | {format_rate(succ, total)} |")
 
-    # ─── Per-Difficulty Details ───
+    # Per-Difficulty Details
     for diff_name in sorted(all_difficulty_results.keys()):
         results = all_difficulty_results[diff_name]
         if not results:
@@ -645,7 +645,7 @@ def generate_report(all_difficulty_results, baseline_stats, output_dir):
 
         json_output['difficulties'][diff_name] = json_diff
 
-    # ─── Key Findings ───
+    # Key Findings
     lines.append("\n---\n\n## Key Findings\n")
 
     if all_results_flat:
@@ -691,7 +691,7 @@ def generate_report(all_difficulty_results, baseline_stats, output_dir):
                         src_pct = agg['source'] / n * 100
                         lines.append(f"   - {pos}: {src_pct:.1f}% source behavior ({agg['source']}/{n})")
 
-    # ─── Baseline Reference ───
+    # Baseline Reference
     if baseline_stats:
         lines.append("\n---\n\n## Baseline Reference\n")
         lines.append("Task performance without any injection (from metaworld_baseline).\n")
@@ -734,7 +734,6 @@ def main():
 
     print(f"SmolVLA Cross-Task Displacement Analysis")
     print(f"Data: {data_dir}")
-    print("=" * 60)
 
     # Detect structure: single difficulty dir or parent with subdirs
     difficulties = ['easy', 'medium', 'hard', 'very_hard']
@@ -748,11 +747,11 @@ def main():
     if direct_jsons:
         # Single difficulty directory
         diff_name = data_dir.name
-        print(f"\n[{diff_name}] Processing {len(direct_jsons)} pair files...")
+        print(f"\n[{diff_name}] Processing {len(direct_jsons)} pair files")
         results = process_difficulty(data_dir)
         if results:
             all_difficulty_results[diff_name] = results
-            print(f"  {len(results)} injection episodes analyzed")
+            print(f"{len(results)} injection episodes analyzed")
     else:
         # Parent directory with difficulty subdirs
         for diff in difficulties:
@@ -762,11 +761,11 @@ def main():
             pair_files = list(diff_dir.glob("cross_task_*.json"))
             if not pair_files:
                 continue
-            print(f"\n[{diff}] Processing {len(pair_files)} pair files...")
+            print(f"\n[{diff}] Processing {len(pair_files)} pair files")
             results = process_difficulty(diff_dir)
             if results:
                 all_difficulty_results[diff] = results
-                print(f"  {len(results)} injection episodes analyzed")
+                print(f"{len(results)} injection episodes analyzed")
 
     if not all_difficulty_results:
         print("\nNo cross-task data found!")
@@ -775,9 +774,9 @@ def main():
     # Load baseline stats
     baseline_stats = {}
     if baseline_dir:
-        print(f"\nLoading baseline stats from {baseline_dir}...")
+        print(f"\nLoading baseline stats from {baseline_dir}")
         baseline_stats = load_baseline_stats(baseline_dir)
-        print(f"  {len(baseline_stats)} tasks loaded")
+        print(f"{len(baseline_stats)} tasks loaded")
 
     # Auto-detect baseline dir if not specified
     if not baseline_stats:
@@ -785,11 +784,10 @@ def main():
         if auto_baseline.exists():
             print(f"\nAuto-detected baseline dir: {auto_baseline}")
             baseline_stats = load_baseline_stats(auto_baseline)
-            print(f"  {len(baseline_stats)} tasks loaded")
+            print(f"{len(baseline_stats)} tasks loaded")
 
     # Generate report
-    print(f"\n{'=' * 60}")
-    print("Generating displacement analysis report...")
+    print("Generating displacement analysis report")
     generate_report(all_difficulty_results, baseline_stats, output_dir)
 
 

@@ -75,7 +75,7 @@ def bake_openvla():
     # Structure: results_file parent dir name tells us the suite
     all_episodes = []  # list of (suite, task_idx, condition, success, n_steps)
     for rf in sorted(results_files):
-        # Path: .../openvla_oft/{suite}/{timestamp}/visual_perturbations/results.json
+        # Path: /openvla_oft/{suite}/{timestamp}/visual_perturbations/results.json
         parts = rf.parts
         # Find suite from path
         suite = None
@@ -84,7 +84,7 @@ def bake_openvla():
                 suite = parts[i + 1]
                 break
         if not suite:
-            print(f"  Warning: can't determine suite from {rf}")
+            print(f"Warning: can't determine suite from {rf}")
             continue
 
         with open(rf) as f:
@@ -323,9 +323,6 @@ def main():
     os.makedirs(DATA_DIR, exist_ok=True)
 
     # Bake OFT
-    print("=" * 60)
-    print("Baking OFT VP results...")
-    print("=" * 60)
     oft_data = bake_openvla()
     oft_path = DATA_DIR / "vp_results_openvla.json"
     with open(oft_path, "w") as f:
@@ -336,13 +333,9 @@ def main():
     for s, sd in oft_data["suites"].items():
         n_tasks = len(sd["tasks"])
         n_conditions = len(sd["overall"])
-        print(f"  {s}: {n_tasks} tasks, {n_conditions} conditions")
+        print(f"{s}: {n_tasks} tasks, {n_conditions} conditions")
 
     # Bake Pi0.5
-    print()
-    print("=" * 60)
-    print("Baking Pi0.5 VP results...")
-    print("=" * 60)
     pi05_data = bake_pi05()
     if pi05_data:
         pi05_path = DATA_DIR / "vp_results_pi05.json"
@@ -354,9 +347,8 @@ def main():
         for s, sd in pi05_data["suites"].items():
             n_tasks = len(sd["tasks"])
             n_conditions = len(sd["overall"])
-            print(f"  {s}: {n_tasks} tasks, {n_conditions} conditions")
+            print(f"{s}: {n_tasks} tasks, {n_conditions} conditions")
 
-    print()
     print("Done!")
 
 

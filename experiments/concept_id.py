@@ -219,10 +219,10 @@ def main(cfg: ConceptIDConfig):
                               if d.is_dir() and (d / "sae_best.pt").exists()])
 
     print(f"Concept Identification: {cfg.suite}")
-    print(f"  SAE dir: {sae_dir}")
-    print(f"  Activations: {act_dir}")
-    print(f"  Layers: {len(layer_names)}")
-    print(f"  Concepts: {sum(len(v) for v in concept_mapping.values())} "
+    print(f"SAE dir: {sae_dir}")
+    print(f"Activations: {act_dir}")
+    print(f"Layers: {len(layer_names)}")
+    print(f"Concepts: {sum(len(v) for v in concept_mapping.values())} "
           f"across {len(concept_mapping)} categories")
 
     all_results = {}
@@ -231,17 +231,17 @@ def main(cfg: ConceptIDConfig):
 
         sae_path = sae_dir / layer_name / "sae_best.pt"
         if not sae_path.exists():
-            print(f"  [SKIP] No SAE checkpoint")
+            print(f"[SKIP] No SAE checkpoint")
             continue
 
         sae, act_mean, act_std = load_sae_checkpoint(sae_path, device)
         task_acts = load_task_activations(act_dir, layer_name, n_tasks,
                                           cfg.max_samples_per_task)
         if not task_acts:
-            print(f"  [SKIP] No activations found")
+            print(f"[SKIP] No activations found")
             continue
 
-        print(f"  Loaded activations for {len(task_acts)} tasks "
+        print(f"Loaded activations for {len(task_acts)} tasks "
               f"({sum(t.shape[0] for t in task_acts.values()):,} total samples)")
 
         results = compute_concept_scores(
@@ -254,7 +254,7 @@ def main(cfg: ConceptIDConfig):
         layer_out = output_dir / f"{layer_name}.json"
         with open(layer_out, "w") as f:
             json.dump(results, f, indent=2)
-        print(f"  Saved: {layer_out}")
+        print(f"Saved: {layer_out}")
 
         # Print top concept per category
         for cat, concepts in results.items():
@@ -264,7 +264,7 @@ def main(cfg: ConceptIDConfig):
                        key=lambda x: abs(x[1]["top_features"][0]["score"]) if x[1]["top_features"] else 0)
             if best[1]["top_features"]:
                 top = best[1]["top_features"][0]
-                print(f"    {cat}: best concept='{best[0]}' "
+                print(f"{cat}: best concept='{best[0]}' "
                       f"(feature {top['feature_idx']}, score={top['score']:.3f})")
 
         del sae, task_acts

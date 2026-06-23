@@ -447,7 +447,6 @@ export default function ACTLayerVisualization() {
                                   sr >= 0
                                     ? srColor(sr, baselineSR) + "40"
                                     : "#334155",
-                                transform: "scale(1.04)",
                               },
                             }}
                           >

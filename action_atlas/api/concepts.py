@@ -360,7 +360,7 @@ def ablation_summary_alias():
         'status': 200,
         'data': {
             'vla_model': 'pi05',
-            'note': 'Pi0.5 ablation is severe (-60 to -100pp) due to 1024-dim hidden space concentrating critical information.',
+            'note': 'Pi0.5 ablation is severe (-60 to -100pp) because the 1024-dim hidden space concentrates task information into fewer features.',
             'summary': summary
         }
     })

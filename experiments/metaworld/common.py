@@ -46,7 +46,7 @@ def log_ram(label=""):
     proc = psutil.Process()
     rss_gb = proc.memory_info().rss / (1024**3)
     vm = psutil.virtual_memory()
-    print(f"  [RAM] {label}: process={rss_gb:.1f}GB, "
+    print(f"[RAM] {label}: process={rss_gb:.1f}GB, "
           f"system={vm.used/(1024**3):.1f}/{vm.total/(1024**3):.1f}GB ({vm.percent}%)")
     if vm.percent > 75:
         force_free_memory()

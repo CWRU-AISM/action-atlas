@@ -27,6 +27,8 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO_ROOT / "action_atlas" / "data"
 MAX_TRAJ_POINTS = 100
@@ -46,7 +48,7 @@ def safe_load_json(path: Path) -> Optional[dict]:
         with open(path) as f:
             return json.load(f)
     except Exception as e:
-        print(f"  WARN: Failed to load {path}: {e}")
+        print(f"WARN: Failed to load {path}: {e}")
         return None
 
 
@@ -55,7 +57,7 @@ def write_json(path: Path, data: dict):
     with open(path, "w") as f:
         json.dump(data, f, separators=(",", ":"))
     size_mb = path.stat().st_size / (1024 * 1024)
-    print(f"  Wrote {path.name} ({size_mb:.1f} MB)")
+    print(f"Wrote {path.name} ({size_mb:.1f} MB)")
 # SmolVLA Scene State
 def build_smolvla_baseline(suite: str, results_path: Path) -> Optional[dict]:
     # Build SmolVLA baseline scene state from baselines/results.json
@@ -170,13 +172,13 @@ def build_smolvla_metaworld_baseline(results_path: Path) -> Optional[dict]:
 
 
 def build_smolvla_scene_state():
-    print("\n=== Building SmolVLA Scene State ===")
+    print("\nBuilding SmolVLA Scene State")
     out_dir = DATA_DIR / "smolvla_scene_state"
 
     # LIBERO baselines
     libero_suites = ["libero_10", "libero_goal", "libero_object", "libero_spatial"]
     for suite in libero_suites:
-        results_path = Path(f"/data/smolvla_rollouts/smolvla/baselines/{suite}/results.json")
+        results_path = DATA_ROOT / f"smolvla_rollouts/smolvla/baselines/{suite}/results.json"
         if results_path.exists():
             result = build_smolvla_baseline(suite, results_path)
             if result:
@@ -184,27 +186,27 @@ def build_smolvla_scene_state():
 
     # LIBERO grid ablation
     for suite in libero_suites:
-        results_path = Path(f"/data/smolvla_rollouts/smolvla/grid_ablation/{suite}/results.json")
+        results_path = DATA_ROOT / f"smolvla_rollouts/smolvla/grid_ablation/{suite}/results.json"
         if results_path.exists():
             result = build_smolvla_grid_ablation(suite, results_path)
             if result:
                 write_json(out_dir / f"{suite}_grid_ablation.json", result)
 
     # MetaWorld baseline
-    mw_path = Path("/data/smolvla_rollouts/metaworld_baseline/results.json")
+    mw_path = DATA_ROOT / "smolvla_rollouts/metaworld_baseline/results.json"
     if mw_path.exists():
         result = build_smolvla_metaworld_baseline(mw_path)
         if result:
             write_json(out_dir / "metaworld_baseline.json", result)
 # SmolVLA Ablation Index
 def build_smolvla_ablation_index():
-    print("\n=== Building SmolVLA Ablation Index ===")
+    print("\nBuilding SmolVLA Ablation Index")
     entries = []
 
     # Batch 1
-    batch1_dir = Path("/data/smolvla_rollouts/smolvla/concept_ablation/results")
+    batch1_dir = DATA_ROOT / "smolvla_rollouts/smolvla/concept_ablation/results"
     # Batch 2
-    batch2_dir = Path("/data/smolvla_rollouts/concept_ablation/results")
+    batch2_dir = DATA_ROOT / "smolvla_rollouts/concept_ablation/results"
 
     for batch_idx, results_dir in enumerate([batch1_dir, batch2_dir], 1):
         if not results_dir.exists():
@@ -254,7 +256,7 @@ def get_libero_task_descriptions() -> Dict[str, Dict[int, str]]:
         return LIBERO_TASK_DESCRIPTIONS
 
     for suite in ["libero_10", "libero_goal", "libero_object", "libero_spatial"]:
-        results_path = Path(f"/data/smolvla_rollouts/smolvla/baselines/{suite}/results.json")
+        results_path = DATA_ROOT / f"smolvla_rollouts/smolvla/baselines/{suite}/results.json"
         if results_path.exists():
             data = safe_load_json(results_path)
             if data:
@@ -272,7 +274,7 @@ def build_xvla_libero_baseline(suite_short: str) -> Optional[dict]:
     suite_name = f"libero_{suite_short}" if not suite_short.startswith("libero_") else suite_short
     suite_key = suite_name.replace("libero_", "")
 
-    baseline_dir = Path(f"/data/batch_1/xvla_libero/experiments/grid_ablation_{suite_name}/baseline")
+    baseline_dir = DATA_ROOT / f"batch_1/xvla_libero/experiments/grid_ablation_{suite_name}/baseline"
     if not baseline_dir.exists():
         return None
 
@@ -334,11 +336,11 @@ def build_xvla_libero_grid_ablation(suite_short: str) -> Optional[dict]:
     """
     Build X-VLA LIBERO grid ablation from grid_results.json.
 
-    X-VLA grid format: grid[condition] = {"per_task": {task_id: {success_rate, ...}}, "mean_success_rate": float}
+    X-VLA grid format: grid[condition] = {"per_task": {task_id: {success_rate}}, "mean_success_rate": float}
     """
     suite_name = f"libero_{suite_short}" if not suite_short.startswith("libero_") else suite_short
 
-    grid_results_path = Path(f"/data/batch_1/xvla_libero/experiments/grid_ablation_{suite_name}/grid_results.json")
+    grid_results_path = DATA_ROOT / f"batch_1/xvla_libero/experiments/grid_ablation_{suite_name}/grid_results.json"
     if not grid_results_path.exists():
         return None
 
@@ -349,7 +351,7 @@ def build_xvla_libero_grid_ablation(suite_short: str) -> Optional[dict]:
     task_prompts = data.get("task_prompts", {})
     grid = data.get("grid", {})
 
-    # grid is: {condition: {"per_task": {task_id: {success_rate, ...}}, "mean_success_rate": float}}
+    # grid is: {condition: {"per_task": {task_id: {success_rate}}, "mean_success_rate": float}}
     tasks: Dict[int, dict] = {}
     for cond_name, cond_data in grid.items():
         if not isinstance(cond_data, dict):
@@ -387,7 +389,7 @@ def build_xvla_libero_grid_ablation(suite_short: str) -> Optional[dict]:
 def build_xvla_libero_cross_task(suite_short: str) -> Optional[dict]:
     # Build X-VLA LIBERO cross-task scene state from per-episode JSONs
     suite_name = f"libero_{suite_short}" if not suite_short.startswith("libero_") else suite_short
-    cross_dir = Path(f"/data/batch_1/xvla_libero/experiments/cross_task_{suite_name}")
+    cross_dir = DATA_ROOT / f"batch_1/xvla_libero/experiments/cross_task_{suite_name}"
     if not cross_dir.exists():
         return None
 
@@ -465,7 +467,7 @@ def build_xvla_libero_counterfactual(suite_short: str) -> Optional[dict]:
 
     # Try v2 first, fall back to v1
     for suffix in [f"_v2", ""]:
-        cf_dir = Path(f"/data/batch_1/xvla_libero/experiments/counterfactual_{suite_name}{suffix}")
+        cf_dir = DATA_ROOT / f"batch_1/xvla_libero/experiments/counterfactual_{suite_name}{suffix}"
         if cf_dir.exists():
             break
     else:
@@ -530,7 +532,7 @@ def build_xvla_libero_counterfactual(suite_short: str) -> Optional[dict]:
 
 def build_xvla_simplerenv_baseline(env: str) -> Optional[dict]:
     # Build X-VLA SimplerEnv baseline from per-episode JSONs
-    baseline_dir = Path(f"/data/batch_1/xvla_SIMPLERENV/baselines/{env}_baseline")
+    baseline_dir = DATA_ROOT / f"batch_1/xvla_SIMPLERENV/baselines/{env}_baseline"
     if not baseline_dir.exists():
         return None
 
@@ -588,9 +590,9 @@ def build_xvla_simplerenv_grid(env: str) -> Optional[dict]:
     """
     Build X-VLA SimplerEnv grid ablation from grid_results.json.
 
-    Same per_task format as LIBERO: grid[condition] = {"per_task": {...}, "mean_success_rate": float}
+    Same per_task format as LIBERO: grid[condition] = {"per_task": {}, "mean_success_rate": float}
     """
-    grid_path = Path(f"/data/batch_1/xvla_SIMPLERENV/experiments/grid_ablation_{env}/grid_results.json")
+    grid_path = DATA_ROOT / f"batch_1/xvla_SIMPLERENV/experiments/grid_ablation_{env}/grid_results.json"
     if not grid_path.exists():
         return None
 
@@ -633,7 +635,7 @@ def build_xvla_simplerenv_grid(env: str) -> Optional[dict]:
 
 def build_xvla_scene_state():
     # Build all X-VLA scene state files
-    print("\n=== Building X-VLA Scene State ===")
+    print("\nBuilding X-VLA Scene State")
     out_dir = DATA_DIR / "xvla_scene_state"
 
     # LIBERO suites
@@ -704,8 +706,8 @@ def build_groot_fraction_to_failure(suite: str) -> Optional[dict]:
     layers_data = []
 
     for batch_root in [
-        Path("/data/groot_rollouts/sae_fraction_to_failure"),
-        Path("/data/groot_rollouts_batch2/sae_fraction_to_failure"),
+        DATA_ROOT / "groot_rollouts/sae_fraction_to_failure",
+        DATA_ROOT / "groot_rollouts_batch2/sae_fraction_to_failure",
     ]:
         suite_dir = batch_root / suite
         if not suite_dir.exists():
@@ -776,7 +778,7 @@ def build_groot_fraction_to_failure(suite: str) -> Optional[dict]:
 
 
 def build_groot_steering(suite: str) -> Optional[dict]:
-    suite_dir = Path(f"/data/groot_rollouts_batch2/sae_steering/{suite}")
+    suite_dir = DATA_ROOT / f"groot_rollouts_batch2/sae_steering/{suite}"
     if not suite_dir.exists():
         return None
 
@@ -829,7 +831,7 @@ def build_groot_steering(suite: str) -> Optional[dict]:
 
 def build_groot_temporal_ablation(suite: str) -> Optional[dict]:
     # Build GR00T temporal ablation scene state
-    suite_dir = Path(f"/data/groot_rollouts_batch2/sae_temporal_ablation/{suite}")
+    suite_dir = DATA_ROOT / f"groot_rollouts_batch2/sae_temporal_ablation/{suite}"
     if not suite_dir.exists():
         return None
 
@@ -849,8 +851,8 @@ def build_groot_temporal_ablation(suite: str) -> Optional[dict]:
             baseline = data.get("baseline", {})
 
             windows_summary = []
-            # windows can be a dict {name: {start, end, success_rate, ...}}
-            # or a list [{window, start_frac, ...}]
+            # windows can be a dict {name: {start, end, success_rate}}
+            # or a list [{window, start_frac}]
             if isinstance(raw_windows, dict):
                 for w_name, w_data in raw_windows.items():
                     if not isinstance(w_data, dict):
@@ -901,7 +903,7 @@ def build_groot_temporal_ablation(suite: str) -> Optional[dict]:
 
 def build_groot_cross_suite_ablation(suite: str) -> Optional[dict]:
     # Build GR00T cross-suite ablation scene state
-    suite_dir = Path(f"/data/groot_rollouts_batch2/sae_cross_suite_ablation/{suite}")
+    suite_dir = DATA_ROOT / f"groot_rollouts_batch2/sae_cross_suite_ablation/{suite}"
     if not suite_dir.exists():
         return None
 
@@ -938,7 +940,7 @@ def build_groot_cross_suite_ablation(suite: str) -> Optional[dict]:
 
 def build_groot_scene_state():
     # Build all GR00T scene state files
-    print("\n=== Building GR00T Scene State ===")
+    print("\nBuilding GR00T Scene State")
     out_dir = DATA_DIR / "groot_scene_state"
 
     groot_suites = ["libero_goal", "libero_object", "libero_long"]
@@ -966,22 +968,22 @@ def build_groot_scene_state():
 # GR00T Ablation Index (Video Index)
 def build_groot_ablation_index():
     # Build GR00T video/ablation index across all experiment types
-    print("\n=== Building GR00T Ablation Index ===")
+    print("\nBuilding GR00T Ablation Index")
 
     videos = []
 
     experiment_dirs = [
         # (base_path, experiment_type)
-        (Path("/data/groot_rollouts/sae_fraction_to_failure"), "fraction_to_failure"),
-        (Path("/data/groot_rollouts_batch2/sae_fraction_to_failure"), "fraction_to_failure"),
-        (Path("/data/groot_rollouts_batch2/sae_steering"), "steering"),
-        (Path("/data/groot_rollouts_batch2/sae_temporal_ablation"), "temporal_ablation"),
-        (Path("/data/groot_rollouts_batch2/sae_cross_suite_ablation"), "cross_suite_ablation"),
+        (DATA_ROOT / "groot_rollouts/sae_fraction_to_failure", "fraction_to_failure"),
+        (DATA_ROOT / "groot_rollouts_batch2/sae_fraction_to_failure", "fraction_to_failure"),
+        (DATA_ROOT / "groot_rollouts_batch2/sae_steering", "steering"),
+        (DATA_ROOT / "groot_rollouts_batch2/sae_temporal_ablation", "temporal_ablation"),
+        (DATA_ROOT / "groot_rollouts_batch2/sae_cross_suite_ablation", "cross_suite_ablation"),
     ]
 
     for base_path, exp_type in experiment_dirs:
         if not base_path.exists():
-            print(f"  Skipping {base_path} (not found)")
+            print(f"Skipping {base_path} (not found)")
             continue
 
         for suite_dir in sorted(base_path.iterdir()):
@@ -1056,7 +1058,7 @@ def build_groot_ablation_index():
     }
 
     write_json(DATA_DIR / "groot_ablation_index.json", index)
-    print(f"  Total GR00T videos indexed: {len(videos)}")
+    print(f"Total GR00T videos indexed: {len(videos)}")
     return index
 # Main
 def main():
@@ -1077,15 +1079,15 @@ def main():
     print("\nDone!")
 
     # Print summary
-    print("\n=== Output Summary ===")
+    print("\nOutput Summary")
     for model_dir in ["smolvla_scene_state", "xvla_scene_state", "groot_scene_state"]:
         d = DATA_DIR / model_dir
         if d.exists():
             files = list(d.glob("*.json"))
             total_mb = sum(f.stat().st_size for f in files) / (1024 * 1024)
-            print(f"  {model_dir}/: {len(files)} files, {total_mb:.1f} MB total")
+            print(f"{model_dir}/: {len(files)} files, {total_mb:.1f} MB total")
         else:
-            print(f"  {model_dir}/: NOT CREATED")
+            print(f"{model_dir}/: NOT CREATED")
 
     for idx_name in ["smolvla_ablation_index.json", "groot_ablation_index.json", "xvla_ablation_index.json"]:
         idx_path = DATA_DIR / idx_name
@@ -1093,9 +1095,9 @@ def main():
             data = safe_load_json(idx_path)
             total = data.get("total", len(data.get("videos", data.get("entries", []))))
             size_mb = idx_path.stat().st_size / (1024 * 1024)
-            print(f"  {idx_name}: {total} entries, {size_mb:.1f} MB")
+            print(f"{idx_name}: {total} entries, {size_mb:.1f} MB")
         else:
-            print(f"  {idx_name}: NOT FOUND")
+            print(f"{idx_name}: NOT FOUND")
 
 
 if __name__ == "__main__":

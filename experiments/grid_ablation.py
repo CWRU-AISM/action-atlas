@@ -123,14 +123,14 @@ def main(cfg):
         raise ValueError(f"No default checkpoint for {cfg.model}/{cfg.suite}. Pass --checkpoint.")
 
     print(f"Grid Ablation: {cfg.model} on {cfg.suite}")
-    print(f"  checkpoint: {checkpoint}")
-    print(f"  output: {output_dir}")
+    print(f"checkpoint: {checkpoint}")
+    print(f"output: {output_dir}")
     adapter.load_model(checkpoint, device)
 
     # Override action chunk size if requested
     if cfg.n_action_steps and hasattr(adapter, 'policy') and hasattr(adapter.policy, 'config'):
         adapter.policy.config.n_action_steps = cfg.n_action_steps
-        print(f"  n_action_steps: {cfg.n_action_steps}")
+        print(f"n_action_steps: {cfg.n_action_steps}")
 
     # Determine layers to ablate
     all_layers = adapter.get_all_layers()  # [(label, module), ...]
@@ -152,9 +152,9 @@ def main(cfg):
     task_suite, all_tasks = adapter.setup_suite(cfg.suite)
     task_ids = cfg.tasks if cfg.tasks else list(range(len(all_tasks)))
 
-    print(f"  layers: {len(layers_to_test)}, tasks: {len(task_ids)}, "
+    print(f"layers: {len(layers_to_test)}, tasks: {len(task_ids)}, "
           f"episodes/cell: {cfg.n_episodes}")
-    print(f"  grid size: {len(layers_to_test)} x {len(task_ids)} x {cfg.n_episodes} "
+    print(f"grid size: {len(layers_to_test)} x {len(task_ids)} x {cfg.n_episodes} "
           f"= {len(layers_to_test) * len(task_ids) * cfg.n_episodes} episodes")
 
     grid = defaultdict(dict)
@@ -166,11 +166,11 @@ def main(cfg):
     baseline_results = load_results(baseline_json)
 
     if baseline_results:
-        print("\n  [SKIP] Baseline already completed, loading...")
+        print("\n[SKIP] Baseline already completed, loading")
         for tid_str, data in baseline_results.items():
             grid["baseline"][int(tid_str)] = data
     else:
-        print("\nRunning baseline (no ablation)...")
+        print("\nRunning baseline (no ablation)")
         baseline_results = {}
         for tid in task_ids:
             _, task_obj, task_desc = all_tasks[tid]
@@ -193,7 +193,7 @@ def main(cfg):
                 env.close()
 
             rate = successes / cfg.n_episodes
-            print(f"  Task {tid}: {successes}/{cfg.n_episodes} = {rate:.0%} ({desc})")
+            print(f"Task {tid}: {successes}/{cfg.n_episodes} = {rate:.0%} ({desc})")
             grid["baseline"][tid] = {
                 "success_rate": rate, "successes": successes,
                 "n_episodes": cfg.n_episodes,
@@ -203,7 +203,7 @@ def main(cfg):
         save_results(baseline_results, baseline_json)
 
     # 2. Per-layer ablations
-    print(f"\nRunning {len(layers_to_test)} layer ablations...")
+    print(f"\nRunning {len(layers_to_test)} layer ablations")
     start_time = time.time()
 
     for layer_idx, (layer_label, layer_module) in enumerate(layers_to_test):
@@ -213,12 +213,12 @@ def main(cfg):
 
         existing = load_results(layer_json)
         if existing:
-            print(f"  [SKIP] {layer_label} already completed")
+            print(f"[SKIP] {layer_label} already completed")
             for tid_str, data in existing.items():
                 grid[layer_label][int(tid_str)] = data
             continue
 
-        print(f"\n  Ablating {layer_label} [{layer_idx+1}/{len(layers_to_test)}]")
+        print(f"\nAblating {layer_label} [{layer_idx+1}/{len(layers_to_test)}]")
         hook = ZeroAblationHook() if cfg.ablation_mode == "zero" else MeanAblationHook()
         handle = layer_module.register_forward_hook(hook)
 
@@ -249,7 +249,7 @@ def main(cfg):
             rate = successes / cfg.n_episodes
             bl_rate = grid["baseline"].get(tid, {}).get("success_rate", 0)
             delta = rate - bl_rate
-            print(f"    Task {tid}: {rate:.0%} (delta {delta:+.0%}) ({desc})")
+            print(f"Task {tid}: {rate:.0%} (delta {delta:+.0%}) ({desc})")
 
             grid[layer_label][tid] = {
                 "success_rate": rate, "successes": successes,
@@ -268,7 +268,6 @@ def main(cfg):
 
     header = f"{'Layer':<20}" + "".join(f"T{t:<5}" for t in task_ids) + f"{'Avg':>6}"
     print(header)
-    print("-" * len(header))
 
     all_grid_data = {}
     conditions = ["baseline"] + [l for l, _ in layers_to_test]
@@ -296,7 +295,7 @@ def main(cfg):
 
     print(f"\nMost critical layers (biggest drop):")
     for label, delta in layer_impacts[:5]:
-        print(f"  {label}: mean delta = {delta:+.1%}")
+        print(f"{label}: mean delta = {delta:+.1%}")
 
     summary = {
         "model": cfg.model,

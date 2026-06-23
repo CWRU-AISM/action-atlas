@@ -89,7 +89,7 @@ def run_ablation_experiment(
                 "success_rate": 0.8,
                 "successes": [True] * int(0.8 * n_episodes) + [False] * (n_episodes - int(0.8 * n_episodes)),
             }
-            print(f"  {task_name}: 80% (estimated)")
+            print(f"{task_name}: 80% (estimated)")
     else:
         print(f"\nBASELINE (no hook)")
         baseline_results = {}
@@ -110,7 +110,7 @@ def run_ablation_experiment(
                 "success_rate": rate,
                 "successes": successes,
             }
-            print(f"  {task_name}: {rate*100:.0f}% ({sum(successes)}/{n_episodes})")
+            print(f"{task_name}: {rate*100:.0f}% ({sum(successes)}/{n_episodes})")
 
     results["baseline"] = baseline_results
 
@@ -121,7 +121,7 @@ def run_ablation_experiment(
     try:
         for concept_name, concept_info in concepts.items():
             features = concept_info["features"][:top_n_features]
-            print(f"\nABLATION: {concept_name} (features: {features[:5]}...)")
+            print(f"\nABLATION: {concept_name} (features: {features[:5]})")
 
             hook.set_ablation(features)
 
@@ -157,7 +157,7 @@ def run_ablation_experiment(
                     "successes": successes,
                 }
                 status = "+" if delta > 0 else ""
-                print(f"  {task_name}: {rate*100:.0f}% (delta: {status}{delta*100:.0f}pp)")
+                print(f"{task_name}: {rate*100:.0f}% (delta: {status}{delta*100:.0f}pp)")
 
             hook.clear()
             results["tasks"][concept_name] = concept_results
@@ -227,23 +227,23 @@ def main(cfg):
             f"ablation_L{layer_idx:02d}_{cfg.robot.replace('-', '_')}.json",
         )
         if os.path.exists(out_path):
-            print(f"  SKIP: Output already exists: {out_path}")
+            print(f"SKIP: Output already exists: {out_path}")
             continue
 
         try:
             sae, act_mean, act_std = load_xvla_sae(cfg.sae_dir, layer_idx, cfg.device)
-            print(f"  SAE: {sae.input_dim} -> {sae.hidden_dim}, k={sae.k}")
+            print(f"SAE: {sae.input_dim} -> {sae.hidden_dim}, k={sae.k}")
         except FileNotFoundError as e:
-            print(f"  SKIP: {e}")
+            print(f"SKIP: {e}")
             continue
 
         concepts = load_concept_features(
             CONCEPT_ID_DIR, layer_idx, cfg.robot, top_n=cfg.top_n_features
         )
         if not concepts:
-            print(f"  SKIP: No concept features found for layer {layer_idx}")
+            print(f"SKIP: No concept features found for layer {layer_idx}")
             continue
-        print(f"  Concepts: {len(concepts)} loaded ({list(concepts.keys())[:5]}...)")
+        print(f"Concepts: {len(concepts)} loaded ({list(concepts.keys())[:5]})")
 
         t0 = time.time()
 
@@ -256,10 +256,10 @@ def main(cfg):
 
         with open(out_path, "w") as f:
             json.dump(ablation_results, f, indent=2)
-        print(f"\n  Saved: {out_path}")
+        print(f"\nSaved: {out_path}")
 
         elapsed = time.time() - t0
-        print(f"  Layer {layer_idx} done in {elapsed:.0f}s")
+        print(f"Layer {layer_idx} done in {elapsed:.0f}s")
 
         del sae, act_mean, act_std
         gc.collect()

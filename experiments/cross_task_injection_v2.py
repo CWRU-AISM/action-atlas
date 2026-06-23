@@ -260,7 +260,7 @@ def main(cfg: CrossTaskInjectionV2Config):
         raise ValueError("Empty layer set after resolving --layer-group/--layers.")
 
     print(f"[v2] Injecting {len(layers_to_inject)} layers: "
-          f"{[l for l,_ in layers_to_inject[:3]]}...{[l for l,_ in layers_to_inject[-3:]]}")
+          f"{[l for l,_ in layers_to_inject[:3]]}{[l for l,_ in layers_to_inject[-3:]]}")
 
     task_suite, all_tasks = adapter.setup_suite(cfg.suite)
     task_ids = cfg.tasks if cfg.tasks else list(range(len(all_tasks)))
@@ -285,7 +285,7 @@ def main(cfg: CrossTaskInjectionV2Config):
             max_steps, cfg.seed, save_video=False,
         )
         dt = time.time() - t0
-        print(f"  [capture task {task_id}] success={ep['success']} "
+        print(f"[capture task {task_id}] success={ep['success']} "
               f"steps={ep['steps']} ({dt:.1f}s) desc='{desc[:60]}'")
         cache[task_id] = {"ep": ep, "desc": desc, "captured": captured}
         while len(cache) > cfg.cache_size:
@@ -387,7 +387,7 @@ def main(cfg: CrossTaskInjectionV2Config):
         n_override = sum(1 for k in pair_result
                          if k.startswith("inject_") and pair_result[k].get("override"))
         elapsed = time.time() - t1
-        print(f"  [{pair_idx + 1}/{len(pairs)}] ({task_a},{task_b}) "
+        print(f"[{pair_idx + 1}/{len(pairs)}] ({task_a},{task_b}) "
               f"override={n_override}/{n_inj} succ_a={pair_result['baseline_A']['success']} "
               f"succ_b={pair_result['baseline_B']['success']} ({elapsed:.1f}s)")
 

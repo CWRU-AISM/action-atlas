@@ -74,7 +74,7 @@ def main(cfg):
     print(f"Grid ablation: {cfg.model} | mode={cfg.ablation_mode} | "
           f"eps={cfg.n_episodes} | output={output_dir}")
 
-    print(f"Loading model from {checkpoint}...")
+    print(f"Loading model from {checkpoint}")
     policy, tokenizer = load_xvla_policy(cfg.model, checkpoint, device)
     patch_eval_noop(policy)
 
@@ -82,11 +82,11 @@ def main(cfg):
     n_blocks = len(transformer_blocks)
     ablate_layers = cfg.layers if cfg.layers else list(range(n_blocks))
 
-    print(f"  {n_blocks} blocks, ablating {len(ablate_layers)} layers")
-    print(f"  Tasks: {task_names}")
-    print(f"  Grid: {len(ablate_layers)} layers x {len(task_names)} tasks x {cfg.n_episodes} episodes")
+    print(f"{n_blocks} blocks, ablating {len(ablate_layers)} layers")
+    print(f"Tasks: {task_names}")
+    print(f"Grid: {len(ablate_layers)} layers x {len(task_names)} tasks x {cfg.n_episodes} episodes")
 
-    print("Creating environments...")
+    print("Creating environments")
     task_envs = {}
     task_instructions = {}
     for task_name in task_names:
@@ -94,18 +94,18 @@ def main(cfg):
         task_envs[task_name] = env
         obs, _ = env.reset(seed=0)
         task_instructions[task_name] = get_base_env(env).get_language_instruction()
-        print(f"  {task_name}: \"{task_instructions[task_name]}\"")
+        print(f"{task_name}: \"{task_instructions[task_name]}\"")
 
     grid = defaultdict(lambda: defaultdict(dict))
 
     # Baseline (no ablation)
-    print("\nRunning baseline (no ablation)...")
+    print("\nRunning baseline (no ablation)")
     baseline_dir = output_dir / "baseline"
     baseline_dir.mkdir(exist_ok=True)
     baseline_json = baseline_dir / "results.json"
 
     if baseline_json.exists():
-        print("  [SKIP] Baseline already completed")
+        print("[SKIP] Baseline already completed")
         with open(baseline_json) as f:
             baseline_results = json.load(f)
         for task_name, data in baseline_results.items():
@@ -145,7 +145,7 @@ def main(cfg):
                         pass
 
             rate = successes / cfg.n_episodes
-            print(f"  {task_name}: {successes}/{cfg.n_episodes} = {rate:.1%}")
+            print(f"{task_name}: {successes}/{cfg.n_episodes} = {rate:.1%}")
             grid["baseline"][task_name] = {
                 "success_rate": rate, "successes": successes,
                 "n_episodes": cfg.n_episodes,
@@ -156,7 +156,7 @@ def main(cfg):
             json.dump(baseline_results, f, indent=2)
 
     # Single-layer ablations
-    print(f"\nRunning single-layer ablations ({len(ablate_layers)} layers)...")
+    print(f"\nRunning single-layer ablations ({len(ablate_layers)} layers)")
     for layer_idx in ablate_layers:
         layer_label = f"{cfg.ablation_mode}_L{layer_idx}"
         layer_dir = output_dir / layer_label
@@ -164,14 +164,14 @@ def main(cfg):
 
         layer_json = layer_dir / "results.json"
         if layer_json.exists():
-            print(f"\n  [SKIP] {layer_label} already completed")
+            print(f"\n[SKIP] {layer_label} already completed")
             with open(layer_json) as f:
                 layer_results = json.load(f)
             for task_name, data in layer_results.items():
                 grid[layer_label][task_name] = data
             continue
 
-        print(f"\n  Ablating layer {layer_idx}")
+        print(f"\nAblating layer {layer_idx}")
         if cfg.ablation_mode == "zero":
             hook = ZeroAblationHook()
         else:
@@ -217,7 +217,7 @@ def main(cfg):
             rate = successes / cfg.n_episodes
             baseline_rate = grid["baseline"].get(task_name, {}).get("success_rate", 0)
             delta = rate - baseline_rate
-            print(f"    {task_name}: {successes}/{cfg.n_episodes} = {rate:.1%} (delta={delta:+.1%})")
+            print(f"{task_name}: {successes}/{cfg.n_episodes} = {rate:.1%} (delta={delta:+.1%})")
             grid[layer_label][task_name] = {
                 "success_rate": rate, "successes": successes,
                 "n_episodes": cfg.n_episodes, "delta_from_baseline": delta,
@@ -265,7 +265,7 @@ def main(cfg):
         layer_impacts.append((layer_idx, np.mean(deltas)))
     layer_impacts.sort(key=lambda x: x[1])
     for layer_idx, delta in layer_impacts[:5]:
-        print(f"  Layer {layer_idx}: mean delta = {delta:+.1%}")
+        print(f"Layer {layer_idx}: mean delta = {delta:+.1%}")
 
     duration = datetime.now() - start_time
     final = {

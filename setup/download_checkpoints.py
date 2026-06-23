@@ -44,7 +44,7 @@ from huggingface_hub import snapshot_download
 
 
 CHECKPOINTS = {
-    # ==================== Pi0 Models (4B params, ~14GB) ====================
+    # Pi0 Models (4B params, ~14GB)
     "pi0_base": {
         "repo_id": "lerobot/pi0_base",
         "description": "Pi0 base model (4B params, ~14GB)",
@@ -65,7 +65,7 @@ CHECKPOINTS = {
         "description": "Pi0 legacy version",
         "category": "pi0",
     },
-    # ==================== Pi0.5 Models (4B params, ~14GB) ====================
+    # Pi0.5 Models (4B params, ~14GB)
     "pi05_base": {
         "repo_id": "lerobot/pi05_base",
         "description": "Pi0.5 base model (4B params, ~14GB)",
@@ -86,13 +86,13 @@ CHECKPOINTS = {
         "description": "Pi0.5 with quantile action outputs",
         "category": "pi05",
     },
-    # ==================== SmolVLA ====================
+    # SmolVLA
     "smolvla": {
         "repo_id": "lerobot/smolvla_base",
         "description": "SmolVLA base model (smaller, efficient)",
         "category": "smolvla",
     },
-    # ==================== xVLA Models (0.9B params) ====================
+    # xVLA Models (0.9B params)
     "xvla_base": {
         "repo_id": "lerobot/xvla-base",
         "description": "xVLA base model (0.9B params)",
@@ -123,7 +123,7 @@ CHECKPOINTS = {
         "description": "xVLA for Agibot (0.9B)",
         "category": "xvla",
     },
-    # ==================== Other Models ====================
+    # Other Models
     "diffusion_pusht": {
         "repo_id": "lerobot/diffusion_pusht",
         "description": "Diffusion policy for PushT task",
@@ -163,19 +163,19 @@ def download_checkpoint(name: str, output_dir: Path, force: bool = False):
 
     if target_dir.exists() and not force:
         print(f"Checkpoint {name} already exists at {target_dir}")
-        print("  Use --force to re-download")
+        print("Use --force to re-download")
         return target_dir
 
-    print(f"Downloading {info['description']}...")
-    print(f"  Repo: {repo_id}")
-    print(f"  Target: {target_dir}")
+    print(f"Downloading {info['description']}")
+    print(f"Repo: {repo_id}")
+    print(f"Target: {target_dir}")
 
     path = snapshot_download(
         repo_id=repo_id,
         local_dir=target_dir,
     )
 
-    print(f"  Downloaded to: {path}")
+    print(f"Downloaded to: {path}")
     return Path(path)
 
 
@@ -196,8 +196,7 @@ def list_checkpoints():
         if cat_models:
             print(f"{cat_name}:")
             for name, info in cat_models:
-                print(f"  {name:30} {info['description']}")
-            print()
+                print(f"{name:30} {info['description']}")
 
     print("See all models: https://huggingface.co/lerobot")
 
@@ -255,16 +254,16 @@ def main():
             path = download_checkpoint(model, output_dir, args.force)
             downloaded.append((model, path))
         except Exception as e:
-            print(f"  ERROR: {e}")
+            print(f"ERROR: {e}")
 
     print("\nDownload complete!")
     print("Downloaded checkpoints:")
     for model, path in downloaded:
-        print(f"  {model}: {path}")
+        print(f"{model}: {path}")
 
     print("\nUsage:")
-    print("  Set checkpoint path in experiment scripts:")
-    print(f"  --checkpoint {output_dir}/<model_name>")
+    print("Set checkpoint path in experiment scripts:")
+    print(f"--checkpoint {output_dir}/<model_name>")
 
 
 if __name__ == "__main__":

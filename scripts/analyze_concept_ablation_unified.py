@@ -15,7 +15,7 @@ produces:
 
 Handles 3 different JSON schemas:
   - OFT/Pi0.5/X-VLA: {tasks: {concept: {tasks: {task_id: {delta, success_rate}}}}}
-  - SmolVLA: {ablation: {concept: {overall_rate, overall_delta}}, fraction_to_failure: {...}}
+  - SmolVLA: {ablation: {concept: {overall_rate, overall_delta}}, fraction_to_failure: {}}
   - GR00T: displacement-based (separate analysis)
 
 Usage:
@@ -29,10 +29,13 @@ Wilson CI from analyze_rollouts.py for consistency.
 import json
 import math
 import argparse
+import os
 import sys
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
+
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 # Configuration: where each model's data lives
 DATA_SOURCES = {
     "oft": {
@@ -78,8 +81,8 @@ DATA_SOURCES = {
         "params": "450M",
     },
     "groot": {
-        "ablation_dir": Path("/data/groot_rollouts/sae_feature_ablation"),
-        "ablation_dir_b2": Path("/data/groot_rollouts_batch2/sae_feature_ablation") if Path("/data/groot_rollouts_batch2/sae_feature_ablation").exists() else None,
+        "ablation_dir": DATA_ROOT / "groot_rollouts/sae_feature_ablation",
+        "ablation_dir_b2": DATA_ROOT / "groot_rollouts_batch2/sae_feature_ablation" if (DATA_ROOT / "groot_rollouts_batch2/sae_feature_ablation").exists() else None,
         "ablation_glob": "**/ablation_results.json",
         "steering_glob": None,
         "schema": "groot",
@@ -89,7 +92,7 @@ DATA_SOURCES = {
 }
 
 # Also check smolvla batch2 for SmolVLA data
-SMOLVLA_smolvla = Path("/data/smolvla_rollouts/concept_ablation/results")
+SMOLVLA_smolvla = DATA_ROOT / "smolvla_rollouts/concept_ablation/results"
 # Wilson CI (matches analyze_rollouts.py)
 def wilson_ci(successes, total, z=1.96):
     if total == 0:
@@ -209,7 +212,7 @@ def parse_steering_oft(data):
         for strength_str, strength_data in strengths.items():
             if not isinstance(strength_data, dict):
                 continue
-            # strength_data keys are task IDs directly: {"0": {delta, success_rate}, ...}
+            # strength_data keys are task IDs directly: {"0": {delta, success_rate}}
             for task_id, tdata in strength_data.items():
                 if not isinstance(tdata, dict):
                     continue
@@ -349,7 +352,7 @@ def load_all_data():
         n_files = 0
 
         if not abl_dir.exists():
-            print(f"  SKIP {model_key}: {abl_dir} not found", file=sys.stderr)
+            print(f"SKIP {model_key}: {abl_dir} not found", file=sys.stderr)
             continue
 
         # Ablation files
@@ -395,7 +398,7 @@ def load_all_data():
         all_steering[model_key] = steering
         all_ftf[model_key] = ftf
         file_counts[model_key] = n_files
-        print(f"  {model_key}: {n_files} files, {len(records)} ablation records, "
+        print(f"{model_key}: {n_files} files, {len(records)} ablation records, "
               f"{len(steering)} steering records, {len(ftf)} FTF records", file=sys.stderr)
 
     # Also check smolvla for SmolVLA
@@ -546,13 +549,8 @@ def classify_width_resilience(profile):
         return "mixed"
 # Output Formatters
 def print_report(all_records, all_steering, all_ftf, file_counts):
-    sep = "=" * 100
-    thin = "-" * 100
-
-    print(sep)
     print("UNIFIED CONCEPT ABLATION & STEERING ANALYSIS")
     print(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(sep)
 
     # Per-model analysis
     all_profiles = {}
@@ -561,84 +559,77 @@ def print_report(all_records, all_steering, all_ftf, file_counts):
         dim = cfg.get("dim", 0)
         params = cfg.get("params", "?")
 
-        print(f"\n{thin}")
         print(f"MODEL: {model_key} ({params}, {dim}-dim)")
-        print(thin)
-        print(f"  Files: {file_counts.get(model_key, '?')}")
-        print(f"  Ablation records: {len(records)}")
-        print(f"  Steering records: {len(all_steering.get(model_key, []))}")
-        print(f"  FTF records: {len(all_ftf.get(model_key, []))}")
+        print(f"Files: {file_counts.get(model_key, '?')}")
+        print(f"Ablation records: {len(records)}")
+        print(f"Steering records: {len(all_steering.get(model_key, []))}")
+        print(f"FTF records: {len(all_ftf.get(model_key, []))}")
 
         profile = compute_width_resilience(records, dim)
         all_profiles[model_key] = profile
         if profile is None:
-            print("  NO DATA")
+            print("NO DATA")
             continue
 
         classification = classify_width_resilience(profile)
-        print(f"\n  WIDTH-RESILIENCE PROFILE: {classification}")
-        print(f"    Zero effect (<1pp):     {profile['zero_effect_pct']}% ({int(profile['n_pairs'] * profile['zero_effect_pct'] / 100)}/{profile['n_pairs']})")
-        print(f"    Severe (>25pp drop):    {profile['severe_pct']}%")
-        print(f"    Destruction (>50pp):    {profile['destruction_pct']}%")
-        print(f"    Mean delta:             {profile['mean_delta_pp']:+.1f}pp")
-        print(f"    Median delta:           {profile['median_delta_pp']:+.1f}pp")
-        print(f"    Range:                  [{profile['min_delta_pp']:+.1f}, {profile['max_delta_pp']:+.1f}]pp")
+        print(f"WIDTH-RESILIENCE PROFILE: {classification}")
+        print(f"Zero effect (<1pp):     {profile['zero_effect_pct']}% ({int(profile['n_pairs'] * profile['zero_effect_pct'] / 100)}/{profile['n_pairs']})")
+        print(f"Severe (>25pp drop):    {profile['severe_pct']}%")
+        print(f"Destruction (>50pp):    {profile['destruction_pct']}%")
+        print(f"Mean delta:             {profile['mean_delta_pp']:+.1f}pp")
+        print(f"Median delta:           {profile['median_delta_pp']:+.1f}pp")
+        print(f"Range:                  [{profile['min_delta_pp']:+.1f}, {profile['max_delta_pp']:+.1f}]pp")
 
         # Kill-switches
         if profile["kill_switches"]:
-            print(f"\n  KILL-SWITCH FEATURES (>50pp drop on any task):")
+            print(f"KILL-SWITCH FEATURES (>50pp drop on any task):")
             for ks in profile["kill_switches"]:
-                print(f"    {ks['concept']:30s}  worst={ks['worst_delta_pp']:+.1f}pp  "
+                print(f"{ks['concept']:30s}  worst={ks['worst_delta_pp']:+.1f}pp  "
                       f"tasks_affected(>25pp)={ks['tasks_affected_gt25pp']}")
         else:
-            print(f"\n  NO kill-switch features found (no concept causes >50pp drop)")
+            print(f"NO kill-switch features found (no concept causes >50pp drop)")
 
         # Layer gradient
         gradient = compute_layer_gradient(records)
         if len(gradient) > 1:
-            print(f"\n  LAYER GRADIENT:")
-            print(f"    {'Layer':>6}  {'Mean Delta':>10}  {'Zero%':>6}  {'Destroy%':>8}  {'N':>5}")
+            print(f"LAYER GRADIENT:")
+            print(f"{'Layer':>6}  {'Mean Delta':>10}  {'Zero%':>6}  {'Destroy%':>8}  {'N':>5}")
             for layer, g in sorted(gradient.items(), key=lambda x: (int(x[0]) if str(x[0]).isdigit() else float('inf'), str(x[0]))):
                 layer_label = f"L{layer:02d}" if isinstance(layer, int) else f"L{layer}"
-                print(f"    {layer_label:<8}  {g['mean_delta_pp']:+7.1f}pp  {g['zero_effect_pct']:5.1f}%  {g['destruction_pct']:7.1f}%  {g['n_pairs']:5d}")
+                print(f"{layer_label:<8}  {g['mean_delta_pp']:+7.1f}pp  {g['zero_effect_pct']:5.1f}%  {g['destruction_pct']:7.1f}%  {g['n_pairs']:5d}")
 
         # Per-suite
         suite_data = compute_per_suite(records)
         if len(suite_data) > 1:
-            print(f"\n  PER-SUITE BREAKDOWN:")
-            print(f"    {'Suite':>20}  {'Mean Delta':>10}  {'Zero%':>6}  {'Destroy%':>8}  {'N':>5}")
+            print(f"PER-SUITE BREAKDOWN:")
+            print(f"{'Suite':>20}  {'Mean Delta':>10}  {'Zero%':>6}  {'Destroy%':>8}  {'N':>5}")
             for suite, s in sorted(suite_data.items()):
-                print(f"    {suite:>20}  {s['mean_delta_pp']:+7.1f}pp  {s['zero_effect_pct']:5.1f}%  {s['destruction_pct']:7.1f}%  {s['n_pairs']:5d}")
+                print(f"{suite:>20}  {s['mean_delta_pp']:+7.1f}pp  {s['zero_effect_pct']:5.1f}%  {s['destruction_pct']:7.1f}%  {s['n_pairs']:5d}")
 
         # Steering
         steering = all_steering.get(model_key, [])
         if steering:
             steer_summary = compute_steering_summary(steering)
-            print(f"\n  STEERING DOSE-RESPONSE:")
-            print(f"    {'Multiplier':>10}  {'Mean Delta':>10}  {'Zero%':>6}  {'Destroy%':>8}  {'N':>5}")
+            print(f"STEERING DOSE-RESPONSE:")
+            print(f"{'Multiplier':>10}  {'Mean Delta':>10}  {'Zero%':>6}  {'Destroy%':>8}  {'N':>5}")
             for mult, s in steer_summary.items():
-                print(f"    {mult:>10}  {s['mean_delta_pp']:+7.1f}pp  {s['zero_effect_pct']:5.1f}%  {s['destruction_pct']:7.1f}%  {s['n_pairs']:5d}")
+                print(f"{mult:>10}  {s['mean_delta_pp']:+7.1f}pp  {s['zero_effect_pct']:5.1f}%  {s['destruction_pct']:7.1f}%  {s['n_pairs']:5d}")
 
     # Cross-model comparison table
-    print(f"\n{sep}")
     print("CROSS-MODEL COMPARISON TABLE")
-    print(sep)
-    print(f"  {'Model':>18}  {'Dim':>5}  {'Params':>6}  {'N Pairs':>8}  "
+    print(f"{'Model':>18}  {'Dim':>5}  {'Params':>6}  {'N Pairs':>8}  "
           f"{'Zero%':>6}  {'Destroy%':>8}  {'Mean Delta':>10}  {'Classification':>22}  {'Kill-Switches':>13}")
-    print(thin)
     for model_key in ["pi05_expert", "oft", "xvla", "smolvla_expert", "smolvla_vlm", "groot"]:
         p = all_profiles.get(model_key)
         cfg = DATA_SOURCES.get(model_key, {})
         if p is None:
-            print(f"  {model_key:>18}  {cfg.get('dim','?'):>5}  {cfg.get('params','?'):>6}  {'NO DATA':>8}")
+            print(f"{model_key:>18}  {cfg.get('dim','?'):>5}  {cfg.get('params','?'):>6}  {'NO DATA':>8}")
             continue
         cl = classify_width_resilience(p)
         n_ks = len(p["kill_switches"])
-        print(f"  {model_key:>18}  {p['dim']:>5}  {cfg.get('params','?'):>6}  {p['n_pairs']:>8}  "
+        print(f"{model_key:>18}  {p['dim']:>5}  {cfg.get('params','?'):>6}  {p['n_pairs']:>8}  "
               f"{p['zero_effect_pct']:>5.1f}%  {p['destruction_pct']:>7.1f}%  {p['mean_delta_pp']:>+9.1f}pp  "
               f"{cl:>22}  {n_ks:>13}")
-
-    print(f"\n{sep}")
 
     return all_profiles
 
@@ -722,7 +713,7 @@ def main():
                         help="Emit Action Atlas JSON")
     args = parser.parse_args()
 
-    print("Loading data from all models...", file=sys.stderr)
+    print("Loading data from all models", file=sys.stderr)
     all_records, all_steering, all_ftf, file_counts = load_all_data()
 
     total_records = sum(len(r) for r in all_records.values())
@@ -737,7 +728,7 @@ def main():
     all_profiles = print_report(all_records, all_steering, all_ftf, file_counts)
 
     if args.latex:
-        print("\n\n% === LATEX TABLE ===\n")
+        print("\n\n% LATEX TABLE\n")
         emit_latex_table(all_profiles)
 
     if args.json:

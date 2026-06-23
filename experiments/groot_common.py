@@ -273,7 +273,7 @@ def load_groot_n15(checkpoint, device):
     # Load GR00T N1.5 model
     from lerobot.policies.groot.groot_n1 import GR00TN15
 
-    print(f"Loading GR00T N1.5 from {checkpoint}...")
+    print(f"Loading GR00T N1.5 from {checkpoint}")
     start = time.time()
     model = GR00TN15.from_pretrained(
         checkpoint, tune_visual=False, tune_llm=False,
@@ -283,8 +283,8 @@ def load_groot_n15(checkpoint, device):
     model.compute_dtype = "bfloat16"
     model.config.compute_dtype = "bfloat16"
     params = sum(p.numel() for p in model.parameters())
-    print(f"  Loaded in {time.time() - start:.1f}s ({params/1e9:.2f}B params)")
-    print(f"  DiT: {len(get_groot_dit_blocks(model))}, Eagle: {len(get_groot_eagle_layers(model))}")
+    print(f"Loaded in {time.time() - start:.1f}s ({params/1e9:.2f}B params)")
+    print(f"DiT: {len(get_groot_dit_blocks(model))}, Eagle: {len(get_groot_eagle_layers(model))}")
     return model
 
 

@@ -202,7 +202,7 @@ def extract_video_results(video_path: str, results_data: Optional[Dict]) -> Dict
         result['metadata']['suite'] = data.get('suite')
 
         # Parse path to find pair and injection type
-        # Expected: .../pair_X_Y/inject_X_into_Y/experiment_name.mp4
+        # Expected path tail: pair_X_Y/inject_X_into_Y/experiment_name.mp4
         path_parts = video_path.parts
 
         pair_name = None

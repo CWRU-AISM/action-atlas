@@ -140,8 +140,8 @@ def main(cfg):
             if feat_ids:
                 conditions.append((f"{concept_type}/{concept_name}", feat_ids))
 
-    print(f"  conditions: {len(conditions)} (baseline + {len(conditions)-1} concepts)")
-    print(f"  features per concept: {cfg.n_features}")
+    print(f"conditions: {len(conditions)} (baseline + {len(conditions)-1} concepts)")
+    print(f"features per concept: {cfg.n_features}")
 
     # Register hook
     hook = PerTokenAblationHook(sae, act_mean, act_std, device=device)
@@ -151,7 +151,7 @@ def main(cfg):
     start_time = time.time()
 
     for cond_name, feat_ids in conditions:
-        print(f"\nCondition: {cond_name} (features: {feat_ids[:5]}{'...' if len(feat_ids) > 5 else ''})")
+        print(f"\nCondition: {cond_name} (features: {feat_ids[:5]}{'' if len(feat_ids) > 5 else ''})")
         cond_dir = output_dir / cond_name.replace("/", "_")
         cond_dir.mkdir(parents=True, exist_ok=True)
 
@@ -185,7 +185,7 @@ def main(cfg):
                 env.close()
 
             rate = successes / cfg.n_episodes
-            print(f"  Task {tid}: {rate:.0%} ({desc})")
+            print(f"Task {tid}: {rate:.0%} ({desc})")
             cond_results[str(tid)] = {
                 "success_rate": rate, "successes": successes,
                 "n_episodes": cfg.n_episodes,
@@ -204,11 +204,10 @@ def main(cfg):
     baseline_avg = results.get("baseline", {}).get("_avg", 0)
     print(f"\nConcept Ablation Results ({cfg.model} / {cfg.suite} / {cfg.layer})")
     print(f"{'Concept':<30} {'Avg SR':>8} {'Delta':>8}")
-    print("-" * 48)
     for cond_name, _ in conditions:
         avg = results[cond_name].get("_avg", 0)
         delta = avg - baseline_avg
-        print(f"  {cond_name:<28} {avg:>7.0%} {delta:>+7.0%}")
+        print(f"{cond_name:<28} {avg:>7.0%} {delta:>+7.0%}")
 
     save_results({
         "model": cfg.model, "suite": cfg.suite, "layer": cfg.layer,

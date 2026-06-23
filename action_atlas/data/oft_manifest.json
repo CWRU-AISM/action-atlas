@@ -43,6 +43,6 @@
       }
     }
   },
-  "oft_data_dir": "/data/openvla_rollouts/openvla_oft",
+  "oft_data_dir": "openvla_rollouts/openvla_oft",
   "version": 1
 }

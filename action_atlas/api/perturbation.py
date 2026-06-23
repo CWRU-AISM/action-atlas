@@ -127,7 +127,7 @@ def get_perturbation_types():
     Get available perturbation types with descriptions.
 
     Returns list of perturbation types with metadata for UI display.
-    Frontend expects: { perturbation_types: [{id, label, hasStrength, category, description}, ...] }
+    Frontend expects: { perturbation_types: [{id, label, hasStrength, category, description}] }
     """
     # Build array format expected by frontend PerturbationTesting component
     # Map backend categories to frontend categories:
@@ -210,10 +210,10 @@ def _convert_experiment_vp_to_vp_results(model: str, vp_section: dict) -> dict:
     Convert experiment_results vision_perturbation format to vp_results format.
 
     experiment_results format:
-      { "suite_name": { "per_perturbation": { "blur_light": { "overall_success_rate": 0.9, "per_task": {...} } } } }
+      { "suite_name": { "per_perturbation": { "blur_light": { "overall_success_rate": 0.9, "per_task": {<per-task rates>} } } } }
 
     vp_results format:
-      { "model": "...", "suites": { "suite_name": { "overall": { "blur_light": { "success_rate": 0.9 } }, "tasks": {} } } }
+      { "model": <name>, "suites": { "suite_name": { "overall": { "blur_light": { "success_rate": 0.9 } }, "tasks": {} } } }
     """
     suites = {}
     all_perturbation_types = set()
@@ -508,7 +508,7 @@ def extract_video_frame():
             # Try relative to various data directories
             # VLA_VIDEO_DIR is data/videos, and videos are under pi05/ subdirectory
             possible_paths = [
-                VLA_VIDEO_DIR / video_path,  # data/videos/pi05/counterfactual/...
+                VLA_VIDEO_DIR / video_path,  # under data/videos/pi05/counterfactual/
                 Path(__file__).parent / "data" / video_path,
                 Path(__file__).parent / "data" / "videos" / video_path,
                 Path(__file__).parent.parent / "outputs" / video_path,

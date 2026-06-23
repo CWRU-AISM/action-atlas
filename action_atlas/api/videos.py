@@ -489,7 +489,7 @@ def serve_vla_video(video_path: str):
     This endpoint serves video files from the symlinked directories under data/videos.
     It supports:
     - pi05 videos at data/videos/pi05/
-    - openvla videos at data/videos/openvla/rollouts/ (symlinked to /data/openvla_rollouts)
+    - openvla videos at data/videos/openvla/rollouts/ (symlinked to the openvla_rollouts data dir)
     - Various experiment types (counterfactual, ablation, baseline, etc.)
 
     Security:
@@ -548,7 +548,7 @@ def serve_vla_video(video_path: str):
             return redirect(f"{TIGRIS_PUBLIC_URL}/{video_path}", code=302)
         abort(404, description="Pi0.5 ablation video not found")
 
-    # Handle openvla paths - the index.json paths are relative to /data/openvla_rollouts
+    # Handle openvla paths - the index.json paths are relative to the openvla_rollouts data dir
     # which is symlinked at data/videos/openvla/rollouts
     if video_path.startswith('openvla/'):
         # Extract the path after "openvla/"
@@ -559,7 +559,7 @@ def serve_vla_video(video_path: str):
 
     # Handle GR00T video paths from ablation index
     # Index paths: groot_fraction_to_failure/libero_object/dit_L00/filename.mp4
-    # Disk paths: /data/groot_rollouts{,_BATCH2}/sae_fraction_to_failure/libero_object/dit_L00/videos/filename.mp4
+    # Disk paths: groot_rollouts{,_batch2} data dir + sae_fraction_to_failure/libero_object/dit_L00/videos/filename.mp4
     if video_path.startswith('groot_'):
         groot_path_map = {
             'groot_fraction_to_failure/': 'sae_fraction_to_failure/',
@@ -641,8 +641,8 @@ def serve_vla_video(video_path: str):
         # Fallback: redirect to Tigris object storage (Fly.io deployment)
         if TIGRIS_PUBLIC_URL:
             tigris_key = video_path
-            # Pi05 index paths are relative to pi05/ dir - need pi05/ prefix for Tigris.
-            # Known top-level Tigris prefixes that already map correctly:
+            # Pi05 index paths are relative to the pi05/ dir, so they need the pi05/ prefix
+            # for Tigris. Known top-level Tigris prefixes that already map correctly:
             tigris_top_prefixes = ('aloha/', 'openvla/', 'pi05/', 'pi05_ablation/',
                                    'pi05_baseline/', 'oft_ablation/', 'oft_baseline/',
                                    'xvla/', 'xvla_baseline/',
@@ -650,13 +650,10 @@ def serve_vla_video(video_path: str):
                                    'groot/', 'groot_baseline/',
                                    'groot_fraction_to_failure/',
                                    'xvla_ablation/', 'smolvla_ablation/')
-            # Vision perturbation paths need source dir remapping to strip
-            # the "main/" or "batch2/" subdirectory, regardless of whether
-            # the pi05/ prefix is already present.
-            #   pi05/vision_perturbation/main/...  → pi05/vision_perturbation/...
-            #   pi05/vision_perturbation/batch2/... → pi05/vision_perturbation_batch2/...
-            #   vision_perturbation/main/...       → pi05/vision_perturbation/...
-            #   vision_perturbation/batch2/...      → pi05/vision_perturbation_batch2/...
+            # Vision perturbation paths carry a capture-batch subdirectory ("main" or
+            # "batch2") that the bucket flattens. The main batch lives under
+            # vision_perturbation/ and the second batch under vision_perturbation_batch2/,
+            # with the pi05/ prefix added when it is not already present.
             if tigris_key.startswith('pi05/vision_perturbation/main/'):
                 tigris_key = 'pi05/vision_perturbation/' + tigris_key[len('pi05/vision_perturbation/main/'):]
             elif tigris_key.startswith('pi05/vision_perturbation/batch2/'):
@@ -665,6 +662,12 @@ def serve_vla_video(video_path: str):
                 tigris_key = 'pi05/vision_perturbation/' + tigris_key[len('vision_perturbation/main/'):]
             elif tigris_key.startswith('vision_perturbation/batch2/'):
                 tigris_key = 'pi05/vision_perturbation_batch2/' + tigris_key[len('vision_perturbation/batch2/'):]
+            elif tigris_key.startswith('pi05/cross_task/'):
+                # pi05 cross_task index paths carry a redundant "cross_task/" segment that the
+                # bucket does not have; the videos live directly under pi05/<subgroup>/
+                tigris_key = 'pi05/' + tigris_key[len('pi05/cross_task/'):]
+            elif tigris_key.startswith('cross_task/'):
+                tigris_key = 'pi05/' + tigris_key[len('cross_task/'):]
             elif not any(tigris_key.startswith(p) for p in tigris_top_prefixes):
                 # All other pi05 paths (counterfactual/, cross_task_goal/, etc.)
                 tigris_key = 'pi05/' + tigris_key

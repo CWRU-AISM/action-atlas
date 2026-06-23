@@ -7,6 +7,8 @@ from typing import Dict, List, Optional
 from flask import Blueprint, request, jsonify, send_file, abort, make_response, redirect
 from PIL import Image
 
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+
 TIGRIS_BUCKET = os.environ.get("BUCKET_NAME", "")
 TIGRIS_ENDPOINT = os.environ.get("AWS_ENDPOINT_URL_S3", "")
 TIGRIS_PUBLIC_URL = f"https://{TIGRIS_BUCKET}.fly.storage.tigris.dev" if TIGRIS_BUCKET else ""
@@ -14,15 +16,15 @@ TIGRIS_PUBLIC_URL = f"https://{TIGRIS_BUCKET}.fly.storage.tigris.dev" if TIGRIS_
 VLA_DATA_DIR = Path(__file__).parent.parent / "data" / "processed"
 VLA_VIDEO_DIR = Path(__file__).parent.parent / "data" / "videos"
 
-PI05_ROLLOUTS_DIR = Path(os.environ.get("PI05_ROLLOUTS_DIR", "/data/robotsteering/pi05_rollouts"))
-OPENVLA_ROLLOUTS_DIR = Path(os.environ.get("OPENVLA_ROLLOUTS_DIR", "/data/openvla_rollouts"))
-ALOHA_ROLLOUTS_DIR = Path(os.environ.get("ALOHA_ROLLOUTS_DIR", "/data/robotsteering/aloha_rollouts"))
-PI05_BASELINE_DIR = Path(os.environ.get("PI05_BASELINE_DIR", "/data/robotsteering/pi05_pertoken_baseline"))
-XVLA_ROLLOUTS_DIR = Path(os.environ.get("XVLA_ROLLOUTS_DIR", "/data/batch_1"))
-SMOLVLA_ROLLOUTS_DIR = Path(os.environ.get("SMOLVLA_ROLLOUTS_DIR", "/data/smolvla_rollouts"))
-SMOLVLA_LIBERO_DIR = Path(os.environ.get("SMOLVLA_LIBERO_DIR", "/data/smolvla_rollouts/smolvla"))
-GROOT_ROLLOUTS_DIR = Path(os.environ.get("GROOT_ROLLOUTS_DIR", "/data/groot_rollouts"))
-GROOT_ROLLOUTS_DIR_BATCH2 = Path(os.environ.get("GROOT_ROLLOUTS_DIR_BATCH2", "/data/groot_rollouts_batch2"))
+PI05_ROLLOUTS_DIR = Path(os.environ.get("PI05_ROLLOUTS_DIR", str(DATA_ROOT / "pi05_rollouts")))
+OPENVLA_ROLLOUTS_DIR = Path(os.environ.get("OPENVLA_ROLLOUTS_DIR", str(DATA_ROOT / "openvla_rollouts")))
+ALOHA_ROLLOUTS_DIR = Path(os.environ.get("ALOHA_ROLLOUTS_DIR", str(DATA_ROOT / "aloha_rollouts")))
+PI05_BASELINE_DIR = Path(os.environ.get("PI05_BASELINE_DIR", str(DATA_ROOT / "pi05_pertoken_baseline")))
+XVLA_ROLLOUTS_DIR = Path(os.environ.get("XVLA_ROLLOUTS_DIR", str(DATA_ROOT / "batch_1")))
+SMOLVLA_ROLLOUTS_DIR = Path(os.environ.get("SMOLVLA_ROLLOUTS_DIR", str(DATA_ROOT / "smolvla_rollouts")))
+SMOLVLA_LIBERO_DIR = Path(os.environ.get("SMOLVLA_LIBERO_DIR", str(DATA_ROOT / "smolvla_rollouts" / "smolvla")))
+GROOT_ROLLOUTS_DIR = Path(os.environ.get("GROOT_ROLLOUTS_DIR", str(DATA_ROOT / "groot_rollouts")))
+GROOT_ROLLOUTS_DIR_BATCH2 = Path(os.environ.get("GROOT_ROLLOUTS_DIR_BATCH2", str(DATA_ROOT / "groot_rollouts_batch2")))
 
 RESULTS_DIR = Path(__file__).parent.parent.parent / "results"
 OFT_ABLATION_VIDEO_DIR = RESULTS_DIR / "experiment_results" / "oft_concept_ablation" / "videos"
@@ -196,11 +198,11 @@ def get_vla_config(model: str = 'pi05'):
             'layer_prefix': 'layer',
             'sae_width': 8192,
             'hidden_dim': 1024,
-            'concept_id_dir': Path("/data/batch_1/xvla_concept_id"),
-            'ablation_dir': Path("/data/batch_1/xvla_concept_ablation"),
-            'steering_dir': Path("/data/batch_1/xvla_concept_steering"),
-            'feature_descriptions_dir': Path("/data/batch_1/xvla_feature_descriptions"),
-            'oracle_probes_dir': Path("/data/batch_1/xvla_matched_oracle_probe"),
+            'concept_id_dir': DATA_ROOT / "batch_1" / "xvla_concept_id",
+            'ablation_dir': DATA_ROOT / "batch_1" / "xvla_concept_ablation",
+            'steering_dir': DATA_ROOT / "batch_1" / "xvla_concept_steering",
+            'feature_descriptions_dir': DATA_ROOT / "batch_1" / "xvla_feature_descriptions",
+            'oracle_probes_dir': DATA_ROOT / "batch_1" / "xvla_matched_oracle_probe",
             'architecture': 'single_pathway',
         }
     elif model == 'smolvla':
@@ -215,11 +217,11 @@ def get_vla_config(model: str = 'pi05'):
             'layer_prefix': 'vlm_layer',  # primary prefix; expert_layer is secondary
             'sae_width': {'vlm': 7680, 'expert': 3840},
             'hidden_dim': {'vlm': 960, 'expert': 480},
-            'concept_id_dir': Path("/data/smolvla_rollouts/concept_id"),
+            'concept_id_dir': DATA_ROOT / "smolvla_rollouts" / "concept_id",
             'metaworld_concept_id_dir': Path(__file__).parent / "data" / "smolvla_metaworld_concept_id",
-            'ablation_dir': Path("/data/smolvla_rollouts/concept_ablation"),
-            'ffn_dir': Path("/data/smolvla_rollouts/ffn_contrastive"),
-            'oracle_probes_dir': Path("/data/smolvla_rollouts/oracle_probes"),
+            'ablation_dir': DATA_ROOT / "smolvla_rollouts" / "concept_ablation",
+            'ffn_dir': DATA_ROOT / "smolvla_rollouts" / "ffn_contrastive",
+            'oracle_probes_dir': DATA_ROOT / "smolvla_rollouts" / "oracle_probes",
             'architecture': 'dual_pathway_interleaved',
         }
     elif model == 'groot':
@@ -236,12 +238,12 @@ def get_vla_config(model: str = 'pi05'):
             'sae_width': 16384,
             'hidden_dim': {'dit': 2048, 'eagle': 2048, 'vlsa': 2048},
             'concept_id_dir': Path(__file__).parent.parent / 'results' / 'experiment_results' / 'groot_concept_id',
-            'ablation_dir': Path("/data/groot_rollouts/sae_feature_ablation"),
-            'steering_dir': Path("/data/groot_rollouts_batch2/sae_steering"),
-            'fraction_to_failure_dir': Path("/data/groot_rollouts_batch2/sae_fraction_to_failure"),
-            'temporal_ablation_dir': Path("/data/groot_rollouts_batch2/sae_temporal_ablation"),
-            'cross_suite_dir': Path("/data/groot_rollouts_batch2/sae_cross_suite_ablation"),
-            'probing_dir': Path("/data/groot_rollouts/sae_probing"),
+            'ablation_dir': DATA_ROOT / "groot_rollouts" / "sae_feature_ablation",
+            'steering_dir': DATA_ROOT / "groot_rollouts_batch2" / "sae_steering",
+            'fraction_to_failure_dir': DATA_ROOT / "groot_rollouts_batch2" / "sae_fraction_to_failure",
+            'temporal_ablation_dir': DATA_ROOT / "groot_rollouts_batch2" / "sae_temporal_ablation",
+            'cross_suite_dir': DATA_ROOT / "groot_rollouts_batch2" / "sae_cross_suite_ablation",
+            'probing_dir': DATA_ROOT / "groot_rollouts" / "sae_probing",
             'architecture': 'triple_pathway',
         }
     elif model == 'act_aloha' or model == 'act':
@@ -367,11 +369,11 @@ def load_clustering_data(suite: str, layer: str, model: str = 'pi05',
         print(f"Looking for clustering data at: {path}")
         if path.exists():
             filepath = path
-            print(f"  -> Found!")
+            print(f"-> Found!")
             break
 
     if filepath is None:
-        print(f"  -> No data file found for layer {layer}, suite {suite}, method {method}, pathway {pathway}")
+        print(f"-> No data file found for layer {layer}, suite {suite}, method {method}, pathway {pathway}")
         return None
 
     data = np.load(filepath, allow_pickle=True)
