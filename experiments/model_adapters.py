@@ -361,7 +361,7 @@ class SmolVLAAdapter(ModelAdapter):
                         if isinstance(t, torch.Tensor) and t.ndim <= 2:
                             rs[gk][sk] = t.unsqueeze(0)
 
-            obs_tensor["task"] = [env.task_description]
+            obs_tensor["task"] = [task_desc]
             obs_tensor = self.env_preprocessor(obs_tensor)
             obs_tensor = self.preprocessor(obs_tensor)
 
@@ -450,7 +450,10 @@ class GR00TAdapter(ModelAdapter):
         task_key = id(task) if not isinstance(task, int) else task
         cache_key = (suite, task_key)
         if cache_key not in self._env_cache:
-            from experiments.groot_common import create_libero_env
+            from experiments.groot_common import create_libero_env, setup_libero_envs
+            if isinstance(task, int):
+                task_suite, _ = setup_libero_envs(suite)
+                task = task_suite.get_task(task)
             env, task_desc = create_libero_env(task, resolution=resolution)
             self._env_cache[cache_key] = (env, task_desc)
         env, task_desc = self._env_cache[cache_key]
@@ -717,8 +720,24 @@ class OpenVLAOFTAdapter(ModelAdapter):
 
     def run_episode(self, env, task_desc, max_steps=300,
                     save_video=False, perturbation_fn=None, **kwargs):
+        # Mirror openvla_oft's run_libero_eval.py episode loop: dummy-step
+        # settling, two-image observations, chunked open-loop actions, and
+        # gripper renormalization. Calling vla.forward() directly does not
+        # work with these checkpoints (their forward requires labels).
+        from collections import deque
+        sys.path.insert(0, str(PROJECT_ROOT / "openvla_oft"))
+        from experiments.robot.robot_utils import (
+            get_action, normalize_gripper_action, invert_gripper_action,
+        )
+        from experiments.robot.openvla_utils import resize_image_for_policy
+        from experiments.robot.libero.libero_utils import (
+            get_libero_image, get_libero_wrist_image, get_libero_dummy_action,
+            quat2axisangle,
+        )
+
         init_states = kwargs.get("init_states")
         seed = kwargs.get("seed", 42)
+        num_steps_wait = kwargs.get("num_steps_wait", 10)
 
         obs = env.reset()
         if init_states is not None:
@@ -731,53 +750,59 @@ class OpenVLAOFTAdapter(ModelAdapter):
         resize_size = self.components["resize_size"]
         cfg = self.components["config"]
 
+        action_queue = deque(maxlen=cfg.num_open_loop_steps)
         actions_list = []
         frames = []
         success = False
+        t = 0
 
-        for step in range(max_steps):
-            img = obs.get("agentview_image", obs.get("image"))[::-1, ::-1].copy()
-            if save_video and step % 3 == 0:
+        while t < max_steps + num_steps_wait:
+            # Let objects settle before acting
+            if t < num_steps_wait:
+                obs, reward, done, info = env.step(get_libero_dummy_action(cfg.model_family))
+                t += 1
+                continue
+
+            img = get_libero_image(obs)
+            wrist_img = get_libero_wrist_image(obs)
+            if perturbation_fn is not None:
+                img = perturbation_fn(img)
+            if save_video and t % 3 == 0:
                 frames.append(img.copy())
 
-            from PIL import Image as PILImage
-            pil_img = PILImage.fromarray(img).resize((resize_size, resize_size))
+            observation = {
+                "full_image": resize_image_for_policy(img, resize_size),
+                "wrist_image": resize_image_for_policy(wrist_img, resize_size),
+                "state": np.concatenate(
+                    (obs["robot0_eef_pos"], quat2axisangle(obs["robot0_eef_quat"]),
+                     obs["robot0_gripper_qpos"])
+                ),
+            }
 
-            inputs = processor(task_desc, pil_img).to(self.device, dtype=torch.bfloat16)
-
-            with torch.inference_mode():
-                output = vla(
-                    input_ids=inputs["input_ids"],
-                    attention_mask=inputs["attention_mask"],
-                    pixel_values=inputs["pixel_values"],
+            if len(action_queue) == 0:
+                actions = get_action(
+                    cfg, vla, observation, task_desc,
+                    processor=processor, action_head=action_head,
+                    proprio_projector=proprio_proj, use_film=cfg.use_film,
                 )
-                hidden = output.last_hidden_state[:, -1, :]
+                action_queue.extend(actions)
 
-                if proprio_proj is not None:
-                    eef = obs["robot0_eef_pos"]
-                    quat = obs["robot0_eef_quat"]
-                    grip = obs["robot0_gripper_qpos"]
-                    from experiments.libero_utils import quat2axisangle
-                    proprio_vec = np.concatenate([eef, quat2axisangle(quat), grip])
-                    proprio = torch.tensor(proprio_vec,
-                                           dtype=torch.float32, device=self.device).unsqueeze(0)
-                    hidden = hidden + proprio_proj(proprio)
+            action = action_queue.popleft()
+            action = normalize_gripper_action(action, binarize=True)
+            action = invert_gripper_action(action)
 
-                if action_head is not None:
-                    action = action_head(hidden).squeeze(0).cpu().numpy()
-                else:
-                    action = hidden.squeeze(0).cpu().numpy()[:7]
-
-            action_7d = action[:7]
-            actions_list.append(action_7d.copy())
-            obs, reward, done, info = env.step(action_7d)
-
+            obs, reward, done, info = env.step(action.tolist())
+            actions_list.append(np.asarray(action)[:7].copy())
             if done:
-                success = env.check_success()
+                success = True
                 break
+            t += 1
 
-        result = {"success": bool(success), "steps": len(actions_list),
-                  "actions": np.array(actions_list)}
+        result = {
+            "success": bool(success),
+            "steps": len(actions_list),
+            "actions": np.array(actions_list) if actions_list else np.zeros((0, 7)),
+        }
         if save_video:
             result["frames"] = frames
         return result

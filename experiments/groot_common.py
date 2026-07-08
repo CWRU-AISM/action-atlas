@@ -141,7 +141,7 @@ def load_metadata_stats(checkpoint_path):
     # Load normalization statistics from checkpoint's metadata.json
     meta_path = Path(checkpoint_path) / "experiment_cfg" / "metadata.json"
     if not meta_path.exists():
-        return None
+        return _load_stats_from_policy_processors(checkpoint_path)
 
     with open(meta_path) as f:
         metadata = json.load(f)
@@ -162,6 +162,38 @@ def load_metadata_stats(checkpoint_path):
 
     return result
 
+
+
+
+def _load_stats_from_policy_processors(checkpoint_path):
+    # LeRobot-format GR00T checkpoints (e.g. aractingi/libero-groot-goal) keep
+    # normalization stats inside the policy pre/postprocessor safetensors
+    # rather than experiment_cfg/metadata.json.
+    from safetensors import safe_open
+
+    ckpt = Path(checkpoint_path)
+    if ckpt.is_dir():
+        files = sorted(str(f) for f in ckpt.glob("policy_*processor*.safetensors"))
+    else:
+        from huggingface_hub import hf_hub_download, list_repo_files
+        try:
+            names = [n for n in list_repo_files(str(checkpoint_path))
+                     if n.startswith("policy_") and n.endswith(".safetensors")]
+            files = [hf_hub_download(str(checkpoint_path), n) for n in sorted(names)]
+        except Exception:
+            return None
+
+    result = {}
+    for f in files:
+        with safe_open(f, "pt") as s:
+            keys = set(s.keys())
+            if "observation.state.min" in keys and "state_min" not in result:
+                result["state_min"] = s.get_tensor("observation.state.min").numpy()
+                result["state_max"] = s.get_tensor("observation.state.max").numpy()
+            if "action.min" in keys and "action_min" not in result:
+                result["action_min"] = s.get_tensor("action.min").numpy()
+                result["action_max"] = s.get_tensor("action.max").numpy()
+    return result or None
 
 def normalize_state(state_8d, stats):
     # Normalize 8D state to [-1, 1] using min-max from training data
@@ -264,7 +296,7 @@ def build_eagle_processor():
     cache_dir = HF_LEROBOT_HOME / tokenizer_repo
 
     ensure_eagle_cache_ready(vendor_dir, cache_dir, tokenizer_repo)
-    proc = AutoProcessor.from_pretrained(str(cache_dir), trust_remote_code=True, use_fast=True)
+    proc = AutoProcessor.from_pretrained(str(cache_dir), trust_remote_code=True)
     proc.tokenizer.padding_side = "left"
     return proc
 

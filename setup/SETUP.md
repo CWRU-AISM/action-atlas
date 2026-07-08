@@ -16,8 +16,13 @@ conda create -y -n actionatlas python=3.12 && conda activate actionatlas
 # Install PyTorch with CUDA
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 
-# Install LeRobot (provides X-VLA, SmolVLA, GR00T, Pi0.5 policies)
-cd lerobot && pip install -e ".[pi]" && cd ..
+# Install LeRobot (provides X-VLA, SmolVLA, GR00T, Pi0.5 policies).
+# The [libero] extra pulls hf-libero, which provides robosuite/mujoco/bddl
+# built to work with numpy 2.x. Requires system cmake (see System Dependencies
+# below) to build egl_probe. Do NOT `pip install -r LIBERO/requirements.txt`;
+# its pins (numpy==1.22.4 etc.) are stale upstream pins that conflict with
+# lerobot and are not needed.
+cd lerobot && pip install -e ".[pi,smolvla,libero,metaworld]" && cd ..
 
 # Install LIBERO (evaluation environments)
 cd LIBERO && pip install -e . && cd ..
@@ -29,7 +34,7 @@ pip install -e .
 python -c "from lerobot.policies.xvla.modeling_xvla import XVLAPolicy; print('X-VLA OK')"
 python -c "from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy; print('SmolVLA OK')"
 python -c "from lerobot.policies.pi05.modeling_pi05 import PI05Policy; print('Pi0.5 OK')"
-python -c "import libero; print('LIBERO OK')"
+python -c "from libero.libero.envs import OffScreenRenderEnv; print('LIBERO OK')"
 ```
 
 ## Submodules
@@ -44,12 +49,21 @@ python -c "import libero; print('LIBERO OK')"
 
 | Environment | Python | Models | Key constraint |
 |-------------|--------|--------|---------------|
-| **actionatlas** | 3.12 | X-VLA, SmolVLA, Pi0.5 | transformers==4.53 |
-| **groot** | 3.12 | GR00T N1.5 | transformers>=5.0, flash-attn, peft |
-| **openvla-oft** | 3.10 | OpenVLA-OFT | torch==2.2, prismatic |
+| **actionatlas** | 3.12 | X-VLA, SmolVLA, Pi0.5 | transformers==5.3 (pinned by lerobot), numpy 2.2.x |
+| **groot** | 3.12 | GR00T N1.5 | flash-attn (CUDA 12.8 toolchain), peft |
+| **openvla-oft** | 3.10 | OpenVLA-OFT | torch==2.2, numpy<2, prismatic |
 
-GR00T requires `transformers>=5.0` for its Eagle VLM processor, which
-conflicts with the other models. A separate environment avoids this.
+GR00T additionally requires flash-attn and peft; compiling flash-attn
+needs a CUDA toolchain matching the cu128 PyTorch build, so a separate
+environment keeps that isolated.
+
+The SimplerEnv X-VLA experiments (`experiments/simplerenv/`) use a separate
+`simpler_env` environment (Python 3.10, numpy<2) that is not yet documented
+here; see the `SimplerEnv/` submodule's README for its base installation.
+
+Note on numpy: the actionatlas and groot envs run numpy 2.2.x; robosuite
+1.4.x works fine with it (via hf-libero). The openvla-oft env must stay on
+numpy<2 because torch 2.2.0 predates numpy 2 and cannot interoperate with it.
 
 ## Detailed Installation
 
@@ -60,8 +74,16 @@ sudo apt-get update
 sudo apt-get install -y cmake build-essential python3-dev pkg-config \
     libavformat-dev libavcodec-dev libavdevice-dev libavutil-dev \
     libswscale-dev libswresample-dev libavfilter-dev \
-    libosmesa6-dev libgl1-mesa-glx libglfw3 patchelf
+    libosmesa6-dev libgl1 libglx-mesa0 libglfw3 patchelf
 ```
+
+This list is confirmed on Ubuntu 24.04. On Ubuntu 22.04 and older, replace
+`libgl1 libglx-mesa0` with `libgl1-mesa-glx` (the package was renamed in
+24.04).
+
+This step is required before the pip installs below: building `egl_probe`
+(pulled in by the lerobot `[libero]` extra) needs system `cmake` and the
+GL headers.
 
 ### Primary Environment (X-VLA, SmolVLA, Pi0.5)
 
@@ -71,11 +93,17 @@ conda activate actionatlas
 conda install -y ffmpeg -c conda-forge
 
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
-cd lerobot && pip install -e ".[pi]" && cd ..
+cd lerobot && pip install -e ".[pi,smolvla,libero,metaworld]" && cd ..
 cd LIBERO && pip install -e . && cd ..
 pip install -e .
 pip install flask flask-cors  # for Action Atlas visualization
 ```
+
+The `[libero]` extra (hf-libero) provides the robosuite/mujoco/bddl stack
+that LIBERO environments need at runtime; without it `import libero`
+succeeds but creating an environment fails with
+`ModuleNotFoundError: No module named 'robosuite'`. `[metaworld]` is
+needed for the MetaWorld experiment suite (`experiments/metaworld/`).
 
 ### GR00T N1.5 Environment
 
@@ -85,15 +113,48 @@ conda activate groot
 conda install -y ffmpeg -c conda-forge
 
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
-cd lerobot && pip install -e ".[pi]" && cd ..
+cd lerobot && pip install -e ".[pi,libero]" && cd ..
 cd LIBERO && pip install -e . && cd ..
 pip install -e .
 
-# GR00T requires these additional packages
-pip install "transformers>=5.0" peft
-conda install -y cuda-nvcc cuda-toolkit -c nvidia
-pip install flash-attn --no-build-isolation
+# GR00T requires these additional packages. The lerobot [groot] extra brings
+# dm-tree, timm, decord etc.; transformers stays at 5.3.0 (lerobot's pin).
+cd lerobot && pip install -e ".[groot]" && cd ..
+pip install peft
+
+# The pinned lerobot commit's GR00T code predates transformers 5.3; apply the
+# compat patch (4 small hunks: lazy Beta init, all_tied_weights_keys shim,
+# Eagle processor fixes backported from upstream lerobot PR #3652):
+cd lerobot && git apply ../setup/patches/lerobot-groot-transformers5.patch && cd ..
+
+# CUDA toolchain for compiling flash-attn. MUST be pinned to the same CUDA
+# version as the PyTorch build (cu128); an unpinned install pulls CUDA 13+
+# and flash-attn fails with "The detected CUDA version mismatches ...".
+conda install -y cuda-nvcc=12.8 cuda-toolkit=12.8 -c nvidia
+
+# conda's cuda-toolkit also installs a conda compiler toolchain whose
+# CC/CXX/CXXFLAGS break nvcc during the flash-attn build. Compile with the
+# system gcc instead, pointing it at conda's CUDA headers:
+unset CC CXX CFLAGS CXXFLAGS LDFLAGS CPPFLAGS
+export CUDA_HOME=$CONDA_PREFIX
+export CPATH=$CONDA_PREFIX/targets/x86_64-linux/include
+export LIBRARY_PATH=$CONDA_PREFIX/targets/x86_64-linux/lib:$CONDA_PREFIX/targets/x86_64-linux/lib/stubs
+MAX_JOBS=12 pip install flash-attn --no-build-isolation
 ```
+
+No prebuilt flash-attn wheel exists for the torch version currently served by
+the cu128 index (2.10), so the source build above is required (roughly 1-2 h).
+Verify:
+```bash
+python -c "import flash_attn; print('flash-attn OK')"
+python -c "from lerobot.policies.groot.modeling_groot import GrootPolicy; print('GR00T OK')"
+python experiments/baseline.py --model groot --suite libero_goal --tasks 0 --n-episodes 1
+```
+
+Note: upstream lerobot has since fixed GR00T for transformers >=5.4 (PR #3652
+and follow-ups). Updating the lerobot submodule would make
+`setup/patches/lerobot-groot-transformers5.patch` unnecessary, but requires
+re-validating the other policies against the newer lerobot API.
 
 ### OpenVLA-OFT Environment
 
@@ -104,11 +165,44 @@ conda activate openvla-oft
 pip install torch==2.2.0 torchvision==0.17.0 --index-url https://download.pytorch.org/whl/cu121
 cd openvla_oft && pip install -e . && cd ..
 cd LIBERO && pip install -e . && cd ..
+
+# LIBERO runtime deps (robosuite etc.) for the OFT eval scripts
+pip install -r openvla_oft/experiments/robot/libero/libero_requirements.txt
+
+# Project deps (tyro etc.) so experiments/*.py can run in this env
+pip install -e .
+
+# The two steps above upgrade numpy to 2.x, which torch 2.2.0 cannot use at
+# all (RuntimeError: Numpy is not available). Downgrade it back LAST:
+pip install "numpy<2"
+
+# libero_requirements.txt leaves mujoco unpinned; current mujoco (3.10+)
+# changed the mj_fullM() signature and breaks robosuite 1.4 controllers:
+pip install "mujoco==3.1.6"
+
+# tensorflow_datasets pulls a tensorflow_metadata that needs protobuf 5.x
+# while tensorflow 2.15 pins protobuf 4.x; without these pins `import
+# prismatic` fails with "cannot import name 'runtime_version'". protobuf is
+# then re-pinned to 4.25 so wandb keeps working (tensorflow_metadata's
+# declared <4.21 pin is stricter than its code actually needs):
+pip install "tensorflow_metadata<1.17"
+pip install "protobuf==4.25.*"
 ```
 
-If `import libero` fails after installation, add it to your PYTHONPATH:
+With current pip, the editable LIBERO install does not put `libero` on the
+import path (LIBERO has no top-level `__init__.py`, so the PEP 660 editable
+finder maps nothing). Add it to your PYTHONPATH; this is required, not
+optional, in this environment:
 ```bash
 export PYTHONPATH=$PYTHONPATH:$(pwd)/LIBERO
+```
+
+Verify:
+```bash
+cd action-atlas   # repo root
+export PYTHONPATH=$PYTHONPATH:$(pwd)/LIBERO
+python -c "from libero.libero.envs import OffScreenRenderEnv; print('LIBERO OK')"
+python -c "import prismatic; print('prismatic OK')"
 ```
 
 ### HuggingFace Authentication
@@ -135,6 +229,11 @@ The model adapters in `experiments/model_adapters.py` and `experiments/groot_com
 ```bash
 hf download lerobot/pi05_libero_finetuned --local-dir checkpoints/pi05_libero_finetuned
 ```
+
+Unlike the other models, this pre-download is REQUIRED for Pi0.5: the adapter's
+default checkpoint is the local `checkpoints/pi05_libero_finetuned` directory
+(alternatively pass `--checkpoint lerobot/pi05_libero_finetuned` to load from
+the Hub directly).
 
 ### X-VLA
 
@@ -192,13 +291,15 @@ OFT uses one checkpoint per LIBERO suite (official `moojink` releases). Loaded o
 
 ```bash
 conda activate openvla-oft
-hf download moojink/openvla-7b-oft-finetuned-libero-spatial --local-dir checkpoints/openvla-oft-spatial
-hf download moojink/openvla-7b-oft-finetuned-libero-object  --local-dir checkpoints/openvla-oft-object
-hf download moojink/openvla-7b-oft-finetuned-libero-goal    --local-dir checkpoints/openvla-oft-goal
-hf download moojink/openvla-7b-oft-finetuned-libero-10      --local-dir checkpoints/openvla-oft-10
+hf download moojink/openvla-7b-oft-finetuned-libero-spatial --local-dir data/checkpoints/openvla-oft-spatial
+hf download moojink/openvla-7b-oft-finetuned-libero-object  --local-dir data/checkpoints/openvla-oft-object
+hf download moojink/openvla-7b-oft-finetuned-libero-goal    --local-dir data/checkpoints/openvla-oft-goal
+hf download moojink/openvla-7b-oft-finetuned-libero-10      --local-dir data/checkpoints/openvla-oft-10
 ```
 
 Each OFT checkpoint is ~16 GB (7B base + LoRA adapter + dataset statistics).
+Note the `data/` prefix: the OFT adapter resolves checkpoints under
+`ACTION_ATLAS_DATA_ROOT` (default `data/`), unlike the other models.
 
 ## Running Experiments
 
@@ -227,6 +328,19 @@ python experiments/launch_parallel.py grid_ablation \
 
 **PaliGemma access denied:** Accept license at https://huggingface.co/google/paligemma-3b-pt-224
 
-**NumPy 2.x errors:** `pip install "numpy<2"`
+**numpy version conflicts (e.g. "robosuite needs numpy==1.22.4 but lerobot
+needs 2.2.x"):** Do not install `LIBERO/requirements.txt`; those pins are
+stale upstream pins and are not used by this setup (LIBERO's `setup.py`
+declares no dependencies). The robosuite stack comes from the lerobot
+`[libero]` extra (hf-libero) and works with numpy 2.2.x. The only env that
+needs `numpy<2` is openvla-oft (torch 2.2.0 cannot use numpy 2.x).
+
+**`ModuleNotFoundError: No module named 'robosuite'` when creating a LIBERO
+env:** The lerobot `[libero]` extra is missing; run `cd lerobot && pip install
+-e ".[pi,libero]"` (actionatlas/groot envs), or install
+`openvla_oft/experiments/robot/libero/libero_requirements.txt` (openvla-oft env).
+
+**Checkpoint download hangs forever (stuck in `xet_get`):** The HuggingFace
+Xet transfer backend can stall. Set `export HF_HUB_DISABLE_XET=1` and retry.
 
 **MuJoCo rendering:** `export MUJOCO_GL=egl`
