@@ -129,6 +129,7 @@ python experiments/metaworld/smolvla_metaworld_cross_task_injection.py --difficu
 | `model_adapters.py` | Uniform model interface (loading, layers, episodes) |
 | `hooks.py` | Forward hooks for ablation, capture, injection |
 | `sae_hooks.py` | Per-token SAE ablation and steering hooks |
+| `reconstruction_hooks.py` | Unified rollout-reconstruction hooks (per-token and mean-pool protocols; see `setup/DATA.md`) |
 | `utils.py` | Scene state, video I/O, perturbations |
 | `groot_common.py` | GR00T model loading and episode runner |
 | `libero_utils.py` | LIBERO environment setup |

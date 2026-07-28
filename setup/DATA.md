@@ -63,6 +63,26 @@ Per-token is the primary, verified arm. Mean-pool and temporal are included for 
 temporal arm is the InfoNCE ablation that degrades rollout fidelity by design, so it is labeled
 `pooling=temporal` and is not intended as a usable feature extractor.
 
+## Rollout-reconstruction protocols
+
+Each SAE arm must be applied at rollout time with the same protocol it was trained under. The
+`mean_pool` checkpoints were trained on token-axis mean-pooled vectors (`h.mean(dim=1)`), so
+running them through a per-token applier is a silent train/eval mismatch that corrupts the
+reconstruction. Use `experiments/reconstruction_hooks.py::make_reconstruction_hook`, which
+implements all three protocols and refuses the mismatched pairing unless explicitly overridden
+(`allow_mismatched_protocol=True`).
+
+| Arm | Architecture | Protocol | What the hook does |
+|---|---|---|---|
+| per_token | all models | `pertoken_replace` | encode/decode every token position independently; full replace |
+| mean_pool | pi0.5 (and other single-stream models) | `meanpool_replace` | pool tokens -> reconstruct the pooled vector -> broadcast-replace at every position |
+| mean_pool | xvla | `meanpool_delta` | pool tokens -> reconstruct -> add the delta (`recon_mean - mean`) at every position |
+
+X-VLA uses delta-add rather than broadcast-replace because its sequences are heterogeneous token
+streams: broadcast-replacing every position would flatten per-token structure downstream layers
+depend on, while adding the pooled reconstruction delta reconstructs the mean component and
+preserves per-token variation.
+
 ## Reproducing experiments
 
 After downloading SAEs and activations, the experiment scripts in `experiments/` consume them from
