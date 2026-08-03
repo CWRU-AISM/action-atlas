@@ -33,13 +33,32 @@ sys.path.insert(0, str(PROJECT_ROOT / "lerobot" / "src"))
 # Base adapter
 
 def _resolve_checkpoint(checkpoint: str) -> str:
-    """
-    Resolve checkpoint path: if it's a local path that exists, make it absolute.
-    Otherwise return as-is (treated as HuggingFace repo ID)."""
+    # Absolute path if it exists locally, else treat as a HuggingFace repo ID
     p = Path(checkpoint)
     if p.exists():
         return str(p.resolve())
     return checkpoint
+
+
+_LANG_MASK_KEYS = ("observation.language_attention_mask", "language_attention_mask",
+                   "lang_masks", "observation.language.attention_mask")
+
+
+def _ensure_attended_language(batch) -> bool:
+    # An empty prompt under a BOS-less tokenizer (SmolVLA) leaves an all-zero
+    # attention mask, so the policy attends nothing. Attend one position to keep
+    # the prompt empty but the input well-formed. True if a mask was patched
+    patched = False
+    for key in _LANG_MASK_KEYS:
+        mask = batch.get(key) if hasattr(batch, "get") else None
+        if mask is None or not hasattr(mask, "sum"):
+            continue
+        flat = mask.reshape(mask.shape[0], -1) if mask.ndim > 1 else mask.reshape(1, -1)
+        for row in range(flat.shape[0]):
+            if flat[row].sum() == 0:
+                flat[row][0] = 1
+                patched = True
+    return patched
 
 
 class ModelAdapter(ABC):
@@ -307,7 +326,7 @@ class SmolVLAAdapter(ModelAdapter):
         vlm_expert = self.policy.model.vlm_with_expert
         # Hook .mlp within each layer, not the layer itself.
         # SmolVLA interleaves VLM/expert layers internally, so the
-        # top-level DecoderLayer forward is never called directly.
+        # top-level DecoderLayer forward is never called directly
         expert = [layer.mlp for layer in vlm_expert.lm_expert.layers]
         vlm = [layer.mlp for layer in vlm_expert.vlm.model.text_model.layers]
         return {"expert": expert, "vlm": vlm}
@@ -364,6 +383,7 @@ class SmolVLAAdapter(ModelAdapter):
             obs_tensor["task"] = [task_desc]
             obs_tensor = self.env_preprocessor(obs_tensor)
             obs_tensor = self.preprocessor(obs_tensor)
+            _ensure_attended_language(obs_tensor)
 
             with torch.inference_mode():
                 action = self.policy.select_action(obs_tensor)
@@ -539,7 +559,7 @@ class Pi05Adapter(ModelAdapter):
     def get_layer_groups(self):
         # Pi0.5: paligemma_with_expert.gemma_expert.model.layers (18 Gemma layers)
         # The PaliGemma VLM backbone also has layers but the expert pathway
-        # is the primary target for interpretability (action generation).
+        # is the primary target for interpretability (action generation)
         pwe = self.policy.model.paligemma_with_expert
         expert_layers = list(pwe.gemma_expert.model.layers)
         pali_layers = list(pwe.paligemma.model.language_model.layers)
@@ -597,6 +617,9 @@ class Pi05Adapter(ModelAdapter):
 
             obs_proc = preprocess_observation(obs)
             obs_proc = add_envs_task(env, obs_proc)
+            # add_envs_task sets obs["task"] from the env
+            if isinstance(task_desc, str):
+                obs_proc["task"] = [task_desc]
             obs_proc = self.env_preprocessor(obs_proc)
             obs_proc = self.preprocessor(obs_proc)
 
@@ -623,6 +646,19 @@ class Pi05Adapter(ModelAdapter):
 
 # OpenVLA-OFT (requires openvla-oft conda env)
 
+def _oft_suite_from_checkpoint(checkpoint) -> str:
+    # Each per-suite OFT checkpoint ships only its own "<suite>_no_noops" norm key,
+    # so the un-normalization suite must match the weights or actions mis-scale
+    base = os.path.basename(str(checkpoint).rstrip("/")).lower()
+    if "spatial" in base:
+        return "libero_spatial"
+    if "object" in base:
+        return "libero_object"
+    if base.endswith("-10") or "libero_10" in base or "long" in base:
+        return "libero_10"
+    return "libero_goal"
+
+
 class OpenVLAOFTAdapter(ModelAdapter):
     name = "oft"
 
@@ -639,12 +675,14 @@ class OpenVLAOFTAdapter(ModelAdapter):
             "libero_10": str(DATA_ROOT / "checkpoints/openvla-oft-10"),
         }
 
-    def load_model(self, checkpoint=str(DATA_ROOT / "checkpoints/openvla-oft-goal"), device="cuda"):
+    def load_model(self, checkpoint=str(DATA_ROOT / "checkpoints/openvla-oft-goal"), device="cuda", suite=None):
         os.environ.setdefault("TORCH_COMPILE_DISABLE", "1")
         os.environ.setdefault("MUJOCO_GL", "egl")
         checkpoint = _resolve_checkpoint(checkpoint)
         self.device = device
-        self.components = self._load_oft(checkpoint, "libero_goal", device)
+        # Was hardcoded to "libero_goal", which KeyErrors on the other suites
+        suite = suite or _oft_suite_from_checkpoint(checkpoint)
+        self.components = self._load_oft(checkpoint, suite, device)
         self.model = self.components["model"]
         return self.model
 
@@ -676,6 +714,13 @@ class OpenVLAOFTAdapter(ModelAdapter):
 
         cfg = _Cfg()
         vla = get_vla(cfg)
+        # Fail on a suite/checkpoint mismatch here, not deep in the rollout
+        norm = getattr(vla, "norm_stats", None)
+        if norm is not None and cfg.unnorm_key not in norm:
+            raise KeyError(
+                f"unnorm_key {cfg.unnorm_key!r} not in checkpoint norm_stats {list(norm)} "
+                f"(checkpoint={checkpoint_path}); suite/checkpoint mismatch."
+            )
         return {
             "model": vla,
             "processor": get_processor(cfg),
@@ -723,7 +768,7 @@ class OpenVLAOFTAdapter(ModelAdapter):
         # Mirror openvla_oft's run_libero_eval.py episode loop: dummy-step
         # settling, two-image observations, chunked open-loop actions, and
         # gripper renormalization. Calling vla.forward() directly does not
-        # work with these checkpoints (their forward requires labels).
+        # work with these checkpoints (their forward requires labels)
         from collections import deque
         sys.path.insert(0, str(PROJECT_ROOT / "openvla_oft"))
         from experiments.robot.robot_utils import (

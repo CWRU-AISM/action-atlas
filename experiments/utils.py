@@ -278,4 +278,20 @@ COUNTERFACTUAL_PROMPTS = {
     "negation": "do not {task}",
     "opposite": "undo the task",
     "generic": "move the robot arm",
+    # Wrong-object condition
+    "wrong_object": None,
 }
+
+# 16 distractors used in wrong-object runs
+WRONG_OBJECT_DISTRACTORS = (
+    "airplane", "apple", "ball", "banana", "book", "car", "carrot", "dinosaur",
+    "elephant", "hat", "key", "laptop", "pen", "phone", "pizza", "shoe",
+)
+
+WRONG_OBJECT_TEMPLATE = "pick up the {object} and place it in the basket"
+
+
+def wrong_object_prompt(index: int = 0) -> str:
+    # One fixed template with 16 distractors so the prompt does not depend on the task
+    distractor = WRONG_OBJECT_DISTRACTORS[index % len(WRONG_OBJECT_DISTRACTORS)]
+    return WRONG_OBJECT_TEMPLATE.format(object=distractor)

@@ -36,7 +36,7 @@ from experiments.hooks import ActivationCollector
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
     force_free_memory, save_results, load_results, save_video,
-    SUITE_MAX_STEPS, COUNTERFACTUAL_PROMPTS,
+    SUITE_MAX_STEPS, COUNTERFACTUAL_PROMPTS, wrong_object_prompt,
 )
 
 
@@ -62,8 +62,9 @@ class CounterfactualConfig:
 
     conditions: Optional[List[str]] = None
     """
-    Prompt conditions to test. Default: all (null_prompt, random, negation,
-    opposite, generic). Format: 'negation' uses 'do not {task}'."""
+    Prompt conditions to test. Default: all of COUNTERFACTUAL_PROMPTS.
+    'negation' uses 'do not {task}'.
+    """
 
     collect_activations: bool = False
     # Capture activations under each condition
@@ -71,9 +72,19 @@ class CounterfactualConfig:
     per_token: bool = True
 
 
-def make_prompt(condition: str, task_desc: str) -> str:
-    # Generate the counterfactual prompt for a condition
-    template = COUNTERFACTUAL_PROMPTS.get(condition, condition)
+def make_prompt(condition: str, task_desc: str, index: int = 0) -> str:
+    # Generate the counterfactual prompt. `index` is the episode index; only
+    # wrong_object uses it, to cycle the 16 distractors
+    if condition not in COUNTERFACTUAL_PROMPTS:
+        raise KeyError(
+            f"unknown condition {condition!r}; expected one of "
+            f"{sorted(COUNTERFACTUAL_PROMPTS)} or 'baseline'. Previously an unknown "
+            f"name was passed to the policy as the prompt itself, which silently "
+            f"produced a rollout under the literal string {condition!r}."
+        )
+    if condition == "wrong_object":
+        return wrong_object_prompt(index)
+    template = COUNTERFACTUAL_PROMPTS[condition]
     if "{task}" in template:
         return template.format(task=task_desc)
     return template
@@ -140,14 +151,16 @@ def main(cfg):
             _, task_obj, task_desc = all_tasks[tid]
             env, desc, meta = adapter.create_env(tid, suite=cfg.suite, max_steps=max_steps)
 
-            # Determine prompt
-            if cond == "baseline":
-                prompt = desc
-            else:
-                prompt = make_prompt(cond, desc)
+            # Determine prompt. wrong_object varies per episode, so this is
+            # resolved inside the episode loop; every other condition is constant
+            prompt = desc if cond == "baseline" else make_prompt(cond, desc)
 
             successes = 0
+            prompts_seen = []
             for ep in range(cfg.n_episodes):
+                if cond != "baseline":
+                    prompt = make_prompt(cond, desc, index=ep)
+                prompts_seen.append(prompt)
                 if collector:
                     collector.clear()
 
@@ -169,14 +182,17 @@ def main(cfg):
                     for name, tensor in collector.get_activations().items():
                         torch.save(tensor, act_dir / f"{name}.pt")
 
-            if hasattr(env, "close"):
-                env.close()
+            # create_env() caches envs per (suite, task); the adapter owns their lifecycle
 
             rate = successes / cfg.n_episodes
-            print(f"Task {tid}: {rate:.0%} (prompt: '{prompt[:50]}')")
+            uniq = list(dict.fromkeys(prompts_seen))
+            shown = uniq[0] if len(uniq) == 1 else f"{len(uniq)} prompts, e.g. {uniq[0]}"
+            print(f"Task {tid}: {rate:.0%} (prompt: '{shown[:60]}')")
             cond_results[str(tid)] = {
                 "task_description": desc,
-                "prompt_used": prompt,
+                # A varying condition records every prompt actually used, so a
+                # reader can tell which prompts produced the rate
+                "prompt_used": uniq[0] if len(uniq) == 1 else uniq,
                 "success_rate": rate,
                 "successes": successes,
                 "n_episodes": cfg.n_episodes,

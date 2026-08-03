@@ -58,8 +58,8 @@ needs a CUDA toolchain matching the cu128 PyTorch build, so a separate
 environment keeps that isolated.
 
 The SimplerEnv X-VLA experiments (`experiments/simplerenv/`) use a separate
-`simpler_env` environment (Python 3.10, numpy<2) that is not yet documented
-here; see the `SimplerEnv/` submodule's README for its base installation.
+`simpler_env` environment (Python 3.10, numpy<2). See "SimplerEnv environment"
+below.
 
 Note on numpy: the actionatlas and groot envs run numpy 2.2.x; robosuite
 1.4.x works fine with it (via hf-libero). The openvla-oft env must stay on
@@ -204,6 +204,36 @@ export PYTHONPATH=$PYTHONPATH:$(pwd)/LIBERO
 python -c "from libero.libero.envs import OffScreenRenderEnv; print('LIBERO OK')"
 python -c "import prismatic; print('prismatic OK')"
 ```
+
+### SimplerEnv Environment
+
+For the X-VLA SimplerEnv experiments in `experiments/simplerenv/`. SAPIEN needs
+an NVIDIA GPU; ray-traced scenes are slow on non-RTX cards.
+
+```bash
+conda create -y -n simpler_env python=3.10 && conda activate simpler_env
+
+# ManiSkill2 real-to-sim environments, then SimplerEnv itself
+cd SimplerEnv/ManiSkill2_real2sim && pip install -e . && cd ../..
+cd SimplerEnv && pip install -e . && cd ..
+
+# Pin these AFTER the two installs above, which pull incompatible versions:
+#   numpy>=2 breaks pinocchio IK, and sapien imports pkg_resources, which
+#   setuptools 81 removed. opencv 5.x hard-requires numpy>=2.
+pip install "numpy==1.24.4" "setuptools<81" "opencv-python==4.9.0.80"
+
+# Verify
+MUJOCO_GL=egl python -c "
+import simpler_env
+env = simpler_env.make('widowx_put_eggplant_in_sink')
+obs, info = env.reset()
+print(env.unwrapped.get_language_instruction())
+env.step(env.action_space.sample())
+print('SimplerEnv OK')"
+```
+
+The pin ordering matters. The install instructions in the vendored
+`SimplerEnv/README.md` put numpy first, which does not hold: `ManiSkill2_real2sim` upgrades it back to 2.x.
 
 ### HuggingFace Authentication
 
