@@ -1,4 +1,4 @@
-# Not All Features Are Created Equal: A Mechanistic Study of Vision-Language-Action Models
+# NeurIPS 2026: Not All Features Are Created Equal: A Mechanistic Study of Vision-Language-Action Models
 
 <p align="center">
   <a href="https://arxiv.org/abs/2603.19233"><img src="https://img.shields.io/badge/arXiv-2603.19233-b31b1b.svg" alt="arXiv"></a>
