@@ -444,10 +444,31 @@ class GR00TAdapter(ModelAdapter):
         except Exception:
             from experiments.groot_common import load_groot_n15
             self.model = load_groot_n15(checkpoint, device)
+        self._reapply_checkpoint_tensors(checkpoint)
 
         self.eagle_processor = build_eagle_processor()
         self.stats = load_metadata_stats(checkpoint)
         return self.model
+
+    def _reapply_checkpoint_tensors(self, checkpoint):
+        # transformers>=5 re-initializes backbone.eagle_model.mlp1 after loading a
+        # GR00T-native checkpoint, through either load path, with no error; the
+        # policy then runs vision-blind. Re-apply every matching checkpoint tensor
+        import glob
+        from huggingface_hub import snapshot_download
+        from safetensors.torch import load_file
+        ckpt = Path(checkpoint)
+        if not ckpt.exists():
+            ckpt = Path(snapshot_download(checkpoint, allow_patterns=["model*.safetensors"]))
+        names = set(self.model.state_dict())
+        state = {}
+        for shard in sorted(glob.glob(str(ckpt / "model*.safetensors"))):
+            state.update({k: v for k, v in load_file(shard).items() if k in names})
+        if state:
+            self.model.load_state_dict(state, strict=False)
+        projector = self.model.backbone.eagle_model.mlp1[0].bias
+        if float(projector.abs().sum()) == 0:
+            raise RuntimeError(f"GR00T vision projector is zero after loading {checkpoint}")
 
     def get_layer_groups(self):
         from experiments.groot_common import (

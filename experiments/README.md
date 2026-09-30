@@ -30,6 +30,7 @@ Run any script with `--help` for options.
 | `concept_id.py` | Concept identification using Cohen's d |
 | `concept_ablation.py` | Remove concept features, measure impact |
 | `concept_steering.py` | Amplify/suppress concept features |
+| `silent_prompt_steering.py` | Goal steering in the VLM pathway with the instruction replaced by a filler |
 | `launch_parallel.py` | Multi-GPU launcher |
 
 ## Workflow
@@ -63,6 +64,36 @@ python experiments/concept_ablation.py --model xvla --suite libero_object \
     --sae-dir outputs/xvla_saes/libero_object \
     --concept-results results/concept_id/libero_object/all_layers.json \
     --layer transformer_L12
+```
+
+## Silent-Prompt Goal Steering
+
+`silent_prompt_steering.py` replaces the instruction with a filler of the same token
+count and edits the VLM-pathway residual stream at the instruction span. Success is
+the simulator's check for the true task. `random:<edit>` and `wrong:<edit>` are the
+norm-matched random and other-task controls; `sae_pt`, `sae_mp_pos`, and `sae_mp_mean`
+pass the edit through the released per-token or mean-pool SAE.
+
+```bash
+# pi0.5: one direction at PaliGemma layer 2
+python experiments/silent_prompt_steering.py --model pi05 --suite libero_goal \
+    --checkpoint lerobot/pi05_libero_finetuned --layers 2 --rhos 0.5 1.0 \
+    --arms floor_filler ceiling patch direction random:direction wrong:direction
+
+# SmolVLA: per-position directions at VLM layer 1
+python experiments/silent_prompt_steering.py --model smolvla --suite libero_object \
+    --tasks 0 3 5 7 9 --layers 1 --rhos 1.5 \
+    --arms floor_filler ceiling direction direction_pos random:direction_pos wrong:direction_pos
+
+# X-VLA: per-token vs mean-pool SAE over the Florence block
+python experiments/silent_prompt_steering.py --model xvla --suite libero_goal \
+    --tasks 0 1 2 3 4 5 6 8 9 --layers 0 2 \
+    --arms floor_filler ceiling gap gap_mean sae_pt sae_mp_pos sae_mp_mean random:gap wrong:gap
+
+# GR00T: same comparison on the Eagle backbone
+python experiments/silent_prompt_steering.py --model groot --suite libero_goal \
+    --checkpoint Tacoin/GR00T-N1.5-3B-LIBERO-GOAL --layers 2 6 \
+    --arms floor_filler ceiling gap gap_mean sae_pt sae_mp_pos sae_mp_mean random:gap wrong:gap
 ```
 
 ## SimplerEnv Experiments (X-VLA cross-embodiment)
