@@ -219,10 +219,12 @@ class SmolVLASite(Site):
         return self._pair(idx, on_residual)
 
 
-def _lerobot_batch(adapter, env, seed):
+def _lerobot_batch(adapter, env, seed, batch_robot_state):
     from lerobot.envs.utils import preprocess_observation
     obs, _ = env.reset(seed=seed)
     batch = preprocess_observation(obs)
+    if not batch_robot_state:
+        return batch
     for group in batch.get("observation.robot_state", {}).values():
         for key, t in group.items():
             if isinstance(t, torch.Tensor) and t.ndim <= 2:
@@ -234,6 +236,8 @@ class ModelSpec:
     # Tokenizes a prompt as the policy sees it and maps instruction tokens to residual positions
 
     default_span = "instruction"
+    # SmolVLA's single (non-vector) LiberoEnv returns an unbatched robot state
+    batch_robot_state = False
 
     def __init__(self, adapter):
         self.adapter = adapter
@@ -243,7 +247,7 @@ class ModelSpec:
 
     def tokenize(self, env, seed):
         # Returns prompt -> (ids, attended token count) on one fixed observation
-        batch = _lerobot_batch(self.adapter, env, seed)
+        batch = _lerobot_batch(self.adapter, env, seed, self.batch_robot_state)
 
         def run(prompt):
             b = copy.deepcopy(batch)
@@ -279,6 +283,7 @@ class Pi05Spec(ModelSpec):
 
 
 class SmolVLASpec(ModelSpec):
+    batch_robot_state = True
     # Prefix = image tokens, the language block, then one state token
     def site(self):
         return SmolVLASite(list(self.adapter.policy.model.vlm_with_expert.vlm.model.text_model.layers))
@@ -521,6 +526,8 @@ def main(cfg: SteeringConfig):
 
     _, all_tasks = adapter.setup_suite(cfg.suite)
     task_ids = cfg.tasks or list(range(len(all_tasks)))
+    if len(task_ids) < 2 and any(a.startswith("wrong:") for a in cfg.arms):
+        raise ValueError("wrong:<edit> needs at least two tasks; with one task the partner is the task itself")
     envs = {t: adapter.create_env(t, suite=cfg.suite, max_steps=max_steps)[:2] for t in task_ids}
     print(f"Silent-prompt steering: {cfg.model} on {cfg.suite}, tasks {task_ids}, span {span_mode}")
 
