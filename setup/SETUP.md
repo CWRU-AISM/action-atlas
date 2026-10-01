@@ -256,13 +256,7 @@ The model adapters in `experiments/model_adapters.py` and `experiments/groot_com
 |-------|---------|
 | All 4 LIBERO suites | `lerobot/pi05_libero_finetuned` |
 
-```bash
-hf download lerobot/pi05_libero_finetuned --local-dir checkpoints/pi05_libero_finetuned
-```
-
-The pre-download is optional: the adapter uses `checkpoints/pi05_libero_finetuned`
-in the repo when it exists and otherwise loads `lerobot/pi05_libero_finetuned`
-from the Hub.
+The adapter loads it from the Hub on first use; no manual download needed.
 
 ### X-VLA
 
