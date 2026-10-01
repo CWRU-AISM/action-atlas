@@ -3,11 +3,16 @@
 import ctypes
 import gc
 import json
+import math
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 import numpy as np
 import torch
+
+# Repo-level paths, independent of the working directory
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+OUTPUTS_DIR = PROJECT_ROOT / "outputs"
 
 
 def force_free_memory():
@@ -135,6 +140,17 @@ def save_results(data: dict, path: Path):
     with open(tmp, "w") as f:
         json.dump(data, f, indent=2, default=str)
     tmp.rename(path)
+
+
+def wilson(successes: int, n: int, z: float = 1.96) -> Tuple[float, float]:
+    # Wilson score interval for a success rate
+    if n == 0:
+        return 0.0, 0.0
+    p = successes / n
+    denom = 1 + z * z / n
+    center = (p + z * z / (2 * n)) / denom
+    half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
+    return max(0.0, center - half), min(1.0, center + half)
 
 
 

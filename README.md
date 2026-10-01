@@ -25,6 +25,7 @@ Action Atlas provides tools for understanding *what* VLA models learn and *how* 
 - **Sparse Autoencoder (SAE) Training**: learn interpretable feature dictionaries
 - **Concept Identification**: find task-selective SAE features using Cohen's d
 - **Concept Ablation & Steering**: remove or amplify features to verify causal roles
+- **Silent-Prompt Goal Steering**: replace the instruction with a filler and steer the VLM pathway toward the task
 - **Action Atlas Visualization**: interactive web app for exploring results
 
 All experiments use a unified CLI and model adapter interface. Run the same experiment on any supported model with `--model xvla` / `--model groot` / etc.
@@ -97,6 +98,10 @@ python experiments/concept_ablation.py --model xvla --suite libero_object \
 python experiments/concept_steering.py --model xvla --suite libero_object \
     --sae-dir outputs/saes --concept-results results/concept_id/all_layers.json \
     --layer transformer_L12 --strengths -2.0 -1.0 1.0 2.0
+
+# Silent-prompt goal steering (instruction replaced by a filler)
+python experiments/silent_prompt_steering.py --model pi05 --suite libero_goal \
+    --checkpoint lerobot/pi05_libero_finetuned --layers 2
 ```
 
 ### Replicating Paper Results
@@ -149,6 +154,8 @@ action-atlas/
 │   ├── concept_id.py      # Concept identification
 │   ├── concept_ablation.py
 │   ├── concept_steering.py
+│   ├── silent_prompt_steering.py  # Goal steering with a silent prompt
+│   ├── prompt_spans.py    # Per-model prompt tokenization and edit spans
 │   ├── model_adapters.py  # Uniform model interface
 │   ├── hooks.py           # Forward hooks
 │   └── launch_parallel.py # Multi-GPU launcher

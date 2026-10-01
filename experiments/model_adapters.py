@@ -61,6 +61,18 @@ def _ensure_attended_language(batch) -> bool:
     return patched
 
 
+def _lerobot_prepare_batch(self, observation, task_desc, env=None):
+    # Raw env observation -> policy input batch for lerobot vector-env adapters.
+    # Without a string task_desc the env's own task description is used
+    from lerobot.envs.utils import preprocess_observation, add_envs_task
+    batch = preprocess_observation(observation)
+    if env is not None:
+        batch = add_envs_task(env, batch)
+    if isinstance(task_desc, str):
+        batch["task"] = [task_desc]
+    return self.preprocessor(self.env_preprocessor(batch))
+
+
 class ModelAdapter(ABC):
     # Base interface for VLA model adapters
     ...
@@ -141,6 +153,7 @@ class ModelAdapter(ABC):
 
 class XVLAAdapter(ModelAdapter):
     name = "xvla"
+    prepare_batch = _lerobot_prepare_batch
 
     def __init__(self):
         self.policy = None
@@ -227,7 +240,6 @@ class XVLAAdapter(ModelAdapter):
 
     def run_episode(self, env, task_desc, max_steps=280,
                     save_video=False, perturbation_fn=None, **kwargs):
-        from lerobot.envs.utils import preprocess_observation
         seed = kwargs.get("seed", 42)
         inner_env = kwargs.get("inner_env", None)
         from experiments.utils import get_scene_state
@@ -251,10 +263,7 @@ class XVLAAdapter(ModelAdapter):
                     frame = frame[::-1, ::-1]
                     frames.append(frame)
 
-            obs_proc = preprocess_observation(obs)
-            obs_proc["task"] = [task_desc]
-            obs_proc = self.env_preprocessor(obs_proc)
-            obs_proc = self.preprocessor(obs_proc)
+            obs_proc = self.prepare_batch(obs, task_desc)
 
             with torch.inference_mode():
                 action = self.policy.select_action(obs_proc)
@@ -360,30 +369,29 @@ class SmolVLAAdapter(ModelAdapter):
         )
         return libero_env, task_suite.get_task(task_idx).language, {"task_suite": task_suite}
 
+    def prepare_batch(self, observation, task_desc):
+        # Raw env observation -> policy input batch
+        from lerobot.envs.utils import preprocess_observation
+        batch = preprocess_observation(observation)
+        # The single (non-vector) LiberoEnv returns an unbatched robot state
+        for group in batch.get("observation.robot_state", {}).values():
+            for key, t in group.items():
+                if isinstance(t, torch.Tensor) and t.ndim <= 2:
+                    group[key] = t.unsqueeze(0)
+        batch["task"] = [task_desc]
+        batch = self.preprocessor(self.env_preprocessor(batch))
+        _ensure_attended_language(batch)
+        return batch
+
     def run_episode(self, env, task_desc, max_steps=280,
                     save_video=False, perturbation_fn=None, **kwargs):
-        from lerobot.envs.utils import preprocess_observation
-
         self.policy.reset()
         observation, info = env.reset()
         step_info = {}
         actions = []
 
         for step in range(max_steps):
-            obs_tensor = preprocess_observation(observation)
-            # Add batch dim to robot state if needed
-            if "observation.robot_state" in obs_tensor:
-                rs = obs_tensor["observation.robot_state"]
-                for gk in rs:
-                    for sk in rs[gk]:
-                        t = rs[gk][sk]
-                        if isinstance(t, torch.Tensor) and t.ndim <= 2:
-                            rs[gk][sk] = t.unsqueeze(0)
-
-            obs_tensor["task"] = [task_desc]
-            obs_tensor = self.env_preprocessor(obs_tensor)
-            obs_tensor = self.preprocessor(obs_tensor)
-            _ensure_attended_language(obs_tensor)
+            obs_tensor = self.prepare_batch(observation, task_desc)
 
             with torch.inference_mode():
                 action = self.policy.select_action(obs_tensor)
@@ -454,7 +462,6 @@ class GR00TAdapter(ModelAdapter):
         # transformers>=5 re-initializes backbone.eagle_model.mlp1 after loading a
         # GR00T-native checkpoint, through either load path, with no error; the
         # policy then runs vision-blind. Re-apply every matching checkpoint tensor
-        import glob
         from huggingface_hub import snapshot_download
         from safetensors.torch import load_file
         ckpt = Path(checkpoint)
@@ -462,7 +469,7 @@ class GR00TAdapter(ModelAdapter):
             ckpt = Path(snapshot_download(checkpoint, allow_patterns=["model*.safetensors"]))
         names = set(self.model.state_dict())
         state = {}
-        for shard in sorted(glob.glob(str(ckpt / "model*.safetensors"))):
+        for shard in sorted(ckpt.glob("model*.safetensors")):
             state.update({k: v for k, v in load_file(shard).items() if k in names})
         if state:
             self.model.load_state_dict(state, strict=False)
@@ -526,6 +533,7 @@ class GR00TAdapter(ModelAdapter):
 
 class Pi05Adapter(ModelAdapter):
     name = "pi05"
+    prepare_batch = _lerobot_prepare_batch
 
     def __init__(self):
         self.policy = None
@@ -617,7 +625,6 @@ class Pi05Adapter(ModelAdapter):
 
     def run_episode(self, env, task_desc, max_steps=300,
                     save_video=False, perturbation_fn=None, **kwargs):
-        from lerobot.envs.utils import preprocess_observation, add_envs_task
         seed = kwargs.get("seed", 42)
 
         self.policy.reset()
@@ -636,13 +643,7 @@ class Pi05Adapter(ModelAdapter):
                     frame = (frame * 255).clip(0, 255).astype(np.uint8)
                 frames.append(frame[::-1, ::-1].copy())
 
-            obs_proc = preprocess_observation(obs)
-            obs_proc = add_envs_task(env, obs_proc)
-            # add_envs_task sets obs["task"] from the env
-            if isinstance(task_desc, str):
-                obs_proc["task"] = [task_desc]
-            obs_proc = self.env_preprocessor(obs_proc)
-            obs_proc = self.preprocessor(obs_proc)
+            obs_proc = self.prepare_batch(obs, task_desc, env)
 
             with torch.inference_mode():
                 action = self.policy.select_action(obs_proc)

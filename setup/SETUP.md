@@ -374,3 +374,9 @@ env:** The lerobot `[libero]` extra is missing; run `cd lerobot && pip install
 Xet transfer backend can stall. Set `export HF_HUB_DISABLE_XET=1` and retry.
 
 **MuJoCo rendering:** `export MUJOCO_GL=egl`
+
+**`GR00T vision projector is zero after loading`:** transformers>=5 re-initializes
+`backbone.eagle_model.mlp1` after loading a GR00T-native checkpoint, which leaves the policy
+vision-blind with no error. `GR00TAdapter` re-applies the checkpoint tensors after loading and
+raises this error only if the checkpoint itself has no projector weights; check that the
+checkpoint's `model*.safetensors` shards are complete.

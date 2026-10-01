@@ -108,6 +108,36 @@ Per-layer JSON:
 }
 ```
 
+### Silent-Prompt Steering
+
+`results.json` holds the run config and per-task outcomes, one boolean per episode.
+Cell names are `<arm>_L<layer>` with a `_rho<rho>` suffix for direction-style arms:
+
+```json
+{
+  "config": {"model": "pi05", "suite": "libero_goal", "layers": [2], "span": "instruction", ...},
+  "cells": {
+    "0": {
+      "floor_filler": [false, false, ...],
+      "ceiling": [true, true, ...],
+      "direction_L2_rho1.0": [true, false, ...]
+    }
+  }
+}
+```
+
+`summary.json` pools each cell over tasks:
+
+```json
+{
+  "model": "pi05", "suite": "libero_goal", "checkpoint": "...", "tasks": [0, 1, ...],
+  "span": "instruction", "duration_seconds": 5400.0,
+  "cells": {
+    "direction_L2_rho1.0": {"successes": 37, "n": 100, "rate": 0.37, "wilson95": [0.28, 0.47]}
+  }
+}
+```
+
 ## Activations
 
 Per-layer `.pt` files containing `torch.Tensor` in bfloat16:

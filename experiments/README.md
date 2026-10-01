@@ -72,7 +72,11 @@ python experiments/concept_ablation.py --model xvla --suite libero_object \
 count and edits the VLM-pathway residual stream at the instruction span. Success is
 the simulator's check for the true task. `random:<edit>` and `wrong:<edit>` are the
 norm-matched random and other-task controls; `sae_pt`, `sae_mp_pos`, and `sae_mp_mean`
-pass the edit through the released per-token or mean-pool SAE.
+pass the edit through the released per-token or mean-pool SAE (`sae_mp_pos` is the deliberate
+per-position mismatch). SAEs are read from `outputs/release/<model>/` and downloaded from
+HuggingFace if missing (see [setup/DATA.md](../setup/DATA.md)). Per-model prompt tokenization
+and edit spans live in `prompt_spans.py`; output formats are in
+[DATA_FORMAT.md](../DATA_FORMAT.md).
 
 ```bash
 # pi0.5: one direction at PaliGemma layer 2
