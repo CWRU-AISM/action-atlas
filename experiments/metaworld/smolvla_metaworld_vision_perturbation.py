@@ -225,7 +225,7 @@ class VisionPerturbationConfig:
     difficulty: Optional[str] = None
     n_episodes: int = 3
     perturbations: Optional[str] = None
-    # Comma-separated list of perturbation names. Default: all
+    """Comma-separated list of perturbation names. Default: all"""
 
     resolution: int = DEFAULT_RESOLUTION
     save_video: bool = False

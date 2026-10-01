@@ -50,16 +50,16 @@ class ConceptAblationConfig:
     checkpoint: Optional[str] = None
 
     sae_dir: str = ""
-    # Directory with trained SAE checkpoints
+    """Directory with trained SAE checkpoints"""
 
     concept_results: str = ""
-    # Path to concept_id all_layers.json with identified features
+    """Path to concept_id all_layers.json with identified features"""
 
     layer: str = ""
-    # Layer to ablate (e.g. 'transformer_L12')
+    """Layer to ablate (e.g. 'transformer_L12')"""
 
     n_features: int = 5
-    # Number of top concept features to ablate
+    """Number of top concept features to ablate"""
 
     n_episodes: int = 3
     tasks: Optional[List[int]] = None
@@ -69,10 +69,10 @@ class ConceptAblationConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
 
 def main(cfg):

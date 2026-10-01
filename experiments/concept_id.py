@@ -40,10 +40,10 @@ class ConceptIDConfig:
     # SAE-based concept identification
 
     sae_dir: str = ""
-    # Directory containing trained SAE checkpoints (layer_name/sae_best.pt)
+    """Directory containing trained SAE checkpoints (layer_name/sae_best.pt)"""
 
     activations_dir: str = ""
-    # Directory containing activation .pt files
+    """Directory containing activation .pt files"""
 
     suite: str = "libero_object"
     """
@@ -52,11 +52,11 @@ class ConceptIDConfig:
     widowx, google_robot"""
 
     layers: Optional[List[str]] = None
-    # Layer names to process. Default: all found in sae_dir
+    """Layer names to process. Default: all found in sae_dir"""
 
     output_dir: Optional[str] = None
     top_k_features: int = 20
-    # Number of top features to report per concept
+    """Number of top features to report per concept"""
 
     max_samples_per_task: int = 50000
 

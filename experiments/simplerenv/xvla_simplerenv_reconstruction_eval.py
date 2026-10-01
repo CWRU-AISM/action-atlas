@@ -600,20 +600,20 @@ class ReconstructionEvalConfig:
     # X-VLA SimplerEnv SAE reconstruction fidelity evaluation
 
     model: str
-    # Robot model to evaluate: widowx, google-robot, all
+    """Robot model to evaluate: widowx, google-robot, all"""
 
     pooling: str
-    # Pooling mode: pertoken, meanpool
+    """Pooling mode: pertoken, meanpool"""
 
     sae_dir: str
-    # Path to SAE model directory
+    """Path to SAE model directory"""
 
     task: Optional[str] = None
-    # Specific task to evaluate (overrides model defaults)
+    """Specific task to evaluate (overrides model defaults)"""
 
     layer: Optional[int] = None
     layers: Optional[str] = None
-    # Comma-separated layer indices
+    """Comma-separated layer indices"""
 
     all_layers: bool = False
     n_episodes: int = 5

@@ -104,16 +104,16 @@ class CrossTaskInjectionV2Config:
     n_action_steps: Optional[int] = None
 
     pairs: Optional[List[str]] = None
-    # Task pairs as 'A,B' strings. Default: all C(n_tasks,2) pairs
+    """Task pairs as 'A,B' strings. Default: all C(n_tasks,2) pairs"""
 
     tasks: Optional[List[int]] = None
-    # Restrict to a subset of task IDs (default: all)
+    """Restrict to a subset of task IDs (default: all)"""
 
     layer_group: Optional[str] = None
-    # Shorthand: 'expert_all', 'vlm_all', 'expert_early|mid|late', 'vlm_early|mid|late', 'all'
+    """Shorthand: 'expert_all', 'vlm_all', 'expert_early|mid|late', 'vlm_early|mid|late', 'all'"""
 
     layers: Optional[List[str]] = None
-    # Explicit layer labels (overrides --layer-group)
+    """Explicit layer labels (overrides --layer-group)"""
 
     cache_size: int = 4
     resume: bool = True

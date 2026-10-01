@@ -43,22 +43,22 @@ class VisionPerturbationConfig:
     # Visual robustness testing experiment
 
     model: str = "xvla"
-    # Model name: xvla, smolvla, groot, pi05
+    """Model name: xvla, smolvla, groot, pi05"""
 
     suite: str = "libero_object"
-    # Task suite
+    """Task suite"""
 
     checkpoint: Optional[str] = None
-    # Model checkpoint. Uses default if not set
+    """Model checkpoint. Uses default if not set"""
 
     n_episodes: int = 3
-    # Episodes per (perturbation, task) cell
+    """Episodes per (perturbation, task) cell"""
 
     tasks: Optional[List[int]] = None
-    # Task indices. Default: all
+    """Task indices. Default: all"""
 
     perturbations: Optional[List[str]] = None
-    # Perturbation names to test. Default: all 24 standard perturbations
+    """Perturbation names to test. Default: all 24 standard perturbations"""
 
     max_steps: Optional[int] = None
     seed: int = 42
@@ -66,10 +66,10 @@ class VisionPerturbationConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
 
 def main(cfg):

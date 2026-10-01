@@ -169,7 +169,7 @@ class TemporalInjectionConfig:
     # X-VLA SimplerEnv temporal injection experiments
 
     model: str
-    # Model name: widowx, google-robot
+    """Model name: widowx, google-robot"""
 
     task: Optional[str] = None
     all_tasks: bool = False

@@ -54,13 +54,13 @@ class ConceptSteeringConfig:
     layer: str = ""
 
     n_features: int = 5
-    # Number of top features to steer per concept
+    """Number of top features to steer per concept"""
 
     strengths: Tuple[float, ...] = (-2.0, -1.0, 1.0, 2.0)
-    # Steering strengths to test. Negative = suppress, positive = amplify
+    """Steering strengths to test. Negative = suppress, positive = amplify"""
 
     concepts: Optional[List[str]] = None
-    # Specific concepts to steer (e.g. 'motion/put'). Default: all
+    """Specific concepts to steer (e.g. 'motion/put'). Default: all"""
 
     n_episodes: int = 3
     tasks: Optional[List[int]] = None
@@ -70,10 +70,10 @@ class ConceptSteeringConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
 
 def main(cfg):

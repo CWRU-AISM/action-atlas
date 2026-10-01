@@ -373,7 +373,7 @@ class ConceptIdConfig:
     # MetaWorld contrastive concept identification for SmolVLA
 
     component: List[str] = ("expert",)
-    # Component types: expert, vlm
+    """Component types: expert, vlm"""
 
     layer: int = -1
     all_layers: bool = False
