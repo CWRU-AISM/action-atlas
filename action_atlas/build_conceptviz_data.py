@@ -42,12 +42,6 @@ except ImportError:
     HAS_FAISS = False
 
 try:
-    import hdbscan
-    HAS_HDBSCAN = True
-except ImportError:
-    HAS_HDBSCAN = False
-
-try:
     from sentence_transformers import SentenceTransformer
     HAS_SBERT = True
 except ImportError:
@@ -153,30 +147,6 @@ def compute_hierarchical_clustering(
         results[n_clusters] = labels
 
     return results
-
-
-def compute_hdbscan_clustering(
-    embeddings: np.ndarray,
-    min_cluster_size: int = 10,
-    min_samples: int = 5
-) -> np.ndarray:
-    """
-    Compute HDBSCAN clustering (density-based).
-
-    HDBSCAN finds natural clusters of varying density without needing
-    to specify number of clusters. Points not in any cluster get label -1.
-    """
-    if not HAS_HDBSCAN:
-        raise ImportError("hdbscan is required. Install with: pip install hdbscan")
-
-    clusterer = hdbscan.HDBSCAN(
-        min_cluster_size=min_cluster_size,
-        min_samples=min_samples,
-        metric='euclidean',  # Use euclidean on UMAP coords for better density estimation
-        cluster_selection_method='eom'
-    )
-    labels = clusterer.fit_predict(embeddings)
-    return labels
 
 
 def generate_cluster_colors(n_clusters: int) -> np.ndarray:

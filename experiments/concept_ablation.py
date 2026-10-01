@@ -35,9 +35,9 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from experiments.model_adapters import get_adapter
-from experiments.sae_hooks import PerTokenAblationHook, TopKSAE, load_sae
+from experiments.sae_hooks import PerTokenAblationHook, TopKSAE
 from experiments.utils import (
-    OUTPUTS_DIR, force_free_memory, save_results, load_results, save_video, SUITE_MAX_STEPS,
+    OUTPUTS_DIR, force_free_memory, save_results, save_video, SUITE_MAX_STEPS,
 )
 
 

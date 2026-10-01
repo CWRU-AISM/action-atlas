@@ -23,7 +23,7 @@ os.environ.setdefault("MUJOCO_GL", "egl")
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import List, Optional
 
 import numpy as np
 import torch

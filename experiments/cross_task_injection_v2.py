@@ -65,8 +65,7 @@ if _LEROBOT_SRC and os.path.isdir(_LEROBOT_SRC):
 from experiments.hooks import ActivationCaptureHook, ActivationInjectionHook
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    PROJECT_ROOT, force_free_memory, save_results, save_video,
-    summarize_scene, SUITE_MAX_STEPS,
+    PROJECT_ROOT, force_free_memory, save_results, SUITE_MAX_STEPS,
 )
 
 
@@ -99,7 +98,6 @@ class CrossTaskInjectionV2Config:
     seed: int = 42
     output_dir: Optional[str] = None
     record_video: bool = False
-    save_trajectory: bool = False
 
     n_action_steps: Optional[int] = None
 

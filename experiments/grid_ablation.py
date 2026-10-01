@@ -27,11 +27,9 @@ import os
 os.environ.setdefault("TORCH_COMPILE_DISABLE", "1")
 os.environ.setdefault("MUJOCO_GL", "egl")
 
-import gc
-import json
 import time
 from collections import defaultdict
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
 
@@ -43,10 +41,10 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from experiments.hooks import ZeroAblationHook, MeanAblationHook
-from experiments.model_adapters import get_adapter, list_models
+from experiments.model_adapters import get_adapter
 from experiments.utils import (
     OUTPUTS_DIR, force_free_memory, save_results, load_results, save_video,
-    get_scene_state, summarize_scene, SUITE_MAX_STEPS,
+    SUITE_MAX_STEPS,
 )
 
 

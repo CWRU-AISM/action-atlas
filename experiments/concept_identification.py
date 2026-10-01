@@ -10,11 +10,10 @@ Task IDs follow alphabetical ordering of task descriptions (matching
 SUITE_TASK_MAPPINGS in concept_extraction_unified.py).
 
 Imported by:
-- experiments/xvla_contrastive_concept_id.py
-- experiments/pi05_contrastive_concept_id.py
+- experiments/concept_id.py
 """
 
-from typing import Dict, List, Tuple
+from typing import Dict
 
 # LIBERO GOAL SUITE (task IDs: alphabetical order of task descriptions)
 # 0: open the middle drawer of the cabinet
@@ -280,12 +279,3 @@ def get_concept_task_mapping(suite: str) -> Dict[str, Dict[str, Dict]]:
     Returns: {concept_type: {concept_name: {"tasks": [task_ids]}}}
     """
     return ALL_CONCEPTS.get(suite, {})
-
-
-def get_all_concept_names(suite: str) -> List[Tuple[str, str]]:
-    # Get all (concept_type, concept_name) pairs for a suite
-    result = []
-    for ctype, concepts in ALL_CONCEPTS.get(suite, {}).items():
-        for cname in concepts:
-            result.append((ctype, cname))
-    return result

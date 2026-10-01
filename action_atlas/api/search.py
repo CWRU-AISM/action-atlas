@@ -3,11 +3,9 @@ from flask import Blueprint, request, jsonify
 from .helpers import *
 from .data_loaders import *
 import numpy as np
-import os
 import re
 from pathlib import Path
 
-DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
 search_bp = Blueprint("search", __name__)
 PI05_CONCEPT_ABLATION_DIR = Path(__file__).parent.parent / "results" / "experiment_results" / "pi05_concept_ablation"

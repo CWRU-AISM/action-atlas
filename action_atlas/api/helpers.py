@@ -4,7 +4,7 @@ import os
 import numpy as np
 from pathlib import Path
 from typing import Dict, List, Optional
-from flask import Blueprint, request, jsonify, send_file, abort, make_response, redirect
+from flask import Blueprint, request, jsonify, redirect
 from PIL import Image
 
 DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
@@ -103,18 +103,6 @@ def load_json_cached(path: Path, cache_key: str = None) -> Optional[dict]:
         return None
 
 
-def serve_video_response(path: Path, filename: str = None):
-    # Serve a video file with CORS headers
-    if not path.exists():
-        abort(404)
-    name = filename or path.name
-    response = make_response(send_file(str(path), mimetype="video/mp4",
-                                        as_attachment=False, download_name=name))
-    response.headers["Access-Control-Allow-Origin"] = "*"
-    response.headers["Cache-Control"] = "public, max-age=3600"
-    return response
-
-
 def parse_ablation_filename(filename: str) -> dict:
     """
     Parse ablation video filename into components.
@@ -165,15 +153,6 @@ def parse_concept_name(name: str):
         if name.startswith(prefix + "_"):
             return prefix, name[len(prefix) + 1:]
     return "unknown", name
-
-
-def load_ablation_index(model: str) -> Optional[list]:
-    # Load baked ablation index for a model
-    fname = ABLATION_INDEX_FILES.get(model)
-    if not fname:
-        return None
-    path = Path(__file__).parent.parent / "data" / fname
-    return load_json_cached(path, f"ablation_index_{model}")
 
 
 def get_vla_config(model: str = 'pi05'):
