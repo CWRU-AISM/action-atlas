@@ -16,9 +16,8 @@ Supported models:
 import os
 import sys
 from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 import numpy as np
 import torch
@@ -138,16 +137,6 @@ class ModelAdapter(ABC):
         ...
         return {}
 
-    @property
-    def suite_max_steps(self) -> Dict[str, int]:
-        return {
-            "libero_spatial": 220,
-            "libero_object": 280,
-            "libero_goal": 300,
-            "libero_10": 520,
-            "libero_long": 520,
-        }
-
 
 # X-VLA
 
@@ -190,7 +179,7 @@ class XVLAAdapter(ModelAdapter):
     def _ensure_processors(self, suite="libero_object", max_steps=280):
         if self.preprocessor is not None:
             return
-        import gymnasium as gym
+        import gymnasium as gym  # noqa: F401  (side effect: registers envs)
         from lerobot.policies.factory import make_pre_post_processors
         from lerobot.envs.factory import make_env_config, make_env_pre_post_processors
 
@@ -350,7 +339,7 @@ class SmolVLAAdapter(ModelAdapter):
         return task_suite, tasks
 
     def create_env(self, task, suite="libero_object", resolution=256, **kwargs):
-        from lerobot.envs.libero import LiberoEnv, TASK_SUITE_MAX_STEPS
+        from lerobot.envs.libero import LiberoEnv
 
         if suite not in self._suite_cache:
             from libero.libero import benchmark
@@ -509,7 +498,8 @@ class GR00TAdapter(ModelAdapter):
 
     def run_episode(self, env, task_desc, max_steps=300,
                     save_video=False, perturbation_fn=None, **kwargs):
-        from experiments.groot_common import run_groot_episode, get_scene_state_libero
+        from experiments.groot_common import run_groot_episode
+        from experiments.utils import get_scene_state
 
         collector = kwargs.get("collector", None)
         action_horizon = kwargs.get("action_horizon", 16)
@@ -524,7 +514,7 @@ class GR00TAdapter(ModelAdapter):
             action_horizon=action_horizon,
             perturbation_fn=perturbation_fn,
             force_fresh_actions=force_fresh,
-            scene_state_fn=get_scene_state_libero,
+            scene_state_fn=get_scene_state,
         )
         return result
 
@@ -888,7 +878,3 @@ def get_adapter(model_name: str) -> ModelAdapter:
     if model_name not in ADAPTERS:
         raise ValueError(f"Unknown model: {model_name}. Choose from: {list(ADAPTERS.keys())}")
     return ADAPTERS[model_name]()
-
-
-def list_models() -> List[str]:
-    return list(ADAPTERS.keys())

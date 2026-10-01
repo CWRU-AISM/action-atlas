@@ -13,7 +13,6 @@ import os
 os.environ.setdefault("TORCH_COMPILE_DISABLE", "1")
 os.environ.setdefault("DISPLAY", "")
 
-import gc
 import json
 import math
 import sys
@@ -60,6 +59,11 @@ simpler_env.make = _make_with_max_steps
 from lerobot.policies.xvla.modeling_xvla import XVLAPolicy
 from transformers import AutoTokenizer
 from sapien.core import Pose
+
+from experiments.hooks import (  # noqa: F401  re-exported for scripts
+    ZeroAblationHook, MeanAblationHook, ActivationCaptureHook, ActivationInjectionHook,
+)
+from experiments.utils import force_free_memory
 
 
 # Constants
@@ -123,16 +127,6 @@ STEP_INFO_KEYS = [
 
 # Memory helpers
 
-def force_free_memory():
-    gc.collect()
-    torch.cuda.empty_cache()
-    try:
-        import ctypes
-        ctypes.CDLL("libc.so.6").malloc_trim(0)
-    except Exception:
-        pass
-
-
 def log_ram(label=""):
     import psutil
     proc = psutil.Process()
@@ -178,22 +172,6 @@ def convert_xvla_action_widowx(action_raw, gripper_threshold=0.8):
                  + np.array([0, math.pi / 2, 0])).astype(np.float32)
     gripper_val = 1.0 if action_pred[9] < gripper_threshold else -1.0
     return np.concatenate([pos, euler_xyz, [gripper_val]])
-
-
-def convert_xvla_action_google_robot(action_raw, current_xyz):
-    """
-    Convert X-VLA 20D action to SimplerEnv 7D for Google Robot.
-
-    Position is relative from model, converted to absolute by adding current_xyz.
-    No pi/2 offset. Gripper opens if action[9] > 0.25.
-    Returns (action_7d, new_current_xyz).
-    """
-    action_pred = np.asarray(action_raw, dtype=np.float32)
-    pos = action_pred[:3] + current_xyz
-    euler_xyz = rotate6d_to_euler_xyz(action_pred[3:9]).astype(np.float32)
-    gripper_val = 1.0 if action_pred[9] > 0.25 else -1.0
-    action_7d = np.concatenate([pos, euler_xyz, [gripper_val]])
-    return action_7d, pos.copy()
 
 
 # Image / batch / observation helpers
@@ -494,101 +472,6 @@ class ActivationCollector:
         # Return {name: tensor[n_fwd_passes, seq_len, 1024]}
         return {name: torch.stack(acts, dim=0)
                 for name, acts in self.activations.items() if acts}
-
-
-class ZeroAblationHook:
-
-    def __init__(self):
-        self.enabled = True
-        self.call_count = 0
-
-    def __call__(self, module, input, output):
-        if not self.enabled:
-            return output
-        self.call_count += 1
-        if isinstance(output, tuple):
-            return (torch.zeros_like(output[0]),) + output[1:]
-        return torch.zeros_like(output)
-
-
-class MeanAblationHook:
-    # Replace a layer's output with its exponential running mean
-
-    def __init__(self):
-        self.enabled = True
-        self.running_mean = None
-        self.count = 0
-        self.call_count = 0
-
-    def _update_mean(self, output):
-        h = output[0] if isinstance(output, tuple) else output
-        h_mean = h.detach().mean(dim=0, keepdim=True) if h.dim() > 1 else h.detach()
-        if self.running_mean is None:
-            self.running_mean = h_mean
-        else:
-            self.running_mean = 0.9 * self.running_mean + 0.1 * h_mean
-        self.count += 1
-
-    def __call__(self, module, input, output):
-        if not self.enabled:
-            self._update_mean(output)
-            return output
-        self.call_count += 1
-        if self.running_mean is not None:
-            replacement = self.running_mean.expand_as(
-                output[0] if isinstance(output, tuple) else output
-            )
-            if isinstance(output, tuple):
-                return (replacement,) + output[1:]
-            return replacement
-        return output
-
-
-class ActivationCaptureHook:
-
-    def __init__(self):
-        self.activations = []
-        self.enabled = True
-
-    def __call__(self, module, input, output):
-        if not self.enabled:
-            return output
-        h = output[0] if isinstance(output, tuple) else output
-        self.activations.append(h.detach().clone().cpu())
-        return output
-
-    def reset(self):
-        self.activations = []
-
-
-class ActivationInjectionHook:
-
-    def __init__(self, stored, device="cuda"):
-        self.stored = stored
-        self.device = device
-        self.step = 0
-        self.enabled = True
-        self.injection_count = 0
-        self.shape_mismatches = 0
-
-    def __call__(self, module, input, output):
-        if not self.enabled or self.step >= len(self.stored):
-            return output
-        actual = output[0] if isinstance(output, tuple) else output
-        injected = self.stored[self.step].to(device=self.device, dtype=actual.dtype)
-        self.step += 1
-        if injected.shape != actual.shape:
-            self.shape_mismatches += 1
-            return output
-        self.injection_count += 1
-        if isinstance(output, tuple):
-            return (injected,) + output[1:]
-        return injected
-
-    def reset(self):
-        self.step = 0
-        self.injection_count = 0
-        self.shape_mismatches = 0
 
 
 class TimedActivationInjectionHook:

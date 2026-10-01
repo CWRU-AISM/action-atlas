@@ -222,6 +222,9 @@ cd SimplerEnv && pip install -e . && cd ..
 #   setuptools 81 removed. opencv 5.x hard-requires numpy>=2.
 pip install "numpy==1.24.4" "setuptools<81" "opencv-python==4.9.0.80"
 
+# The experiment scripts import the shared experiments package
+pip install -e . --no-deps
+
 # Verify
 MUJOCO_GL=egl python -c "
 import simpler_env

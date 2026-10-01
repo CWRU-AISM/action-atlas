@@ -13,12 +13,10 @@ Hook paths:
 
 import json
 import math
-import os
 import sys
 import time
 from collections import deque
 from pathlib import Path
-from typing import Optional
 
 import numpy as np
 import torch
@@ -27,56 +25,6 @@ from PIL import Image
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 sys.path.insert(0, str(project_root / "lerobot" / "src"))
-
-# Re-export shared utilities so existing imports don't break
-from experiments.utils import (
-    force_free_memory, save_video, get_scene_state, summarize_scene,
-    compare_trajectories as compare_traj, top_moved_objects,
-    ImagePerturbations, get_standard_perturbations,
-)
-from experiments.hooks import (
-    ZeroAblationHook, MeanAblationHook,
-    ActivationCaptureHook, ActivationInjectionHook, NullInjectionHook,
-    ActivationCollector,
-)
-
-
-# GR00T-specific ActivationCollector with register_hooks for eagle/dit/vlsa
-
-class GR00TActivationCollector(ActivationCollector):
-    # ActivationCollector with GR00T-specific hook registration
-
-    def register_hooks(self, model, eagle_layers_idx=None, dit_layers_idx=None,
-                       vl_sa_layers_idx=None):
-        # Register hooks on GR00T layers (auto-detects N1.5 vs N1.6)
-        eagle_layers = get_groot_eagle_layers(model)
-        dit_blocks = get_groot_dit_blocks(model)
-        vl_sa_blocks = get_groot_vl_self_attention_blocks(model)
-
-        if eagle_layers_idx is None:
-            eagle_layers_idx = list(range(len(eagle_layers)))
-        if dit_layers_idx is None:
-            dit_layers_idx = list(range(len(dit_blocks)))
-        if vl_sa_layers_idx is None:
-            vl_sa_layers_idx = list(range(len(vl_sa_blocks)))
-
-        for i in eagle_layers_idx:
-            if i < len(eagle_layers):
-                self.register(eagle_layers[i], f"eagle_lm_L{i:02d}", gated=False)
-
-        for i in vl_sa_layers_idx:
-            if i < len(vl_sa_blocks):
-                self.register(vl_sa_blocks[i], f"vl_sa_L{i:02d}", gated=False)
-
-        for i in dit_layers_idx:
-            if i < len(dit_blocks):
-                self.register(dit_blocks[i], f"dit_L{i:02d}", gated=True)
-
-        n_eagle = len([i for i in eagle_layers_idx if i < len(eagle_layers)])
-        n_vl_sa = len([i for i in vl_sa_layers_idx if i < len(vl_sa_blocks)])
-        n_dit = len([i for i in dit_layers_idx if i < len(dit_blocks)])
-        print(f"Registered {len(self.handles)} hooks "
-              f"(Eagle: {n_eagle}, VL-SA: {n_vl_sa}, DiT: {n_dit})")
 
 
 # Layer access (version-aware)
@@ -116,26 +64,6 @@ def get_groot_vl_self_attention_blocks(model):
 
 
 # Model loading and configuration
-
-SUITE_MAX_STEPS = {
-    "libero_spatial": 220, "libero_object": 280, "libero_goal": 300,
-    "libero_10": 520, "libero_long": 520,
-}
-
-SUITE_CHECKPOINTS = {
-    "libero_spatial": "liorbenhorin-nv/groot-libero_spatial-128_20000",
-    "libero_object": "liorbenhorin-nv/groot-libero_object-64_40000",
-    "libero_goal": "aractingi/libero-groot-goal",
-    "libero_10": "aractingi/groot-libero-10",
-    "libero_long": "aractingi/groot-libero-10",
-}
-
-COUNTERFACTUAL_PROMPTS = {
-    "null_prompt": "", "random": "blah foo bar baz",
-    "negation": "do not {task}", "opposite": "undo the task",
-    "generic": "move the robot arm",
-}
-
 
 def load_metadata_stats(checkpoint_path):
     # Load normalization statistics from checkpoint's metadata.json
@@ -417,6 +345,3 @@ def run_groot_episode(model, env, task_desc, device, max_steps, eagle_processor,
         result["activations"] = collector.get_activations()
     return result
 
-
-# Backward compat alias
-get_scene_state_libero = get_scene_state

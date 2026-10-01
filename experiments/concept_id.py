@@ -24,7 +24,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional
 
-import numpy as np
 import torch
 import tyro
 
@@ -124,11 +123,6 @@ def compute_concept_scores(sae, act_mean, act_std, task_acts, concept_mapping,
         with torch.no_grad():
             z = sae.encode(acts_norm)  # [N, hidden_dim]
         task_features[tid] = z.cpu()
-
-    # Pool all features for global stats
-    all_features = torch.cat(list(task_features.values()), dim=0)
-    global_mean = all_features.mean(dim=0)
-    global_std = all_features.std(dim=0).clamp(min=1e-8)
 
     results = {}
     for concept_type, concepts in concept_mapping.items():

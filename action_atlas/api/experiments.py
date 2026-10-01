@@ -1,6 +1,5 @@
 # Action Atlas API - experiments routes
 import json
-import os
 import traceback
 from pathlib import Path
 from typing import Dict, Optional
@@ -21,7 +20,6 @@ from .success_tracking import *
 from .concept_helpers import _load_concept_counts_for_model
 from .videos import load_video_index
 
-DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
 experiments_bp = Blueprint("experiments", __name__)
 

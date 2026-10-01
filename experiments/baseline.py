@@ -26,7 +26,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
 
-import numpy as np
 import torch
 import tyro
 
@@ -36,7 +35,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from experiments.hooks import ActivationCollector
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    OUTPUTS_DIR, force_free_memory, save_results, load_results, save_video,
+    OUTPUTS_DIR, force_free_memory, save_results, save_video,
     SUITE_MAX_STEPS,
 )
 

@@ -37,55 +37,7 @@ from common import (
     create_env, force_free_memory, get_tasks_from_args,
     load_smolvla_policy, run_episode, save_video_frames,
 )
-
-
-def gaussian_noise(img, std=25.0):
-    noise = np.random.normal(0, std, img.shape).astype(np.float32)
-    return np.clip(img.astype(np.float32) + noise, 0, 255).astype(np.uint8)
-
-
-def salt_pepper_noise(img, prob=0.05):
-    out = img.copy()
-    salt = np.random.random(img.shape[:2]) < prob / 2
-    out[salt] = 255
-    pepper = np.random.random(img.shape[:2]) < prob / 2
-    out[pepper] = 0
-    return out
-
-
-def blur(img, kernel_size=5):
-    return cv2.GaussianBlur(img, (kernel_size, kernel_size), 0)
-
-
-def brightness(img, factor=1.5):
-    return np.clip(img.astype(np.float32) * factor, 0, 255).astype(np.uint8)
-
-
-def contrast(img, factor=1.5):
-    mean = img.mean()
-    return np.clip((img.astype(np.float32) - mean) * factor + mean, 0, 255).astype(np.uint8)
-
-
-def color_jitter(img, hue_shift=20):
-    hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
-    hsv[:, :, 0] = (hsv[:, :, 0].astype(int) + hue_shift) % 180
-    return cv2.cvtColor(hsv, cv2.COLOR_HSV2RGB)
-
-
-def grayscale(img):
-    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-    return cv2.cvtColor(gray, cv2.COLOR_GRAY2RGB)
-
-
-def invert(img):
-    return 255 - img
-
-
-def center_crop(img, crop_frac=0.8):
-    h, w = img.shape[:2]
-    nh, nw = int(h * crop_frac), int(w * crop_frac)
-    top, left = (h - nh) // 2, (w - nw) // 2
-    return cv2.resize(img[top:top+nh, left:left+nw], (w, h))
+from experiments.utils import ImagePerturbations
 
 
 def random_crop(img, crop_frac=0.8):
@@ -94,26 +46,6 @@ def random_crop(img, crop_frac=0.8):
     top = np.random.randint(0, h - nh)
     left = np.random.randint(0, w - nw)
     return cv2.resize(img[top:top+nh, left:left+nw], (w, h))
-
-
-def rotate_img(img, angle=15):
-    h, w = img.shape[:2]
-    matrix = cv2.getRotationMatrix2D((w // 2, h // 2), angle, 1.0)
-    return cv2.warpAffine(img, matrix, (w, h))
-
-
-def horizontal_flip(img):
-    return img[:, ::-1].copy()
-
-
-def vertical_flip(img):
-    return img[::-1, :].copy()
-
-
-def edge_only(img):
-    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-    edges = cv2.Canny(gray, 50, 150)
-    return cv2.cvtColor(edges, cv2.COLOR_GRAY2RGB)
 
 
 def posterize(img, levels=4):
@@ -149,17 +81,6 @@ def mask_bottom_quarter(img):
     return out
 
 
-def mask_center(img):
-    out = img.copy()
-    h, w = img.shape[:2]
-    out[h//4:3*h//4, w//4:3*w//4] = 128
-    return out
-
-
-def black_image(img):
-    return np.zeros_like(img)
-
-
 def frozen_image(img, _cache={}):
     # Return the first frame for the entire episode (set externally)
     if 'frame' in _cache:
@@ -167,39 +88,41 @@ def frozen_image(img, _cache={}):
     return img
 
 
+P = ImagePerturbations
+
 PERTURBATIONS = {
     'baseline': lambda x: x,
-    'gaussian_noise_low': lambda x: gaussian_noise(x, std=15),
-    'gaussian_noise_high': lambda x: gaussian_noise(x, std=50),
-    'salt_pepper': lambda x: salt_pepper_noise(x, prob=0.05),
-    'blur_light': lambda x: blur(x, kernel_size=5),
-    'blur_heavy': lambda x: blur(x, kernel_size=15),
-    'bright_up': lambda x: brightness(x, factor=1.5),
-    'bright_down': lambda x: brightness(x, factor=0.5),
-    'contrast_up': lambda x: contrast(x, factor=1.5),
-    'contrast_down': lambda x: contrast(x, factor=0.5),
-    'hue_shift': lambda x: color_jitter(x, hue_shift=30),
-    'grayscale': grayscale,
-    'invert': invert,
-    'center_crop_80': lambda x: center_crop(x, crop_frac=0.8),
-    'center_crop_60': lambda x: center_crop(x, crop_frac=0.6),
+    'gaussian_noise_low': lambda x: P.gaussian_noise(x, std=15),
+    'gaussian_noise_high': lambda x: P.gaussian_noise(x, std=50),
+    'salt_pepper': lambda x: P.salt_pepper_noise(x, prob=0.05),
+    'blur_light': lambda x: P.blur(x, kernel_size=5),
+    'blur_heavy': lambda x: P.blur(x, kernel_size=15),
+    'bright_up': lambda x: P.brightness(x, factor=1.5),
+    'bright_down': lambda x: P.brightness(x, factor=0.5),
+    'contrast_up': lambda x: P.contrast(x, factor=1.5),
+    'contrast_down': lambda x: P.contrast(x, factor=0.5),
+    'hue_shift': lambda x: P.color_jitter(x, hue_shift=30),
+    'grayscale': P.grayscale,
+    'invert': P.invert,
+    'center_crop_80': lambda x: P.center_crop(x, crop_frac=0.8),
+    'center_crop_60': lambda x: P.center_crop(x, crop_frac=0.6),
     'random_crop': lambda x: random_crop(x, crop_frac=0.8),
-    'rotate_15': lambda x: rotate_img(x, angle=15),
-    'rotate_45': lambda x: rotate_img(x, angle=45),
-    'h_flip': horizontal_flip,
-    'v_flip': vertical_flip,
-    'edge_only': edge_only,
+    'rotate_15': lambda x: P.rotate(x, angle=15),
+    'rotate_45': lambda x: P.rotate(x, angle=45),
+    'h_flip': P.horizontal_flip,
+    'v_flip': P.vertical_flip,
+    'edge_only': P.edge_only,
     'posterize_4': lambda x: posterize(x, levels=4),
-    'black_image': black_image,
+    'black_image': P.black_image,
     'frozen_first_frame': frozen_image,
     'crop_top_half': crop_top_half,
     'crop_bottom_half': crop_bottom_half,
     'crop_left_half': crop_left_half,
     'crop_right_half': crop_right_half,
-    'center_crop_50': lambda x: center_crop(x, crop_frac=0.5),
+    'center_crop_50': lambda x: P.center_crop(x, crop_frac=0.5),
     'mask_top_quarter': mask_top_quarter,
     'mask_bottom_quarter': mask_bottom_quarter,
-    'mask_center': mask_center,
+    'mask_center': P.mask_center,
 }
 
 
