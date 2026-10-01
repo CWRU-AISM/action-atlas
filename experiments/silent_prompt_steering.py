@@ -29,6 +29,9 @@ Examples:
 
     python experiments/silent_prompt_steering.py --model xvla --suite libero_goal \\
         --layers 0 --arms floor_filler ceiling gap gap_mean sae_pt sae_mp_pos sae_mp_mean random:gap wrong:gap
+
+    python experiments/silent_prompt_steering.py --model oft --suite libero_goal \\
+        --layers 12 --arms floor_filler ceiling gap sae_pt random:gap wrong:gap
 """
 
 import os
@@ -71,6 +74,7 @@ SAE_RELEASE = {
     "pi05": ("bag100/action-atlas-pi05", "saes/{pooling}/paligemma/sae_layer{layer}.safetensors"),
     "xvla": ("bag100/action-atlas-xvla", "saes/{pooling}/libero/sae_layer{layer}.safetensors"),
     "groot": ("bag100/action-atlas-groot", "saes/{pooling}/eagle/sae_layer{layer}.safetensors"),
+    "oft": ("bag100/action-atlas-oft", "saes/{pooling}/sae_layer{layer}.safetensors"),
 }
 
 
@@ -78,7 +82,7 @@ SAE_RELEASE = {
 class SteeringConfig:
     # Silent-prompt goal steering
 
-    model: Literal["pi05", "smolvla", "xvla", "groot"] = "pi05"
+    model: Literal["pi05", "smolvla", "xvla", "groot", "oft"] = "pi05"
     suite: str = "libero_goal"
     checkpoint: Optional[str] = None
     tasks: Optional[List[int]] = None
@@ -86,8 +90,8 @@ class SteeringConfig:
     arms: Tuple[str, ...] = ("floor_filler", "ceiling", "patch", "direction",
                              "random:direction", "wrong:direction")
     rhos: Tuple[float, ...] = (0.5, 1.0)
-    span: Optional[Literal["instruction", "tail", "vlm_block"]] = None
-    """Edited positions; tail runs to the end of the prompt, vlm_block is X-VLA only. Default per model."""
+    span: Optional[Literal["instruction", "tail", "vlm_block", "sequence"]] = None
+    """Edited positions; tail runs to the end of the prompt, vlm_block is X-VLA only, sequence is OFT only. Default per model."""
     sae_topn: int = 32
     n_capture: int = 3
     n_episodes: int = 10
@@ -238,6 +242,8 @@ class ModelSpec:
     default_span = "instruction"
     # SmolVLA's single (non-vector) LiberoEnv returns an unbatched robot state
     batch_robot_state = False
+    # OFT's first policy call in a process differs from every later call
+    warmup = False
 
     def __init__(self, adapter):
         self.adapter = adapter
@@ -263,6 +269,9 @@ class ModelSpec:
 
     def text_offset(self, seq_len: int, n_text: int) -> int:
         raise NotImplementedError
+
+    def episode_kwargs(self, env_info: dict) -> dict:
+        return {}
 
     def span(self, mode, diff, seq_len, n_text):
         offset = self.text_offset(seq_len, n_text)
@@ -345,7 +354,34 @@ class GR00TSpec(ModelSpec):
         return 0
 
 
-SPECS = {"pi05": Pi05Spec, "smolvla": SmolVLASpec, "xvla": XVLASpec, "groot": GR00TSpec}
+class OFTSpec(ModelSpec):
+    # One Llama stack with bidirectional attention over [BOS | image + proprio patches | prompt | action
+    # placeholders], so the instruction reaches every position and the whole sequence is edited
+    default_span = "sequence"
+    warmup = True
+
+    def site(self):
+        return Site(self.adapter.get_layer_groups()["llm"])
+
+    def tokenize(self, env, seed):
+        tokenizer = self.adapter.components["processor"].tokenizer
+
+        def run(prompt):
+            ids = torch.tensor(tokenizer(f"In: What action should the robot take to {prompt.lower()}?\nOut:")["input_ids"])
+            return ids, len(ids)
+
+        return run
+
+    def span(self, mode, diff, seq_len, n_text):
+        if mode == "sequence":
+            return list(range(seq_len))
+        raise ValueError(f"span mode {mode!r} not supported for OFTSpec")
+
+    def episode_kwargs(self, env_info):
+        return {"init_states": env_info["init_states"]}
+
+
+SPECS = {"pi05": Pi05Spec, "smolvla": SmolVLASpec, "xvla": XVLASpec, "groot": GR00TSpec, "oft": OFTSpec}
 
 
 def load_release_sae(model: str, pooling: str, layer: int, device: str):
@@ -453,17 +489,17 @@ def sae_poolings(arms) -> set:
 
 # Rollouts
 
-def rollout(adapter, env, prompt, handles, max_steps, seed):
+def rollout(adapter, env, prompt, handles, max_steps, seed, **episode_kwargs):
     np.random.seed(seed)
     torch.manual_seed(seed)
     try:
-        return adapter.run_episode(env, prompt, max_steps=max_steps, seed=seed)
+        return adapter.run_episode(env, prompt, max_steps=max_steps, seed=seed, **episode_kwargs)
     finally:
         for h in handles:
             h.remove()
 
 
-def capture_task(adapter, spec, site, env, prompt, cfg, span_mode, max_steps) -> TaskCapture:
+def capture_task(adapter, spec, site, env, prompt, cfg, span_mode, max_steps, episode_kwargs) -> TaskCapture:
     count = spec.tokenize(env, cfg.seed)
     ids_a, n_a = count(prompt)
     filler_text = match_filler(lambda t: count(t)[1], n_a)
@@ -479,7 +515,7 @@ def capture_task(adapter, spec, site, env, prompt, cfg, span_mode, max_steps) ->
             for l in cfg.layers:
                 hooks[l], hs = site.capture(l)
                 handles += hs
-            result = rollout(adapter, env, text, handles, max_steps, cfg.seed + 1000 + ep)
+            result = rollout(adapter, env, text, handles, max_steps, cfg.seed + 1000 + ep, **episode_kwargs)
             ok[who].append(bool(result["success"]))
             for l in cfg.layers:
                 raw[(who, l)] += [a.squeeze(0).float() for a in hooks[l].activations]
@@ -528,13 +564,17 @@ def main(cfg: SteeringConfig):
     task_ids = cfg.tasks or list(range(len(all_tasks)))
     if len(task_ids) < 2 and any(a.startswith("wrong:") for a in cfg.arms):
         raise ValueError("wrong:<edit> needs at least two tasks; with one task the partner is the task itself")
-    envs = {t: adapter.create_env(t, suite=cfg.suite, max_steps=max_steps)[:2] for t in task_ids}
+    envs = {t: adapter.create_env(t, suite=cfg.suite, max_steps=max_steps) for t in task_ids}
+    episode_kwargs = {t: spec.episode_kwargs(envs[t][2]) for t in task_ids}
     print(f"Silent-prompt steering: {cfg.model} on {cfg.suite}, tasks {task_ids}, span {span_mode}")
+    if spec.warmup:
+        t = task_ids[0]
+        rollout(adapter, envs[t][0], envs[t][1], [], max_steps, cfg.seed, **episode_kwargs[t])
 
     captures: Dict[int, TaskCapture] = {}
     for t in task_ids:
-        env, prompt = envs[t]
-        captures[t] = capture_task(adapter, spec, site, env, prompt, cfg, span_mode, max_steps)
+        env, prompt, _ = envs[t]
+        captures[t] = capture_task(adapter, spec, site, env, prompt, cfg, span_mode, max_steps, episode_kwargs[t])
         c = captures[t]
         print(f"task {t}: {prompt!r} | filler {c.filler!r} | span {c.span[0]}..{c.span[-1]} "
               f"({len(c.span)}) | capture A {sum(c.capture_ok['A'])}/{cfg.n_capture} "
@@ -549,7 +589,7 @@ def main(cfg: SteeringConfig):
         key = str(t)
         if key in results["cells"]:
             continue
-        env, prompt = envs[t]
+        env, prompt, _ = envs[t]
         cap = captures[t]
         other = captures[task_ids[(i + 1) % len(task_ids)]]
         span = torch.as_tensor(cap.span)
@@ -562,7 +602,7 @@ def main(cfg: SteeringConfig):
                 for layer, kind, vec, rho in edits:
                     handles += site.edit(layer, cap.seq_len,
                                          lambda h, k=kind, v=vec, r=rho: edit_span(h, span, k, v, r))
-                result = rollout(adapter, env, text, handles, max_steps, cfg.seed + ep)
+                result = rollout(adapter, env, text, handles, max_steps, cfg.seed + ep, **episode_kwargs[t])
                 outcomes.append(bool(result["success"]))
             cells[name] = outcomes
             print(f"  task {t} {name}: {sum(outcomes)}/{len(outcomes)}")

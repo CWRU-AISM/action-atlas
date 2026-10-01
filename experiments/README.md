@@ -94,6 +94,10 @@ python experiments/silent_prompt_steering.py --model xvla --suite libero_goal \
 python experiments/silent_prompt_steering.py --model groot --suite libero_goal \
     --checkpoint Tacoin/GR00T-N1.5-3B-LIBERO-GOAL --layers 2 6 \
     --arms floor_filler ceiling gap gap_mean sae_pt sae_mp_pos sae_mp_mean random:gap wrong:gap
+
+# OpenVLA-OFT (openvla-oft env): bidirectional attention, so the whole sequence is edited
+python experiments/silent_prompt_steering.py --model oft --suite libero_goal --layers 12 \
+    --arms floor_filler ceiling gap sae_pt random:gap wrong:gap
 ```
 
 ## SimplerEnv Experiments (X-VLA cross-embodiment)

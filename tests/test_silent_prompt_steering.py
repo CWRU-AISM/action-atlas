@@ -12,6 +12,7 @@ import torch.nn as nn
 
 from experiments.silent_prompt_steering import (
     GR00TSpec,
+    OFTSpec,
     Pi05Spec,
     SmolVLASite,
     SmolVLASpec,
@@ -50,6 +51,15 @@ def test_span_offsets():
     assert SmolVLASpec(None).span("instruction", [0, 1], seq_len=141, n_text=12) == [128, 129]
     # GR00T: tail runs from the first instruction token to the end of the prompt
     assert GR00TSpec(None).span("tail", [541, 547], seq_len=554, n_text=554) == list(range(541, 554))
+
+
+def test_oft_span_covers_the_sequence():
+    spec = OFTSpec(adapter=None)
+    assert spec.span("sequence", [5], seq_len=12, n_text=4) == list(range(12))
+    with pytest.raises(ValueError):
+        spec.span("instruction", [5], seq_len=12, n_text=4)
+    assert spec.episode_kwargs({"init_states": [1, 2]}) == {"init_states": [1, 2]}
+    assert Pi05Spec(adapter=None).episode_kwargs({"task_suite": object()}) == {}
 
 
 def test_edit_span_modes():
