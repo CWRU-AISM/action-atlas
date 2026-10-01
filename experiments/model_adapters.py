@@ -545,10 +545,7 @@ class Pi05Adapter(ModelAdapter):
 
     @property
     def default_checkpoints(self):
-        # One checkpoint for all suites; a local pre-download wins over the Hub
-        local = PROJECT_ROOT / "checkpoints" / "pi05_libero_finetuned"
-        checkpoint = str(local) if local.exists() else "lerobot/pi05_libero_finetuned"
-        return {suite: checkpoint
+        return {suite: "lerobot/pi05_libero_finetuned"
                 for suite in ("libero_spatial", "libero_object", "libero_goal", "libero_10")}
 
     def load_model(self, checkpoint="lerobot/pi05_libero_finetuned", device="cuda"):
