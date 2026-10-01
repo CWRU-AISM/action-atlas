@@ -30,6 +30,8 @@ returned activations do not carry gradients.
 
 import torch
 
+from experiments.sae_hooks import sae_roundtrip
+
 PROTOCOLS = ("pertoken_replace", "meanpool_replace", "meanpool_delta")
 
 
@@ -113,12 +115,7 @@ class ReconstructionHookBase:
             self._verified = True
 
     def _sae_roundtrip(self, vectors):
-        # Standardize -> encode -> decode -> de-standardize a [N, D] batch.
-        normed = (vectors - self.act_mean) / (self.act_std + 1e-8)
-        z = self.sae.encode(normed)
-        recon_norm = self.sae.decode(z)
-        recon = recon_norm * (self.act_std + 1e-8) + self.act_mean
-        return recon, z
+        return sae_roundtrip(self.sae, vectors, self.act_mean, self.act_std)
 
     def __call__(self, module, input, output):
         if not self.enabled:

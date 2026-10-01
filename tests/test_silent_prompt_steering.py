@@ -1,30 +1,39 @@
 #!/usr/bin/env python3
 """
-Unit tests for experiments/silent_prompt_steering.py.
+Unit tests for experiments/silent_prompt_steering.py and its helpers.
 
 Filler matching, span offsets, span edits, the SmolVLA residual write-back, arm
-parsing, and the Wilson interval, on CPU tensors. No model, simulator, or GPU.
+parsing and cell construction, release-SAE loading, and the Wilson interval, on
+CPU tensors. No model, simulator, or GPU.
 """
+
+from types import SimpleNamespace
 
 import pytest
 import torch
 import torch.nn as nn
+from safetensors.torch import save_file
 
-from experiments.silent_prompt_steering import (
+from experiments.hooks import SmolVLAResidualSite
+from experiments.prompt_spans import (
     GR00TSpec,
     OFTSpec,
     Pi05Spec,
-    SmolVLASite,
     SmolVLASpec,
     differing_positions,
-    edit_span,
     filler,
-    fit_rows,
     match_filler,
+)
+from experiments.sae_hooks import RELEASE_SAE_FILES, load_release_sae, sae_roundtrip
+from experiments.silent_prompt_steering import (
+    TaskCapture,
+    arm_cells,
+    edit_span,
+    fit_rows,
     parse_arm,
     random_like,
-    wilson,
 )
+from experiments.utils import wilson
 
 
 def test_match_filler_hits_target_count():
@@ -50,7 +59,8 @@ def test_span_offsets():
     # SmolVLA: one state token after the language block
     assert SmolVLASpec(None).span("instruction", [0, 1], seq_len=141, n_text=12) == [128, 129]
     # GR00T: tail runs from the first instruction token to the end of the prompt
-    assert GR00TSpec(None).span("tail", [541, 547], seq_len=554, n_text=554) == list(range(541, 554))
+    tail = GR00TSpec(None).span("tail", [541, 547], seq_len=554, n_text=554)
+    assert tail == list(range(541, 554))
 
 
 def test_oft_span_covers_the_sequence():
@@ -104,7 +114,7 @@ def test_smolvla_site_reads_and_writes_the_residual():
     torch.manual_seed(0)
     layer = _SmolLayer(4)
     r = torch.randn(1, 5, 4)
-    site = SmolVLASite([layer])
+    site = SmolVLAResidualSite([layer])
 
     hook, handles = site.capture(0)
     expected = layer(r)
@@ -113,7 +123,8 @@ def test_smolvla_site_reads_and_writes_the_residual():
     assert torch.allclose(hook.activations[0], expected.detach())
 
     target = torch.zeros(2, 4)
-    handles = site.edit(0, seq_len=5, fn=lambda h: edit_span(h, torch.tensor([1, 2]), "replace", target))
+    handles = site.edit(0, seq_len=5,
+                        fn=lambda h: edit_span(h, torch.tensor([1, 2]), "replace", target))
     out = layer(r)
     for h in handles:
         h.remove()
@@ -127,6 +138,57 @@ def test_parse_arm():
     for bad in ("random:patch", "noise:gap", "steer"):
         with pytest.raises(ValueError):
             parse_arm(bad)
+
+
+def _capture(seed, layers=(0, 1), n_span=3, dim=4):
+    g = torch.Generator().manual_seed(seed)
+    states = {layer: torch.randn(2, n_span, dim, generator=g) for layer in layers}
+    return TaskCapture(f"task {seed}", "the of and", list(range(n_span)), 10,
+                       states, {layer: torch.zeros(2, n_span, dim) for layer in layers},
+                       {"A": [], "F": []})
+
+
+def test_arm_cells():
+    cfg = SimpleNamespace(layers=(0, 1), rhos=(0.5, 1.0), sae_topn=2)
+    cap, other = _capture(0), _capture(1)
+    captures = [cap, other]
+    gen = torch.Generator().manual_seed(0)
+
+    assert arm_cells("ceiling", cap, other, captures, {}, cfg, gen) == [("ceiling", "task 0", [])]
+
+    cells = arm_cells("direction", cap, other, captures, {}, cfg, gen)
+    assert [name for name, _, _ in cells] == [
+        "direction_L0_rho0.5", "direction_L0_rho1.0", "direction_L1_rho0.5", "direction_L1_rho1.0"]
+    assert all(text == cap.filler for _, text, _ in cells)
+
+    (_, _, edits), _ = arm_cells("wrong:gap", cap, other, captures, {}, cfg, gen)
+    assert torch.equal(edits[0][2], other.gap(0))
+
+    (_, _, edits), _ = arm_cells("random:gap", cap, other, captures, {}, cfg, gen)
+    assert edits[0][1] == "delta"
+    assert torch.allclose(edits[0][2].norm(dim=-1), cap.gap(0).norm(dim=-1), atol=1e-5)
+
+    [(name, _, edits)] = arm_cells("patch_joint", cap, other, captures, {}, cfg, gen)
+    assert name == "patch_joint_L0-1"
+    assert [(layer, kind) for layer, kind, _, _ in edits] == [(0, "replace"), (1, "replace")]
+
+
+def test_load_release_sae_reads_the_local_bundle(tmp_path):
+    torch.manual_seed(0)
+    dim, hidden = 4, 8
+    state = {"encoder.weight": torch.randn(hidden, dim), "encoder.bias": torch.randn(hidden),
+             "decoder.weight": torch.randn(dim, hidden), "decoder.bias": torch.randn(dim),
+             "mean": torch.randn(1, dim), "std": torch.rand(1, dim) + 0.5}
+    path = tmp_path / "pi05" / RELEASE_SAE_FILES["pi05"].format(pooling="per_token", layer=2)
+    path.parent.mkdir(parents=True)
+    save_file(state, str(path), metadata={"k": "3"})
+
+    sae, mean, std = load_release_sae("pi05", "per_token", 2, device="cpu", release_dir=tmp_path)
+    assert sae.k == 3
+    assert torch.equal(mean, state["mean"].reshape(-1))
+    x = torch.randn(5, dim)
+    recon, z = sae_roundtrip(sae, x, mean, std)
+    assert recon.shape == x.shape and int((z != 0).sum(-1).max()) <= 3
 
 
 def test_wilson():

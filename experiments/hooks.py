@@ -188,3 +188,63 @@ class ActivationCollector:
 
     def get_activations(self):
         return {name: torch.stack(acts, dim=0) for name, acts in self.activations.items() if acts}
+
+
+class ResidualSite:
+    # Residual stream after each decoder layer, read and written by forward hooks
+
+    def __init__(self, layers):
+        self.layers = layers
+
+    def capture(self, idx):
+        hook = ActivationCaptureHook()
+        return hook, [self.layers[idx].register_forward_hook(hook)]
+
+    def edit(self, idx, seq_len, fn):
+        # Replace the residual with fn(residual) on forward passes of length seq_len
+        def hook(module, input, output):
+            h = output[0] if isinstance(output, tuple) else output
+            if h.shape[1] != seq_len:
+                return output
+            new = fn(h)
+            return (new,) + output[1:] if isinstance(output, tuple) else new
+
+        return [self.layers[idx].register_forward_hook(hook)]
+
+
+class SmolVLAResidualSite(ResidualSite):
+    # SmolVLA's interleaved loop calls attention and MLP submodules directly, so the
+    # residual after layer L is (post-attention residual) + mlp(...). Read it from the
+    # post_attention_layernorm input plus the MLP output; write it through the MLP output
+
+    def _pair(self, idx, on_residual):
+        layer = self.layers[idx]
+        state = {}
+
+        def pre(module, args):
+            state["r"] = args[0].detach()
+
+        def post(module, input, output):
+            r = state.pop("r", None)
+            return output if r is None else on_residual(r, output)
+
+        return [layer.post_attention_layernorm.register_forward_pre_hook(pre),
+                layer.mlp.register_forward_hook(post)]
+
+    def capture(self, idx):
+        hook = ActivationCaptureHook()
+
+        def on_residual(r, out):
+            hook.activations.append((r + out).detach().cpu())
+            return out
+
+        return hook, self._pair(idx, on_residual)
+
+    def edit(self, idx, seq_len, fn):
+        def on_residual(r, out):
+            if out.shape[1] != seq_len:
+                return out
+            return fn(r + out) - r
+
+        return self._pair(idx, on_residual)
+
