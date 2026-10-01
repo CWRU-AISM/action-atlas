@@ -50,16 +50,16 @@ import torch
 import tyro
 
 from common import (
-    MODEL_CONFIGS, N_LAYERS, DEFAULT_MAX_STEPS,
+    PROJECT_ROOT, MODEL_CONFIGS, N_LAYERS, DEFAULT_MAX_STEPS,
     load_xvla_policy, load_xvla_sae, load_concept_features,
     get_hook_target, run_episode,
     simpler_env,
 )
 from experiments.sae_hooks import PerTokenSteeringHook
 
-SAE_DIR = "outputs/xvla_saes/simplerenv_all_pertoken"
-CONCEPT_ID_DIR = "results/xvla_concept_id"
-OUTPUT_DIR = "results/xvla_simplerenv_concept_steering"
+SAE_DIR = str(PROJECT_ROOT / "outputs/xvla_saes/simplerenv_all_pertoken")
+CONCEPT_ID_DIR = str(PROJECT_ROOT / "results/xvla_concept_id")
+OUTPUT_DIR = str(PROJECT_ROOT / "results/xvla_simplerenv_concept_steering")
 
 
 def run_steering_experiment(
@@ -178,13 +178,13 @@ class ConceptSteeringConfig:
     # X-VLA concept steering on SimplerEnv
 
     robot: str
-    # Robot type: widowx, google-robot
+    """Robot type: widowx, google-robot"""
 
     layer: Optional[int] = None
-    # Single layer index
+    """Single layer index"""
 
     layers: Optional[str] = None
-    # Comma-separated layers
+    """Comma-separated layers"""
 
     all_layers: bool = False
     strengths: tuple[float, ...] = (0.5, 1.0, 2.0, 5.0)
@@ -197,7 +197,7 @@ class ConceptSteeringConfig:
     sae_dir: str = SAE_DIR
     checkpoint: Optional[str] = None
     tasks: Optional[List[str]] = None
-    # Specific tasks (default: all for robot)
+    """Specific tasks (default: all for robot)"""
 
 
 def main(cfg):

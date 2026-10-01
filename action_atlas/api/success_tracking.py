@@ -870,11 +870,3 @@ def _load_layer_connections_pi05(pathway: str = 'expert') -> dict:
     if overall_r2:
         result['aggregate_r2'] = overall_r2
     return result
-
-
-def register_vla_routes(app):
-    # Register VLA routes with Flask app
-    app.register_blueprint(vla_bp)
-    print("Registered Action Atlas routes")
-
-

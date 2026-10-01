@@ -64,7 +64,7 @@ class TrainTemporalSAEConfig:
     activations_dir: str = ""
 
     # Where to save trained T-SAE checkpoints.
-    output_dir: str = "outputs/temporal_saes"
+    output_dir: str = str(Path(__file__).resolve().parents[1] / "outputs/temporal_saes")
 
     # Layer names to train. Default: every .pt file found under activations_dir.
     layers: Optional[List[str]] = None

@@ -65,8 +65,7 @@ if _LEROBOT_SRC and os.path.isdir(_LEROBOT_SRC):
 from experiments.hooks import ActivationCaptureHook, ActivationInjectionHook
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    force_free_memory, save_results, save_video,
-    summarize_scene, SUITE_MAX_STEPS,
+    PROJECT_ROOT, force_free_memory, save_results, SUITE_MAX_STEPS,
 )
 
 
@@ -99,21 +98,20 @@ class CrossTaskInjectionV2Config:
     seed: int = 42
     output_dir: Optional[str] = None
     record_video: bool = False
-    save_trajectory: bool = False
 
     n_action_steps: Optional[int] = None
 
     pairs: Optional[List[str]] = None
-    # Task pairs as 'A,B' strings. Default: all C(n_tasks,2) pairs
+    """Task pairs as 'A,B' strings. Default: all C(n_tasks,2) pairs"""
 
     tasks: Optional[List[int]] = None
-    # Restrict to a subset of task IDs (default: all)
+    """Restrict to a subset of task IDs (default: all)"""
 
     layer_group: Optional[str] = None
-    # Shorthand: 'expert_all', 'vlm_all', 'expert_early|mid|late', 'vlm_early|mid|late', 'all'
+    """Shorthand: 'expert_all', 'vlm_all', 'expert_early|mid|late', 'vlm_early|mid|late', 'all'"""
 
     layers: Optional[List[str]] = None
-    # Explicit layer labels (overrides --layer-group)
+    """Explicit layer labels (overrides --layer-group)"""
 
     cache_size: int = 4
     resume: bool = True
@@ -228,9 +226,7 @@ def main(cfg: CrossTaskInjectionV2Config):
     else:
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         gname = cfg.layer_group or "custom"
-        output_dir = Path(
-            f"rollouts/{cfg.model}/cross_task_v2/{cfg.suite}_{gname}_{ts}"
-        )
+        output_dir = PROJECT_ROOT / f"rollouts/{cfg.model}/cross_task_v2/{cfg.suite}_{gname}_{ts}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"[v2] {cfg.model} | suite={cfg.suite} | layer_group={cfg.layer_group} "

@@ -29,7 +29,7 @@ import tyro
 warnings.filterwarnings("ignore")
 
 from common import (
-    MODEL_CONFIGS, DEFAULT_MAX_STEPS,
+    PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS,
     load_xvla_policy, run_episode, compare_trajectories,
     force_free_memory, log_ram,
     ActivationCaptureHook, ActivationInjectionHook,
@@ -42,10 +42,10 @@ class CrossTaskInjectionConfig:
     # X-VLA SimplerEnv cross-task activation injection
 
     model: str
-    # Model name: widowx, google-robot
+    """Model name: widowx, google-robot"""
 
     task_pairs: Optional[List[str]] = None
-    # Task pairs as 'A,B' (e.g., 0,1 0,2 1,3)
+    """Task pairs as 'A,B' (e.g., 0,1 0,2 1,3)"""
 
     all_pairs: bool = False
     seed: int = 42
@@ -77,7 +77,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/xvla_simplerenv/cross_task_{cfg.model}")
+        output_dir = PROJECT_ROOT / f"outputs/xvla_simplerenv/cross_task_{cfg.model}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"X-VLA SimplerEnv cross-task injection")

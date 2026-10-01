@@ -26,10 +26,9 @@ from typing import Dict, List, Optional, Set
 
 import numpy as np
 import torch
-import torch.nn as nn
 import tyro
 
-from common import SparseAutoencoder
+from common import PROJECT_ROOT, SparseAutoencoder, load_sae
 
 
 METAWORLD_CONCEPTS = {
@@ -96,14 +95,6 @@ ALL_METAWORLD_TASKS = [
     "sweep-into-v3", "sweep-v3",
     "window-close-v3", "window-open-v3",
 ]
-
-
-def load_sae(path, device='cpu'):
-    ckpt = torch.load(str(path), map_location=device, weights_only=True)
-    cfg = ckpt['config']
-    sae = SparseAutoencoder(cfg['input_dim'], cfg['hidden_dim'], cfg['k'])
-    sae.load_state_dict(ckpt['state_dict'])
-    return sae.to(device).eval()
 
 
 def load_activations_by_task(
@@ -373,13 +364,14 @@ class ConceptIdConfig:
     # MetaWorld contrastive concept identification for SmolVLA
 
     component: List[str] = ("expert",)
-    # Component types: expert, vlm
+    """Component types: expert, vlm"""
 
     layer: int = -1
     all_layers: bool = False
-    sae_dir: str = "rollouts/smolvla/sae_models/metaworld"
-    data_dir: str = "rollouts/smolvla/metaworld_activations_meanpool/activations"
-    output_dir: str = "rollouts/smolvla/metaworld_concept_id"
+    sae_dir: str = str(PROJECT_ROOT / "rollouts/smolvla/sae_models/metaworld")
+    data_dir: str = str(
+        PROJECT_ROOT / "rollouts/smolvla/metaworld_activations_meanpool/activations")
+    output_dir: str = str(PROJECT_ROOT / "rollouts/smolvla/metaworld_concept_id")
     device: str = "cpu"
     summary_only: bool = False
 

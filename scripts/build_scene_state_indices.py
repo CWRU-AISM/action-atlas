@@ -23,9 +23,8 @@ Outputs:
 import json
 import os
 import re
-import sys
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Dict, List, Optional
 
 DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
@@ -672,35 +671,6 @@ def build_xvla_scene_state():
         if result:
             write_json(out_dir / f"simplerenv_{env}_grid_ablation.json", result)
 # GR00T Scene State
-GROOT_TASK_DESCRIPTIONS = {
-    "libero_goal": {
-        0: "open the middle drawer of the cabinet",
-        1: "put the bowl on the stove",
-        2: "put the wine bottle on top of the cabinet",
-        3: "open the top drawer and put the bowl inside",
-        4: "put the bowl on top of the cabinet",
-        5: "push the plate to the front of the stove",
-        6: "put the cream cheese in the bowl",
-        7: "turn on the stove",
-        8: "put the bowl on the plate",
-        9: "put the wine bottle on the rack",
-    },
-    "libero_object": {
-        0: "pick up the alphabet soup and place it in the basket",
-        1: "pick up the cream cheese and place it in the basket",
-        2: "pick up the salad dressing and place it in the basket",
-        3: "pick up the bbq sauce and place it in the basket",
-        4: "pick up the ketchup and place it in the basket",
-        5: "pick up the tomato sauce and place it in the basket",
-        6: "pick up the butter and place it in the basket",
-        7: "pick up the milk and place it in the basket",
-        8: "pick up the chocolate pudding and place it in the basket",
-        9: "pick up the orange juice and place it in the basket",
-    },
-    "libero_long": {},  # Will be populated if available
-}
-
-
 def build_groot_fraction_to_failure(suite: str) -> Optional[dict]:
     # Build GR00T fraction-to-failure scene state with trajectory data
     layers_data = []

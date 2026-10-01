@@ -24,7 +24,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Optional
 
-import numpy as np
 import torch
 import tyro
 
@@ -32,6 +31,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from experiments.sae_hooks import TopKSAE
+from experiments.utils import PROJECT_ROOT
 from experiments.concept_identification import get_concept_task_mapping
 
 
@@ -40,10 +40,10 @@ class ConceptIDConfig:
     # SAE-based concept identification
 
     sae_dir: str = ""
-    # Directory containing trained SAE checkpoints (layer_name/sae_best.pt)
+    """Directory containing trained SAE checkpoints (layer_name/sae_best.pt)"""
 
     activations_dir: str = ""
-    # Directory containing activation .pt files
+    """Directory containing activation .pt files"""
 
     suite: str = "libero_object"
     """
@@ -52,11 +52,11 @@ class ConceptIDConfig:
     widowx, google_robot"""
 
     layers: Optional[List[str]] = None
-    # Layer names to process. Default: all found in sae_dir
+    """Layer names to process. Default: all found in sae_dir"""
 
     output_dir: Optional[str] = None
     top_k_features: int = 20
-    # Number of top features to report per concept
+    """Number of top features to report per concept"""
 
     max_samples_per_task: int = 50000
 
@@ -123,11 +123,6 @@ def compute_concept_scores(sae, act_mean, act_std, task_acts, concept_mapping,
         with torch.no_grad():
             z = sae.encode(acts_norm)  # [N, hidden_dim]
         task_features[tid] = z.cpu()
-
-    # Pool all features for global stats
-    all_features = torch.cat(list(task_features.values()), dim=0)
-    global_mean = all_features.mean(dim=0)
-    global_std = all_features.std(dim=0).clamp(min=1e-8)
 
     results = {}
     for concept_type, concepts in concept_mapping.items():
@@ -196,7 +191,7 @@ def main(cfg: ConceptIDConfig):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"results/concept_id/{cfg.suite}")
+        output_dir = PROJECT_ROOT / f"results/concept_id/{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Get concept mappings

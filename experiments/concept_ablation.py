@@ -35,9 +35,9 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from experiments.model_adapters import get_adapter
-from experiments.sae_hooks import PerTokenAblationHook, TopKSAE, load_sae
+from experiments.sae_hooks import PerTokenAblationHook, TopKSAE
 from experiments.utils import (
-    force_free_memory, save_results, load_results, save_video, SUITE_MAX_STEPS,
+    OUTPUTS_DIR, force_free_memory, save_results, save_video, SUITE_MAX_STEPS,
 )
 
 
@@ -50,16 +50,16 @@ class ConceptAblationConfig:
     checkpoint: Optional[str] = None
 
     sae_dir: str = ""
-    # Directory with trained SAE checkpoints
+    """Directory with trained SAE checkpoints"""
 
     concept_results: str = ""
-    # Path to concept_id all_layers.json with identified features
+    """Path to concept_id all_layers.json with identified features"""
 
     layer: str = ""
-    # Layer to ablate (e.g. 'transformer_L12')
+    """Layer to ablate (e.g. 'transformer_L12')"""
 
     n_features: int = 5
-    # Number of top concept features to ablate
+    """Number of top concept features to ablate"""
 
     n_episodes: int = 3
     tasks: Optional[List[int]] = None
@@ -69,10 +69,10 @@ class ConceptAblationConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
 
 def main(cfg):
@@ -83,7 +83,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/{cfg.model}_experiments/concept_ablation_{cfg.suite}")
+        output_dir = OUTPUTS_DIR / f"{cfg.model}_experiments/concept_ablation_{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Load concept identification results

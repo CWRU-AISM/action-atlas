@@ -23,7 +23,7 @@ os.environ.setdefault("MUJOCO_GL", "egl")
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import List, Optional
 
 import numpy as np
 import torch
@@ -35,7 +35,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from experiments.hooks import ActivationCollector
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    force_free_memory, save_results, load_results, save_video,
+    OUTPUTS_DIR, force_free_memory, save_results, load_results, save_video,
     SUITE_MAX_STEPS, COUNTERFACTUAL_PROMPTS, wrong_object_prompt,
 )
 
@@ -55,10 +55,10 @@ class CounterfactualConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
     conditions: Optional[List[str]] = None
     """
@@ -67,7 +67,7 @@ class CounterfactualConfig:
     """
 
     collect_activations: bool = False
-    # Capture activations under each condition
+    """Capture activations under each condition"""
 
     per_token: bool = True
 
@@ -98,7 +98,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/{cfg.model}_experiments/counterfactual_{cfg.suite}")
+        output_dir = OUTPUTS_DIR / f"{cfg.model}_experiments/counterfactual_{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     adapter = get_adapter(cfg.model)

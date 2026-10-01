@@ -26,7 +26,7 @@ import tyro
 warnings.filterwarnings("ignore")
 
 from common import (
-    MODEL_CONFIGS, DEFAULT_MAX_STEPS,
+    PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS,
     WIDOWX_GRIPPER_THRESHOLDS, DEFAULT_GRIPPER_THRESHOLD,
     load_xvla_policy, run_episode, force_free_memory,
     create_simplerenv_batch, convert_xvla_action_widowx,
@@ -169,7 +169,7 @@ class TemporalInjectionConfig:
     # X-VLA SimplerEnv temporal injection experiments
 
     model: str
-    # Model name: widowx, google-robot
+    """Model name: widowx, google-robot"""
 
     task: Optional[str] = None
     all_tasks: bool = False
@@ -197,7 +197,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/xvla_simplerenv/temporal_{cfg.model}")
+        output_dir = PROJECT_ROOT / f"outputs/xvla_simplerenv/temporal_{cfg.model}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"X-VLA SimplerEnv temporal injection")

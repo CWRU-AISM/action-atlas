@@ -27,7 +27,6 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional, Tuple
 
-import numpy as np
 import torch
 import tyro
 
@@ -37,7 +36,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from experiments.model_adapters import get_adapter
 from experiments.sae_hooks import PerTokenSteeringHook, TopKSAE
 from experiments.utils import (
-    force_free_memory, save_results, save_video, SUITE_MAX_STEPS,
+    OUTPUTS_DIR, force_free_memory, save_results, save_video, SUITE_MAX_STEPS,
 )
 
 
@@ -54,13 +53,13 @@ class ConceptSteeringConfig:
     layer: str = ""
 
     n_features: int = 5
-    # Number of top features to steer per concept
+    """Number of top features to steer per concept"""
 
     strengths: Tuple[float, ...] = (-2.0, -1.0, 1.0, 2.0)
-    # Steering strengths to test. Negative = suppress, positive = amplify
+    """Steering strengths to test. Negative = suppress, positive = amplify"""
 
     concepts: Optional[List[str]] = None
-    # Specific concepts to steer (e.g. 'motion/put'). Default: all
+    """Specific concepts to steer (e.g. 'motion/put'). Default: all"""
 
     n_episodes: int = 3
     tasks: Optional[List[int]] = None
@@ -70,10 +69,10 @@ class ConceptSteeringConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
 
 def main(cfg):
@@ -84,7 +83,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/{cfg.model}_experiments/concept_steering_{cfg.suite}")
+        output_dir = OUTPUTS_DIR / f"{cfg.model}_experiments/concept_steering_{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     with open(cfg.concept_results) as f:

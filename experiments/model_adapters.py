@@ -16,16 +16,15 @@ Supported models:
 import os
 import sys
 from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Tuple
 
 import numpy as np
 import torch
 
-DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", PROJECT_ROOT / "data"))
 
-PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "lerobot" / "src"))
 
@@ -59,6 +58,18 @@ def _ensure_attended_language(batch) -> bool:
                 flat[row][0] = 1
                 patched = True
     return patched
+
+
+def _lerobot_prepare_batch(self, observation, task_desc, env=None):
+    # Raw env observation -> policy input batch for lerobot vector-env adapters.
+    # Without a string task_desc the env's own task description is used
+    from lerobot.envs.utils import preprocess_observation, add_envs_task
+    batch = preprocess_observation(observation)
+    if env is not None:
+        batch = add_envs_task(env, batch)
+    if isinstance(task_desc, str):
+        batch["task"] = [task_desc]
+    return self.preprocessor(self.env_preprocessor(batch))
 
 
 class ModelAdapter(ABC):
@@ -126,21 +137,12 @@ class ModelAdapter(ABC):
         ...
         return {}
 
-    @property
-    def suite_max_steps(self) -> Dict[str, int]:
-        return {
-            "libero_spatial": 220,
-            "libero_object": 280,
-            "libero_goal": 300,
-            "libero_10": 520,
-            "libero_long": 520,
-        }
-
 
 # X-VLA
 
 class XVLAAdapter(ModelAdapter):
     name = "xvla"
+    prepare_batch = _lerobot_prepare_batch
 
     def __init__(self):
         self.policy = None
@@ -177,7 +179,7 @@ class XVLAAdapter(ModelAdapter):
     def _ensure_processors(self, suite="libero_object", max_steps=280):
         if self.preprocessor is not None:
             return
-        import gymnasium as gym
+        import gymnasium as gym  # noqa: F401  (side effect: registers envs)
         from lerobot.policies.factory import make_pre_post_processors
         from lerobot.envs.factory import make_env_config, make_env_pre_post_processors
 
@@ -227,7 +229,6 @@ class XVLAAdapter(ModelAdapter):
 
     def run_episode(self, env, task_desc, max_steps=280,
                     save_video=False, perturbation_fn=None, **kwargs):
-        from lerobot.envs.utils import preprocess_observation
         seed = kwargs.get("seed", 42)
         inner_env = kwargs.get("inner_env", None)
         from experiments.utils import get_scene_state
@@ -251,10 +252,7 @@ class XVLAAdapter(ModelAdapter):
                     frame = frame[::-1, ::-1]
                     frames.append(frame)
 
-            obs_proc = preprocess_observation(obs)
-            obs_proc["task"] = [task_desc]
-            obs_proc = self.env_preprocessor(obs_proc)
-            obs_proc = self.preprocessor(obs_proc)
+            obs_proc = self.prepare_batch(obs, task_desc)
 
             with torch.inference_mode():
                 action = self.policy.select_action(obs_proc)
@@ -341,7 +339,7 @@ class SmolVLAAdapter(ModelAdapter):
         return task_suite, tasks
 
     def create_env(self, task, suite="libero_object", resolution=256, **kwargs):
-        from lerobot.envs.libero import LiberoEnv, TASK_SUITE_MAX_STEPS
+        from lerobot.envs.libero import LiberoEnv
 
         if suite not in self._suite_cache:
             from libero.libero import benchmark
@@ -360,30 +358,29 @@ class SmolVLAAdapter(ModelAdapter):
         )
         return libero_env, task_suite.get_task(task_idx).language, {"task_suite": task_suite}
 
+    def prepare_batch(self, observation, task_desc):
+        # Raw env observation -> policy input batch
+        from lerobot.envs.utils import preprocess_observation
+        batch = preprocess_observation(observation)
+        # The single (non-vector) LiberoEnv returns an unbatched robot state
+        for group in batch.get("observation.robot_state", {}).values():
+            for key, t in group.items():
+                if isinstance(t, torch.Tensor) and t.ndim <= 2:
+                    group[key] = t.unsqueeze(0)
+        batch["task"] = [task_desc]
+        batch = self.preprocessor(self.env_preprocessor(batch))
+        _ensure_attended_language(batch)
+        return batch
+
     def run_episode(self, env, task_desc, max_steps=280,
                     save_video=False, perturbation_fn=None, **kwargs):
-        from lerobot.envs.utils import preprocess_observation
-
         self.policy.reset()
         observation, info = env.reset()
         step_info = {}
         actions = []
 
         for step in range(max_steps):
-            obs_tensor = preprocess_observation(observation)
-            # Add batch dim to robot state if needed
-            if "observation.robot_state" in obs_tensor:
-                rs = obs_tensor["observation.robot_state"]
-                for gk in rs:
-                    for sk in rs[gk]:
-                        t = rs[gk][sk]
-                        if isinstance(t, torch.Tensor) and t.ndim <= 2:
-                            rs[gk][sk] = t.unsqueeze(0)
-
-            obs_tensor["task"] = [task_desc]
-            obs_tensor = self.env_preprocessor(obs_tensor)
-            obs_tensor = self.preprocessor(obs_tensor)
-            _ensure_attended_language(obs_tensor)
+            obs_tensor = self.prepare_batch(observation, task_desc)
 
             with torch.inference_mode():
                 action = self.policy.select_action(obs_tensor)
@@ -444,10 +441,30 @@ class GR00TAdapter(ModelAdapter):
         except Exception:
             from experiments.groot_common import load_groot_n15
             self.model = load_groot_n15(checkpoint, device)
+        self._reapply_checkpoint_tensors(checkpoint)
 
         self.eagle_processor = build_eagle_processor()
         self.stats = load_metadata_stats(checkpoint)
         return self.model
+
+    def _reapply_checkpoint_tensors(self, checkpoint):
+        # transformers>=5 re-initializes backbone.eagle_model.mlp1 after loading a
+        # GR00T-native checkpoint, through either load path, with no error; the
+        # policy then runs vision-blind. Re-apply every matching checkpoint tensor
+        from huggingface_hub import snapshot_download
+        from safetensors.torch import load_file
+        ckpt = Path(checkpoint)
+        if not ckpt.exists():
+            ckpt = Path(snapshot_download(checkpoint, allow_patterns=["model*.safetensors"]))
+        names = set(self.model.state_dict())
+        state = {}
+        for shard in sorted(ckpt.glob("model*.safetensors")):
+            state.update({k: v for k, v in load_file(shard).items() if k in names})
+        if state:
+            self.model.load_state_dict(state, strict=False)
+        projector = self.model.backbone.eagle_model.mlp1[0].bias
+        if float(projector.abs().sum()) == 0:
+            raise RuntimeError(f"GR00T vision projector is zero after loading {checkpoint}")
 
     def get_layer_groups(self):
         from experiments.groot_common import (
@@ -481,7 +498,8 @@ class GR00TAdapter(ModelAdapter):
 
     def run_episode(self, env, task_desc, max_steps=300,
                     save_video=False, perturbation_fn=None, **kwargs):
-        from experiments.groot_common import run_groot_episode, get_scene_state_libero
+        from experiments.groot_common import run_groot_episode
+        from experiments.utils import get_scene_state
 
         collector = kwargs.get("collector", None)
         action_horizon = kwargs.get("action_horizon", 16)
@@ -496,7 +514,7 @@ class GR00TAdapter(ModelAdapter):
             action_horizon=action_horizon,
             perturbation_fn=perturbation_fn,
             force_fresh_actions=force_fresh,
-            scene_state_fn=get_scene_state_libero,
+            scene_state_fn=get_scene_state,
         )
         return result
 
@@ -505,6 +523,7 @@ class GR00TAdapter(ModelAdapter):
 
 class Pi05Adapter(ModelAdapter):
     name = "pi05"
+    prepare_batch = _lerobot_prepare_batch
 
     def __init__(self):
         self.policy = None
@@ -516,14 +535,10 @@ class Pi05Adapter(ModelAdapter):
 
     @property
     def default_checkpoints(self):
-        return {
-            "libero_spatial": "checkpoints/pi05_libero_finetuned",
-            "libero_object": "checkpoints/pi05_libero_finetuned",
-            "libero_goal": "checkpoints/pi05_libero_finetuned",
-            "libero_10": "checkpoints/pi05_libero_finetuned",
-        }
+        return {suite: "lerobot/pi05_libero_finetuned"
+                for suite in ("libero_spatial", "libero_object", "libero_goal", "libero_10")}
 
-    def load_model(self, checkpoint="checkpoints/pi05_libero_finetuned", device="cuda"):
+    def load_model(self, checkpoint="lerobot/pi05_libero_finetuned", device="cuda"):
         os.environ.setdefault("TORCH_COMPILE_DISABLE", "1")
         os.environ.setdefault("PYTORCH_COMPILE_DISABLE", "1")
         os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
@@ -596,7 +611,6 @@ class Pi05Adapter(ModelAdapter):
 
     def run_episode(self, env, task_desc, max_steps=300,
                     save_video=False, perturbation_fn=None, **kwargs):
-        from lerobot.envs.utils import preprocess_observation, add_envs_task
         seed = kwargs.get("seed", 42)
 
         self.policy.reset()
@@ -615,13 +629,7 @@ class Pi05Adapter(ModelAdapter):
                     frame = (frame * 255).clip(0, 255).astype(np.uint8)
                 frames.append(frame[::-1, ::-1].copy())
 
-            obs_proc = preprocess_observation(obs)
-            obs_proc = add_envs_task(env, obs_proc)
-            # add_envs_task sets obs["task"] from the env
-            if isinstance(task_desc, str):
-                obs_proc["task"] = [task_desc]
-            obs_proc = self.env_preprocessor(obs_proc)
-            obs_proc = self.preprocessor(obs_proc)
+            obs_proc = self.prepare_batch(obs, task_desc, env)
 
             with torch.inference_mode():
                 action = self.policy.select_action(obs_proc)
@@ -870,7 +878,3 @@ def get_adapter(model_name: str) -> ModelAdapter:
     if model_name not in ADAPTERS:
         raise ValueError(f"Unknown model: {model_name}. Choose from: {list(ADAPTERS.keys())}")
     return ADAPTERS[model_name]()
-
-
-def list_models() -> List[str]:
-    return list(ADAPTERS.keys())

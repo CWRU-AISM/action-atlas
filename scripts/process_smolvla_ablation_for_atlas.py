@@ -14,8 +14,6 @@ Usage:
 
 import argparse
 import json
-import os
-import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -24,7 +22,6 @@ import numpy as np
 RESULTS_DIR = Path("rollouts/smolvla/concept_ablation/results")
 TRAJ_DIR = Path("rollouts/smolvla/concept_ablation/trajectories")
 ATLAS_DATA = Path("action_atlas/data/experiment_results_smolvla.json")
-OUTPUT_DIR = Path("action_atlas/data")
 
 
 def load_all_results():

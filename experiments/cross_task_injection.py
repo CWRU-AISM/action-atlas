@@ -27,13 +27,11 @@ import os
 os.environ.setdefault("TORCH_COMPILE_DISABLE", "1")
 os.environ.setdefault("MUJOCO_GL", "egl")
 
-import json
 import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional, Tuple
 
-import numpy as np
 import torch
 import tyro
 
@@ -43,8 +41,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from experiments.hooks import ActivationCaptureHook, ActivationInjectionHook
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    force_free_memory, save_results, load_results, save_video,
-    get_scene_state, summarize_scene, SUITE_MAX_STEPS,
+    OUTPUTS_DIR, force_free_memory, save_results, save_video,
+    summarize_scene, SUITE_MAX_STEPS,
 )
 
 
@@ -61,16 +59,16 @@ class CrossTaskInjectionConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
     phase: str = "both"
-    # Phase to run: 'capture', 'inject', or 'both'
+    """Phase to run: 'capture', 'inject', or 'both'"""
 
     tasks: Optional[List[int]] = None
-    # Tasks to capture activations for (capture phase)
+    """Tasks to capture activations for (capture phase)"""
 
     pairs: Optional[List[str]] = None
     """
@@ -78,7 +76,7 @@ class CrossTaskInjectionConfig:
     Default: all unique pairs from captured tasks."""
 
     layers: Optional[List[str]] = None
-    # Layer labels to capture/inject. Default: all
+    """Layer labels to capture/inject. Default: all"""
 
 
 def parse_pairs(pairs_str: List[str]) -> List[Tuple[int, int]]:
@@ -226,7 +224,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/{cfg.model}_experiments/cross_task_{cfg.suite}")
+        output_dir = OUTPUTS_DIR / f"{cfg.model}_experiments/cross_task_{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     adapter = get_adapter(cfg.model)

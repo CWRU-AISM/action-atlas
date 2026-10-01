@@ -23,7 +23,7 @@ import torch
 import tyro
 
 from common import (
-    DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, DIFFICULTY_TO_TASKS,
+    PROJECT_ROOT, DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, DIFFICULTY_TO_TASKS,
     TASK_DESCRIPTIONS, MeanPoolCollector, PerTokenCollector,
     create_env, get_tasks_from_args, load_smolvla_policy, run_episode,
     save_video_frames,
@@ -36,19 +36,19 @@ class MetaWorldEvalConfig:
 
     checkpoint: str = DEFAULT_CHECKPOINT
     tasks: Optional[str] = None
-    # Comma-separated task names (e.g., reach-v3,push-v3)
+    """Comma-separated task names (e.g., reach-v3,push-v3)"""
 
     difficulty: Optional[str] = None
-    # Difficulty group(s): easy,medium,hard,very_hard
+    """Difficulty group(s): easy,medium,hard,very_hard"""
 
     n_episodes: int = 10
     resolution: int = DEFAULT_RESOLUTION
     save_activations: bool = False
     mean_pool: bool = False
-    # Mean-pool activations across tokens (much smaller files)
+    """Mean-pool activations across tokens (much smaller files)"""
 
     action_horizon: int = 10
-    # Reuse predicted actions for N steps (default 10, chunk_size=50)
+    """Reuse predicted actions for N steps (default 10, chunk_size=50)"""
 
     save_video: bool = True
     no_video: bool = False
@@ -66,7 +66,7 @@ def main(cfg):
         output_dir = Path(cfg.output_dir)
     else:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(f"rollouts/smolvla_metaworld_{timestamp}")
+        output_dir = PROJECT_ROOT / f"rollouts/smolvla_metaworld_{timestamp}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"MetaWorld eval: {len(tasks)} tasks | eps={cfg.n_episodes} | "

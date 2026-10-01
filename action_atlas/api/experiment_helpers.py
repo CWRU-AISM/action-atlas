@@ -1,10 +1,8 @@
 # Experiment data loading helpers
-import os
 from pathlib import Path
 from .helpers import *
 from .data_loaders import *
 
-DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
 
 def _count_files(directory: Path, pattern: str) -> int:
     # Count files matching a glob pattern, returning 0 if directory is missing

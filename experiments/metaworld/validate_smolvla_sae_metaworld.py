@@ -12,18 +12,16 @@ Usage:
 """
 
 import json
-import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional
 
-import numpy as np
 import torch
 import tyro
 
 from common import (
-    DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, MAX_STEPS, TASK_DESCRIPTIONS,
-    SparseAutoencoder, create_env, get_layer_modules, load_smolvla_policy,
+    PROJECT_ROOT, DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION,
+    create_env, load_sae, get_layer_modules, load_smolvla_policy,
     run_episode,
 )
 
@@ -33,14 +31,6 @@ VALIDATION_TASKS = [
     'button-press-v3', 'window-open-v3', 'window-close-v3',
     'door-open-v3', 'faucet-open-v3', 'faucet-close-v3',
 ]
-
-
-def load_sae(path, device):
-    ckpt = torch.load(str(path), map_location=device, weights_only=True)
-    cfg = ckpt['config']
-    sae = SparseAutoencoder(cfg['input_dim'], cfg['hidden_dim'], cfg['k'])
-    sae.load_state_dict(ckpt['state_dict'])
-    return sae.to(device).eval()
 
 
 def make_sae_hook(sae):
@@ -70,19 +60,19 @@ class ValidateSAEConfig:
     # Validate SAE reconstruction on MetaWorld rollouts
 
     component: str
-    # Component type: expert, vlm
+    """Component type: expert, vlm"""
 
     layer: int = -1
     layers: Optional[List[int]] = None
     all_layers: bool = False
-    sae_dir: str = "rollouts/smolvla/sae_models/metaworld"
+    sae_dir: str = str(PROJECT_ROOT / "rollouts/smolvla/sae_models/metaworld")
     tasks: Optional[str] = None
-    # Comma-separated task names (default: VALIDATION_TASKS)
+    """Comma-separated task names (default: VALIDATION_TASKS)"""
 
     n_episodes: int = 3
     checkpoint: str = DEFAULT_CHECKPOINT
     resolution: int = DEFAULT_RESOLUTION
-    output_dir: str = "rollouts/smolvla/sae_validation/metaworld"
+    output_dir: str = str(PROJECT_ROOT / "rollouts/smolvla/sae_validation/metaworld")
     action_horizon: int = 10
     skip_baseline: bool = False
 

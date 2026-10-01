@@ -3,11 +3,16 @@
 import ctypes
 import gc
 import json
+import math
 from pathlib import Path
-from typing import List, Optional
+from typing import Optional, Tuple
 
 import numpy as np
 import torch
+
+# Repo-level paths, independent of the working directory
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+OUTPUTS_DIR = PROJECT_ROOT / "outputs"
 
 
 def force_free_memory():
@@ -85,26 +90,6 @@ def summarize_scene(scene_states: list) -> dict:
     return summary
 
 
-def compare_trajectories(a: np.ndarray, b: np.ndarray) -> dict:
-    # Compare two action trajectories (cosine similarity + xyz L2)
-    n = min(len(a), len(b))
-    if n == 0:
-        return {"cos": 0.0, "xyz": 0.0}
-    a, b = a[:n], b[:n]
-    ma, mb = a.mean(0), b.mean(0)
-    cos = float(np.dot(ma, mb) / (np.linalg.norm(ma) * np.linalg.norm(mb) + 1e-10))
-    xyz = float(np.mean(np.linalg.norm(a[:, :3] - b[:, :3], axis=1)))
-    return {"cos": cos, "xyz": xyz}
-
-
-def top_moved_objects(displacements: dict, n: int = 3, threshold: float = 0.01):
-    # Return top N most-displaced objects above threshold
-    moved = {k: v for k, v in displacements.items() if v["distance"] > threshold}
-    ranked = sorted(moved.items(), key=lambda x: -x[1]["distance"])
-    return [(k, v["distance"]) for k, v in ranked[:n]]
-
-
-
 def save_video(frames: list, path, fps: int = 10):
     if not frames:
         return
@@ -135,6 +120,17 @@ def save_results(data: dict, path: Path):
     with open(tmp, "w") as f:
         json.dump(data, f, indent=2, default=str)
     tmp.rename(path)
+
+
+def wilson(successes: int, n: int, z: float = 1.96) -> Tuple[float, float]:
+    # Wilson score interval for a success rate
+    if n == 0:
+        return 0.0, 0.0
+    p = successes / n
+    denom = 1 + z * z / n
+    center = (p + z * z / (2 * n)) / denom
+    half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
+    return max(0.0, center - half), min(1.0, center + half)
 
 
 

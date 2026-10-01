@@ -11,45 +11,29 @@ Uses the actionatlas/vla_interp conda environment (Python 3.12).
 import os
 os.environ.setdefault("MUJOCO_GL", "egl")
 
-import gc
-import json
-import sys
 from pathlib import Path
 
 import numpy as np
 import torch
 import torch.nn as nn
 
-from lerobot.envs.metaworld import MetaworldEnv, TASK_DESCRIPTIONS, DIFFICULTY_TO_TASKS
+from lerobot.envs.metaworld import MetaworldEnv, TASK_DESCRIPTIONS, DIFFICULTY_TO_TASKS  # noqa: F401
 from lerobot.envs.utils import preprocess_observation
 from lerobot.policies.factory import make_pre_post_processors
 from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
 
+from experiments.hooks import (  # noqa: F401  re-exported for scripts
+    ZeroAblationHook as MLPZeroHook,
+    ActivationCaptureHook as MLPCaptureHook,
+    ActivationInjectionHook as MLPInjectionHook,
+)
+from experiments.utils import force_free_memory  # noqa: F401
 
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CHECKPOINT = "jadechoghari/smolvla_metaworld"
 DEFAULT_RESOLUTION = 480
 MAX_STEPS = 400
-
-
-def force_free_memory():
-    gc.collect()
-    torch.cuda.empty_cache()
-    try:
-        import ctypes
-        ctypes.CDLL("libc.so.6").malloc_trim(0)
-    except Exception:
-        pass
-
-
-def log_ram(label=""):
-    import psutil
-    proc = psutil.Process()
-    rss_gb = proc.memory_info().rss / (1024**3)
-    vm = psutil.virtual_memory()
-    print(f"[RAM] {label}: process={rss_gb:.1f}GB, "
-          f"system={vm.used/(1024**3):.1f}/{vm.total/(1024**3):.1f}GB ({vm.percent}%)")
-    if vm.percent > 75:
-        force_free_memory()
 
 
 def get_tasks_from_args(args):
@@ -243,68 +227,6 @@ class MeanPoolCollector:
         self.handles = []
 
 
-class MLPZeroHook:
-
-    def __init__(self):
-        self.enabled = True
-        self.call_count = 0
-
-    def __call__(self, module, input, output):
-        if not self.enabled:
-            return output
-        self.call_count += 1
-        if isinstance(output, tuple):
-            return (torch.zeros_like(output[0]),) + output[1:]
-        return torch.zeros_like(output)
-
-
-class MLPCaptureHook:
-
-    def __init__(self):
-        self.activations = []
-        self.enabled = True
-
-    def __call__(self, module, input, output):
-        if not self.enabled:
-            return output
-        h = output[0] if isinstance(output, tuple) else output
-        self.activations.append(h.detach().clone().cpu())
-        return output
-
-    def reset(self):
-        self.activations = []
-
-
-class MLPInjectionHook:
-
-    def __init__(self, stored_activations, device="cuda"):
-        self.stored = stored_activations
-        self.device = device
-        self.step = 0
-        self.enabled = True
-        self.injection_count = 0
-        self.shape_mismatches = 0
-
-    def __call__(self, module, input, output):
-        if not self.enabled or self.step >= len(self.stored):
-            return output
-        actual = output[0] if isinstance(output, tuple) else output
-        injected = self.stored[self.step].to(device=self.device, dtype=actual.dtype)
-        self.step += 1
-        if injected.shape != actual.shape:
-            self.shape_mismatches += 1
-            return output
-        self.injection_count += 1
-        if isinstance(output, tuple):
-            return (injected,) + output[1:]
-        return injected
-
-    def reset(self):
-        self.step = 0
-        self.injection_count = 0
-        self.shape_mismatches = 0
-
-
 class SparseAutoencoder(nn.Module):
 
     def __init__(self, input_dim, hidden_dim, k=64):
@@ -329,34 +251,12 @@ class SparseAutoencoder(nn.Module):
         return self.decoder(z) + self.mean
 
 
-def load_smolvla_sae(sae_dir, component, layer_idx, device="cpu"):
-    """
-    Load a trained SAE checkpoint.
-
-    Returns (sae, config_dict) or None if file not found.
-    """
-    path = Path(sae_dir) / component / f"layer_{layer_idx:02d}" / "sae_best.pt"
-    if not path.exists():
-        return None
-
-    ckpt = torch.load(path, map_location="cpu", weights_only=False)
-    config = ckpt.get("config", {})
-
-    sd = ckpt.get("sae_state_dict", ckpt.get("model_state_dict", ckpt))
-    input_dim = sd["encoder.weight"].shape[1]
-    hidden_dim = sd["encoder.weight"].shape[0]
-    k = config.get("k", 64)
-
-    sae = SparseAutoencoder(input_dim=input_dim, hidden_dim=hidden_dim, k=k)
-    sae.load_state_dict(sd, strict=False)
-
-    if "act_mean" in ckpt:
-        sae.mean.data = ckpt["act_mean"]
-    elif "mean" in ckpt:
-        sae.mean.data = ckpt["mean"]
-
-    sae = sae.to(device).eval()
-    return sae, config
+def load_sae(path, device="cpu"):
+    ckpt = torch.load(str(path), map_location=device, weights_only=True)
+    cfg = ckpt['config']
+    sae = SparseAutoencoder(cfg['input_dim'], cfg['hidden_dim'], cfg['k'])
+    sae.load_state_dict(ckpt['state_dict'])
+    return sae.to(device).eval()
 
 
 def run_episode(policy, env, preprocessor, postprocessor, device,
