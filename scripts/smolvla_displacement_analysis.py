@@ -33,36 +33,13 @@ Usage:
 """
 
 import json
-import math
 import argparse
 import numpy as np
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
-def wilson_ci(successes, total, z=1.96):
-    # Wilson score confidence interval for a proportion
-    if total == 0:
-        return 0.0, 0.0, 0.0
-    p_hat = successes / total
-    denom = 1 + z**2 / total
-    center = (p_hat + z**2 / (2 * total)) / denom
-    margin = z * ((p_hat * (1 - p_hat) / total + z**2 / (4 * total**2)) ** 0.5) / denom
-    return p_hat * 100, max(0, center - margin) * 100, min(1, center + margin) * 100
 
-
-def format_rate(successes, total):
-    # Format a rate with Wilson CI
-    rate, lo, hi = wilson_ci(successes, total)
-    return f"{rate:.1f}% ({successes}/{total}) [CI: {lo:.1f}-{hi:.1f}%]"
-
-
-def load_json(path):
-    # Load JSON, return None on failure
-    try:
-        with open(path) as f:
-            return json.load(f)
-    except Exception:
-        return None
+from displacement_common import format_rate, load_json, classify_behavior
 
 
 def cosine_similarity(a, b):
@@ -90,23 +67,6 @@ def trajectory_distance(traj_a, traj_b):
         return float('inf')
     a, b = a[:min_len, :3], b[:min_len, :3]  # use xyz only
     return float(np.mean(np.linalg.norm(a - b, axis=1)))
-
-
-def classify_behavior(cos_to_src, cos_to_dst, threshold=0.05):
-    """
-    Classify whether robot performed source task, destination task, or neither.
-
-    Returns: 'source', 'destination', or 'ambiguous'
-    """
-    if cos_to_src is None or cos_to_dst is None:
-        return 'ambiguous'
-    diff = cos_to_src - cos_to_dst
-    if diff > threshold:
-        return 'source'
-    elif diff < -threshold:
-        return 'destination'
-    else:
-        return 'ambiguous'
 
 
 def extract_tcp_trajectory(scene_states):

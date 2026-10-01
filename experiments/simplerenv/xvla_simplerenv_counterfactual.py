@@ -26,7 +26,7 @@ import tyro
 from common import (
     PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS, ActivationCollector,
     load_xvla_policy, run_episode, compare_trajectories,
-    force_free_memory, log_ram, get_base_env,
+    force_free_memory, get_base_env,
     simpler_env,
 )
 

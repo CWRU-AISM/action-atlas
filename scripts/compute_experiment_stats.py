@@ -14,7 +14,6 @@ Usage:
 
 import json
 import os
-import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -87,18 +86,6 @@ def count_files_in_subdirs(directory, extension, subdirs):
         if os.path.isdir(path):
             total += count_files(path, extension)
     return total
-
-
-def count_scene_json(directory):
-    # Count *_scene.json or scene.json files (GR00T episode proxy)
-    if not os.path.isdir(directory):
-        return 0
-    count = 0
-    for root, dirs, files in os.walk(directory):
-        for f in files:
-            if f == "scene.json" or f.endswith("_scene.json"):
-                count += 1
-    return count
 
 
 def parse_concept_ablation_json(filepath):

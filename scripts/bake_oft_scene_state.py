@@ -15,45 +15,7 @@ import argparse
 import json
 from pathlib import Path
 
-MAX_TRAJ_POINTS = 100
-
-
-def subsample(points, max_n=MAX_TRAJ_POINTS):
-    # Subsample a list of points to at most max_n points, preserving first and last
-    if not points or len(points) <= max_n:
-        return points
-    n = len(points)
-    indices = [round(i * (n - 1) / (max_n - 1)) for i in range(max_n)]
-    return [points[i] for i in indices]
-
-
-def extract_condition_data(cond_data):
-    # Extract trajectory data from a condition (baseline or injection)
-    scene = cond_data.get("scene")
-    if scene is None:
-        return None
-
-    result = {
-        "n_steps": scene.get("n_steps"),
-        "success": cond_data.get("success"),
-    }
-
-    robot_traj = scene.get("robot_eef_trajectory")
-    if robot_traj is not None:
-        result["robot_eef_trajectory"] = subsample(robot_traj)
-
-    obj_trajs = scene.get("object_trajectories")
-    if obj_trajs is not None:
-        result["object_trajectories"] = {
-            obj_name: subsample(obj_traj)
-            for obj_name, obj_traj in obj_trajs.items()
-        }
-
-    obj_disps = scene.get("object_displacements")
-    if obj_disps is not None:
-        result["object_displacements"] = obj_disps
-
-    return result
+from bake_scene_state import extract_condition_data
 
 
 def process_baseline_results(results, suite_name):

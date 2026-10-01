@@ -1,7 +1,7 @@
 # Reusable forward hooks for activation capture, ablation, and injection
 
 from collections import defaultdict
-from typing import List, Optional
+from typing import List
 
 import torch
 import torch.nn as nn
@@ -105,25 +105,6 @@ class ActivationInjectionHook:
         self.step = 0
         self.injection_count = 0
         self.shape_mismatches = 0
-
-
-class NullInjectionHook:
-
-    def __init__(self):
-        self.enabled = True
-        self.call_count = 0
-        self.original_norms: List[float] = []
-
-    def __call__(self, module, input, output):
-        if not self.enabled:
-            return output
-        self.call_count += 1
-        h = output[0] if isinstance(output, tuple) else output
-        if self.call_count <= 10:
-            self.original_norms.append(h.detach().norm().item())
-        if isinstance(output, tuple):
-            return (torch.zeros_like(output[0]),) + output[1:]
-        return torch.zeros_like(output)
 
 
 class ActivationCollector:

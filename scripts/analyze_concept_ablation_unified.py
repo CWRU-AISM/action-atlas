@@ -27,7 +27,6 @@ Wilson CI from analyze_rollouts.py for consistency.
 """
 
 import json
-import math
 import argparse
 import os
 import sys
@@ -93,15 +92,6 @@ DATA_SOURCES = {
 
 # Also check smolvla batch2 for SmolVLA data
 SMOLVLA_smolvla = DATA_ROOT / "smolvla_rollouts/concept_ablation/results"
-# Wilson CI (matches analyze_rollouts.py)
-def wilson_ci(successes, total, z=1.96):
-    if total == 0:
-        return 0.0, 0.0, 0.0
-    p_hat = successes / total
-    denom = 1 + z**2 / total
-    center = (p_hat + z**2 / (2 * total)) / denom
-    margin = z * math.sqrt(p_hat * (1 - p_hat) / total + z**2 / (4 * total**2)) / denom
-    return p_hat * 100, max(0, center - margin) * 100, min(1, center + margin) * 100
 # Schema Parsers: normalize to common format
 def parse_oft_schema(data):
     """

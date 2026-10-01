@@ -15,9 +15,6 @@ from app import create_app
 from app.config import HOST, PORT, DEBUG
 
 FRONTEND_DIR = Path(__file__).parent.parent / "frontend"
-PROJECT_ROOT = Path(__file__).parent.parent.parent
-ABLATION_VIDEOS_DIR = PROJECT_ROOT / "ablation_videos"
-OFT_ABLATION_VIDEOS_DIR = PROJECT_ROOT / "results" / "experiment_results" / "oft_concept_ablation" / "videos"
 ACT_ROLLOUT_DIR = DATA_ROOT / "aloha_rollouts/act_aloha_interp"
 
 if __name__ == "__main__":
@@ -26,14 +23,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     app = create_app()
-
-    @app.route("/ablation_videos/<path:filename>")
-    def serve_ablation_video(filename):
-        return send_from_directory(ABLATION_VIDEOS_DIR, filename)
-
-    @app.route("/oft_ablation_videos/<path:filename>")
-    def serve_oft_ablation_video_static(filename):
-        return send_from_directory(OFT_ABLATION_VIDEOS_DIR, filename)
 
     @app.route("/act_videos/<path:filename>")
     def serve_act_video(filename):
