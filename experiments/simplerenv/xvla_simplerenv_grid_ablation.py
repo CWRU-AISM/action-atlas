@@ -25,7 +25,7 @@ import torch
 import tyro
 
 from common import (
-    MODEL_CONFIGS, DEFAULT_MAX_STEPS, N_LAYERS,
+    PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS, N_LAYERS,
     ZeroAblationHook, MeanAblationHook,
     load_xvla_policy, patch_eval_noop, run_episode,
     force_free_memory, log_ram, get_base_env,
@@ -67,7 +67,8 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"rollouts/xvla_simplerenv_grid_ablation_{cfg.model}_{timestamp}")
+        output_dir = (PROJECT_ROOT / "rollouts"
+                      / f"xvla_simplerenv_grid_ablation_{cfg.model}_{timestamp}")
     output_dir.mkdir(parents=True, exist_ok=True)
 
     task_names = cfg.tasks if cfg.tasks else config["tasks"]

@@ -102,5 +102,7 @@ python setup/download_data.py --models pi05 --types saes --arms per_token,mean_p
 ```
 
 The backend and scripts resolve local data under a configurable root. Set `ACTION_ATLAS_DATA_ROOT`
-to point at wherever you placed the downloaded data; it defaults to `data` relative to the working
-directory. Nothing is read from an absolute machine path.
+to point at wherever you placed the downloaded data. The experiment scripts default it to `data/` in
+the repo and write their outputs under the repo's `outputs/`, `results/` and `rollouts/`, wherever
+they are launched from; the web backend defaults it to `data` relative to the working directory.
+Nothing is read from an absolute machine path.

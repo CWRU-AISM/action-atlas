@@ -47,7 +47,7 @@ import torch
 import tyro
 
 from common import (
-    MODEL_CONFIGS, DEFAULT_MAX_STEPS,
+    PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS,
     WIDOWX_GRIPPER_THRESHOLDS, DEFAULT_GRIPPER_THRESHOLD,
     load_xvla_policy, load_xvla_sae,
     create_simplerenv_batch, convert_xvla_action_widowx,
@@ -642,7 +642,7 @@ def main(cfg):
         output_dir = Path(cfg.output_dir)
     else:
         sae_dir_name = Path(cfg.sae_dir).name
-        output_dir = Path(f"results/xvla_reconstruction/{sae_dir_name}")
+        output_dir = PROJECT_ROOT / f"results/xvla_reconstruction/{sae_dir_name}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     tasks_override = [cfg.task] if cfg.task else None

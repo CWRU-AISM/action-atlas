@@ -377,7 +377,8 @@ def main():
     if args.output_dir:
         output_dir = Path(args.output_dir)
     else:
-        output_dir = Path(f"rollouts/xvla_vision_perturbation_{args.suite}_{timestamp}")
+        output_dir = (Path(__file__).resolve().parents[2] / "rollouts"
+                      / f"xvla_vision_perturbation_{args.suite}_{timestamp}")
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Resolve task list

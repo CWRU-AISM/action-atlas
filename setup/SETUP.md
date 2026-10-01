@@ -260,10 +260,9 @@ The model adapters in `experiments/model_adapters.py` and `experiments/groot_com
 hf download lerobot/pi05_libero_finetuned --local-dir checkpoints/pi05_libero_finetuned
 ```
 
-Unlike the other models, this pre-download is REQUIRED for Pi0.5: the adapter's
-default checkpoint is the local `checkpoints/pi05_libero_finetuned` directory
-(alternatively pass `--checkpoint lerobot/pi05_libero_finetuned` to load from
-the Hub directly).
+The pre-download is optional: the adapter uses `checkpoints/pi05_libero_finetuned`
+in the repo when it exists and otherwise loads `lerobot/pi05_libero_finetuned`
+from the Hub.
 
 ### X-VLA
 
@@ -329,7 +328,7 @@ hf download moojink/openvla-7b-oft-finetuned-libero-10      --local-dir data/che
 
 Each OFT checkpoint is ~16 GB (7B base + LoRA adapter + dataset statistics).
 Note the `data/` prefix: the OFT adapter resolves checkpoints under
-`ACTION_ATLAS_DATA_ROOT` (default `data/`), unlike the other models.
+`ACTION_ATLAS_DATA_ROOT` (default `data/` in the repo), unlike the other models.
 
 ## Running Experiments
 

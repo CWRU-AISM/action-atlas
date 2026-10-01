@@ -23,7 +23,7 @@ import torch
 import tyro
 
 from common import (
-    MODEL_CONFIGS, DEFAULT_MAX_STEPS,
+    PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS,
     load_xvla_policy, run_episode,
     simpler_env,
 )
@@ -65,7 +65,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/xvla_simplerenv/vision_{cfg.model}")
+        output_dir = PROJECT_ROOT / f"outputs/xvla_simplerenv/vision_{cfg.model}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     perturbations = get_standard_perturbations()

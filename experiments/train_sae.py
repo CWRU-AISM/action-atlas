@@ -48,7 +48,7 @@ class TrainSAEConfig:
     Expected structure: activations_dir/task{N}/ep{M}/layer_name.pt
     or activations_dir/layer_name.pt (pre-concatenated)."""
 
-    output_dir: str = "outputs/saes"
+    output_dir: str = str(Path(__file__).resolve().parents[1] / "outputs/saes")
     """Where to save trained SAE checkpoints"""
 
     layers: Optional[List[str]] = None

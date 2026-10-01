@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    force_free_memory, save_results, load_results, save_video,
+    OUTPUTS_DIR, force_free_memory, save_results, load_results, save_video,
     get_standard_perturbations, SUITE_MAX_STEPS,
 )
 
@@ -80,7 +80,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/{cfg.model}_experiments/vision_perturbation_{cfg.suite}")
+        output_dir = OUTPUTS_DIR / f"{cfg.model}_experiments/vision_perturbation_{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     adapter = get_adapter(cfg.model)

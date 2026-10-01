@@ -24,7 +24,7 @@ import torch
 import tyro
 
 from common import (
-    MODEL_CONFIGS, DEFAULT_MAX_STEPS, ActivationCollector,
+    PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS, ActivationCollector,
     load_xvla_policy, run_episode, compare_trajectories,
     force_free_memory, log_ram, get_base_env,
     simpler_env,
@@ -95,7 +95,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/xvla_simplerenv/counterfactual_{cfg.model}")
+        output_dir = PROJECT_ROOT / f"outputs/xvla_simplerenv/counterfactual_{cfg.model}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     save_activations = not cfg.no_activations
