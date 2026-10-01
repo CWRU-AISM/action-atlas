@@ -55,10 +55,10 @@ class CounterfactualConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
     conditions: Optional[List[str]] = None
     """
@@ -67,7 +67,7 @@ class CounterfactualConfig:
     """
 
     collect_activations: bool = False
-    # Capture activations under each condition
+    """Capture activations under each condition"""
 
     per_token: bool = True
 

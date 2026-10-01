@@ -46,10 +46,10 @@ class BaselineConfig:
     # Baseline rollout experiment
 
     model: str = "xvla"
-    # Model name: xvla, smolvla, groot, pi05
+    """Model name: xvla, smolvla, groot, pi05"""
 
     suite: str = "libero_object"
-    # Task suite
+    """Task suite"""
 
     checkpoint: Optional[str] = None
     n_episodes: int = 3
@@ -60,19 +60,19 @@ class BaselineConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
     collect_activations: bool = False
-    # Capture per-layer activations (for SAE training)
+    """Capture per-layer activations (for SAE training)"""
 
     per_token: bool = True
-    # Store per-token activations (vs mean-pooled)
+    """Store per-token activations (vs mean-pooled)"""
 
     subsample_every: int = 1
-    # Collect activations every Nth step (saves memory)
+    """Collect activations every Nth step (saves memory)"""
 
 
 def main(cfg):

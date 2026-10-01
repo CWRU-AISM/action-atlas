@@ -35,7 +35,7 @@ class VisionPerturbationConfig:
     # X-VLA SimplerEnv vision perturbation robustness test
 
     model: str
-    # Model name: widowx, google-robot
+    """Model name: widowx, google-robot"""
 
     task: Optional[str] = None
     all_tasks: bool = False

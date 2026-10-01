@@ -168,12 +168,12 @@ class CrossTaskInjectionConfig:
     difficulty: Optional[str] = None
     pairs: Optional[List[str]] = None
     per_layer: bool = False
-    # Add per-layer injection groups (64 extra conditions per pair)
+    """Add per-layer injection groups (64 extra conditions per pair)"""
 
     resolution: int = DEFAULT_RESOLUTION
     save_video: bool = False
     save_trajectory: bool = False
-    # Save actions, agent_pos, scene_states per episode
+    """Save actions, agent_pos, scene_states per episode"""
 
     resume: bool = False
     output_dir: Optional[str] = None

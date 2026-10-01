@@ -63,7 +63,7 @@ class CounterfactualConfig:
     # X-VLA SimplerEnv counterfactual prompting
 
     model: str
-    # Model name: widowx, google-robot
+    """Model name: widowx, google-robot"""
 
     task: Optional[str] = None
     all_tasks: bool = False

@@ -61,16 +61,16 @@ class CrossTaskInjectionConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
     phase: str = "both"
-    # Phase to run: 'capture', 'inject', or 'both'
+    """Phase to run: 'capture', 'inject', or 'both'"""
 
     tasks: Optional[List[int]] = None
-    # Tasks to capture activations for (capture phase)
+    """Tasks to capture activations for (capture phase)"""
 
     pairs: Optional[List[str]] = None
     """
@@ -78,7 +78,7 @@ class CrossTaskInjectionConfig:
     Default: all unique pairs from captured tasks."""
 
     layers: Optional[List[str]] = None
-    # Layer labels to capture/inject. Default: all
+    """Layer labels to capture/inject. Default: all"""
 
 
 def parse_pairs(pairs_str: List[str]) -> List[Tuple[int, int]]:
