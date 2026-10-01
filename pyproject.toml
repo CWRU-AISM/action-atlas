@@ -17,6 +17,8 @@ dependencies = [
     "scikit-learn",
     "matplotlib",
     "seaborn",
+    "huggingface_hub",
+    "safetensors",
 ]
 
 [project.optional-dependencies]

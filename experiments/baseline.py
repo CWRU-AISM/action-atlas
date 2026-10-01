@@ -36,7 +36,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from experiments.hooks import ActivationCollector
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    force_free_memory, save_results, load_results, save_video,
+    OUTPUTS_DIR, force_free_memory, save_results, load_results, save_video,
     SUITE_MAX_STEPS,
 )
 
@@ -46,10 +46,10 @@ class BaselineConfig:
     # Baseline rollout experiment
 
     model: str = "xvla"
-    # Model name: xvla, smolvla, groot, pi05
+    """Model name: xvla, smolvla, groot, pi05"""
 
     suite: str = "libero_object"
-    # Task suite
+    """Task suite"""
 
     checkpoint: Optional[str] = None
     n_episodes: int = 3
@@ -60,19 +60,19 @@ class BaselineConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
     collect_activations: bool = False
-    # Capture per-layer activations (for SAE training)
+    """Capture per-layer activations (for SAE training)"""
 
     per_token: bool = True
-    # Store per-token activations (vs mean-pooled)
+    """Store per-token activations (vs mean-pooled)"""
 
     subsample_every: int = 1
-    # Collect activations every Nth step (saves memory)
+    """Collect activations every Nth step (saves memory)"""
 
 
 def main(cfg):
@@ -83,7 +83,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/{cfg.model}_experiments/baseline_{cfg.suite}")
+        output_dir = OUTPUTS_DIR / f"{cfg.model}_experiments/baseline_{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     adapter = get_adapter(cfg.model)

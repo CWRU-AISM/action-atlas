@@ -6,9 +6,24 @@ Processes each token position through the SAE independently
 (no mean pooling across sequence dimension).
 """
 
+from pathlib import Path
+from typing import List, Optional
+
 import torch
 import torch.nn as nn
-from typing import List, Optional
+
+from experiments.utils import OUTPUTS_DIR
+
+# Same naming and local layout as BUNDLE_REPO in setup/download_data.py
+RELEASE_REPO = "bag100/action-atlas-{model}"
+RELEASE_DIR = OUTPUTS_DIR / "release"
+# Residual-stream SAE files inside each model's release bundle
+RELEASE_SAE_FILES = {
+    "pi05": "saes/{pooling}/paligemma/sae_layer{layer}.safetensors",
+    "xvla": "saes/{pooling}/libero/sae_layer{layer}.safetensors",
+    "groot": "saes/{pooling}/eagle/sae_layer{layer}.safetensors",
+    "oft": "saes/{pooling}/sae_layer{layer}.safetensors",
+}
 
 
 class TopKSAE(nn.Module):
@@ -274,4 +289,48 @@ def load_sae(layer_name: str, sae_dir: str, device: str = 'cuda') -> tuple:
     act_mean = data.get('activation_mean', torch.zeros(config['input_dim']))
     act_std = data.get('activation_std', torch.ones(config['input_dim']))
 
+    return sae, act_mean.to(device), act_std.to(device)
+
+
+def sae_encode(sae, x, act_mean, act_std):
+    # Standardize with the checkpoint's activation statistics, then encode
+    return sae.encode((x - act_mean) / (act_std + 1e-8))
+
+
+def sae_roundtrip(sae, x, act_mean, act_std):
+    # Standardize -> encode -> decode -> de-standardize. Returns (reconstruction, codes)
+    z = sae_encode(sae, x, act_mean, act_std)
+    return sae.decode(z) * (act_std + 1e-8) + act_mean, z
+
+
+def load_release_sae(model: str, pooling: str, layer: int, device: str = 'cuda',
+                     release_dir: Path = RELEASE_DIR) -> tuple:
+    """
+    Load a released residual-stream SAE and its activation statistics.
+
+    Reads the bundle setup/download_data.py places under outputs/release/<model>/
+    and falls back to the HuggingFace dataset. Returns (sae, act_mean, act_std)
+    like load_sae.
+    """
+    from safetensors import safe_open
+
+    if model not in RELEASE_SAE_FILES:
+        raise ValueError(f"No residual-stream SAE release for {model}")
+    name = RELEASE_SAE_FILES[model].format(pooling=pooling, layer=layer)
+    path = Path(release_dir) / model / name
+    if not path.exists():
+        from huggingface_hub import hf_hub_download
+        path = hf_hub_download(RELEASE_REPO.format(model=model), name, repo_type="dataset")
+
+    with safe_open(str(path), "pt") as f:
+        k = int((f.metadata() or {}).get("k", 64))
+        state = {key: f.get_tensor(key) for key in f.keys()}
+
+    hidden_dim, input_dim = state["encoder.weight"].shape
+    sae = TopKSAE(input_dim, hidden_dim, k=k)
+    sae.load_state_dict({key: state[key] for key in sae.state_dict()})
+    sae.eval().to(device)
+
+    act_mean = state.get("mean", torch.zeros(input_dim)).reshape(-1).float()
+    act_std = state.get("std", torch.ones(input_dim)).reshape(-1).float()
     return sae, act_mean.to(device), act_std.to(device)

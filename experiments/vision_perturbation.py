@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    force_free_memory, save_results, load_results, save_video,
+    OUTPUTS_DIR, force_free_memory, save_results, load_results, save_video,
     get_standard_perturbations, SUITE_MAX_STEPS,
 )
 
@@ -43,22 +43,22 @@ class VisionPerturbationConfig:
     # Visual robustness testing experiment
 
     model: str = "xvla"
-    # Model name: xvla, smolvla, groot, pi05
+    """Model name: xvla, smolvla, groot, pi05"""
 
     suite: str = "libero_object"
-    # Task suite
+    """Task suite"""
 
     checkpoint: Optional[str] = None
-    # Model checkpoint. Uses default if not set
+    """Model checkpoint. Uses default if not set"""
 
     n_episodes: int = 3
-    # Episodes per (perturbation, task) cell
+    """Episodes per (perturbation, task) cell"""
 
     tasks: Optional[List[int]] = None
-    # Task indices. Default: all
+    """Task indices. Default: all"""
 
     perturbations: Optional[List[str]] = None
-    # Perturbation names to test. Default: all 24 standard perturbations
+    """Perturbation names to test. Default: all 24 standard perturbations"""
 
     max_steps: Optional[int] = None
     seed: int = 42
@@ -66,10 +66,10 @@ class VisionPerturbationConfig:
     record_video: bool = True
 
     gpu: int = 0
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
-    # Override action chunk size for faster inference
-    # GPU device index
+    """Override action chunk size for faster inference"""
 
 
 def main(cfg):
@@ -80,7 +80,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/{cfg.model}_experiments/vision_perturbation_{cfg.suite}")
+        output_dir = OUTPUTS_DIR / f"{cfg.model}_experiments/vision_perturbation_{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     adapter = get_adapter(cfg.model)

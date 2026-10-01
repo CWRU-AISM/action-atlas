@@ -256,14 +256,7 @@ The model adapters in `experiments/model_adapters.py` and `experiments/groot_com
 |-------|---------|
 | All 4 LIBERO suites | `lerobot/pi05_libero_finetuned` |
 
-```bash
-hf download lerobot/pi05_libero_finetuned --local-dir checkpoints/pi05_libero_finetuned
-```
-
-Unlike the other models, this pre-download is REQUIRED for Pi0.5: the adapter's
-default checkpoint is the local `checkpoints/pi05_libero_finetuned` directory
-(alternatively pass `--checkpoint lerobot/pi05_libero_finetuned` to load from
-the Hub directly).
+The adapter loads it from the Hub on first use; no manual download needed.
 
 ### X-VLA
 
@@ -329,7 +322,7 @@ hf download moojink/openvla-7b-oft-finetuned-libero-10      --local-dir data/che
 
 Each OFT checkpoint is ~16 GB (7B base + LoRA adapter + dataset statistics).
 Note the `data/` prefix: the OFT adapter resolves checkpoints under
-`ACTION_ATLAS_DATA_ROOT` (default `data/`), unlike the other models.
+`ACTION_ATLAS_DATA_ROOT` (default `data/` in the repo), unlike the other models.
 
 ## Running Experiments
 
@@ -374,3 +367,9 @@ env:** The lerobot `[libero]` extra is missing; run `cd lerobot && pip install
 Xet transfer backend can stall. Set `export HF_HUB_DISABLE_XET=1` and retry.
 
 **MuJoCo rendering:** `export MUJOCO_GL=egl`
+
+**`GR00T vision projector is zero after loading`:** transformers>=5 re-initializes
+`backbone.eagle_model.mlp1` after loading a GR00T-native checkpoint, which leaves the policy
+vision-blind with no error. `GR00TAdapter` re-applies the checkpoint tensors after loading and
+raises this error only if the checkpoint itself has no projector weights; check that the
+checkpoint's `model*.safetensors` shards are complete.

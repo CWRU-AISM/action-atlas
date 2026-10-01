@@ -22,7 +22,7 @@ import torch
 import tyro
 
 from common import (
-    DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, MAX_STEPS, TASK_DESCRIPTIONS,
+    PROJECT_ROOT, DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, MAX_STEPS, TASK_DESCRIPTIONS,
     SparseAutoencoder, create_env, get_layer_modules, load_smolvla_policy,
     run_episode,
 )
@@ -70,19 +70,19 @@ class ValidateSAEConfig:
     # Validate SAE reconstruction on MetaWorld rollouts
 
     component: str
-    # Component type: expert, vlm
+    """Component type: expert, vlm"""
 
     layer: int = -1
     layers: Optional[List[int]] = None
     all_layers: bool = False
-    sae_dir: str = "rollouts/smolvla/sae_models/metaworld"
+    sae_dir: str = str(PROJECT_ROOT / "rollouts/smolvla/sae_models/metaworld")
     tasks: Optional[str] = None
-    # Comma-separated task names (default: VALIDATION_TASKS)
+    """Comma-separated task names (default: VALIDATION_TASKS)"""
 
     n_episodes: int = 3
     checkpoint: str = DEFAULT_CHECKPOINT
     resolution: int = DEFAULT_RESOLUTION
-    output_dir: str = "rollouts/smolvla/sae_validation/metaworld"
+    output_dir: str = str(PROJECT_ROOT / "rollouts/smolvla/sae_validation/metaworld")
     action_horizon: int = 10
     skip_baseline: bool = False
 

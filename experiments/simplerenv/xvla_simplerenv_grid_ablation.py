@@ -25,7 +25,7 @@ import torch
 import tyro
 
 from common import (
-    MODEL_CONFIGS, DEFAULT_MAX_STEPS, N_LAYERS,
+    PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS, N_LAYERS,
     ZeroAblationHook, MeanAblationHook,
     load_xvla_policy, patch_eval_noop, run_episode,
     force_free_memory, log_ram, get_base_env,
@@ -38,15 +38,15 @@ class GridAblationConfig:
     # X-VLA SimplerEnv grid ablation: layer-by-layer zeroing across all tasks
 
     model: str
-    # Model name: widowx, google-robot
+    """Model name: widowx, google-robot"""
 
     layers: Optional[List[int]] = None
-    # Specific layers to ablate (default: all 24)
+    """Specific layers to ablate (default: all 24)"""
 
     tasks: Optional[List[str]] = None
     n_episodes: int = 3
     ablation_mode: str = "zero"
-    # Ablation mode: zero, mean
+    """Ablation mode: zero, mean"""
 
     max_steps: int = DEFAULT_MAX_STEPS
     seed: int = 42
@@ -67,7 +67,8 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"rollouts/xvla_simplerenv_grid_ablation_{cfg.model}_{timestamp}")
+        output_dir = (PROJECT_ROOT / "rollouts"
+                      / f"xvla_simplerenv_grid_ablation_{cfg.model}_{timestamp}")
     output_dir.mkdir(parents=True, exist_ok=True)
 
     task_names = cfg.tasks if cfg.tasks else config["tasks"]

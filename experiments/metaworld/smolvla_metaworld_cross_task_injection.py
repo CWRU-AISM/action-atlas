@@ -31,7 +31,7 @@ import torch
 import tyro
 
 from common import (
-    DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, MAX_STEPS, TASK_DESCRIPTIONS,
+    PROJECT_ROOT, DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, MAX_STEPS, TASK_DESCRIPTIONS,
     MLPCaptureHook, MLPInjectionHook, cosine_similarity, create_env,
     force_free_memory, get_layer_modules, get_scene_state,
     get_tasks_from_args, load_smolvla_policy, save_video_frames,
@@ -168,12 +168,12 @@ class CrossTaskInjectionConfig:
     difficulty: Optional[str] = None
     pairs: Optional[List[str]] = None
     per_layer: bool = False
-    # Add per-layer injection groups (64 extra conditions per pair)
+    """Add per-layer injection groups (64 extra conditions per pair)"""
 
     resolution: int = DEFAULT_RESOLUTION
     save_video: bool = False
     save_trajectory: bool = False
-    # Save actions, agent_pos, scene_states per episode
+    """Save actions, agent_pos, scene_states per episode"""
 
     resume: bool = False
     output_dir: Optional[str] = None
@@ -188,7 +188,7 @@ def main(cfg):
         output_dir = Path(cfg.output_dir)
     else:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(f"rollouts/smolvla/metaworld_cross_task_{timestamp}")
+        output_dir = PROJECT_ROOT / f"rollouts/smolvla/metaworld_cross_task_{timestamp}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"Tasks: {len(tasks)}, Device: {device}")

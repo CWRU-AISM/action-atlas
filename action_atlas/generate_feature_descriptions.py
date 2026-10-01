@@ -104,36 +104,36 @@ class DescriptionConfig:
     # Generate SAE feature descriptions using LLM or rules
 
     model: str = "xvla"
-    # Model name: pi05, xvla, oft, smolvla, groot
+    """Model name: pi05, xvla, oft, smolvla, groot"""
 
     pathway: str = "expert"
-    # Model pathway: expert, vlm, paligemma, transformer, eagle, dit, vlsa, single
+    """Model pathway: expert, vlm, paligemma, transformer, eagle, dit, vlsa, single"""
 
     concept_id_dir: str = ""
-    # Directory containing concept ID JSON files
+    """Directory containing concept ID JSON files"""
 
     output_dir: str = ""
-    # Output directory for descriptions. Default: action_atlas/data/descriptions/{model}/
+    """Output directory for descriptions. Default: action_atlas/data/descriptions/{model}/"""
 
     suites: Tuple[str, ...] = ("libero_goal",)
-    # Task suites to process
+    """Task suites to process"""
 
     layers: Optional[List[int]] = None
-    # Specific layers. Default: all layers for the pathway
+    """Specific layers. Default: all layers for the pathway"""
 
     llm: str = "auto"
-    # LLM backend: auto (try claude then gemini), claude, gemini, rules
+    """LLM backend: auto (try claude then gemini), claude, gemini, rules"""
 
     max_features_per_concept: int = 10
-    # Max features to describe per concept
+    """Max features to describe per concept"""
 
     batch_size: int = 20
-    # Features per API call
+    """Features per API call"""
 
     max_retries: int = 3
 
     pooling: str = "mean"
-    # Pooling mode for SmolVLA concept ID files: mean or pertoken
+    """Pooling mode for SmolVLA concept ID files: mean or pertoken"""
 
 
 def init_llm_client(llm_choice: str):

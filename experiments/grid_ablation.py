@@ -45,7 +45,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from experiments.hooks import ZeroAblationHook, MeanAblationHook
 from experiments.model_adapters import get_adapter, list_models
 from experiments.utils import (
-    force_free_memory, save_results, load_results, save_video,
+    OUTPUTS_DIR, force_free_memory, save_results, load_results, save_video,
     get_scene_state, summarize_scene, SUITE_MAX_STEPS,
 )
 
@@ -55,19 +55,19 @@ class GridAblationConfig:
     # Layer-by-layer ablation experiment
 
     model: str = "xvla"
-    # Model name: xvla, smolvla, groot, pi05
+    """Model name: xvla, smolvla, groot, pi05"""
 
     suite: str = "libero_object"
-    # Task suite: libero_spatial, libero_object, libero_goal, libero_10
+    """Task suite: libero_spatial, libero_object, libero_goal, libero_10"""
 
     checkpoint: Optional[str] = None
-    # Model checkpoint path. Uses model default if not set
+    """Model checkpoint path. Uses model default if not set"""
 
     n_episodes: int = 3
-    # Episodes per (layer, task) cell
+    """Episodes per (layer, task) cell"""
 
     tasks: Optional[List[int]] = None
-    # Task indices to evaluate. Default: all tasks in suite
+    """Task indices to evaluate. Default: all tasks in suite"""
 
     layers: Optional[List[str]] = None
     """
@@ -80,22 +80,22 @@ class GridAblationConfig:
     Overridden by --layers if both are set."""
 
     ablation_mode: str = "zero"
-    # Ablation method: 'zero' (replace with zeros) or 'mean' (running mean)
+    """Ablation method: 'zero' (replace with zeros) or 'mean' (running mean)"""
 
     max_steps: Optional[int] = None
-    # Max episode steps. Default: suite-specific value
+    """Max episode steps. Default: suite-specific value"""
 
     seed: int = 42
-    # Random seed for episode resets
+    """Random seed for episode resets"""
 
     output_dir: Optional[str] = None
-    # Output directory. Auto-generated if not set
+    """Output directory. Auto-generated if not set"""
 
     record_video: bool = True
-    # Save video of first episode per condition
+    """Save video of first episode per condition"""
 
     gpu: int = 0
-    # GPU device index
+    """GPU device index"""
 
     n_action_steps: Optional[int] = None
     """
@@ -113,7 +113,7 @@ def main(cfg):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"outputs/{cfg.model}_experiments/grid_ablation_{cfg.suite}")
+        output_dir = OUTPUTS_DIR / f"{cfg.model}_experiments/grid_ablation_{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Load model

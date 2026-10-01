@@ -32,6 +32,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from experiments.sae_hooks import TopKSAE
+from experiments.utils import PROJECT_ROOT
 from experiments.concept_identification import get_concept_task_mapping
 
 
@@ -40,10 +41,10 @@ class ConceptIDConfig:
     # SAE-based concept identification
 
     sae_dir: str = ""
-    # Directory containing trained SAE checkpoints (layer_name/sae_best.pt)
+    """Directory containing trained SAE checkpoints (layer_name/sae_best.pt)"""
 
     activations_dir: str = ""
-    # Directory containing activation .pt files
+    """Directory containing activation .pt files"""
 
     suite: str = "libero_object"
     """
@@ -52,11 +53,11 @@ class ConceptIDConfig:
     widowx, google_robot"""
 
     layers: Optional[List[str]] = None
-    # Layer names to process. Default: all found in sae_dir
+    """Layer names to process. Default: all found in sae_dir"""
 
     output_dir: Optional[str] = None
     top_k_features: int = 20
-    # Number of top features to report per concept
+    """Number of top features to report per concept"""
 
     max_samples_per_task: int = 50000
 
@@ -196,7 +197,7 @@ def main(cfg: ConceptIDConfig):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"results/concept_id/{cfg.suite}")
+        output_dir = PROJECT_ROOT / f"results/concept_id/{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Get concept mappings
