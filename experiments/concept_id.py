@@ -32,6 +32,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from experiments.sae_hooks import TopKSAE
+from experiments.utils import PROJECT_ROOT
 from experiments.concept_identification import get_concept_task_mapping
 
 
@@ -196,7 +197,7 @@ def main(cfg: ConceptIDConfig):
     if cfg.output_dir:
         output_dir = Path(cfg.output_dir)
     else:
-        output_dir = Path(f"results/concept_id/{cfg.suite}")
+        output_dir = PROJECT_ROOT / f"results/concept_id/{cfg.suite}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Get concept mappings

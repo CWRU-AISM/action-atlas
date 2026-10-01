@@ -26,6 +26,7 @@ from lerobot.policies.factory import make_pre_post_processors
 from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CHECKPOINT = "jadechoghari/smolvla_metaworld"
 DEFAULT_RESOLUTION = 480
 MAX_STEPS = 400

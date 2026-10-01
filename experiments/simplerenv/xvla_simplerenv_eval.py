@@ -26,7 +26,7 @@ import torch
 import tyro
 
 from common import (
-    MODEL_CONFIGS, DEFAULT_MAX_STEPS, ActivationCollector,
+    PROJECT_ROOT, MODEL_CONFIGS, DEFAULT_MAX_STEPS, ActivationCollector,
     load_xvla_policy, run_episode,
     simpler_env,
 )
@@ -81,7 +81,7 @@ def main(cfg):
         output_dir = Path(cfg.output_dir)
     else:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(f"rollouts/xvla_simplerenv_{cfg.model}_baseline_{timestamp}")
+        output_dir = PROJECT_ROOT / f"rollouts/xvla_simplerenv_{cfg.model}_baseline_{timestamp}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     save_activations = not cfg.no_activations

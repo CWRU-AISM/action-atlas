@@ -24,7 +24,7 @@ import torch
 import tyro
 
 from common import (
-    DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, MAX_STEPS, TASK_DESCRIPTIONS,
+    PROJECT_ROOT, DEFAULT_CHECKPOINT, DEFAULT_RESOLUTION, MAX_STEPS, TASK_DESCRIPTIONS,
     MLPZeroHook, create_env, force_free_memory, get_layer_modules,
     get_tasks_from_args, load_smolvla_policy, run_episode, save_video_frames,
 )
@@ -58,7 +58,7 @@ def main(cfg):
         output_dir = Path(cfg.output_dir)
     else:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_dir = Path(f"rollouts/smolvla/metaworld_grid_ablation_{timestamp}")
+        output_dir = PROJECT_ROOT / f"rollouts/smolvla/metaworld_grid_ablation_{timestamp}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"Tasks: {len(tasks)}, Episodes: {cfg.n_episodes}")

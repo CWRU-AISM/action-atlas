@@ -65,7 +65,7 @@ if _LEROBOT_SRC and os.path.isdir(_LEROBOT_SRC):
 from experiments.hooks import ActivationCaptureHook, ActivationInjectionHook
 from experiments.model_adapters import get_adapter
 from experiments.utils import (
-    force_free_memory, save_results, save_video,
+    PROJECT_ROOT, force_free_memory, save_results, save_video,
     summarize_scene, SUITE_MAX_STEPS,
 )
 
@@ -228,9 +228,7 @@ def main(cfg: CrossTaskInjectionV2Config):
     else:
         ts = datetime.now().strftime("%Y%m%d_%H%M%S")
         gname = cfg.layer_group or "custom"
-        output_dir = Path(
-            f"rollouts/{cfg.model}/cross_task_v2/{cfg.suite}_{gname}_{ts}"
-        )
+        output_dir = PROJECT_ROOT / f"rollouts/{cfg.model}/cross_task_v2/{cfg.suite}_{gname}_{ts}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"[v2] {cfg.model} | suite={cfg.suite} | layer_group={cfg.layer_group} "

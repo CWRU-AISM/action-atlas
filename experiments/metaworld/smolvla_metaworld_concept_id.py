@@ -29,7 +29,7 @@ import torch
 import torch.nn as nn
 import tyro
 
-from common import SparseAutoencoder
+from common import PROJECT_ROOT, SparseAutoencoder
 
 
 METAWORLD_CONCEPTS = {
@@ -377,9 +377,10 @@ class ConceptIdConfig:
 
     layer: int = -1
     all_layers: bool = False
-    sae_dir: str = "rollouts/smolvla/sae_models/metaworld"
-    data_dir: str = "rollouts/smolvla/metaworld_activations_meanpool/activations"
-    output_dir: str = "rollouts/smolvla/metaworld_concept_id"
+    sae_dir: str = str(PROJECT_ROOT / "rollouts/smolvla/sae_models/metaworld")
+    data_dir: str = str(
+        PROJECT_ROOT / "rollouts/smolvla/metaworld_activations_meanpool/activations")
+    output_dir: str = str(PROJECT_ROOT / "rollouts/smolvla/metaworld_concept_id")
     device: str = "cpu"
     summary_only: bool = False
 

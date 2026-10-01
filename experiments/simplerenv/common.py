@@ -64,6 +64,8 @@ from sapien.core import Pose
 
 # Constants
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
 WIDOWX_TASKS = [
     "widowx_spoon_on_towel",
     "widowx_carrot_on_plate",

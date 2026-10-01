@@ -23,9 +23,9 @@ from typing import Any, Dict, List, Optional, Tuple
 import numpy as np
 import torch
 
-DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", "data"))
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_ROOT = Path(os.environ.get("ACTION_ATLAS_DATA_ROOT", PROJECT_ROOT / "data"))
 
-PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(PROJECT_ROOT / "lerobot" / "src"))
 
@@ -545,14 +545,13 @@ class Pi05Adapter(ModelAdapter):
 
     @property
     def default_checkpoints(self):
-        return {
-            "libero_spatial": "checkpoints/pi05_libero_finetuned",
-            "libero_object": "checkpoints/pi05_libero_finetuned",
-            "libero_goal": "checkpoints/pi05_libero_finetuned",
-            "libero_10": "checkpoints/pi05_libero_finetuned",
-        }
+        # One checkpoint for all suites; a local pre-download wins over the Hub
+        local = PROJECT_ROOT / "checkpoints" / "pi05_libero_finetuned"
+        checkpoint = str(local) if local.exists() else "lerobot/pi05_libero_finetuned"
+        return {suite: checkpoint
+                for suite in ("libero_spatial", "libero_object", "libero_goal", "libero_10")}
 
-    def load_model(self, checkpoint="checkpoints/pi05_libero_finetuned", device="cuda"):
+    def load_model(self, checkpoint="lerobot/pi05_libero_finetuned", device="cuda"):
         os.environ.setdefault("TORCH_COMPILE_DISABLE", "1")
         os.environ.setdefault("PYTORCH_COMPILE_DISABLE", "1")
         os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
